@@ -6,17 +6,17 @@ interface Props {
 const { currentPage = 'home' } = Astro.props;
 
 const navItems = [
-  { id: 'home', label: '🏠 ホーム', href: '/' },
-  { id: 'plugins', label: '📦 プラグイン', href: '/plugins' },
-  { id: 'guide', label: '📖 サーバー構築', href: '/guide' },
-  { id: 'wiki-help', label: '📝 Wiki編集ガイド', href: '/wiki-help' },
-  { id: 'discord', label: '💬 Discord', href: 'https://discord.gg/your-invite', external: true },
+  { id: 'home', label: '🏠 ホーム', href: '/mattari-plugins/' },
+  { id: 'plugins', label: '📦 プラグイン', href: '/mattari-plugins/plugins/' },
+  { id: 'guide', label: '📖 サーバー構築', href: '/mattari-plugins/guide/' },
+  { id: 'wiki-help', label: '📝 Wiki編集ガイド', href: '/mattari-plugins/wiki-help/' },
+  { id: 'discord', label: '💬 Discord', href: 'https://discord.gg/zYY55dzhjd', external: true },
 ];
 ---
 
 <header class="header">
   <div class="header-inner">
-    <a href="/" class="logo">
+    <a href="/mattari-plugins/" class="logo">
       <div class="logo-icon">⛏️</div>
       <span class="logo-text">MattariMC</span>
     </a>
