@@ -1,0 +1,86 @@
+---
+interface Props {
+  pluginCount?: number;
+  version?: string;
+}
+
+const { pluginCount = 30, version = '1.21.x' } = Astro.props;
+---
+
+<section class="hero">
+  <h1>🎮 MattariMinecraft プラグイン配布</h1>
+  <p>まったりマイクラサーバーで開発した高品質なプラグインを無料で配布中！</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-number">{pluginCount}+</div>
+      <div class="stat-label">配布プラグイン</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">{version}</div>
+      <div class="stat-label">対応バージョン</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">BE対応</div>
+      <div class="stat-label">Geyser/Floodgate</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .hero p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    background: rgba(255,255,255,0.2);
+    padding: 20px 35px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-number {
+    font-size: 36px;
+    font-weight: 900;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 28px;
+    }
+
+    .hero-stats {
+      gap: 20px;
+    }
+
+    .stat-item {
+      padding: 15px 25px;
+    }
+  }
+</style>

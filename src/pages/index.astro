@@ -1,0 +1,334 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import PluginCard from '../components/PluginCard.astro';
+import Footer from '../components/Footer.astro';
+
+// 人気記事データ
+const popularArticles = [
+  {
+    title: '【完全版】Minecraftサーバーの立て方ガイド',
+    slug: 'server-setup-guide',
+    emoji: '🖥️',
+    description: 'Java版・統合版対応！ローカル環境からレンタルサーバーまで、初心者でも分かるサーバー構築の完全マニュアル。',
+    tags: ['初心者向け'],
+    date: '2026/01/10 更新',
+    views: 12345,
+    featured: true,
+    hot: true,
+  },
+  {
+    title: 'サーバーへの入り方・接続方法まとめ',
+    slug: 'how-to-join',
+    emoji: '🚪',
+    description: 'Java版・BE版（スイッチ・スマホ）それぞれの接続方法を画像付きで解説。よくあるエラーの対処法も。',
+    tags: ['初心者向け'],
+    date: '2026/01/08 更新',
+    views: 9876,
+    featured: true,
+    hot: true,
+  },
+  {
+    title: 'BE版（スイッチ・スマホ）でJava版サーバーに入る方法',
+    slug: 'bedrock-crossplay',
+    emoji: '📱',
+    description: 'Geyser/Floodgateを使ったクロスプレイの設定方法を解説。',
+    tags: ['BE版'],
+    date: '2026/01/05',
+    views: 5432,
+  },
+  {
+    title: 'プラグインの入れ方・管理方法',
+    slug: 'plugin-installation',
+    emoji: '📦',
+    description: 'プラグインのダウンロードから導入、アップデートまでの流れを解説。',
+    tags: ['サーバー運営'],
+    date: '2026/01/03',
+    views: 4567,
+  },
+  {
+    title: 'LuckPermsで権限管理をマスターしよう',
+    slug: 'luckperms-guide',
+    emoji: '🔐',
+    description: '権限プラグインの定番LuckPermsの設定方法と使い方を詳しく解説。',
+    tags: ['サーバー運営'],
+    date: '2025/12/28',
+    views: 3890,
+  },
+  {
+    title: 'ポート開放のやり方と注意点',
+    slug: 'port-forwarding',
+    emoji: '🌐',
+    description: '自宅サーバー公開に必要なポート開放の手順と、セキュリティの注意点。',
+    tags: ['ネットワーク'],
+    date: '2025/12/20',
+    views: 6789,
+  },
+];
+
+// プラグインデータ
+const popularPlugins = [
+  {
+    name: 'EmeraldBank',
+    slug: 'emeraldbank',
+    version: '3.5.0',
+    icon: '💎',
+    description: 'エメラルドを通貨として使用できる経済プラグイン。銀行システム、送金、ショップ連携機能を搭載。',
+    category: 'economy' as const,
+    tags: ['経済'],
+    downloads: 1234,
+  },
+  {
+    name: 'BedrockReplacer',
+    slug: 'bedrockreplacer',
+    version: '2.0.0',
+    icon: '🪨',
+    description: '岩盤を別のブロックに置き換えるプラグイン。ワールド生成時に自動適用。CaveEraserも同梱。',
+    category: 'utility' as const,
+    tags: ['ワールド'],
+    downloads: 856,
+  },
+  {
+    name: 'WerewolfGame',
+    slug: 'werewolfgame',
+    version: '1.8.0',
+    icon: '🐺',
+    description: '人狼ゲームをMinecraft内で遊べるプラグイン。カスタム役職、投票システム、自動進行機能付き。',
+    category: 'minigame' as const,
+    tags: ['ミニゲーム'],
+    downloads: 2456,
+  },
+  {
+    name: 'Effectsaidan',
+    slug: 'effectsaidan',
+    version: '2.1.0',
+    icon: '✨',
+    description: '経済システムと連動したバフ効果購入プラグイン。移動速度、採掘速度などを一時的に強化。',
+    category: 'economy' as const,
+    tags: ['経済連携', 'バフ'],
+    downloads: 678,
+  },
+  {
+    name: 'EnchantPlus',
+    slug: 'enchantplus',
+    version: '1.5.0',
+    icon: '🔮',
+    description: 'カスタムエンチャントを追加するプラグイン。バニラにない独自エンチャントでゲーム体験を拡張。',
+    category: 'world' as const,
+    tags: ['エンチャント'],
+    downloads: 1890,
+  },
+  {
+    name: 'HorseRacing',
+    slug: 'horseracing',
+    version: '1.2.0',
+    icon: '🏇',
+    description: '競馬システムプラグイン。レース作成、賭けシステム、順位判定を完全自動化。経済連携対応。',
+    category: 'minigame' as const,
+    tags: ['ミニゲーム', '経済連携'],
+    downloads: 432,
+  },
+];
+
+// お知らせデータ
+const news = [
+  {
+    date: '2026/01/14',
+    title: '🎉 BedrockReplacer v2.0 をリリースしました！',
+    content: 'パフォーマンス改善と新機能を追加。Modrinthでも配布開始。',
+  },
+  {
+    date: '2026/01/10',
+    title: '📦 プラグイン配布サイトを公開しました',
+    content: '今後はこのサイトでプラグインの情報を一元管理します。',
+  },
+  {
+    date: '2026/01/05',
+    title: '🔧 EmeraldBank v3.5 アップデート',
+    content: '新しいAPI機能とバグ修正を含むアップデートをリリース。',
+  },
+];
+---
+
+<Layout title="プラグイン配布サイト">
+  <Header currentPage="home" />
+  <Hero />
+
+  <main class="main">
+    <!-- カテゴリナビ -->
+    <div class="category-nav">
+      <button class="category-btn active">📦 すべて <span class="count">30</span></button>
+      <button class="category-btn">💰 経済 <span class="count">5</span></button>
+      <button class="category-btn">🎮 ミニゲーム <span class="count">12</span></button>
+      <button class="category-btn">🔧 ユーティリティ <span class="count">8</span></button>
+      <button class="category-btn">🌍 ワールド <span class="count">5</span></button>
+    </div>
+
+    <!-- お知らせ -->
+    <div class="section-title">
+      <div class="section-icon section-icon-red">📢</div>
+      <h2>お知らせ</h2>
+    </div>
+    <div class="section-body">
+      <div class="news-list">
+        {news.map(item => (
+          <div class="news-item">
+            <span class="news-date">{item.date}</span>
+            <div class="news-content">
+              <h3>{item.title}</h3>
+              <p>{item.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- 人気記事 -->
+    <div class="section-title">
+      <div class="section-icon section-icon-primary">📖</div>
+      <h2>人気記事</h2>
+    </div>
+    <div class="section-body">
+      <div class="article-grid">
+        {popularArticles.map(article => (
+          <ArticleCard {...article} />
+        ))}
+      </div>
+    </div>
+
+    <!-- 人気プラグイン -->
+    <div class="section-title">
+      <div class="section-icon section-icon-green">⭐</div>
+      <h2>人気のプラグイン</h2>
+    </div>
+    <div class="section-body">
+      <div class="card-grid">
+        {popularPlugins.map(plugin => (
+          <PluginCard {...plugin} />
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* カテゴリナビ */
+  .category-nav {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 15px;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .category-btn {
+    padding: 12px 24px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    background: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .category-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+  }
+
+  .category-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+  }
+
+  .category-btn .count {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .category-btn.active .count {
+    background: rgba(255,255,255,0.3);
+  }
+
+  /* お知らせ */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .news-item:last-child {
+    border-bottom: none;
+  }
+
+  .news-date {
+    background: #667eea;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .news-content h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .news-content p {
+    font-size: 13px;
+    color: #666;
+  }
+
+  /* 記事グリッド */
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* カードグリッド */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .article-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

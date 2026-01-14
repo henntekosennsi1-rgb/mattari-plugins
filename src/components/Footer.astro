@@ -1,0 +1,54 @@
+---
+const links = [
+  { label: '🏠 ホーム', href: '/' },
+  { label: '📦 プラグイン一覧', href: '/plugins' },
+  { label: '📖 サーバー構築ガイド', href: '/guide' },
+  { label: '📝 Wiki', href: '/wiki' },
+  { label: '💬 Discord', href: 'https://discord.gg/your-invite' },
+  { label: '🐙 GitHub', href: 'https://github.com/your-username' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-links">
+    {links.map(link => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+  <p class="copyright">© {year} MattariMinecraft. All rights reserved.</p>
+</footer>
+
+<style>
+  .footer {
+    background: rgba(0,0,0,0.2);
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+  }
+
+  .copyright {
+    font-size: 13px;
+    opacity: 0.7;
+  }
+</style>
