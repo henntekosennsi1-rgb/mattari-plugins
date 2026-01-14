@@ -1,0 +1,190 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Minecraftサーバーの立て方ガイド">
+  <Header currentPage="guide" />
+
+  <main class="article-page">
+    <article class="article-container">
+      <header class="article-header">
+        <div class="article-tags">
+          <span class="tag tag-hot">🔥 人気</span>
+          <span class="tag">初心者向け</span>
+        </div>
+        <h1>🖥️ 【完全版】Minecraftサーバーの立て方ガイド</h1>
+        <div class="article-meta">
+          <span>📅 2026/01/10 更新</span>
+          <span>👁️ 12,345 views</span>
+        </div>
+      </header>
+
+      <nav class="toc">
+        <h2>📑 目次</h2>
+        <ol>
+          <li><a href="#intro">はじめに</a></li>
+          <li><a href="#requirements">必要なもの</a></li>
+          <li><a href="#download">サーバーのダウンロード</a></li>
+          <li><a href="#setup">初期設定</a></li>
+          <li><a href="#start">サーバーの起動</a></li>
+          <li><a href="#connect">接続テスト</a></li>
+          <li><a href="#next">次のステップ</a></li>
+        </ol>
+      </nav>
+
+      <section id="intro">
+        <h2>🎮 はじめに</h2>
+        <p>このガイドでは、Minecraftのマルチプレイサーバーを自分で立てる方法を解説します。友達と一緒に遊んだり、自分だけのワールドを作ったりできます。</p>
+        
+        <div class="notice notice-info">
+          <strong>💡 このガイドで作るサーバー</strong><br>
+          Paper（Spigotの高性能版）を使用します。プラグインが使えて、バニラより軽量です。
+        </div>
+      </section>
+
+      <section id="requirements">
+        <h2>📋 必要なもの</h2>
+        <ul class="check-list">
+          <li>✅ Java 21 以上（<a href="https://adoptium.net/" target="_blank">Adoptium</a>からダウンロード）</li>
+          <li>✅ Minecraft Java版のアカウント</li>
+          <li>✅ 4GB以上のメモリを搭載したPC</li>
+          <li>✅ 安定したインターネット回線</li>
+        </ul>
+      </section>
+
+      <section id="download">
+        <h2>📥 サーバーのダウンロード</h2>
+        
+        <h3>Step 1: Paperをダウンロード</h3>
+        <ol class="steps">
+          <li><a href="https://papermc.io/downloads" target="_blank">PaperMC公式サイト</a>にアクセス</li>
+          <li>最新バージョン（1.21.x）を選択</li>
+          <li>「Download」ボタンをクリック</li>
+        </ol>
+
+        <h3>Step 2: フォルダを準備</h3>
+        <ol class="steps">
+          <li>わかりやすい場所に新しいフォルダを作成<br>
+            <code>例: C:\MinecraftServer</code></li>
+          <li>ダウンロードした <code>paper-1.21.x-xxx.jar</code> をそのフォルダに移動</li>
+        </ol>
+      </section>
+
+      <section id="setup">
+        <h2>⚙️ 初期設定</h2>
+
+        <h3>Step 3: 起動スクリプトを作成</h3>
+        <p>サーバーフォルダ内に <code>start.bat</code>（Windows）または <code>start.sh</code>（Mac/Linux）を作成します。</p>
+        
+        <div class="code-block">
+          <div class="code-header">start.bat（Windows用）</div>
+          <pre><code>@echo off
+java -Xmx4G -Xms4G -jar paper-1.21.4-129.jar nogui
+pause</code></pre>
+        </div>
+
+        <div class="notice notice-warning">
+          <strong>⚠️ メモリ設定について</strong><br>
+          <code>-Xmx4G</code> の数字はサーバーに割り当てるメモリ量です。PCのメモリが8GB以下の場合は <code>-Xmx2G</code> に変更してください。
+        </div>
+
+        <h3>Step 4: 初回起動とEULA同意</h3>
+        <ol class="steps">
+          <li><code>start.bat</code> をダブルクリックして実行</li>
+          <li>エラーが出て終了します（これは正常です）</li>
+          <li>フォルダ内に <code>eula.txt</code> が生成されます</li>
+          <li><code>eula.txt</code> を開いて <code>eula=false</code> を <code>eula=true</code> に変更</li>
+          <li>保存して閉じる</li>
+        </ol>
+      </section>
+
+      <section id="start">
+        <h2>🚀 サーバーの起動</h2>
+        <ol class="steps">
+          <li>再度 <code>start.bat</code> を実行</li>
+          <li>ワールド生成が始まります（初回は数分かかります）</li>
+          <li><code>Done!</code> と表示されたら起動完了！</li>
+        </ol>
+
+        <div class="code-block">
+          <div class="code-header">起動成功時のログ例</div>
+          <pre><code>[Server thread/INFO]: Done (12.345s)! For help, type "help"</code></pre>
+        </div>
+      </section>
+
+      <section id="connect">
+        <h2>🔌 接続テスト</h2>
+        
+        <h3>ローカル接続（同じPC）</h3>
+        <ol class="steps">
+          <li>Minecraftを起動</li>
+          <li>「マルチプレイ」→「サーバーを追加」</li>
+          <li>サーバーアドレスに <code>localhost</code> と入力</li>
+          <li>「完了」→ サーバーを選択して「サーバーに接続」</li>
+        </ol>
+
+        <h3>LAN内接続（同じWiFi内の他のPC）</h3>
+        <ol class="steps">
+          <li>サーバーPCのローカルIPアドレスを確認<br>
+            <code>コマンドプロンプトで ipconfig を実行 → IPv4アドレス</code></li>
+          <li>他のPCから、そのIPアドレスで接続<br>
+            <code>例: 192.168.1.10</code></li>
+        </ol>
+
+        <div class="notice notice-success">
+          <strong>✅ 接続成功！</strong><br>
+          サーバーに入れたら基本設定は完了です！
+        </div>
+      </section>
+
+      <section id="next">
+        <h2>📚 次のステップ</h2>
+        <div class="next-articles">
+          <a href="/mattari-plugins/guide/plugin-install" class="next-article">
+            <span class="next-emoji">📦</span>
+            <div>
+              <strong>プラグインの入れ方</strong>
+              <p>サーバーに機能を追加しよう</p>
+            </div>
+          </a>
+          <a href="/mattari-plugins/guide/bedrock-crossplay" class="next-article">
+            <span class="next-emoji">📱</span>
+            <div>
+              <strong>BE版プレイヤーを受け入れる</strong>
+              <p>Geyser/Floodgateの導入方法</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .article-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .article-container {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+  }
+
+  .article-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #eee;
+  }
+
+  .article-tags {
+    display: flex;
+    justify-content: center;
+    gap
