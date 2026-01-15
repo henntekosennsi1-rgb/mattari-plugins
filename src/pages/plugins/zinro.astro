@@ -1,0 +1,358 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Zinro - Minecraft人狼プラグイン">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-page">
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="plugin-icon">🐺</div>
+          <div>
+            <h1>Zinro</h1>
+            <span class="version">v1.3.0</span>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="https://github.com/henntekosennsi1-rgb/Zinro" class="btn btn-github" target="_blank">GitHub</a>
+        </div>
+
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#overview">概要</a></li>
+            <li><a href="#roles">役職一覧</a></li>
+            <li><a href="#install">導入方法</a></li>
+            <li><a href="#commands">コマンド</a></li>
+            <li><a href="#shop">ショップアイテム</a></li>
+            <li><a href="#distribution">配役表</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section id="overview">
+          <h2>📖 概要</h2>
+          <p>ZinroはMinecraftで人狼ゲームをプレイできるプラグインです。4〜20人対応、6種類の役職、独自のショップシステムを搭載しています。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot/Paper 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 22</div>
+            <div class="info-item"><strong>プレイヤー:</strong> 4〜20人</div>
+            <div class="info-item"><strong>BE対応:</strong> ✅ Geyser/Floodgate対応</div>
+          </div>
+
+          <h3>🎮 ゲームの流れ</h3>
+          <ol class="steps">
+            <li><code>/zinro join</code> でロビーに参加（4〜20人）</li>
+            <li>管理者が <code>/zinro start</code> でゲーム開始</li>
+            <li>各プレイヤーに役職が割り当てられる</li>
+            <li>昼夜のサイクルが始まる</li>
+          </ol>
+
+          <div class="two-column">
+            <div class="time-box day">
+              <h4>☀️ 昼時間（60秒）</h4>
+              <ul>
+                <li>議論と投票</li>
+                <li>アイテム購入可能</li>
+                <li>PvP <strong>無効</strong></li>
+              </ul>
+            </div>
+            <div class="time-box night">
+              <h4>🌙 夜時間（60秒）</h4>
+              <ul>
+                <li>PvP <strong>有効</strong></li>
+                <li>特殊能力使用</li>
+                <li>スケルトン出現</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="roles">
+          <h2>🎭 役職一覧</h2>
+          
+          <h3>村人陣営</h3>
+          <div class="role-grid">
+            <div class="role-card villager">
+              <div class="role-header">👨‍🌾 村人</div>
+              <p>特殊能力なし。推理で人狼を見つけよう。</p>
+            </div>
+            <div class="role-card villager">
+              <div class="role-header">🐕 狼付き</div>
+              <p>占われると「人狼」判定。実際は村人陣営。</p>
+            </div>
+          </div>
+
+          <h3>人狼陣営</h3>
+          <div class="role-grid">
+            <div class="role-card werewolf">
+              <div class="role-header">🐺 人狼</div>
+              <p>夜に襲撃可能。専用武器「人狼の斧」購入可能。</p>
+            </div>
+            <div class="role-card werewolf">
+              <div class="role-header">🃏 狂人</div>
+              <p>人狼の勝利が目標。占いで「村人」判定。</p>
+            </div>
+          </div>
+
+          <h3>第三陣営</h3>
+          <div class="role-grid">
+            <div class="role-card third">
+              <div class="role-header">🧛 吸血鬼</div>
+              <p>夜間ダメージ無効。最後まで生き残れば勝利。十字架でのみ討伐可能。</p>
+            </div>
+            <div class="role-card third">
+              <div class="role-header">💘 キューピット</div>
+              <p>ゲーム開始時に2人を恋人にする。17人以上で登場。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="install">
+          <h2>📥 導入方法</h2>
+          <ol class="steps">
+            <li>GitHubからダウンロード</li>
+            <li><code>plugins</code> フォルダに配置</li>
+            <li>サーバーを起動</li>
+            <li><code>/zinro setspawn</code> でスケルトン出現位置を設定</li>
+            <li><code>/zinro setboard 1</code> 〜 <code>/zinro setboard 20</code> で占い看板を設置</li>
+            <li><code>/zinro save</code> で設定を保存</li>
+          </ol>
+        </section>
+
+        <section id="commands">
+          <h2>⌨️ コマンド</h2>
+          
+          <h3>プレイヤーコマンド</h3>
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/zinro join</code></td><td>ロビーに参加</td></tr>
+              <tr><td><code>/zinro leave</code></td><td>ロビーから離脱</td></tr>
+              <tr><td><code>/zinro shop</code></td><td>ショップを開く</td></tr>
+              <tr><td><code>/zinro vote &lt;player&gt;</code></td><td>昼時間に投票</td></tr>
+            </tbody>
+          </table>
+
+          <h3>管理者コマンド</h3>
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/zinro start</code></td><td>ゲーム開始</td></tr>
+              <tr><td><code>/zinro stop</code></td><td>ゲーム強制終了</td></tr>
+              <tr><td><code>/zinro setboard &lt;1-20&gt;</code></td><td>占い看板を設置</td></tr>
+              <tr><td><code>/zinro setspawn</code></td><td>スケルトン出現位置設定</td></tr>
+              <tr><td><code>/zinro save</code></td><td>設定を保存</td></tr>
+              <tr><td><code>/zinro reload</code></td><td>設定を再読み込み</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="shop">
+          <h2>🛒 ショップアイテム</h2>
+          
+          <h3>役職専用アイテム</h3>
+          <table class="table">
+            <thead>
+              <tr><th>アイテム</th><th>価格</th><th>対象</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>🪓 人狼の斧</td><td>3E</td><td>人狼</td><td>一撃でプレイヤーを倒す。使用後消滅</td></tr>
+              <tr><td>👁️ 共犯者の目</td><td>3E</td><td>狂人</td><td>ランダムな人狼を一人知る</td></tr>
+            </tbody>
+          </table>
+
+          <h3>共通アイテム</h3>
+          <table class="table">
+            <thead>
+              <tr><th>アイテム</th><th>価格</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>🥩 ステーキ</td><td>1E</td><td>食料回復（64個）</td></tr>
+              <tr><td>🏹 狩人の弓</td><td>2E</td><td>矢1本付属。一度撃つと壊れる</td></tr>
+              <tr><td>💣 スタングレネード</td><td>3E</td><td>盲目+鈍足 3秒</td></tr>
+              <tr><td>🧪 透明ポーション</td><td>4E</td><td>透明化 20秒</td></tr>
+              <tr><td>💜 占いの心</td><td>6E</td><td>看板で役職判定（夜間のみ）</td></tr>
+              <tr><td>🛡️ 騎士の加護</td><td>3E</td><td>人狼斧/弓矢を1回防御</td></tr>
+              <tr><td>💀 霊媒の遺灰</td><td>3E</td><td>脱落者の役職確認</td></tr>
+              <tr><td>📜 呪符</td><td>2E</td><td>占いの心を使われたか確認</td></tr>
+              <tr><td>✝️ 十字架</td><td>2E</td><td>吸血鬼のみ討伐</td></tr>
+            </tbody>
+          </table>
+
+          <div class="notice notice-info">
+            <strong>💡 エメラルドの獲得:</strong> スケルトン討伐で1体につき1E獲得。夜間10秒ごとに生存者数分のスケルトンが出現します。
+          </div>
+        </section>
+
+        <section id="distribution">
+          <h2>📊 配役表</h2>
+          <div class="table-scroll">
+            <table class="table distribution-table">
+              <thead>
+                <tr>
+                  <th>人数</th><th>🐺人狼</th><th>👨‍🌾村人</th><th>🧛吸血鬼</th><th>🃏狂人</th><th>🐕狼付き</th><th>💘キューピット</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>4人</td><td>1</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>5人</td><td>1</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>6人</td><td>2</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>7人</td><td>2</td><td>4</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>8人</td><td>2</td><td>4</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>9人</td><td>2</td><td>4</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+                <tr><td>10人</td><td>2</td><td>5</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+                <tr><td>15人</td><td>4</td><td>7</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><td>20人</td><td>6</td><td>10</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">※ config.ymlで配役をカスタマイズ可能</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  .plugin-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+  }
+  .sidebar {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+  }
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .plugin-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+  .sidebar h1 { font-size: 20px; color: #333; }
+  .version { font-size: 14px; color: #888; }
+  .download-buttons { margin-bottom: 25px; }
+  .btn {
+    display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-github { background: #333; color: white; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
+  .content {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+  }
+  .content h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+  }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+  .info-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .info-item { font-size: 14px; color: #555; }
+  .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+  .time-box {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .time-box.day { background: #fff9db; }
+  .time-box.night { background: #e9ecef; }
+  .time-box h4 { margin: 0 0 10px; font-size: 16px; }
+  .time-box ul { margin: 0; padding-left: 20px; font-size: 14px; }
+  .time-box li { margin-bottom: 5px; }
+  .role-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
+  .role-card {
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid;
+  }
+  .role-card.villager { background: #d4edda; border-color: #28a745; }
+  .role-card.werewolf { background: #f8d7da; border-color: #dc3545; }
+  .role-card.third { background: #e2e3f1; border-color: #6f42c1; }
+  .role-header { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+  .role-card p { font-size: 13px; margin: 0; color: #555; }
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
+  code {
+    background: #f1f1f1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+  }
+  .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+  .table th { background: #f8f9fa; font-weight: 600; }
+  .table-scroll { overflow-x: auto; }
+  .distribution-table td { text-align: center; }
+  .distribution-table td:first-child { font-weight: 600; }
+  .notice {
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    font-size: 14px;
+  }
+  .notice-info { background: #e7f5ff; border-left-color: #339af0; }
+  .note { font-size: 13px; color: #888; }
+  @media (max-width: 768px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box, .two-column, .role-grid { grid-template-columns: 1fr; }
+  }
+</style>
