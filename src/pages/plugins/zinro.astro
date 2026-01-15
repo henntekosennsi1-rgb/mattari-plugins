@@ -19,6 +19,8 @@ import Footer from '../../components/Footer.astro';
         </div>
         
         <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/zinro-minecraft-werewolf-plugin.131709/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/zinro" class="btn btn-modrinth" target="_blank">Modrinth</a>
           <a href="https://github.com/henntekosennsi1-rgb/Zinro" class="btn btn-github" target="_blank">GitHub</a>
         </div>
 
@@ -118,7 +120,7 @@ import Footer from '../../components/Footer.astro';
         <section id="install">
           <h2>📥 導入方法</h2>
           <ol class="steps">
-            <li>GitHubからダウンロード</li>
+            <li>SpigotMC または Modrinth からダウンロード</li>
             <li><code>plugins</code> フォルダに配置</li>
             <li>サーバーを起動</li>
             <li><code>/zinro setspawn</code> でスケルトン出現位置を設定</li>
@@ -264,7 +266,12 @@ import Footer from '../../components/Footer.astro';
   }
   .sidebar h1 { font-size: 20px; color: #333; }
   .version { font-size: 14px; color: #888; }
-  .download-buttons { margin-bottom: 25px; }
+  .download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
   .btn {
     display: block;
     padding: 12px 20px;
@@ -274,6 +281,8 @@ import Footer from '../../components/Footer.astro';
     text-decoration: none;
     transition: all 0.3s;
   }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
   .btn-github { background: #333; color: white; }
   .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
   .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
