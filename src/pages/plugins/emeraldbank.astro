@@ -14,11 +14,13 @@ import Footer from '../../components/Footer.astro';
           <div class="plugin-icon">💎</div>
           <div>
             <h1>EmeraldBank</h1>
-            <span class="version">v3.5.0</span>
+            <span class="version">v2.0.2</span>
           </div>
         </div>
         
         <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/emeraldbank-emerald-banking-system.131734/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/emeraldbank2" class="btn btn-modrinth" target="_blank">Modrinth</a>
           <a href="https://github.com/henntekosennsi1-rgb/EmeraldBank" class="btn btn-github" target="_blank">GitHub</a>
         </div>
 
@@ -26,10 +28,11 @@ import Footer from '../../components/Footer.astro';
           <h3>目次</h3>
           <ul>
             <li><a href="#overview">概要</a></li>
+            <li><a href="#features">機能一覧</a></li>
             <li><a href="#install">導入方法</a></li>
             <li><a href="#commands">コマンド</a></li>
             <li><a href="#permissions">権限</a></li>
-            <li><a href="#config">Config</a></li>
+            <li><a href="#api">API連携</a></li>
           </ul>
         </nav>
       </aside>
@@ -37,35 +40,92 @@ import Footer from '../../components/Footer.astro';
       <article class="content">
         <section id="overview">
           <h2>📖 概要</h2>
-          <p>EmeraldBankは、エメラルドを通貨として使用できる経済プラグインです。</p>
-          <div class="feature-list">
-            <div class="feature">✅ エメラルドベースの経済</div>
-            <div class="feature">✅ 銀行預金・引き出し</div>
-            <div class="feature">✅ プレイヤー間送金</div>
-            <div class="feature">✅ BE版対応</div>
+          <p>EmeraldBankは、エメラルドを銀行に預け入れ・引き出しできる経済プラグインの拡張版です。GUIでの操作、リアルタイム残高表示、ランキング看板など多彩な機能を搭載しています。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 22</div>
+            <div class="info-item"><strong>BE対応:</strong> ✅ Geyser/Floodgate対応</div>
+          </div>
+        </section>
+
+        <section id="features">
+          <h2>✨ 機能一覧</h2>
+          
+          <div class="feature-card">
+            <h3>🪙 エメラルドウォレット</h3>
+            <ul>
+              <li>リアルタイムで残高が表示されるアイテム</li>
+              <li>右クリックでバンクGUIを開ける</li>
+              <li>常に最新の残高を確認可能</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>💼 バンクGUI</h3>
+            <ul>
+              <li>GUIでエメラルドの出し入れが可能</li>
+              <li>1個/10個/64個/全額の預け入れ・引き出し</li>
+              <li>リアルタイムで残高表示を更新</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>🏆 ランキング看板</h3>
+            <ul>
+              <li>看板を右クリックでランキングを表示</li>
+              <li>トップ10プレイヤーを表示</li>
+              <li>1位🥇、2位🥈、3位🥉のメダル表示</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>📖 エメラルド通帳</h3>
+            <ul>
+              <li>残高確認用のアイテム</li>
+              <li>本のアイテムとして所持可能</li>
+            </ul>
           </div>
         </section>
 
         <section id="install">
           <h2>📥 導入方法</h2>
           <ol class="steps">
-            <li>GitHubからダウンロード</li>
+            <li>SpigotMC または Modrinth からダウンロード</li>
             <li><code>plugins</code> フォルダに配置</li>
             <li>サーバーを再起動</li>
+            <li>自動的に設定ファイルが生成されます</li>
           </ol>
         </section>
 
         <section id="commands">
           <h2>⌨️ コマンド</h2>
+          
+          <h3>プレイヤーコマンド</h3>
           <table class="table">
             <thead>
-              <tr><th>コマンド</th><th>説明</th></tr>
+              <tr><th>コマンド</th><th>説明</th><th>エイリアス</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>/bank</code></td><td>銀行メニューを開く</td></tr>
-              <tr><td><code>/bank deposit [額]</code></td><td>預ける</td></tr>
-              <tr><td><code>/bank withdraw [額]</code></td><td>引き出す</td></tr>
-              <tr><td><code>/bank send [プレイヤー] [額]</code></td><td>送金</td></tr>
+              <tr><td><code>/eb book</code></td><td>エメラルド通帳を入手</td><td>-</td></tr>
+              <tr><td><code>/eb wallet</code></td><td>エメラルドウォレットを入手</td><td>-</td></tr>
+              <tr><td><code>/eb gui</code></td><td>バンクGUIを開く</td><td>-</td></tr>
+              <tr><td><code>/eb money</code></td><td>残高をチャットで確認</td><td>-</td></tr>
+              <tr><td><code>/eb deposit &lt;数字&gt;</code></td><td>エメラルドを預け入れ</td><td><code>/ed</code></td></tr>
+              <tr><td><code>/eb withdraw &lt;数字&gt;</code></td><td>エメラルドを引き出し</td><td><code>/ew</code></td></tr>
+              <tr><td><code>/eb send &lt;数字&gt; &lt;プレイヤー&gt;</code></td><td>エメラルドを送金</td><td>-</td></tr>
+              <tr><td><code>/eb list</code></td><td>全プレイヤーの残高ランキング</td><td>-</td></tr>
+              <tr><td><code>/eb ranking</code></td><td>ランキングを表示</td><td>-</td></tr>
+            </tbody>
+          </table>
+
+          <h3>管理者コマンド</h3>
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/eb ranking create</code></td><td>ランキング看板を作成</td><td>emerald.admin</td></tr>
             </tbody>
           </table>
         </section>
@@ -74,22 +134,33 @@ import Footer from '../../components/Footer.astro';
           <h2>🔐 権限</h2>
           <table class="table">
             <thead>
-              <tr><th>権限</th><th>説明</th></tr>
+              <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>emeraldbank.use</code></td><td>基本機能</td></tr>
-              <tr><td><code>emeraldbank.send</code></td><td>送金</td></tr>
-              <tr><td><code>emeraldbank.admin</code></td><td>管理者</td></tr>
+              <tr><td><code>emerald.list</code></td><td>残高リストを表示</td><td>全員</td></tr>
+              <tr><td><code>emerald.admin</code></td><td>管理者用コマンド</td><td>OP</td></tr>
             </tbody>
           </table>
         </section>
 
-        <section id="config">
-          <h2>⚙️ Config</h2>
+        <section id="api">
+          <h2>🔧 API連携</h2>
+          <p>他のプラグインから残高の取得・設定ができます。</p>
           <div class="code-block">
-            <pre><code>currency-name: "エメラルド"
-starting-balance: 0
-transfer-fee: 0</code></pre>
+            <pre><code>EmeraldBank plugin = (EmeraldBank) Bukkit.getPluginManager().getPlugin("EmeraldBank");
+AccountRepository repo = plugin.getAccountRepository();
+
+// 残高取得
+long balance = repo.getBalance(playerUUID);
+
+// 残高設定
+repo.setBalance(playerUUID, newBalance);
+
+// 送金
+repo.transact(fromUUID, amount, toUUID);</code></pre>
+          </div>
+          <div class="notice notice-info">
+            <strong>💡 連携プラグイン:</strong> Tintiro2など、EmeraldBankの経済システムと連携できます。
           </div>
         </section>
       </article>
@@ -143,6 +214,9 @@ transfer-fee: 0</code></pre>
     color: #888;
   }
   .download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 25px;
   }
   .btn {
@@ -154,10 +228,9 @@ transfer-fee: 0</code></pre>
     text-decoration: none;
     transition: all 0.3s;
   }
-  .btn-github {
-    background: #333;
-    color: white;
-  }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-github { background: #333; color: white; }
   .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -167,21 +240,10 @@ transfer-fee: 0</code></pre>
     color: #888;
     margin-bottom: 10px;
   }
-  .toc ul {
-    list-style: none;
-    padding: 0;
-  }
-  .toc li {
-    margin-bottom: 8px;
-  }
-  .toc a {
-    color: #555;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .toc a:hover {
-    color: #667eea;
-  }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
   .content {
     background: white;
     border-radius: 15px;
@@ -194,33 +256,51 @@ transfer-fee: 0</code></pre>
     padding-bottom: 10px;
     border-bottom: 2px solid #eee;
   }
+  .content h3 {
+    font-size: 17px;
+    color: #444;
+    margin: 25px 0 15px;
+  }
   .content p {
     font-size: 15px;
     line-height: 1.8;
     color: #555;
     margin-bottom: 20px;
   }
-  .content section {
-    margin-bottom: 40px;
-  }
-  .feature-list {
+  .content section { margin-bottom: 40px; }
+  .info-box {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  .feature {
-    padding: 12px 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
     background: #f8f9fa;
-    border-radius: 8px;
-    font-size: 14px;
+    padding: 20px;
+    border-radius: 10px;
   }
-  .steps {
+  .info-item {
+    font-size: 14px;
+    color: #555;
+  }
+  .feature-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  .feature-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+  }
+  .feature-card ul {
+    margin: 0;
     padding-left: 20px;
   }
-  .steps li {
-    margin-bottom: 10px;
-    font-size: 15px;
+  .feature-card li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
   }
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
   code {
     background: #f1f1f1;
     padding: 2px 8px;
@@ -231,36 +311,39 @@ transfer-fee: 0</code></pre>
   .table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
   }
   .table th, .table td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #eee;
   }
-  .table th {
-    background: #f8f9fa;
-    font-weight: 600;
-  }
+  .table th { background: #f8f9fa; font-weight: 600; }
   .code-block {
     background: #2d3436;
     border-radius: 10px;
     padding: 20px;
     overflow-x: auto;
+    margin-bottom: 15px;
   }
   .code-block code {
     background: none;
     color: #dfe6e9;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .notice {
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+  }
+  .notice-info {
+    background: #e7f5ff;
+    border-left-color: #339af0;
   }
   @media (max-width: 768px) {
-    .plugin-container {
-      grid-template-columns: 1fr;
-    }
-    .sidebar {
-      position: static;
-    }
-    .feature-list {
-      grid-template-columns: 1fr;
-    }
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box { grid-template-columns: 1fr; }
   }
 </style>
