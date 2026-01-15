@@ -1,0 +1,369 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="BedrockReplacer - 岩盤置換プラグイン">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-page">
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="plugin-icon">🪨</div>
+          <div>
+            <h1>BedrockReplacer</h1>
+            <span class="version">v1.0.1</span>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/bedrockreplacer.131074/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/bedrockreplacer" class="btn btn-modrinth" target="_blank">Modrinth</a>
+          <a href="https://github.com/henntekosennsi1-rgb/BedrockReplacer" class="btn btn-github" target="_blank">GitHub</a>
+        </div>
+
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#overview">概要</a></li>
+            <li><a href="#features">機能一覧</a></li>
+            <li><a href="#install">導入方法</a></li>
+            <li><a href="#commands">コマンド</a></li>
+            <li><a href="#permissions">権限</a></li>
+            <li><a href="#notes">注意事項</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section id="overview">
+          <h2>📖 概要</h2>
+          <p>BedrockReplacerは、最下層（Y=-64）の岩盤以外を深層岩（Deepslate）に置き換えるプラグインです。整地作業時の岩盤処理に便利です。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot/Paper 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 22</div>
+            <div class="info-item"><strong>BE対応:</strong> ✅ Geyser/Floodgate対応</div>
+          </div>
+
+          <h3>🌍 対応ディメンション</h3>
+          <div class="dimension-grid">
+            <div class="dimension-card">
+              <h4>🌳 オーバーワールド</h4>
+              <p>最下層: Y=-64</p>
+            </div>
+            <div class="dimension-card nether">
+              <h4>🔥 ネザー</h4>
+              <p>最下層: Y=0</p>
+            </div>
+            <div class="dimension-card end">
+              <h4>🌌 エンド</h4>
+              <p>最下層: Y=0</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="features">
+          <h2>✨ 機能一覧</h2>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-icon">🛡️</span>
+              <div>
+                <strong>最下層保護</strong>
+                <p>各ワールドの最下層の岩盤は必ず保持されます</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">⚡</span>
+              <div>
+                <strong>負荷分散処理</strong>
+                <p>1tickあたり1チャンクずつ処理してサーバー負荷を軽減</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">📊</span>
+              <div>
+                <strong>進捗表示</strong>
+                <p>10チャンクごとに進捗を報告</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🚫</span>
+              <div>
+                <strong>キャンセル機能</strong>
+                <p>実行中の処理をいつでも中断可能</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">📐</span>
+              <div>
+                <strong>柔軟な範囲指定</strong>
+                <p>単一チャンクから半径20チャンクまで対応</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="install">
+          <h2>📥 導入方法</h2>
+          <ol class="steps">
+            <li>SpigotMC または Modrinth からダウンロード</li>
+            <li><code>plugins</code> フォルダに配置</li>
+            <li>サーバーを再起動</li>
+          </ol>
+          
+          <div class="notice notice-warning">
+            <strong>⚠️ 重要:</strong> 処理前に必ずワールドのバックアップを取ってください。一度置き換えたブロックは自動では元に戻せません。
+          </div>
+        </section>
+
+        <section id="commands">
+          <h2>⌨️ コマンド</h2>
+          
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/br chunk</code></td><td>現在のチャンクを処理</td></tr>
+              <tr><td><code>/br radius &lt;半径&gt;</code></td><td>指定半径のチャンクを処理（1-20）</td></tr>
+              <tr><td><code>/br status</code></td><td>現在の処理状況を表示</td></tr>
+              <tr><td><code>/br cancel</code></td><td>実行中の処理をキャンセル</td></tr>
+            </tbody>
+          </table>
+
+          <h3>エイリアス</h3>
+          <p><code>/bedrockreplacer</code> → <code>/br</code> または <code>/bedrock</code></p>
+
+          <h3>使用例</h3>
+          <div class="code-block">
+            <pre><code># 現在地のチャンクを処理
+/br chunk
+
+# 現在地から半径5チャンクを処理
+/br radius 5
+
+# 処理の進捗を確認
+/br status
+
+# 処理をキャンセル
+/br cancel</code></pre>
+          </div>
+        </section>
+
+        <section id="permissions">
+          <h2>🔐 権限</h2>
+          <table class="table">
+            <thead>
+              <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>bedrockreplacer.use</code></td><td>コマンドの基本使用権限</td><td>OP</td></tr>
+              <tr><td><code>bedrockreplacer.world</code></td><td>ワールド全体処理の権限</td><td>OP</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="notes">
+          <h2>📝 注意事項</h2>
+          <ul class="warning-list">
+            <li><strong>バックアップ推奨:</strong> 処理前に必ずワールドのバックアップを取ってください</li>
+            <li><strong>サーバー負荷:</strong> 大規模な範囲を処理する場合、サーバーに負荷がかかります</li>
+            <li><strong>元に戻せません:</strong> 一度置き換えたブロックは自動では元に戻りません</li>
+            <li><strong>半径制限:</strong> 半径は1〜20チャンクまでに制限されています</li>
+          </ul>
+
+          <h3>🔧 技術仕様</h3>
+          <table class="table">
+            <thead>
+              <tr><th>項目</th><th>値</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>処理速度</td><td>1tick = 1チャンク（約0.05秒/チャンク）</td></tr>
+              <tr><td>対象ブロック</td><td>BEDROCK → DEEPSLATE</td></tr>
+              <tr><td>除外Y座標</td><td>オーバーワールド: Y=-64 / ネザー・エンド: Y=0</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  .plugin-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+  }
+  .sidebar {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+  }
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .plugin-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #54a0ff 0%, #2e86de 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+  .sidebar h1 { font-size: 20px; color: #333; }
+  .version { font-size: 14px; color: #888; }
+  .download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  .btn {
+    display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-github { background: #333; color: white; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
+  .content {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+  }
+  .content h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+  }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+  .info-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .info-item { font-size: 14px; color: #555; }
+  .dimension-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+  }
+  .dimension-card {
+    padding: 20px;
+    background: #d4edda;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .dimension-card.nether { background: #f8d7da; }
+  .dimension-card.end { background: #e2e3f1; }
+  .dimension-card h4 { margin: 0 0 8px; font-size: 16px; }
+  .dimension-card p { margin: 0; font-size: 14px; color: #666; }
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .feature-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .feature-item strong { display: block; margin-bottom: 5px; }
+  .feature-item p { margin: 0; font-size: 13px; color: #666; }
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
+  code {
+    background: #f1f1f1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+  }
+  .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+  .table th { background: #f8f9fa; font-weight: 600; }
+  .code-block {
+    background: #2d3436;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+    margin: 15px 0;
+  }
+  .code-block code {
+    background: none;
+    color: #dfe6e9;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .notice {
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    font-size: 14px;
+    margin: 15px 0;
+  }
+  .notice-warning { background: #fff3cd; border-left-color: #ffc107; }
+  .warning-list {
+    padding-left: 20px;
+  }
+  .warning-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  @media (max-width: 768px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box, .dimension-grid { grid-template-columns: 1fr; }
+  }
+</style>
