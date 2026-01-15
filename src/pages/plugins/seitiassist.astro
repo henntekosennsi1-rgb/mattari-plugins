@@ -1,0 +1,269 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Seitiassist - 整地アシストプラグイン">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-page">
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="plugin-icon seiti">⛏️</div>
+          <div>
+            <h1>Seitiassist</h1>
+            <span class="version">v1.1</span>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/seitiassist.131772/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/seitiassist" class="btn btn-modrinth" target="_blank">Modrinth</a>
+          <a href="https://github.com/henntekosennsi1-rgb/Seitiassist" class="btn btn-github" target="_blank">GitHub</a>
+        </div>
+
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#overview">概要</a></li>
+            <li><a href="#features">機能一覧</a></li>
+            <li><a href="#install">導入方法</a></li>
+            <li><a href="#commands">コマンド</a></li>
+            <li><a href="#usage">使い方</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section id="overview">
+          <h2>📖 概要</h2>
+          <p>Seitiassistは、整地作業を快適にする統合アシストプラグインです。範囲選択ツール、一括削除、自動ゴミ箱、効率ツルハシなど、整地に必要な機能をまとめて提供します。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot/Paper 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 21以上</div>
+            <div class="info-item"><strong>BE対応:</strong> ✅ Geyser/Floodgate対応</div>
+          </div>
+
+          <div class="highlight-box">
+            <h3>🎯 こんな方におすすめ</h3>
+            <ul>
+              <li>🏗️ 大規模な整地作業を行うサーバー</li>
+              <li>🧹 不要ブロックの処理に困っている方</li>
+              <li>⚡ 効率的な建築準備をしたい方</li>
+              <li>🎮 生活鯖・建築鯖の運営者</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="features">
+          <h2>✨ 機能一覧</h2>
+          
+          <div class="feature-cards">
+            <div class="feature-card">
+              <div class="feature-icon">🪄</div>
+              <h3>範囲選択ワンド</h3>
+              <p>左クリック・右クリックで2点を選択し、範囲を指定できます。WorldEditライクな操作感です。</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">💨</div>
+              <h3>一括削除（Clean）</h3>
+              <p>選択した範囲のブロックを一括で削除します。液体（水・溶岩）の処理にも対応。</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🗑️</div>
+              <h3>自動ゴミ箱</h3>
+              <p>指定したアイテムを自動で削除。インベントリを圧迫する土や丸石を自動処分できます。</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">⛏️</div>
+              <h3>効率ツルハシ</h3>
+              <p>効率強化V + 耐久力III + 修繕付きのダイヤツルハシを取得できます。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="install">
+          <h2>📥 導入方法</h2>
+          <ol class="steps">
+            <li>SpigotMC または Modrinth からダウンロード</li>
+            <li><code>plugins</code> フォルダに配置</li>
+            <li>サーバーを起動</li>
+            <li><code>plugins/Seitiassist/config.yml</code> が自動生成</li>
+            <li>必要に応じて設定を調整し <code>/sa reload</code></li>
+          </ol>
+        </section>
+
+        <section id="commands">
+          <h2>⌨️ コマンド</h2>
+          
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/sa wand</code></td>
+                <td>範囲選択用の杖を取得</td>
+                <td>seitiassist.command.wand</td>
+              </tr>
+              <tr>
+                <td><code>/sa clean</code></td>
+                <td>選択範囲のブロックを削除</td>
+                <td>seitiassist.command.clean</td>
+              </tr>
+              <tr>
+                <td><code>/sa trash</code></td>
+                <td>ゴミ箱設定GUIを開く</td>
+                <td>seitiassist.command.trash</td>
+              </tr>
+              <tr>
+                <td><code>/sa pickaxe</code></td>
+                <td>効率ツルハシを取得</td>
+                <td>seitiassist.command.pickaxe</td>
+              </tr>
+              <tr>
+                <td><code>/sa reload</code></td>
+                <td>設定ファイルを再読み込み</td>
+                <td>seitiassist.admin</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="notice notice-info">
+            <strong>💡 エイリアス:</strong> <code>/seiti</code> でも同じコマンドが使えます。
+          </div>
+        </section>
+
+        <section id="usage">
+          <h2>📘 使い方</h2>
+          
+          <h3>🪄 範囲選択と削除</h3>
+          <div class="usage-steps">
+            <div class="usage-step">
+              <span class="step-num">1</span>
+              <div>
+                <strong>/sa wand</strong>
+                <p>範囲選択用の杖（木の斧）を取得します</p>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">2</span>
+              <div>
+                <strong>左クリックで第1地点を選択</strong>
+                <p>範囲の始点となるブロックを左クリック</p>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">3</span>
+              <div>
+                <strong>右クリックで第2地点を選択</strong>
+                <p>範囲の終点となるブロックを右クリック</p>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">4</span>
+              <div>
+                <strong>/sa clean</strong>
+                <p>選択した範囲のブロックが一括削除されます</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>🗑️ ゴミ箱の設定</h3>
+          <div class="usage-steps">
+            <div class="usage-step">
+              <span class="step-num">1</span>
+              <div>
+                <strong>/sa trash</strong>
+                <p>ゴミ箱設定GUIを開きます</p>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">2</span>
+              <div>
+                <strong>削除したいアイテムをクリック</strong>
+                <p>GUI内のアイテムをクリックして登録/解除</p>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">3</span>
+              <div>
+                <strong>自動削除開始</strong>
+                <p>登録したアイテムは拾った瞬間に自動で削除されます</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice notice-warning">
+            <strong>⚠️ 注意:</strong> 一括削除は元に戻せません。範囲を確認してから実行してください。
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-page { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+  .plugin-container { display: grid; grid-template-columns: 260px 1fr; gap: 30px; }
+  .sidebar { background: white; border-radius: 15px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
+  .sidebar-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+  .plugin-icon { width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+  .plugin-icon.seiti { background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); }
+  .sidebar h1 { font-size: 20px; color: #333; }
+  .version { font-size: 14px; color: #888; }
+  .download-buttons { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+  .btn { display: block; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.3s; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-github { background: #333; color: white; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 22px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+  .info-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+  .info-item { font-size: 14px; color: #555; }
+  .highlight-box { background: linear-gradient(135deg, #00b89415 0%, #00cec915 100%); padding: 25px; border-radius: 15px; border: 1px solid #00b89430; }
+  .highlight-box h3 { margin: 0 0 15px; font-size: 18px; color: #333; }
+  .highlight-box ul { margin: 0; padding-left: 20px; }
+  .highlight-box li { margin-bottom: 8px; font-size: 14px; }
+  .feature-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .feature-card { background: #f8f9fa; border-radius: 15px; padding: 25px; text-align: center; }
+  .feature-icon { font-size: 40px; margin-bottom: 15px; }
+  .feature-card h3 { font-size: 16px; color: #333; margin-bottom: 10px; }
+  .feature-card p { font-size: 13px; color: #666; margin: 0; line-height: 1.6; }
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
+  code { background: #f1f1f1; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+  .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+  .table th { background: #f8f9fa; font-weight: 600; }
+  .usage-steps { display: flex; flex-direction: column; gap: 15px; margin: 20px 0; }
+  .usage-step { display: flex; align-items: flex-start; gap: 15px; background: #f8f9fa; padding: 15px 20px; border-radius: 10px; }
+  .step-num { width: 30px; height: 30px; background: linear-gradient(135deg, #00b894, #00cec9); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+  .usage-step strong { display: block; font-size: 14px; color: #333; margin-bottom: 5px; }
+  .usage-step p { margin: 0; font-size: 13px; color: #666; }
+  .notice { padding: 15px 20px; border-radius: 8px; border-left: 4px solid; font-size: 14px; margin-top: 15px; }
+  .notice-info { background: #e7f5ff; border-left-color: #339af0; }
+  .notice-warning { background: #fff3cd; border-left-color: #ffc107; }
+  @media (max-width: 768px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box, .feature-cards { grid-template-columns: 1fr; }
+  }
+</style>
