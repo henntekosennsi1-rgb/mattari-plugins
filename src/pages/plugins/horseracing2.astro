@@ -1,0 +1,351 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="HorseRacing2 - 競馬プラグイン">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-page">
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="plugin-icon horse">🏇</div>
+          <div>
+            <h1>HorseRacing2</h1>
+            <span class="version">v2.0.0</span>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/horseracing2-horse-racing-alpha.131740/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/horseracing2" class="btn btn-modrinth" target="_blank">Modrinth</a>
+          <a href="https://github.com/henntekosennsi1-rgb/HorseRacing2" class="btn btn-github" target="_blank">GitHub</a>
+        </div>
+
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#overview">概要</a></li>
+            <li><a href="#betting">馬券タイプ</a></li>
+            <li><a href="#install">導入方法</a></li>
+            <li><a href="#commands">コマンド</a></li>
+            <li><a href="#howto">賭け方ガイド</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section id="overview">
+          <h2>📖 概要</h2>
+          <p>HorseRacing2は、7種類の馬券タイプに対応した本格的な競馬プラグインです。パリミュチュエル方式のオッズ計算、直感的なGUI操作、EmeraldBankとの連携で、リアルな競馬体験を提供します。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot/Paper 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 17以上</div>
+            <div class="info-item"><strong>依存:</strong> EmeraldBank</div>
+          </div>
+
+          <div class="highlight-box">
+            <h3>🎯 主な特徴</h3>
+            <ul>
+              <li>🎫 7種類の馬券タイプ（単勝〜3連単）</li>
+              <li>📊 パリミュチュエル方式のリアルなオッズ</li>
+              <li>🖱️ 直感的なGUI操作</li>
+              <li>💎 EmeraldBankとの完全連携</li>
+              <li>🏁 自動レースシミュレーション</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="betting">
+          <h2>🎫 馬券タイプ</h2>
+          
+          <div class="ticket-grid">
+            <div class="ticket-card easy">
+              <div class="ticket-header">
+                <span class="difficulty">初級</span>
+              </div>
+              <h3>🥇 単勝 (WIN)</h3>
+              <p>1着の馬を当てる</p>
+              <span class="odds-hint">的中率: 高め</span>
+            </div>
+
+            <div class="ticket-card easy">
+              <div class="ticket-header">
+                <span class="difficulty">初級</span>
+              </div>
+              <h3>🏅 複勝 (PLACE)</h3>
+              <p>3着以内に入る馬を当てる</p>
+              <span class="odds-hint">的中率: 最も高い</span>
+            </div>
+
+            <div class="ticket-card medium">
+              <div class="ticket-header">
+                <span class="difficulty">中級</span>
+              </div>
+              <h3>🔗 馬連 (QUINELLA)</h3>
+              <p>1着と2着を順不同で当てる</p>
+              <span class="odds-hint">2頭選択</span>
+            </div>
+
+            <div class="ticket-card medium">
+              <div class="ticket-header">
+                <span class="difficulty">中級</span>
+              </div>
+              <h3>➡️ 馬単 (EXACTA)</h3>
+              <p>1着と2着を順番通りに当てる</p>
+              <span class="odds-hint">2頭選択・順番あり</span>
+            </div>
+
+            <div class="ticket-card medium">
+              <div class="ticket-header">
+                <span class="difficulty">中級</span>
+              </div>
+              <h3>↔️ ワイド (WIDE)</h3>
+              <p>3着以内に入る2頭を当てる</p>
+              <span class="odds-hint">2頭選択・的中しやすい</span>
+            </div>
+
+            <div class="ticket-card hard">
+              <div class="ticket-header">
+                <span class="difficulty">上級</span>
+              </div>
+              <h3>🎯 3連複 (TRIO)</h3>
+              <p>1〜3着を順不同で当てる</p>
+              <span class="odds-hint">3頭選択</span>
+            </div>
+
+            <div class="ticket-card hard">
+              <div class="ticket-header">
+                <span class="difficulty">上級</span>
+              </div>
+              <h3>👑 3連単 (TRIFECTA)</h3>
+              <p>1〜3着を順番通りに当てる</p>
+              <span class="odds-hint">最高配当・最難関</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="install">
+          <h2>📥 導入方法</h2>
+          <ol class="steps">
+            <li><strong>EmeraldBank</strong> をインストール（必須）</li>
+            <li>SpigotMC または Modrinth からダウンロード</li>
+            <li><code>plugins</code> フォルダに配置</li>
+            <li>サーバーを起動</li>
+            <li><code>plugins/HorseRacing2/config.yml</code> で設定を調整</li>
+          </ol>
+
+          <div class="notice notice-warning">
+            <strong>⚠️ 必須:</strong> EmeraldBankプラグインが必要です。先にインストールしてください。
+          </div>
+        </section>
+
+        <section id="commands">
+          <h2>⌨️ コマンド</h2>
+          
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/horseracing bet</code></td>
+                <td>馬券購入GUIを開く</td>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <td><code>/horseracing start</code></td>
+                <td>レースを開始</td>
+                <td>OP</td>
+              </tr>
+              <tr>
+                <td><code>/horseracing setstart</code></td>
+                <td>スタート地点を設定</td>
+                <td>OP</td>
+              </tr>
+              <tr>
+                <td><code>/horseracing setgoal</code></td>
+                <td>ゴール地点を設定</td>
+                <td>OP</td>
+              </tr>
+              <tr>
+                <td><code>/horseracing reload</code></td>
+                <td>設定を再読み込み</td>
+                <td>OP</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="howto">
+          <h2>📘 賭け方ガイド</h2>
+          
+          <div class="guide-steps">
+            <div class="guide-step">
+              <div class="guide-num">1</div>
+              <div class="guide-content">
+                <h3>GUIを開く</h3>
+                <p><code>/horseracing bet</code> を実行して馬券購入画面を開きます。</p>
+                <div class="guide-image">🖥️ 馬券タイプ選択画面</div>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-num">2</div>
+              <div class="guide-content">
+                <h3>馬券タイプを選択</h3>
+                <p>単勝、複勝、馬連など、購入したい馬券タイプをクリックします。</p>
+                <div class="guide-tip">💡 初心者は「複勝」がおすすめ！</div>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-num">3</div>
+              <div class="guide-content">
+                <h3>馬を選択</h3>
+                <p>馬券タイプに応じて必要な頭数の馬を選択します。</p>
+                <ul class="selection-info">
+                  <li>単勝・複勝: 1頭</li>
+                  <li>馬連・馬単・ワイド: 2頭</li>
+                  <li>3連複・3連単: 3頭</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-num">4</div>
+              <div class="guide-content">
+                <h3>確定をクリック</h3>
+                <p>選択が完了したら「確定」ボタンをクリックします。</p>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-num">5</div>
+              <div class="guide-content">
+                <h3>金額を入力</h3>
+                <p>チャットで賭け金額（エメラルド）を入力します。</p>
+                <div class="guide-example">例: <code>1000</code> と入力で1000エメラルド</div>
+              </div>
+            </div>
+
+            <div class="guide-step">
+              <div class="guide-num">6</div>
+              <div class="guide-content">
+                <h3>レース開始を待つ</h3>
+                <p>管理者がレースを開始すると、結果に応じて配当が支払われます。</p>
+                <div class="guide-tip">🏆 的中すると配当金が自動でEmeraldBankに入金！</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="config">
+          <h2>⚙️ 設定</h2>
+          
+          <div class="code-block">
+            <pre><code>betting:
+  # 控除率 (20% = 0.2)
+  takeout_rate: 0.2
+  
+  # 最低オッズ
+  minimum_odds: 1.1
+  
+  # 仮想ベット額（オッズのバラつき用）
+  virtual_bet_amount: 5000</code></pre>
+          </div>
+
+          <div class="notice notice-info">
+            <strong>💡 控除率について:</strong> 実際の競馬と同様に、賭け金の一部（デフォルト20%）が控除されます。残りが的中者に配当されます。
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-page { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+  .plugin-container { display: grid; grid-template-columns: 260px 1fr; gap: 30px; }
+  .sidebar { background: white; border-radius: 15px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
+  .sidebar-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+  .plugin-icon { width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+  .plugin-icon.horse { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
+  .sidebar h1 { font-size: 20px; color: #333; }
+  .version { font-size: 14px; color: #888; }
+  .download-buttons { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+  .btn { display: block; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.3s; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-github { background: #333; color: white; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 22px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+  .info-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+  .info-item { font-size: 14px; color: #555; }
+  .highlight-box { background: linear-gradient(135deg, #f39c1215 0%, #e67e2215 100%); padding: 25px; border-radius: 15px; border: 1px solid #f39c1230; }
+  .highlight-box h3 { margin: 0 0 15px; font-size: 18px; color: #333; }
+  .highlight-box ul { margin: 0; padding-left: 20px; }
+  .highlight-box li { margin-bottom: 8px; font-size: 14px; }
+  
+  .ticket-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+  .ticket-card { background: #f8f9fa; border-radius: 12px; padding: 20px; border: 2px solid transparent; transition: all 0.3s; }
+  .ticket-card:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+  .ticket-card.easy { border-color: #27ae6030; }
+  .ticket-card.easy .difficulty { background: #27ae60; }
+  .ticket-card.medium { border-color: #f39c1230; }
+  .ticket-card.medium .difficulty { background: #f39c12; }
+  .ticket-card.hard { border-color: #e74c3c30; }
+  .ticket-card.hard .difficulty { background: #e74c3c; }
+  .ticket-header { margin-bottom: 10px; }
+  .difficulty { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; color: white; font-weight: 600; }
+  .ticket-card h3 { font-size: 15px; color: #333; margin: 10px 0 8px; }
+  .ticket-card p { font-size: 13px; color: #666; margin: 0 0 10px; }
+  .odds-hint { font-size: 11px; color: #888; }
+  
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
+  code { background: #f1f1f1; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+  .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+  .table th { background: #f8f9fa; font-weight: 600; }
+  
+  .guide-steps { display: flex; flex-direction: column; gap: 20px; }
+  .guide-step { display: flex; gap: 20px; background: #f8f9fa; padding: 25px; border-radius: 15px; }
+  .guide-num { width: 40px; height: 40px; background: linear-gradient(135deg, #f39c12, #e67e22); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; flex-shrink: 0; }
+  .guide-content { flex: 1; }
+  .guide-content h3 { margin: 0 0 10px; font-size: 16px; color: #333; }
+  .guide-content p { margin: 0 0 10px; font-size: 14px; color: #555; }
+  .guide-image { background: #e9ecef; padding: 15px; border-radius: 8px; text-align: center; font-size: 13px; color: #666; }
+  .guide-tip { background: #fff3cd; padding: 10px 15px; border-radius: 8px; font-size: 13px; color: #856404; }
+  .guide-example { background: #e7f5ff; padding: 10px 15px; border-radius: 8px; font-size: 13px; color: #1864ab; }
+  .selection-info { padding-left: 20px; margin: 10px 0 0; font-size: 13px; }
+  .selection-info li { margin-bottom: 5px; }
+  
+  .code-block { background: #2d3436; border-radius: 10px; padding: 20px; overflow-x: auto; margin: 15px 0; }
+  .code-block code { background: none; color: #dfe6e9; font-size: 13px; line-height: 1.6; }
+  .notice { padding: 15px 20px; border-radius: 8px; border-left: 4px solid; font-size: 14px; margin-top: 15px; }
+  .notice-info { background: #e7f5ff; border-left-color: #339af0; }
+  .notice-warning { background: #fff3cd; border-left-color: #ffc107; }
+  
+  @media (max-width: 768px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box { grid-template-columns: 1fr; }
+    .ticket-grid { grid-template-columns: 1fr; }
+    .guide-step { flex-direction: column; align-items: flex-start; }
+  }
+</style>
