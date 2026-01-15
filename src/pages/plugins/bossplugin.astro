@@ -1,0 +1,282 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="BossPlugin - カスタムボスモブ">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-page">
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="plugin-icon boss">💀</div>
+          <div>
+            <h1>BossPlugin</h1>
+            <span class="version">v1.0.0 Alpha</span>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/bossplugin-custom-boss-mobs-alpha.131748/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/bosspluginalpha" class="btn btn-modrinth" target="_blank">Modrinth</a>
+          <a href="https://github.com/henntekosennsi1-rgb/BossPlugin" class="btn btn-github" target="_blank">GitHub</a>
+        </div>
+
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#overview">概要</a></li>
+            <li><a href="#bosses">ボス一覧</a></li>
+            <li><a href="#install">導入方法</a></li>
+            <li><a href="#commands">コマンド</a></li>
+            <li><a href="#config">設定</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section id="overview">
+          <h2>📖 概要</h2>
+          <p>BossPluginは、3種類のカスタムボスモブを追加するプラグインです。各ボスは独自のスキル、フェーズ制、ミニオン召喚などの高度なAIを搭載しています。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot/Paper 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 21以上</div>
+            <div class="info-item"><strong>ステータス:</strong> Alpha版</div>
+          </div>
+
+          <div class="highlight-box">
+            <h3>🎯 主な特徴</h3>
+            <ul>
+              <li>⚔️ 3種類のユニークなボス</li>
+              <li>📊 HPに応じたフェーズシステム</li>
+              <li>🔮 多彩なスキル攻撃</li>
+              <li>👥 ミニオン召喚機能</li>
+              <li>⚙️ YAMLで全設定カスタマイズ可能</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="bosses">
+          <h2>👹 ボス一覧</h2>
+          
+          <div class="boss-cards">
+            <div class="boss-card zombie">
+              <div class="boss-header">
+                <span class="boss-emoji">🧟</span>
+                <h3>Zombie Titan</h3>
+              </div>
+              <p class="boss-hp">デフォルトHP: 5,000</p>
+              <h4>スキル</h4>
+              <ul>
+                <li>🔥 地面叩きつけ（範囲ダメージ）</li>
+                <li>💨 突進攻撃</li>
+                <li>🌀 地震攻撃（プレイヤーを浮かせる）</li>
+                <li>☠️ 毒の霧散布</li>
+              </ul>
+              <h4>フェーズ</h4>
+              <p>HP75%/50%/25%で強化</p>
+            </div>
+
+            <div class="boss-card skeleton">
+              <div class="boss-header">
+                <span class="boss-emoji">🏹</span>
+                <h3>Skeleton Archer</h3>
+              </div>
+              <p class="boss-hp">デフォルトHP: 8,000</p>
+              <h4>スキル</h4>
+              <ul>
+                <li>🎯 8方向同時射撃</li>
+                <li>🌧️ 矢の雨（空から降り注ぐ）</li>
+                <li>⚡ 連射モード</li>
+                <li>🎯 追尾矢</li>
+                <li>💥 爆発矢</li>
+                <li>🛡️ 矢の盾（防御モード）</li>
+              </ul>
+              <h4>フェーズ</h4>
+              <p>HP減少で矢の数が1.5倍→2倍に</p>
+            </div>
+
+            <div class="boss-card spider">
+              <div class="boss-header">
+                <span class="boss-emoji">🕷️</span>
+                <h3>Venom Broodmother</h3>
+              </div>
+              <p class="boss-hp">デフォルトHP: 1,200</p>
+              <h4>スキル</h4>
+              <ul>
+                <li>☠️ 毒レベルシステム（最大5段階）</li>
+                <li>🕸️ 巣エリア制限</li>
+                <li>🕷️ 子グモ召喚</li>
+                <li>💀 毒攻撃</li>
+              </ul>
+              <h4>特殊</h4>
+              <p>巣から離れると強制転送</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="install">
+          <h2>📥 導入方法</h2>
+          <ol class="steps">
+            <li>SpigotMC または Modrinth からダウンロード</li>
+            <li><code>plugins</code> フォルダに配置</li>
+            <li>サーバーを起動</li>
+            <li>各ボスの設定ファイル（<code>zombie_boss.yml</code> 等）が生成される</li>
+            <li>必要に応じて設定を調整</li>
+          </ol>
+        </section>
+
+        <section id="commands">
+          <h2>⌨️ コマンド</h2>
+          
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/bossspawn zombie [hp]</code></td>
+                <td>Zombie Titan を召喚</td>
+                <td>bossplugin.summon</td>
+              </tr>
+              <tr>
+                <td><code>/bossspawn skeleton [hp]</code></td>
+                <td>Skeleton Archer を召喚</td>
+                <td>bossplugin.summon</td>
+              </tr>
+              <tr>
+                <td><code>/bossspawn spider [hp]</code></td>
+                <td>Venom Broodmother を召喚</td>
+                <td>bossplugin.summon</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="notice notice-info">
+            <strong>💡 ヒント:</strong> [hp]を省略するとデフォルトHPで召喚されます。例: <code>/bossspawn zombie 10000</code>
+          </div>
+        </section>
+
+        <section id="config">
+          <h2>⚙️ 設定ファイル</h2>
+          <p>各ボスは独立した設定ファイルを持ち、細かくカスタマイズできます。</p>
+          
+          <h3>設定ファイル一覧</h3>
+          <ul class="file-list">
+            <li><code>zombie_boss.yml</code> - Zombie Titan の設定</li>
+            <li><code>skeleton_boss.yml</code> - Skeleton Archer の設定</li>
+            <li><code>spider_boss.yml</code> - Venom Broodmother の設定</li>
+          </ul>
+
+          <h3>設定例（skeleton_boss.yml）</h3>
+          <div class="code-block">
+            <pre><code>skeleton_boss:
+  default-hp: 8000.0
+  name: "&6&lSkeleton Archer"
+  
+  attack:
+    normal-arrow:
+      enabled: true
+      count: 8           # 同時発射数
+      spread-angle: 15.0 # 拡散角度
+      damage: 5.0
+    
+    arrow-rain:
+      enabled: true
+      count: 20          # 矢の数
+      radius: 15.0       # 範囲
+      interval: 120      # 発動間隔(tick)
+    
+    homing-arrow:
+      enabled: true
+      chance: 0.3        # 30%の確率で追尾
+  
+  minions:
+    enabled: true
+    hp-75-percent:
+      skeleton: 5        # 人数 × 5体召喚</code></pre>
+          </div>
+
+          <div class="notice notice-warning">
+            <strong>⚠️ 注意:</strong> Alpha版のため、仕様変更の可能性があります。
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-page { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+  .plugin-container { display: grid; grid-template-columns: 260px 1fr; gap: 30px; }
+  .sidebar { background: white; border-radius: 15px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
+  .sidebar-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+  .plugin-icon { width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+  .plugin-icon.boss { background: linear-gradient(135deg, #6c5ce7 0%, #a55eea 100%); }
+  .sidebar h1 { font-size: 20px; color: #333; }
+  .version { font-size: 14px; color: #888; }
+  .download-buttons { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+  .btn { display: block; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.3s; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-github { background: #333; color: white; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 22px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content h4 { font-size: 14px; color: #666; margin: 15px 0 10px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+  .content ul { padding-left: 20px; }
+  .content li { margin-bottom: 8px; font-size: 14px; }
+  .info-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+  .info-item { font-size: 14px; color: #555; }
+  .highlight-box { background: linear-gradient(135deg, #6c5ce715 0%, #a55eea15 100%); padding: 25px; border-radius: 15px; border: 1px solid #6c5ce730; }
+  .highlight-box h3 { margin: 0 0 15px; font-size: 18px; color: #333; }
+  .highlight-box ul { margin: 0; padding-left: 20px; }
+  .highlight-box li { margin-bottom: 8px; }
+  .boss-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .boss-card { background: #f8f9fa; border-radius: 15px; padding: 20px; border: 2px solid transparent; }
+  .boss-card.zombie { border-color: #00b89420; background: linear-gradient(135deg, #00b89410 0%, #00b89405 100%); }
+  .boss-card.skeleton { border-color: #f39c1220; background: linear-gradient(135deg, #f39c1210 0%, #f39c1205 100%); }
+  .boss-card.spider { border-color: #9b59b620; background: linear-gradient(135deg, #9b59b610 0%, #9b59b605 100%); }
+  .boss-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .boss-emoji { font-size: 28px; }
+  .boss-card h3 { font-size: 16px; color: #333; margin: 0; }
+  .boss-hp { font-size: 13px; color: #e74c3c; font-weight: 600; margin-bottom: 15px; }
+  .boss-card h4 { font-size: 13px; color: #666; margin: 15px 0 8px; }
+  .boss-card ul { padding-left: 15px; margin: 0; }
+  .boss-card li { font-size: 12px; margin-bottom: 5px; }
+  .boss-card p { font-size: 12px; color: #888; margin: 0; }
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
+  code { background: #f1f1f1; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+  .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+  .table th { background: #f8f9fa; font-weight: 600; }
+  .file-list { list-style: none; padding: 0; }
+  .file-list li { padding: 10px 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 8px; }
+  .code-block { background: #2d3436; border-radius: 10px; padding: 20px; overflow-x: auto; margin: 15px 0; }
+  .code-block code { background: none; color: #dfe6e9; font-size: 13px; line-height: 1.6; }
+  .notice { padding: 15px 20px; border-radius: 8px; border-left: 4px solid; font-size: 14px; margin-top: 15px; }
+  .notice-info { background: #e7f5ff; border-left-color: #339af0; }
+  .notice-warning { background: #fff3cd; border-left-color: #ffc107; }
+  @media (max-width: 900px) {
+    .boss-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box { grid-template-columns: 1fr; }
+  }
+</style>
