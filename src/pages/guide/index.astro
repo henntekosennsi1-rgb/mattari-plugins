@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const articles = [
+  {
+    title: '【完全版】Minecraftサーバーの立て方ガイド',
+    slug: 'server-setup',
+    emoji: '🖥️',
+    description: 'Java版・統合版対応！初心者でも分かるサーバー構築の完全マニュアル。',
+    tags: ['初心者向け'],
+    date: '2026/01/10',
+    views: 12345,
+    hot: true,
+  },
+];
+---
+
+<Layout title="サーバー構築ガイド">
+  <Header currentPage="guide" />
+  
+  <section class="hero-small">
+    <h1>📖 サーバー構築ガイド</h1>
+    <p>Minecraftサーバーの立て方から運営まで解説</p>
+  </section>
+
+  <main class="main">
+    <div class="article-list">
+      {articles.map(article => (
+        <a href={`/mattari-plugins/guide/${article.slug}`} class="article-row">
+          <div class="article-emoji">{article.emoji}</div>
+          <div class="article-info">
+            <div class="article-tags">
+              {article.hot && <span class="tag tag-hot">🔥 人気</span>}
+              {article.tags.map(tag => <span class="tag">{tag}</span>)}
+            </div>
+            <h2>{article.title}</h2>
+            <p>{article.description}</p>
+            <div class="article-meta">
+              <span>📅 {article.date}</span>
+              <span>👁️ {article.views.toLocaleString()} views</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hero-small {
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+  }
+  .hero-small h1 {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .hero-small p {
+    font-size: 16px;
+    opacity: 0.9;
+  }
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .article-list {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  .article-row {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s;
+  }
+  .article-row:hover {
+    background: #f8f9fa;
+  }
+  .article-emoji {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+  .article-info {
+    flex: 1;
+  }
+  .article-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .tag {
+    padding: 4px 12px;
+    background: #e9ecef;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+  .tag-hot {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+    color: white;
+  }
+  .article-info h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .article-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .article-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+    color: #888;
+  }
+</style>
