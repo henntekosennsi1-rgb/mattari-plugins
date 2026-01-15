@@ -1,0 +1,219 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="MinecraftMOBA - LOL風MOBAプラグイン">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-page">
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="plugin-icon">⚔️</div>
+          <div>
+            <h1>MinecraftMOBA</h1>
+            <span class="version">v1.0.0</span>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/minecraftmoba.131767/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/minecraftmoba" class="btn btn-modrinth" target="_blank">Modrinth</a>
+          <a href="https://github.com/henntekosennsi1-rgb/MinecraftMOBA" class="btn btn-github" target="_blank">GitHub</a>
+        </div>
+
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#overview">概要</a></li>
+            <li><a href="#features">機能一覧</a></li>
+            <li><a href="#install">導入方法</a></li>
+            <li><a href="#commands">コマンド</a></li>
+            <li><a href="#setup">マップ設定</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section id="overview">
+          <h2>📖 概要</h2>
+          <p>MinecraftMOBAは、League of Legends風のMOBA PvPをMinecraftで実現するプラグインです。2チーム対戦、タワー、ミニオン、ショップ、レベルシステムを搭載しています。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot/Paper 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 21以上</div>
+            <div class="info-item"><strong>BE対応:</strong> ✅ Geyser/Floodgate対応</div>
+          </div>
+
+          <div class="highlight-box">
+            <h3>🎮 ゲームの特徴</h3>
+            <div class="feature-grid">
+              <div class="feature-item">
+                <span>🔴🔵</span>
+                <strong>2チーム対戦</strong>
+                <p>REDチーム vs BLUEチーム</p>
+              </div>
+              <div class="feature-item">
+                <span>🏰</span>
+                <strong>タワー＆コア</strong>
+                <p>敵のコアを破壊で勝利</p>
+              </div>
+              <div class="feature-item">
+                <span>👥</span>
+                <strong>ミニオン</strong>
+                <p>自動でレーンを進軍</p>
+              </div>
+              <div class="feature-item">
+                <span>🛒</span>
+                <strong>ショップ</strong>
+                <p>エメラルドで装備購入</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features">
+          <h2>✨ 機能一覧</h2>
+          <ul class="feature-list">
+            <li>✅ チーム管理システム（RED / BLUE）</li>
+            <li>✅ ゲーム状態管理（WAITING → STARTING → IN_GAME → ENDING）</li>
+            <li>✅ エメラルド経済システム</li>
+            <li>✅ 経験値・レベルシステム</li>
+            <li>✅ ショップシステム（GUI）</li>
+            <li>✅ ミニオン自動スポーン</li>
+            <li>✅ タワー攻撃システム</li>
+            <li>✅ コア破壊による勝敗判定</li>
+          </ul>
+        </section>
+
+        <section id="install">
+          <h2>📥 導入方法</h2>
+          <ol class="steps">
+            <li>SpigotMC または Modrinth からダウンロード</li>
+            <li><code>plugins</code> フォルダに配置</li>
+            <li>サーバーを起動</li>
+            <li><code>plugins/MinecraftMOBA/config.yml</code> が自動生成</li>
+            <li>マップの座標を設定（下記参照）</li>
+          </ol>
+        </section>
+
+        <section id="commands">
+          <h2>⌨️ コマンド</h2>
+          
+          <h3>プレイヤーコマンド</h3>
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/moba join</code></td><td>ゲームに参加</td></tr>
+              <tr><td><code>/moba leave</code></td><td>ゲームから退出</td></tr>
+              <tr><td><code>/moba stats</code></td><td>自分の統計表示</td></tr>
+              <tr><td><code>/shop</code></td><td>ショップを開く</td></tr>
+            </tbody>
+          </table>
+
+          <h3>管理者コマンド</h3>
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/moba start</code></td><td>ゲームを開始</td></tr>
+              <tr><td><code>/moba stop</code></td><td>ゲームを停止</td></tr>
+              <tr><td><code>/moba reload</code></td><td>設定再読み込み</td></tr>
+              <tr><td><code>/moba setlobby</code></td><td>ロビー位置設定</td></tr>
+              <tr><td><code>/moba setspawn &lt;RED|BLUE&gt;</code></td><td>スポーン位置設定</td></tr>
+              <tr><td><code>/moba setcore &lt;RED|BLUE&gt;</code></td><td>コア位置設定</td></tr>
+              <tr><td><code>/moba settower &lt;RED|BLUE&gt; &lt;1-5&gt;</code></td><td>タワー位置設定</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="setup">
+          <h2>🗺️ マップ設定手順</h2>
+          <p>管理者権限で以下のコマンドを順番に実行してマップを設定します。</p>
+          
+          <div class="code-block">
+            <pre><code># 1. ロビー設定
+/moba setlobby
+
+# 2. 各チームのスポーン設定
+/moba setspawn RED
+/moba setspawn BLUE
+
+# 3. 各チームのコア設定
+/moba setcore RED
+/moba setcore BLUE
+
+# 4. タワー設定（各チーム5本）
+/moba settower RED 1
+/moba settower RED 2
+...
+/moba settower BLUE 5</code></pre>
+          </div>
+
+          <div class="notice notice-info">
+            <strong>💡 ヒント:</strong> ミニオンのウェイポイントはconfig.ymlを直接編集して設定します。
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-page { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+  .plugin-container { display: grid; grid-template-columns: 260px 1fr; gap: 30px; }
+  .sidebar { background: white; border-radius: 15px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
+  .sidebar-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+  .plugin-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+  .sidebar h1 { font-size: 20px; color: #333; }
+  .version { font-size: 14px; color: #888; }
+  .download-buttons { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+  .btn { display: block; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.3s; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-github { background: #333; color: white; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 22px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+  .info-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+  .info-item { font-size: 14px; color: #555; }
+  .highlight-box { background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 25px; border-radius: 15px; border: 1px solid #667eea30; }
+  .highlight-box h3 { margin: 0 0 20px; font-size: 18px; color: #333; }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-item { background: white; padding: 15px; border-radius: 10px; text-align: center; }
+  .feature-item span { font-size: 28px; display: block; margin-bottom: 8px; }
+  .feature-item strong { display: block; margin-bottom: 5px; font-size: 14px; }
+  .feature-item p { margin: 0; font-size: 12px; color: #888; }
+  .feature-list { padding-left: 0; list-style: none; }
+  .feature-list li { padding: 10px 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 8px; font-size: 14px; }
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
+  code { background: #f1f1f1; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+  .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+  .table th { background: #f8f9fa; font-weight: 600; }
+  .code-block { background: #2d3436; border-radius: 10px; padding: 20px; overflow-x: auto; margin: 15px 0; }
+  .code-block code { background: none; color: #dfe6e9; font-size: 13px; line-height: 1.6; }
+  .notice { padding: 15px 20px; border-radius: 8px; border-left: 4px solid; font-size: 14px; }
+  .notice-info { background: #e7f5ff; border-left-color: #339af0; }
+  @media (max-width: 768px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box, .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
