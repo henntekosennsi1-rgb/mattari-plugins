@@ -1,0 +1,332 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="1vs1 - PvP対戦プラグイン">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-page">
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="plugin-icon pvp">⚔️</div>
+          <div>
+            <h1>1vs1</h1>
+            <span class="version">v1.0</span>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="https://www.spigotmc.org/resources/1vs1.131769/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/1vs1" class="btn btn-modrinth" target="_blank">Modrinth</a>
+          <a href="https://github.com/henntekosennsi1-rgb/1vs1" class="btn btn-github" target="_blank">GitHub</a>
+        </div>
+
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#overview">概要</a></li>
+            <li><a href="#features">機能一覧</a></li>
+            <li><a href="#install">導入方法</a></li>
+            <li><a href="#commands">コマンド</a></li>
+            <li><a href="#setup">セットアップ</a></li>
+            <li><a href="#betting">賭け機能</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section id="overview">
+          <h2>📖 概要</h2>
+          <p>1vs1は、プレイヤー同士の1対1 PvP対戦を管理するプラグインです。ランキングシステム、賭け機能、装備チェスト、観戦機能など、本格的なPvPアリーナを構築できます。</p>
+          
+          <div class="info-box">
+            <div class="info-item"><strong>対応バージョン:</strong> Spigot/Paper 1.21.x</div>
+            <div class="info-item"><strong>Java:</strong> 21以上</div>
+            <div class="info-item"><strong>BE対応:</strong> ✅ Geyser/Floodgate対応</div>
+          </div>
+
+          <div class="highlight-box">
+            <h3>🎯 主な特徴</h3>
+            <div class="feature-grid">
+              <div class="feature-item">
+                <span>⚔️</span>
+                <strong>1vs1 対戦</strong>
+                <p>公平な1対1バトル</p>
+              </div>
+              <div class="feature-item">
+                <span>🏆</span>
+                <strong>ランキング</strong>
+                <p>勝敗によるランク変動</p>
+              </div>
+              <div class="feature-item">
+                <span>💰</span>
+                <strong>賭け機能</strong>
+                <p>エメラルドを賭けて対戦</p>
+              </div>
+              <div class="feature-item">
+                <span>📦</span>
+                <strong>装備チェスト</strong>
+                <p>対戦用装備を自動配布</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features">
+          <h2>✨ 機能一覧</h2>
+          <ul class="feature-list">
+            <li>✅ 1vs1マッチングシステム</li>
+            <li>✅ 対戦アリーナ（2地点設定）</li>
+            <li>✅ 装備チェスト（各プレイヤー用）</li>
+            <li>✅ 勝敗によるランキングシステム</li>
+            <li>✅ エメラルドを使った賭け機能</li>
+            <li>✅ 対戦参加キュー管理</li>
+            <li>✅ 試合中の途中離脱ペナルティ</li>
+          </ul>
+        </section>
+
+        <section id="install">
+          <h2>📥 導入方法</h2>
+          <ol class="steps">
+            <li>SpigotMC または Modrinth からダウンロード</li>
+            <li><code>plugins</code> フォルダに配置</li>
+            <li>サーバーを起動</li>
+            <li>アリーナの座標を設定（下記参照）</li>
+            <li>装備チェストを設置・設定</li>
+          </ol>
+
+          <div class="notice notice-info">
+            <strong>💡 依存プラグイン:</strong> 賭け機能を使用する場合は <strong>EmeraldBank</strong> が必要です。
+          </div>
+        </section>
+
+        <section id="commands">
+          <h2>⌨️ コマンド</h2>
+          
+          <h3>プレイヤーコマンド</h3>
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/pvp join</code></td>
+                <td>対戦キューに参加</td>
+              </tr>
+              <tr>
+                <td><code>/pvp bet &lt;金額&gt;</code></td>
+                <td>エメラルドを賭けて参加</td>
+              </tr>
+              <tr>
+                <td><code>/pvp list</code></td>
+                <td>待機中のプレイヤー一覧</td>
+              </tr>
+              <tr>
+                <td><code>/pvp ranklist</code></td>
+                <td>ランキングを表示</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>管理者コマンド</h3>
+          <table class="table">
+            <thead>
+              <tr><th>コマンド</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/pvp start</code></td>
+                <td>対戦を強制開始</td>
+              </tr>
+              <tr>
+                <td><code>/pvp stop</code></td>
+                <td>進行中の対戦を停止</td>
+              </tr>
+              <tr>
+                <td><code>/pvp setpoint1</code></td>
+                <td>アリーナ地点1を設定</td>
+              </tr>
+              <tr>
+                <td><code>/pvp setpoint2</code></td>
+                <td>アリーナ地点2を設定</td>
+              </tr>
+              <tr>
+                <td><code>/pvp setchest1</code></td>
+                <td>プレイヤー1用装備チェスト設定</td>
+              </tr>
+              <tr>
+                <td><code>/pvp setchest2</code></td>
+                <td>プレイヤー2用装備チェスト設定</td>
+              </tr>
+              <tr>
+                <td><code>/pvp setrank &lt;プレイヤー&gt; &lt;ランク&gt;</code></td>
+                <td>プレイヤーのランクを設定</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="notice notice-info">
+            <strong>💡 エイリアス:</strong> <code>/1v1</code> でも同じコマンドが使えます。
+          </div>
+        </section>
+
+        <section id="setup">
+          <h2>🗺️ セットアップ手順</h2>
+          
+          <h3>1. アリーナの設定</h3>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <span class="step-num">1</span>
+              <div>
+                <strong>対戦地点1を設定</strong>
+                <p>プレイヤー1のスポーン位置に立って <code>/pvp setpoint1</code></p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">2</span>
+              <div>
+                <strong>対戦地点2を設定</strong>
+                <p>プレイヤー2のスポーン位置に立って <code>/pvp setpoint2</code></p>
+              </div>
+            </div>
+          </div>
+
+          <h3>2. 装備チェストの設定</h3>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <span class="step-num">1</span>
+              <div>
+                <strong>チェストを設置</strong>
+                <p>対戦用装備を入れたチェストを2つ設置</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">2</span>
+              <div>
+                <strong>チェスト1を登録</strong>
+                <p>チェストを見ながら <code>/pvp setchest1</code></p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">3</span>
+              <div>
+                <strong>チェスト2を登録</strong>
+                <p>もう一方のチェストを見ながら <code>/pvp setchest2</code></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice notice-warning">
+            <strong>⚠️ 注意:</strong> 装備チェストには同じ内容を入れることで公平な対戦ができます。
+          </div>
+        </section>
+
+        <section id="betting">
+          <h2>💰 賭け機能</h2>
+          <p>EmeraldBankと連携して、エメラルドを賭けた対戦ができます。</p>
+          
+          <h3>賭けの流れ</h3>
+          <div class="betting-flow">
+            <div class="flow-item">
+              <div class="flow-icon">1️⃣</div>
+              <div>
+                <strong>賭け金を指定して参加</strong>
+                <p><code>/pvp bet 1000</code> で1000エメラルドを賭けて参加</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">
+              <div class="flow-icon">2️⃣</div>
+              <div>
+                <strong>同額の相手を待つ</strong>
+                <p>同じ金額で参加した相手とマッチング</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">
+              <div class="flow-icon">3️⃣</div>
+              <div>
+                <strong>勝者が総取り</strong>
+                <p>勝者が賭け金の合計を獲得</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice notice-info">
+            <strong>💡 ポイント:</strong> 賭け金なしの <code>/pvp join</code> でも参加できます。賭けなし同士でマッチングします。
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-page { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+  .plugin-container { display: grid; grid-template-columns: 260px 1fr; gap: 30px; }
+  .sidebar { background: white; border-radius: 15px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
+  .sidebar-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+  .plugin-icon { width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+  .plugin-icon.pvp { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+  .sidebar h1 { font-size: 20px; color: #333; }
+  .version { font-size: 14px; color: #888; }
+  .download-buttons { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+  .btn { display: block; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.3s; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-github { background: #333; color: white; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #555; text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: #667eea; }
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 22px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+  .info-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+  .info-item { font-size: 14px; color: #555; }
+  .highlight-box { background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%); padding: 25px; border-radius: 15px; border: 1px solid #e74c3c30; }
+  .highlight-box h3 { margin: 0 0 20px; font-size: 18px; color: #333; }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-item { background: white; padding: 15px; border-radius: 10px; text-align: center; }
+  .feature-item span { font-size: 28px; display: block; margin-bottom: 8px; }
+  .feature-item strong { display: block; margin-bottom: 5px; font-size: 14px; }
+  .feature-item p { margin: 0; font-size: 12px; color: #888; }
+  .feature-list { padding-left: 0; list-style: none; }
+  .feature-list li { padding: 10px 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 8px; font-size: 14px; }
+  .steps { padding-left: 20px; }
+  .steps li { margin-bottom: 10px; font-size: 15px; }
+  code { background: #f1f1f1; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+  .table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+  .table th { background: #f8f9fa; font-weight: 600; }
+  .setup-steps { display: flex; flex-direction: column; gap: 15px; margin: 20px 0; }
+  .setup-step { display: flex; align-items: flex-start; gap: 15px; background: #f8f9fa; padding: 15px 20px; border-radius: 10px; }
+  .step-num { width: 30px; height: 30px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+  .setup-step strong { display: block; font-size: 14px; color: #333; margin-bottom: 5px; }
+  .setup-step p { margin: 0; font-size: 13px; color: #666; }
+  .betting-flow { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+  .flow-item { flex: 1; min-width: 200px; background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center; }
+  .flow-icon { font-size: 30px; margin-bottom: 10px; }
+  .flow-item strong { display: block; font-size: 14px; color: #333; margin-bottom: 8px; }
+  .flow-item p { margin: 0; font-size: 12px; color: #666; }
+  .flow-arrow { font-size: 24px; color: #ccc; }
+  .notice { padding: 15px 20px; border-radius: 8px; border-left: 4px solid; font-size: 14px; margin-top: 15px; }
+  .notice-info { background: #e7f5ff; border-left-color: #339af0; }
+  .notice-warning { background: #fff3cd; border-left-color: #ffc107; }
+  @media (max-width: 768px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .info-box, .feature-grid { grid-template-columns: 1fr; }
+    .betting-flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
