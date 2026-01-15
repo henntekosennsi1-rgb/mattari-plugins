@@ -3,47 +3,81 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const articles = [
+const guides = [
   {
-    title: '【完全版】Minecraftサーバーの立て方ガイド',
+    title: 'サーバーの入り方ガイド',
+    slug: 'how-to-join',
+    emoji: '🚪',
+    description: 'Java版・統合版（スマホ・Switch・PS・Xbox）すべての接続方法を解説。',
+    tags: ['初心者向け', '全プラットフォーム対応'],
+    status: 'ready',
+  },
+  {
+    title: 'サーバーの立て方ガイド',
     slug: 'server-setup',
     emoji: '🖥️',
-    description: 'Java版・統合版対応！初心者でも分かるサーバー構築の完全マニュアル。',
+    description: 'Paper/Spigotサーバーの構築方法を初心者向けに解説。',
+    tags: ['中級者向け', 'Java版'],
+    status: 'coming',
+  },
+  {
+    title: 'プラグインの導入方法',
+    slug: 'plugin-install',
+    emoji: '📦',
+    description: 'プラグインのダウンロードから導入までの手順。',
     tags: ['初心者向け'],
-    date: '2026/01/10',
-    views: 12345,
-    hot: true,
+    status: 'coming',
+  },
+  {
+    title: 'サーバールール・注意事項',
+    slug: 'rules',
+    emoji: '📋',
+    description: 'MattariMinecraftサーバーのルールと禁止事項。',
+    tags: ['必読'],
+    status: 'coming',
   },
 ];
 ---
 
-<Layout title="サーバー構築ガイド">
+<Layout title="ガイド一覧 - MattariMinecraft">
   <Header currentPage="guide" />
-  
+
   <section class="hero-small">
-    <h1>📖 サーバー構築ガイド</h1>
-    <p>Minecraftサーバーの立て方から運営まで解説</p>
+    <h1>📖 ガイド・チュートリアル</h1>
+    <p>サーバーへの参加方法や構築方法を解説しています</p>
   </section>
 
   <main class="main">
-    <div class="article-list">
-      {articles.map(article => (
-        <a href={`/mattari-plugins/guide/${article.slug}`} class="article-row">
-          <div class="article-emoji">{article.emoji}</div>
-          <div class="article-info">
-            <div class="article-tags">
-              {article.hot && <span class="tag tag-hot">🔥 人気</span>}
-              {article.tags.map(tag => <span class="tag">{tag}</span>)}
-            </div>
-            <h2>{article.title}</h2>
-            <p>{article.description}</p>
-            <div class="article-meta">
-              <span>📅 {article.date}</span>
-              <span>👁️ {article.views.toLocaleString()} views</span>
+    <div class="guide-grid">
+      {guides.map(guide => (
+        <a 
+          href={guide.status === 'ready' ? `/mattari-plugins/guide/${guide.slug}/` : '#'} 
+          class:list={['guide-card', { 'coming-soon': guide.status === 'coming' }]}
+        >
+          <div class="guide-emoji">{guide.emoji}</div>
+          <div class="guide-content">
+            <h3>
+              {guide.title}
+              {guide.status === 'coming' && <span class="badge-coming">準備中</span>}
+            </h3>
+            <p>{guide.description}</p>
+            <div class="guide-tags">
+              {guide.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
             </div>
           </div>
+          {guide.status === 'ready' && <span class="arrow">→</span>}
         </a>
       ))}
+    </div>
+
+    <div class="help-section">
+      <h2>❓ わからないことがあれば</h2>
+      <p>Discordで質問してください！管理人やメンバーがサポートします。</p>
+      <a href="https://discord.gg/zYY55dzhjd" class="btn-discord" target="_blank" rel="noopener noreferrer">
+        💬 Discordに参加する
+      </a>
     </div>
   </main>
 
@@ -65,70 +99,149 @@ const articles = [
     font-size: 16px;
     opacity: 0.9;
   }
+
   .main {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px 60px;
   }
-  .article-list {
+
+  .guide-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .guide-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     background: white;
     border-radius: 15px;
-    overflow: hidden;
-  }
-  .article-row {
-    display: flex;
-    gap: 20px;
     padding: 25px;
     text-decoration: none;
     color: inherit;
-    transition: background 0.3s;
+    transition: all 0.3s;
+    border: 2px solid transparent;
   }
-  .article-row:hover {
-    background: #f8f9fa;
+
+  .guide-card:not(.coming-soon):hover {
+    transform: translateX(5px);
+    border-color: #667eea;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
   }
-  .article-emoji {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  .guide-card.coming-soon {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .guide-emoji {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea15, #764ba215);
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
+    font-size: 28px;
     flex-shrink: 0;
   }
-  .article-info {
+
+  .guide-content {
     flex: 1;
   }
-  .article-tags {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-  .tag {
-    padding: 4px 12px;
-    background: #e9ecef;
-    border-radius: 20px;
-    font-size: 12px;
-  }
-  .tag-hot {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-    color: white;
-  }
-  .article-info h2 {
+
+  .guide-content h3 {
     font-size: 18px;
     font-weight: 700;
+    color: #333;
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .article-info p {
+
+  .badge-coming {
+    font-size: 11px;
+    background: #ffc107;
+    color: #333;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  .guide-content p {
     font-size: 14px;
     color: #666;
     margin-bottom: 10px;
+    line-height: 1.5;
   }
-  .article-meta {
+
+  .guide-tags {
     display: flex;
-    gap: 20px;
-    font-size: 13px;
-    color: #888;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 11px;
+    background: #f0f0f0;
+    color: #555;
+    padding: 4px 10px;
+    border-radius: 15px;
+  }
+
+  .arrow {
+    font-size: 20px;
+    color: #667eea;
+    font-weight: bold;
+  }
+
+  .help-section {
+    margin-top: 50px;
+    background: linear-gradient(135deg, #667eea15, #764ba215);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .help-section h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .help-section p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .btn-discord {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #5865F2;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s;
+  }
+
+  .btn-discord:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(88, 101, 242, 0.3);
+  }
+
+  @media (max-width: 600px) {
+    .guide-card {
+      flex-direction: column;
+      text-align: center;
+    }
+    .arrow {
+      display: none;
+    }
   }
 </style>
