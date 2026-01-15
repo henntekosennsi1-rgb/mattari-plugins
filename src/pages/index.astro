@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import PluginCard from '../components/PluginCard.astro';
+import Footer from '../components/Footer.astro';
+
+const popularArticles = [
+  {
+    title: '【完全版】Minecraftサーバーの立て方ガイド',
+    slug: 'server-setup',
+    emoji: '🖥️',
+    description: 'Java版・統合版対応！初心者でも分かるサーバー構築の完全マニュアル。',
+    tags: ['初心者向け'],
+    date: '2026/01/10',
+    views: 12345,
+    featured: true,
+    hot: true,
+  },
+  {
+    title: 'サーバーへの入り方・接続方法まとめ',
+    slug: 'how-to-join',
+    emoji: '🚪',
+    description: 'Java版・BE版それぞれの接続方法を画像付きで解説。',
+    tags: ['初心者向け'],
+    date: '2026/01/08',
+    views: 9876,
+    featured: true,
+    hot: true,
+  },
+];
+
+const popularPlugins = [
+  {
+    name: 'EmeraldBank',
+    slug: 'emeraldbank',
+    version: '3.5.0',
+    icon: '💎',
+    description: 'エメラルドを通貨として使用できる経済プラグイン。',
+    category: 'economy' as const,
+    tags: ['経済'],
+    downloads: 1234,
+  },
+  {
+    name: 'Zinro',
+    slug: 'zinro',
+    version: '1.8.0',
+    icon: '🐺',
+    description: '人狼ゲームをMinecraft内で遊べるプラグイン。',
+    category: 'minigame' as const,
+    tags: ['ミニゲーム'],
+    downloads: 2456,
+  },
+];
+
+const news = [
+  { date: '2026/01/14', title: '🎉 サイトを公開しました！', content: 'プラグイン配布サイトをオープンしました。' },
+];
+---
+
+<Layout title="プラグイン配布サイト">
+  <Header currentPage="home" />
+  <Hero />
+
+  <main class="main">
+    <div class="section-title">
+      <div class="section-icon section-icon-red">📢</div>
+      <h2>お知らせ</h2>
+    </div>
+    <div class="section-body">
+      {news.map(item => (
+        <div class="news-item">
+          <span class="news-date">{item.date}</span>
+          <div><strong>{item.title}</strong><p>{item.content}</p></div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-title">
+      <div class="section-icon section-icon-primary">📖</div>
+      <h2>人気記事</h2>
+    </div>
+    <div class="section-body">
+      <div class="article-grid">
+        {popularArticles.map(article => (
+          <ArticleCard {...article} />
+        ))}
+      </div>
+    </div>
+
+    <div class="section-title">
+      <div class="section-icon section-icon-green">⭐</div>
+      <h2>人気のプラグイン</h2>
+    </div>
+    <div class="section-body">
+      <div class="card-grid">
+        {popularPlugins.map(plugin => (
+          <PluginCard {...plugin} />
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .news-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .news-date {
+    background: #667eea;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  @media (max-width: 768px) {
+    .article-grid, .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
