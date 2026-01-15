@@ -1,0 +1,417 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="サーバールール・注意事項 - MattariMinecraft">
+  <Header currentPage="guide" />
+
+  <main class="rules-page">
+    <div class="rules-header">
+      <h1>📋 サーバールール・注意事項</h1>
+      <p>MattariMinecraftを楽しく遊ぶためのルールとガイドライン</p>
+    </div>
+
+    <div class="rules-container">
+      <aside class="sidebar">
+        <nav class="toc">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#first-steps">はじめに</a></li>
+            <li><a href="#discord-channels">Discordチャンネル</a></li>
+            <li><a href="#recommended">推奨されること</a></li>
+            <li><a href="#prohibited">禁止事項</a></li>
+            <li><a href="#building">建築ルール</a></li>
+            <li><a href="#anti-spam">荒らし対策</a></li>
+            <li><a href="#contact">困ったときは</a></li>
+          </ul>
+        </nav>
+
+        <div class="admin-card">
+          <h3>👥 管理人</h3>
+          <ul>
+            <li>へんりー</li>
+            <li>もち</li>
+            <li>ユノスケ</li>
+          </ul>
+          <p>困ったことがあれば相談してください！</p>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section id="first-steps">
+          <h2>🚀 はじめに（新規参加者向け）</h2>
+          
+          <div class="steps-box">
+            <h3>💬 Discordに入ったらまずやること</h3>
+            <ol>
+              <li><strong>自己紹介をしよう</strong> - たくさんお話したいので、皆さんのことを教えてください！</li>
+              <li><strong>チャンネルルール・注意事項を確認</strong></li>
+              <li><strong>VCに参加してみよう</strong> - ミュート・チャット専門でもOK！</li>
+            </ol>
+          </div>
+
+          <div class="steps-box">
+            <h3>⛏️ Minecraftサーバーに入ったらまずやること</h3>
+            <ol>
+              <li><code>/spawn</code> コマンドで初期スポーンを確認</li>
+              <li>周りを探索してみよう</li>
+              <li>気に入った場所をフェンスで囲んで土地を確保</li>
+              <li>建築を楽しもう！</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="discord-channels">
+          <h2>💬 Discordチャンネル一覧</h2>
+          
+          <div class="channel-grid">
+            <div class="channel-card">
+              <span class="channel-icon">📝</span>
+              <div class="channel-info">
+                <strong>参加ログ</strong>
+                <p>新しい人が来たらみんなでアクションしてね</p>
+              </div>
+            </div>
+            <div class="channel-card">
+              <span class="channel-icon">💭</span>
+              <div class="channel-info">
+                <strong>雑談</strong>
+                <p>基本の雑談はこちら！</p>
+              </div>
+            </div>
+            <div class="channel-card">
+              <span class="channel-icon">📷</span>
+              <div class="channel-info">
+                <strong>写真共有</strong>
+                <p>ゲーム内でとった写真、建築の自慢、お出かけ写真やご飯の写真も！</p>
+              </div>
+            </div>
+            <div class="channel-card">
+              <span class="channel-icon">👋</span>
+              <div class="channel-info">
+                <strong>自己紹介</strong>
+                <p>皆さんのことを教えてください！</p>
+              </div>
+            </div>
+            <div class="channel-card">
+              <span class="channel-icon">🎮</span>
+              <div class="channel-info">
+                <strong>ミニゲーム詳細</strong>
+                <p>サーバー内ミニゲームの情報</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice notice-info">
+            <strong>📱 サーバー入り方ガイド</strong>
+            <p>Java版、スマホ版・PC統合版、Switch版それぞれの入り方はDiscord内のチャンネルを確認してください。PS版は現在製作中（VCで説明します）</p>
+            <a href="/mattari-plugins/guide/how-to-join/" class="btn-link">→ 入り方ガイドを見る</a>
+          </div>
+        </section>
+
+        <section id="recommended">
+          <h2>✨ 推奨されること</h2>
+          
+          <div class="card-list">
+            <div class="recommend-card">
+              <span class="icon">🎤</span>
+              <div>
+                <strong>VCへの参加</strong>
+                <p>ミュート・チャット専門でもOK！意思疎通が取れると不測の事態にも対応できます</p>
+              </div>
+            </div>
+            <div class="recommend-card">
+              <span class="icon">💬</span>
+              <div>
+                <strong>コミュニケーション</strong>
+                <p>このサーバーはコミュニケーションを重視しています</p>
+              </div>
+            </div>
+            <div class="recommend-card">
+              <span class="icon">👋</span>
+              <div>
+                <strong>挨拶</strong>
+                <p>特に挨拶は大事にしています</p>
+              </div>
+            </div>
+            <div class="recommend-card">
+              <span class="icon">🏠</span>
+              <div>
+                <strong>建築・整地</strong>
+                <p>ゲーム内での建築や整地を楽しんでください</p>
+              </div>
+            </div>
+            <div class="recommend-card">
+              <span class="icon">👍</span>
+              <div>
+                <strong>アクション</strong>
+                <p>新しい人が来たら、写真が投稿されたら、リアクションで盛り上げよう！</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="prohibited">
+          <h2>🚫 禁止事項（ルール）</h2>
+          
+          <div class="warning-box">
+            <p>以下の行為は禁止されています。違反した場合はKICK・BANの対象となります。</p>
+          </div>
+
+          <div class="prohibited-list">
+            <div class="prohibited-item">
+              <span class="icon">💥</span>
+              <div>
+                <strong>荒らし行為</strong>
+                <p>基本的にすべての荒らし行為はNGです</p>
+              </div>
+            </div>
+            <div class="prohibited-item">
+              <span class="icon">⚠️</span>
+              <div>
+                <strong>ハラスメント</strong>
+                <p>セクハラなどのハラスメントはKICK対象となります</p>
+              </div>
+            </div>
+            <div class="prohibited-item">
+              <span class="icon">💬</span>
+              <div>
+                <strong>言動に注意</strong>
+                <p>他のプレイヤーへの配慮をお願いします</p>
+              </div>
+            </div>
+            <div class="prohibited-item">
+              <span class="icon">📩</span>
+              <div>
+                <strong>DMでの勧誘</strong>
+                <p>別サーバーの勧誘など常軌を逸した行為はやめてください</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="building">
+          <h2>🏗️ 建築ルール</h2>
+          
+          <div class="rule-cards">
+            <div class="rule-card">
+              <span class="num">1</span>
+              <div>
+                <strong>土地を確保する</strong>
+                <p>建築する場所はフェンスで囲んで主張してください（他の人と被らないようにするため）</p>
+              </div>
+            </div>
+            <div class="rule-card">
+              <span class="num">2</span>
+              <div>
+                <strong>人の建築は荒らさない</strong>
+                <p>他のプレイヤーの建築物を壊したり、改変しないでください</p>
+              </div>
+            </div>
+            <div class="rule-card">
+              <span class="num">3</span>
+              <div>
+                <strong>他の人のチェストを漁らない</strong>
+                <p>許可なく他人のチェストからアイテムを取らないでください</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="anti-spam">
+          <h2>🛡️ Discord荒らし対策</h2>
+          
+          <p>このDiscordサーバーでは、荒らし対策のためにBotが稼働しています。</p>
+
+          <h3>ポイント制ルール</h3>
+          <div class="point-table">
+            <div class="point-row">
+              <span class="action">同じ内容を繰り返して送信</span>
+              <span class="point">2回目で 1Pt</span>
+            </div>
+            <div class="point-row">
+              <span class="action">コピペ連投</span>
+              <span class="point">2回目で 1Pt</span>
+            </div>
+            <div class="point-row">
+              <span class="action">31〜40行のメッセージ</span>
+              <span class="point">1Pt</span>
+            </div>
+            <div class="point-row">
+              <span class="action">41〜50行のメッセージ</span>
+              <span class="point">2Pt</span>
+            </div>
+          </div>
+
+          <h3>ペナルティ</h3>
+          <div class="penalty-grid">
+            <div class="penalty-card warning">
+              <strong>3Pt</strong>
+              <span>ミュート（一時制限）</span>
+            </div>
+            <div class="penalty-card danger">
+              <strong>10Pt</strong>
+              <span>BAN</span>
+            </div>
+          </div>
+
+          <div class="notice notice-success">
+            <strong>😊 安心してください</strong>
+            <p>普通に会話したり、雑談しているだけなら問題ありません。ミスやうっかりで、いきなり重い罰になることはほぼありません。</p>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2>📞 困ったときは</h2>
+          
+          <div class="contact-box">
+            <h3>管理人に相談</h3>
+            <p>困ったことがあれば、以下の管理人に相談してください：</p>
+            <div class="admin-list">
+              <span class="admin-tag">へんりー</span>
+              <span class="admin-tag">もち</span>
+              <span class="admin-tag">ユノスケ</span>
+            </div>
+          </div>
+
+          <div class="contact-methods">
+            <div class="method-card">
+              <span class="icon">📝</span>
+              <strong>フォーラムで質問</strong>
+              <p>Discordのフォーラムチャンネルで質問してください</p>
+            </div>
+            <div class="method-card">
+              <span class="icon">📩</span>
+              <strong>DMで相談</strong>
+              <p>運営メンバーにDMしても大丈夫です</p>
+            </div>
+            <div class="method-card">
+              <span class="icon">🎤</span>
+              <strong>VCで直接聞く</strong>
+              <p>VCで直接聞いていただいてもOKです</p>
+            </div>
+          </div>
+
+          <div class="discord-cta">
+            <h3>Discordに参加しよう！</h3>
+            <p>質問・交流・情報共有はDiscordで！</p>
+            <a href="https://discord.gg/zYY55dzhjd" class="btn-discord" target="_blank" rel="noopener noreferrer">
+              💬 Discordに参加する
+            </a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .rules-page { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .rules-header { text-align: center; padding: 40px 0; color: white; }
+  .rules-header h1 { font-size: 32px; margin-bottom: 10px; }
+  .rules-header p { opacity: 0.9; }
+  
+  .rules-container { display: grid; grid-template-columns: 250px 1fr; gap: 30px; }
+  
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .toc { background: white; border-radius: 15px; padding: 20px; }
+  .toc h3 { font-size: 14px; color: #888; margin-bottom: 15px; }
+  .toc ul { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 10px; }
+  .toc a { color: #555; text-decoration: none; font-size: 13px; transition: color 0.3s; }
+  .toc a:hover { color: #667eea; }
+  
+  .admin-card { background: white; border-radius: 15px; padding: 20px; }
+  .admin-card h3 { font-size: 14px; color: #333; margin-bottom: 10px; }
+  .admin-card ul { list-style: none; padding: 0; margin: 0 0 10px 0; }
+  .admin-card li { font-size: 14px; padding: 5px 0; color: #555; }
+  .admin-card p { font-size: 12px; color: #888; }
+  
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 22px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 17px; color: #444; margin: 25px 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 50px; }
+  
+  .steps-box { background: #f8f9fa; border-radius: 12px; padding: 25px; margin-bottom: 20px; }
+  .steps-box h3 { margin-top: 0; font-size: 16px; color: #333; }
+  .steps-box ol { padding-left: 20px; margin: 15px 0 0 0; }
+  .steps-box li { margin-bottom: 10px; font-size: 14px; color: #555; }
+  .steps-box code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
+  .channel-card { display: flex; align-items: center; gap: 15px; background: #f8f9fa; border-radius: 10px; padding: 15px; }
+  .channel-icon { font-size: 24px; }
+  .channel-info strong { display: block; font-size: 14px; color: #333; margin-bottom: 3px; }
+  .channel-info p { font-size: 12px; color: #666; margin: 0; }
+  
+  .notice { padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+  .notice strong { display: block; margin-bottom: 5px; }
+  .notice p { margin: 0 0 10px 0; font-size: 14px; }
+  .notice-info { background: #e7f5ff; border-left: 4px solid #339af0; }
+  .notice-success { background: #d3f9d8; border-left: 4px solid #40c057; }
+  .btn-link { display: inline-block; color: #339af0; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .btn-link:hover { text-decoration: underline; }
+  
+  .card-list { display: flex; flex-direction: column; gap: 12px; }
+  .recommend-card { display: flex; align-items: center; gap: 15px; background: linear-gradient(135deg, #667eea10, #764ba210); border-radius: 10px; padding: 15px 20px; }
+  .recommend-card .icon { font-size: 24px; }
+  .recommend-card strong { display: block; font-size: 15px; color: #333; margin-bottom: 3px; }
+  .recommend-card p { font-size: 13px; color: #666; margin: 0; }
+  
+  .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; border-radius: 10px; margin-bottom: 20px; }
+  .warning-box p { margin: 0; font-size: 14px; color: #856404; }
+  
+  .prohibited-list { display: flex; flex-direction: column; gap: 12px; }
+  .prohibited-item { display: flex; align-items: center; gap: 15px; background: #fff5f5; border-radius: 10px; padding: 15px 20px; border-left: 4px solid #ff6b6b; }
+  .prohibited-item .icon { font-size: 24px; }
+  .prohibited-item strong { display: block; font-size: 15px; color: #c92a2a; margin-bottom: 3px; }
+  .prohibited-item p { font-size: 13px; color: #666; margin: 0; }
+  
+  .rule-cards { display: flex; flex-direction: column; gap: 15px; }
+  .rule-card { display: flex; align-items: center; gap: 20px; background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .rule-card .num { width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; flex-shrink: 0; }
+  .rule-card strong { display: block; font-size: 15px; color: #333; margin-bottom: 5px; }
+  .rule-card p { font-size: 13px; color: #666; margin: 0; }
+  
+  .point-table { background: #f8f9fa; border-radius: 10px; overflow: hidden; margin: 15px 0; }
+  .point-row { display: flex; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid #eee; }
+  .point-row:last-child { border-bottom: none; }
+  .point-row .action { font-size: 14px; color: #555; }
+  .point-row .point { font-size: 14px; font-weight: 600; color: #e67700; }
+  
+  .penalty-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 15px 0; }
+  .penalty-card { text-align: center; padding: 20px; border-radius: 10px; }
+  .penalty-card strong { display: block; font-size: 24px; margin-bottom: 5px; }
+  .penalty-card span { font-size: 14px; }
+  .penalty-card.warning { background: #fff3cd; color: #856404; }
+  .penalty-card.danger { background: #f8d7da; color: #721c24; }
+  
+  .contact-box { background: linear-gradient(135deg, #667eea15, #764ba215); border-radius: 15px; padding: 25px; margin-bottom: 20px; }
+  .contact-box h3 { margin-top: 0; }
+  .admin-list { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+  .admin-tag { background: #667eea; color: white; padding: 8px 15px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+  
+  .contact-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
+  .method-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .method-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .method-card strong { display: block; font-size: 14px; color: #333; margin-bottom: 5px; }
+  .method-card p { font-size: 12px; color: #666; margin: 0; }
+  
+  .discord-cta { background: linear-gradient(135deg, #5865F2, #7289da); border-radius: 15px; padding: 30px; text-align: center; color: white; margin-top: 30px; }
+  .discord-cta h3 { margin: 0 0 10px 0; font-size: 20px; }
+  .discord-cta p { margin: 0 0 20px 0; opacity: 0.9; }
+  .btn-discord { display: inline-block; padding: 14px 30px; background: white; color: #5865F2; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+  .btn-discord:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+  
+  @media (max-width: 900px) {
+    .rules-container { grid-template-columns: 1fr; }
+    .sidebar { order: 2; }
+    .contact-methods { grid-template-columns: 1fr; }
+    .penalty-grid { grid-template-columns: 1fr; }
+  }
+</style>
