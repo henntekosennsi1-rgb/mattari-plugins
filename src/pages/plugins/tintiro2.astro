@@ -1,0 +1,431 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Tintiro2 - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🎲</div>
+      <div class="plugin-title-area">
+        <h1>Tintiro2</h1>
+        <p class="plugin-subtitle">チンチロ（サイコロ賭博）ミニゲームプラグイン</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">経済連携</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>henry</td></tr>
+            <tr><td>カテゴリ</td><td>経済連携</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/tintiro2-chinchiro-dice-game-alpha.131735/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/tintiro2" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item">
+            <span class="dep-name">EmeraldBank</span>
+            <span class="dep-type required">必須</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Tintiro2は、日本の伝統的なサイコロ賭博ゲーム「チンチロ」をMinecraft内で遊べるプラグインです。</p>
+          <p>EmeraldBankと連携し、エメラルドを賭けて親と子に分かれて勝負！役によって配当が変わるドキドキのギャンブルゲームです。</p>
+        </section>
+
+        <section>
+          <h2>🎯 役と配当</h2>
+          <p>3つのサイコロを振って役を作ります。役によって配当倍率が変わります。</p>
+          
+          <div class="role-table">
+            <div class="role-header">
+              <span>役名</span>
+              <span>出目</span>
+              <span>配当</span>
+              <span>説明</span>
+            </div>
+            <div class="role-item role-jackpot">
+              <span class="role-name">🌟 ピンゾロ</span>
+              <span class="role-dice">1-1-1</span>
+              <span class="role-payout">5倍</span>
+              <span class="role-desc">最強の役！</span>
+            </div>
+            <div class="role-item role-high">
+              <span class="role-name">🎯 ゾロ目</span>
+              <span class="role-dice">X-X-X</span>
+              <span class="role-payout">3倍</span>
+              <span class="role-desc">同じ目が3つ（1以外）</span>
+            </div>
+            <div class="role-item role-good">
+              <span class="role-name">✨ シゴロ</span>
+              <span class="role-dice">4-5-6</span>
+              <span class="role-payout">2倍</span>
+              <span class="role-desc">順番に並んだ高い目</span>
+            </div>
+            <div class="role-item role-normal">
+              <span class="role-name">📊 通常の目</span>
+              <span class="role-dice">X-X-Y</span>
+              <span class="role-payout">1倍</span>
+              <span class="role-desc">2つ揃い＋別の目（目の数で勝負）</span>
+            </div>
+            <div class="role-item role-none">
+              <span class="role-name">❌ 役なし</span>
+              <span class="role-dice">バラバラ</span>
+              <span class="role-payout">-</span>
+              <span class="role-desc">振り直し（3回まで）</span>
+            </div>
+            <div class="role-item role-bad">
+              <span class="role-name">💧 ションベン</span>
+              <span class="role-dice">0を含む</span>
+              <span class="role-payout">1倍負け</span>
+              <span class="role-desc">サイコロが落ちた！</span>
+            </div>
+            <div class="role-item role-worst">
+              <span class="role-name">💀 ヒフミ</span>
+              <span class="role-dice">1-2-3</span>
+              <span class="role-payout">2倍負け</span>
+              <span class="role-desc">最弱の役…</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎮 ゲームの流れ</h2>
+          <div class="game-flow">
+            <div class="flow-step">
+              <div class="flow-num">1</div>
+              <div class="flow-content">
+                <strong>ロビー参加</strong>
+                <p><code>/tintiro join</code>でロビーに参加</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">2</div>
+              <div class="flow-content">
+                <strong>ベット額設定</strong>
+                <p>管理者が<code>/tintiro bet 1000</code>で全員のベット額を設定</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">3</div>
+              <div class="flow-content">
+                <strong>ゲーム開始</strong>
+                <p>管理者が<code>/tintiro start</code>でゲーム開始（実行者が親）</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">4</div>
+              <div class="flow-content">
+                <strong>親がサイコロを振る</strong>
+                <p><code>/tintiro open</code>でGUIを開いてサイコロを振る</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">5</div>
+              <div class="flow-content">
+                <strong>子が順番にサイコロを振る</strong>
+                <p>各プレイヤーが順番にサイコロを振り、親と勝負</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">6</div>
+              <div class="flow-content">
+                <strong>清算</strong>
+                <p>全員が振り終わったら自動でエメラルド清算！</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 特徴</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">💰</span>
+              <h4>EmeraldBank連携</h4>
+              <p>エメラルド経済と完全連携。勝ち負けで自動送金</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🖥️</span>
+              <h4>GUI操作</h4>
+              <p>サイコロを振る・スタンドをGUIで簡単操作</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📊</span>
+              <h4>スコアボード表示</h4>
+              <p>ゲーム状況・参加者・ベット額をリアルタイム表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎲</span>
+              <h4>ションベン機能</h4>
+              <p>確率でサイコロが0になる「ションベン」を再現</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <h3>プレイヤー用</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/tintiro join</code></td><td>ロビーに参加</td></tr>
+                <tr><td><code>/tintiro leave</code></td><td>ロビーから退出</td></tr>
+                <tr><td><code>/tintiro open</code></td><td>自分の番にサイコロGUIを開く</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top: 25px;">管理者用（OP権限必要）</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/tintiro bet &lt;金額&gt;</code></td><td>全員のベット額を設定</td></tr>
+                <tr><td><code>/tintiro start</code></td><td>ゲーム開始（実行者が親）</td></tr>
+                <tr><td><code>/tintiro stop</code></td><td>ゲームを強制終了</td></tr>
+                <tr><td><code>/tintiro setup spawn</code></td><td>初期リスポーン地点を設定</td></tr>
+                <tr><td><code>/tintiro setup lobby</code></td><td>ロビー地点を設定</td></tr>
+                <tr><td><code>/tintiro setup status</code></td><td>設定状況を確認</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-alias"><strong>エイリアス:</strong> <code>/ti</code></p>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-list">
+            <div class="config-item">
+              <code>shonben-probability-percent</code>
+              <span>ションベン（0）が出る確率（デフォルト: 5%）</span>
+            </div>
+            <div class="config-item">
+              <code>locations.spawn</code>
+              <span>初期リスポーン地点（途中抜け時の移動先）</span>
+            </div>
+            <div class="config-item">
+              <code>locations.lobby</code>
+              <span>ゲームロビー（ゲーム終了後の移動先）</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛠️ セットアップ手順</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>EmeraldBankをインストール</strong>
+                <p>先にEmeraldBankプラグインを導入してください。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>Tintiro2をインストール</strong>
+                <p>JARファイルをpluginsフォルダに配置し、再起動。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>地点を設定</strong>
+                <p><code>/tintiro setup spawn</code>と<code>/tintiro setup lobby</code>で地点設定。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <strong>遊ぶ！</strong>
+                <p>プレイヤーを集めてチンチロ開始！</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💡 ゲームのコツ</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">💰</span>
+              <div>
+                <strong>残高に注意！</strong>
+                <p>最大7倍の支払いが発生する可能性があります。ベット額×7以上の残高が必要です。</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🎲</span>
+              <div>
+                <strong>振り直しを活用</strong>
+                <p>役なしの場合は3回まで振り直しできます。良い役が出るまで粘りましょう！</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">⚠️</span>
+              <div>
+                <strong>ヒフミに注意</strong>
+                <p>1-2-3が出ると2倍負け確定。運も実力のうち…</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📥 インストール</h2>
+          <ol class="install-steps">
+            <li><strong>EmeraldBank</strong>プラグインを先にインストール</li>
+            <li>Tintiro2 JARファイルをダウンロード</li>
+            <li>サーバーの<code>plugins</code>フォルダに配置</li>
+            <li>サーバーを再起動</li>
+            <li>地点設定を完了</li>
+            <li>仲間を集めてチンチロ開始！</li>
+          </ol>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #00d4aa; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-name { font-weight: 600; font-size: 14px; }
+  .dep-type { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .dep-type.required { background: #ff6b6b; color: white; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #444; margin-bottom: 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Role Table */
+  .role-table { border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0; }
+  .role-header, .role-item { display: grid; grid-template-columns: 1fr 80px 80px 1fr; gap: 10px; padding: 12px 15px; align-items: center; }
+  .role-header { background: #333; color: white; font-weight: 600; font-size: 13px; }
+  .role-item { border-bottom: 1px solid #eee; font-size: 14px; }
+  .role-item:last-child { border-bottom: none; }
+  .role-name { font-weight: 600; }
+  .role-dice { font-family: monospace; text-align: center; }
+  .role-payout { text-align: center; font-weight: 700; }
+  .role-desc { color: #666; font-size: 13px; }
+  .role-jackpot { background: linear-gradient(135deg, #fff9e6, #fff3cd); }
+  .role-jackpot .role-payout { color: #ff9800; }
+  .role-high { background: #f0f9ff; }
+  .role-high .role-payout { color: #2196f3; }
+  .role-good { background: #f0fff4; }
+  .role-good .role-payout { color: #4caf50; }
+  .role-normal { background: #fafafa; }
+  .role-bad { background: #fff5f5; }
+  .role-bad .role-payout { color: #f44336; }
+  .role-worst { background: #ffebee; }
+  .role-worst .role-payout { color: #c62828; }
+
+  /* Game Flow */
+  .game-flow { display: flex; flex-direction: column; gap: 15px; }
+  .flow-step { display: flex; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .flow-num { width: 35px; height: 35px; background: linear-gradient(135deg, #00d4aa, #00b894); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .flow-content strong { display: block; margin-bottom: 5px; color: #333; }
+  .flow-content p { margin: 0; font-size: 14px; color: #666; }
+  .flow-content code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 13px; color: #666; margin: 0; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-alias { font-size: 13px; color: #666; margin-top: 10px; }
+  .command-alias code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; margin: 0 3px; }
+
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #667eea; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  .steps { display: flex; flex-direction: column; gap: 15px; }
+  .step { display: flex; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content strong { display: block; margin-bottom: 5px; color: #333; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+  .step-content code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; gap: 15px; padding: 15px; background: linear-gradient(135deg, #fff9e6, #fff3cd); border-radius: 10px; border-left: 4px solid #ffc107; }
+  .tip-icon { font-size: 24px; }
+  .tip-item strong { display: block; margin-bottom: 5px; color: #333; }
+  .tip-item p { margin: 0; font-size: 14px; color: #666; }
+
+  .install-steps { padding-left: 20px; }
+  .install-steps li { margin-bottom: 10px; font-size: 14px; color: #555; }
+  .install-steps code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .role-header, .role-item { grid-template-columns: 1fr 60px 60px; }
+    .role-desc { display: none; }
+  }
+</style>
