@@ -1,0 +1,530 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Poker - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">♠️</div>
+      <div class="plugin-title-area">
+        <h1>Poker</h1>
+        <p class="plugin-subtitle">テキサスホールデムポーカープラグイン</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.4.2</span>
+          <span class="badge category">経済連携</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.4.2</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>henry</td></tr>
+            <tr><td>カテゴリ</td><td>経済連携</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/poker-texas-holdem-alpha.131738/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/poker" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item">
+            <span class="dep-name">EmeraldBank</span>
+            <span class="dep-type required">必須</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Pokerは、カジノの花形「テキサスホールデム」をMinecraft内で本格的に遊べるプラグインです。</p>
+          <p>複数人でポットを賭け、プリフロップからリバーまでのベッティングラウンド、そしてショーダウンで最強の5枚役を競い合います。コミュニティカードは看板に表示され、臨場感たっぷり！</p>
+        </section>
+
+        <section>
+          <h2>🃏 テキサスホールデムとは</h2>
+          <div class="texas-holdem-box">
+            <div class="holdem-visual">
+              <div class="cards-area">
+                <div class="hole-cards">
+                  <div class="card-label">あなたの手札（2枚）</div>
+                  <div class="card-backs">
+                    <div class="card-back">🂠</div>
+                    <div class="card-back">🂠</div>
+                  </div>
+                </div>
+                <div class="plus-sign">＋</div>
+                <div class="community-cards">
+                  <div class="card-label">コミュニティカード（5枚）</div>
+                  <div class="card-fronts">
+                    <div class="card-front">🂡</div>
+                    <div class="card-front">🂢</div>
+                    <div class="card-front">🂣</div>
+                    <div class="card-front">🂤</div>
+                    <div class="card-front">🂥</div>
+                  </div>
+                </div>
+              </div>
+              <div class="result-text">
+                → この中から<strong>最強の5枚</strong>で役を作る！
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🏆 役の強さ一覧</h2>
+          <p>上から強い順に並んでいます。</p>
+          
+          <div class="hand-ranks">
+            <div class="hand-item rank-1">
+              <div class="hand-rank">#1</div>
+              <div class="hand-info">
+                <h4>ロイヤルストレートフラッシュ</h4>
+                <p>同じスートの10-J-Q-K-A</p>
+              </div>
+              <div class="hand-example">♠10 ♠J ♠Q ♠K ♠A</div>
+            </div>
+            <div class="hand-item rank-2">
+              <div class="hand-rank">#2</div>
+              <div class="hand-info">
+                <h4>ストレートフラッシュ</h4>
+                <p>同じスートの5連続</p>
+              </div>
+              <div class="hand-example">♥5 ♥6 ♥7 ♥8 ♥9</div>
+            </div>
+            <div class="hand-item rank-3">
+              <div class="hand-rank">#3</div>
+              <div class="hand-info">
+                <h4>フォーカード</h4>
+                <p>同じ数字4枚</p>
+              </div>
+              <div class="hand-example">K K K K 3</div>
+            </div>
+            <div class="hand-item rank-4">
+              <div class="hand-rank">#4</div>
+              <div class="hand-info">
+                <h4>フルハウス</h4>
+                <p>スリーカード＋ワンペア</p>
+              </div>
+              <div class="hand-example">Q Q Q 7 7</div>
+            </div>
+            <div class="hand-item rank-5">
+              <div class="hand-rank">#5</div>
+              <div class="hand-info">
+                <h4>フラッシュ</h4>
+                <p>同じスート5枚</p>
+              </div>
+              <div class="hand-example">♦2 ♦5 ♦8 ♦J ♦K</div>
+            </div>
+            <div class="hand-item rank-6">
+              <div class="hand-rank">#6</div>
+              <div class="hand-info">
+                <h4>ストレート</h4>
+                <p>5連続の数字</p>
+              </div>
+              <div class="hand-example">4 5 6 7 8</div>
+            </div>
+            <div class="hand-item rank-7">
+              <div class="hand-rank">#7</div>
+              <div class="hand-info">
+                <h4>スリーカード</h4>
+                <p>同じ数字3枚</p>
+              </div>
+              <div class="hand-example">J J J 4 9</div>
+            </div>
+            <div class="hand-item rank-8">
+              <div class="hand-rank">#8</div>
+              <div class="hand-info">
+                <h4>ツーペア</h4>
+                <p>ペア2組</p>
+              </div>
+              <div class="hand-example">10 10 6 6 A</div>
+            </div>
+            <div class="hand-item rank-9">
+              <div class="hand-rank">#9</div>
+              <div class="hand-info">
+                <h4>ワンペア</h4>
+                <p>同じ数字2枚</p>
+              </div>
+              <div class="hand-example">8 8 3 J K</div>
+            </div>
+            <div class="hand-item rank-10">
+              <div class="hand-rank">#10</div>
+              <div class="hand-info">
+                <h4>ハイカード</h4>
+                <p>役なし（一番大きいカードで勝負）</p>
+              </div>
+              <div class="hand-example">2 5 7 9 K</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎮 ゲームの流れ</h2>
+          <div class="game-phases">
+            <div class="phase-item">
+              <div class="phase-header">
+                <span class="phase-num">1</span>
+                <h4>プリフロップ</h4>
+              </div>
+              <p>各プレイヤーに手札2枚が配られる。最初のベッティングラウンド。</p>
+            </div>
+            <div class="phase-item">
+              <div class="phase-header">
+                <span class="phase-num">2</span>
+                <h4>フロップ</h4>
+              </div>
+              <p>コミュニティカード3枚がオープン。2回目のベッティング。</p>
+              <div class="phase-cards">🂡 🂢 🂣 <span class="hidden-card">🂠</span> <span class="hidden-card">🂠</span></div>
+            </div>
+            <div class="phase-item">
+              <div class="phase-header">
+                <span class="phase-num">3</span>
+                <h4>ターン</h4>
+              </div>
+              <p>4枚目のコミュニティカードがオープン。3回目のベッティング。</p>
+              <div class="phase-cards">🂡 🂢 🂣 🂤 <span class="hidden-card">🂠</span></div>
+            </div>
+            <div class="phase-item">
+              <div class="phase-header">
+                <span class="phase-num">4</span>
+                <h4>リバー</h4>
+              </div>
+              <p>5枚目（最後）のコミュニティカードがオープン。最終ベッティング。</p>
+              <div class="phase-cards">🂡 🂢 🂣 🂤 🂥</div>
+            </div>
+            <div class="phase-item phase-showdown">
+              <div class="phase-header">
+                <span class="phase-num">5</span>
+                <h4>ショーダウン</h4>
+              </div>
+              <p>残ったプレイヤーが手札を公開！最強の5枚役を持つ人が勝利！</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎯 アクション</h2>
+          <div class="action-grid">
+            <div class="action-card action-fold">
+              <div class="action-icon">🚫</div>
+              <h4>フォールド (STAND)</h4>
+              <p>ゲームを降りる。賭けたチップは失うが、これ以上の損失を避けられる。</p>
+            </div>
+            <div class="action-card action-call">
+              <div class="action-icon">✅</div>
+              <h4>コール (CALL)</h4>
+              <p>現在の最高ベット額に合わせる。ゲームを続行。</p>
+            </div>
+            <div class="action-card action-raise">
+              <div class="action-icon">⬆️</div>
+              <h4>レイズ (RAISE)</h4>
+              <p>ベット額を引き上げる。他プレイヤーにプレッシャーをかける。</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 特徴</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🪧</span>
+              <h4>看板でカード表示</h4>
+              <p>コミュニティカード5枚を看板に表示。会場が華やかに！</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">👥</span>
+              <h4>マルチプレイヤー</h4>
+              <p>2人以上で同時プレイ可能。大人数で盛り上がれ！</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎮</span>
+              <h4>専用アイテム操作</h4>
+              <p>STAND/CALL/RAISEを棒アイテムで直感的に操作</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📊</span>
+              <h4>スコアボード表示</h4>
+              <p>ポット額・参加者・状態をリアルタイム表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🏆</span>
+              <h4>正確な役判定</h4>
+              <p>7枚から最強の5枚を自動判定。引き分け時はスプリットポット</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔒</span>
+              <h4>途中離脱対応</h4>
+              <p>切断や離脱時は自動フォールド処理</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <h3>管理者用</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/poker bet &lt;金額&gt;</code></td><td>参加費（ベット額）を設定</td><td>poker.admin.setup</td></tr>
+                <tr><td><code>/poker sign1-5</code></td><td>看板位置を設定（カード表示用）</td><td>poker.admin.setup</td></tr>
+                <tr><td><code>/poker start</code></td><td>ゲームを開始</td><td>poker.admin.control</td></tr>
+                <tr><td><code>/poker stop</code></td><td>ゲームを強制終了</td><td>poker.admin.control</td></tr>
+                <tr><td><code>/poker status</code></td><td>設定状況を確認</td><td>poker.player.info</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-alias"><strong>エイリアス:</strong> <code>/pk</code></p>
+        </section>
+
+        <section>
+          <h2>🔑 権限</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>poker.admin</code></td><td>全管理権限（以下すべて含む）</td><td>OP</td></tr>
+                <tr><td><code>poker.admin.setup</code></td><td>ベット額・看板・地点の設定</td><td>OP</td></tr>
+                <tr><td><code>poker.admin.control</code></td><td>ゲームの開始・終了</td><td>OP</td></tr>
+                <tr><td><code>poker.admin.debug</code></td><td>デバッグ機能の使用</td><td>OP</td></tr>
+                <tr><td><code>poker.player.info</code></td><td>ポット額・状況の確認</td><td>全員</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛠️ セットアップ手順</h2>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>プラグインをインストール</strong>
+                <p>EmeraldBankとPokerのJARファイルをpluginsフォルダに配置して再起動。</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>看板を5つ設置</strong>
+                <p>コミュニティカード表示用の看板を設置し、<code>/poker sign1</code>〜<code>/poker sign5</code>で登録。</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>ベット額を設定</strong>
+                <p><code>/poker bet 100</code>などでベット額を設定。</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <strong>参加看板を設置</strong>
+                <p>「[POKER]」と書いた看板を設置。プレイヤーがクリックで参加登録。</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <strong>ゲーム開始！</strong>
+                <p>参加者が揃ったら<code>/poker start</code>でゲーム開始！</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💡 攻略のコツ</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">📊</span>
+              <div>
+                <strong>ポジションを意識</strong>
+                <p>後から行動できるほど有利。他プレイヤーのアクションを見てから判断できる。</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🎭</span>
+              <div>
+                <strong>ブラフを混ぜる</strong>
+                <p>弱い手でもレイズすることで、相手を降ろせることも。ただし使いすぎ注意！</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🃏</span>
+              <div>
+                <strong>ドロー系は慎重に</strong>
+                <p>フラッシュやストレートを狙う場合、オッズ計算を。コストに見合わなければフォールド。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📥 インストール</h2>
+          <ol class="install-steps">
+            <li><strong>EmeraldBank</strong>プラグインを先にインストール</li>
+            <li>Poker JARファイルをダウンロード</li>
+            <li>サーバーの<code>plugins</code>フォルダに配置</li>
+            <li>サーバーを再起動</li>
+            <li>看板5つを設置して<code>/poker sign1-5</code>で登録</li>
+            <li><code>/poker bet</code>でベット額設定</li>
+            <li>参加看板を設置</li>
+            <li>友達を集めてポーカー大会開催！</li>
+          </ol>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #00d4aa; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-name { font-weight: 600; font-size: 14px; }
+  .dep-type { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .dep-type.required { background: #ff6b6b; color: white; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #444; margin-bottom: 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Texas Holdem Box */
+  .texas-holdem-box { background: #1a472a; border-radius: 15px; padding: 30px; }
+  .holdem-visual { text-align: center; }
+  .cards-area { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+  .hole-cards, .community-cards { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; }
+  .card-label { color: #aaa; font-size: 12px; margin-bottom: 10px; }
+  .card-backs, .card-fronts { display: flex; gap: 5px; justify-content: center; }
+  .card-back, .card-front { font-size: 36px; }
+  .card-back { color: #4a5568; }
+  .card-front { color: white; }
+  .plus-sign { color: white; font-size: 24px; font-weight: bold; }
+  .result-text { color: #ffd700; font-size: 16px; }
+
+  /* Hand Ranks */
+  .hand-ranks { display: flex; flex-direction: column; gap: 8px; }
+  .hand-item { display: grid; grid-template-columns: 50px 1fr auto; gap: 15px; padding: 12px 15px; border-radius: 10px; align-items: center; background: #f8f9fa; }
+  .hand-rank { font-weight: bold; font-size: 14px; color: white; background: #333; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .hand-info h4 { font-size: 14px; margin: 0 0 3px 0; color: #333; }
+  .hand-info p { font-size: 12px; margin: 0; color: #666; }
+  .hand-example { font-family: monospace; font-size: 13px; color: #555; white-space: nowrap; }
+  .rank-1 { background: linear-gradient(135deg, #ffd700, #ffec8b); }
+  .rank-1 .hand-rank { background: #d4af37; }
+  .rank-2 { background: linear-gradient(135deg, #e8e8e8, #f5f5f5); }
+  .rank-2 .hand-rank { background: #a0a0a0; }
+  .rank-3 { background: linear-gradient(135deg, #cd7f32, #daa06d); }
+  .rank-3 .hand-rank { background: #8b4513; }
+
+  /* Game Phases */
+  .game-phases { display: flex; flex-direction: column; gap: 15px; }
+  .phase-item { padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #667eea; }
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .phase-num { width: 30px; height: 30px; background: #667eea; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+  .phase-header h4 { margin: 0; font-size: 16px; color: #333; }
+  .phase-item p { margin: 0; font-size: 14px; color: #666; }
+  .phase-cards { margin-top: 10px; font-size: 24px; }
+  .hidden-card { opacity: 0.3; }
+  .phase-showdown { background: linear-gradient(135deg, #fff9e6, #fff3cd); border-left-color: #ffc107; }
+
+  /* Action Grid */
+  .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .action-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .action-icon { font-size: 36px; margin-bottom: 10px; }
+  .action-card h4 { font-size: 15px; margin: 0 0 8px 0; color: #333; }
+  .action-card p { font-size: 13px; color: #666; margin: 0; }
+  .action-fold { border-top: 4px solid #dc3545; }
+  .action-call { border-top: 4px solid #28a745; }
+  .action-raise { border-top: 4px solid #ffc107; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 13px; color: #666; margin: 0; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-alias { font-size: 13px; color: #666; margin-top: 10px; }
+  .command-alias code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  /* Setup Steps */
+  .setup-steps { display: flex; flex-direction: column; gap: 15px; }
+  .setup-step { display: flex; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content strong { display: block; margin-bottom: 5px; color: #333; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+  .step-content code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; gap: 15px; padding: 15px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 10px; border-left: 4px solid #4caf50; }
+  .tip-icon { font-size: 24px; }
+  .tip-item strong { display: block; margin-bottom: 5px; color: #333; }
+  .tip-item p { margin: 0; font-size: 14px; color: #666; }
+
+  .install-steps { padding-left: 20px; }
+  .install-steps li { margin-bottom: 10px; font-size: 14px; color: #555; }
+  .install-steps code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid, .action-grid { grid-template-columns: 1fr; }
+    .cards-area { flex-direction: column; }
+    .hand-item { grid-template-columns: 40px 1fr; }
+    .hand-example { display: none; }
+  }
+</style>
