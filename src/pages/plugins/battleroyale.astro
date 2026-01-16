@@ -1,0 +1,243 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Battleroyale - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🔫</div>
+      <div class="plugin-title-area">
+        <h1>Battleroyale</h1>
+        <p class="plugin-subtitle">バトルロイヤルミニゲームプラグイン</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0</span>
+          <span class="badge category">ミニゲーム</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>henry</td></tr>
+            <tr><td>カテゴリ</td><td>ミニゲーム</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/battleroyale-battle-royale-minigame-alpha.131747/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/battleroyalealpha" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <p class="no-dep">依存プラグインなし</p>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Battleroyaleは、最後の一人（またはチーム）になるまで戦うバトルロイヤル形式のミニゲームプラグインです。</p>
+          <p>プレイヤーはランダムな位置にスポーンし、チェストからアイテムを集めながら、縮小するワールドボーダーの中で生き残りを目指します。</p>
+        </section>
+
+        <section>
+          <h2>✨ 特徴</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🎯</span>
+              <h4>ワールドボーダー縮小</h4>
+              <p>時間経過で戦闘エリアが縮小。最終決戦へ向かう緊張感</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">👥</span>
+              <h4>チーム対応</h4>
+              <p>ソロまたはチームでのプレイに対応</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📦</span>
+              <h4>チェストシステム</h4>
+              <p>マップ内のチェストからランダムアイテムを取得</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🚪</span>
+              <h4>ロビーシステム</h4>
+              <p>参加看板・退出看板でスムーズにゲームに参加</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/btr join</code></td><td>ゲームに参加</td><td>全員</td></tr>
+                <tr><td><code>/btr leave</code></td><td>ゲームから退出</td><td>全員</td></tr>
+                <tr><td><code>/btr start</code></td><td>ゲームを開始</td><td>OP</td></tr>
+                <tr><td><code>/btr stop</code></td><td>ゲームを強制終了</td><td>OP</td></tr>
+                <tr><td><code>/btr setup</code></td><td>セットアップモード</td><td>OP</td></tr>
+                <tr><td><code>/btr reload</code></td><td>設定をリロード</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-list">
+            <div class="config-item">
+              <code>maxPlayers</code>
+              <span>最大参加人数（デフォルト: 16人）</span>
+            </div>
+            <div class="config-item">
+              <code>initialArea</code>
+              <span>ワールドボーダーの初期範囲（デフォルト: 1000ブロック）</span>
+            </div>
+            <div class="config-item">
+              <code>shrinkTime</code>
+              <span>ボーダー縮小間隔（デフォルト: 60秒）</span>
+            </div>
+            <div class="config-item">
+              <code>chestLocations</code>
+              <span>アイテムチェストの座標リスト</span>
+            </div>
+            <div class="config-item">
+              <code>itemPool</code>
+              <span>チェストに出現するアイテムリスト</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎮 遊び方</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>参加</strong>
+                <p>参加看板をクリックするか、<code>/btr join</code>でロビーに参加します。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>ゲーム開始</strong>
+                <p>人数が揃うか管理者が開始すると、ランダムな位置にテレポートします。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>アイテム収集</strong>
+                <p>マップ内のチェストから武器・防具・アイテムを集めましょう。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <strong>生き残れ！</strong>
+                <p>ワールドボーダーが縮小する前に安全地帯へ移動し、最後の一人を目指しましょう！</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📥 インストール</h2>
+          <ol class="install-steps">
+            <li>JARファイルをダウンロード</li>
+            <li>サーバーの<code>plugins</code>フォルダに配置</li>
+            <li>サーバーを再起動</li>
+            <li><code>/btr setup</code>で各地点を設定</li>
+            <li>チェストを配置してゲーム準備完了！</li>
+          </ol>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #ff6b6b; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+  .no-dep { font-size: 13px; color: #888; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 13px; color: #666; margin: 0; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #667eea; color: white; padding: 4px 10px; border-radius: 4px; font-size: 13px; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  .steps { display: flex; flex-direction: column; gap: 15px; }
+  .step { display: flex; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content strong { display: block; margin-bottom: 5px; color: #333; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+  .step-content code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+  .install-steps { padding-left: 20px; }
+  .install-steps li { margin-bottom: 10px; font-size: 14px; color: #555; }
+  .install-steps code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
