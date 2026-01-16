@@ -1,0 +1,316 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Ranking - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🏆</div>
+      <div class="plugin-title-area">
+        <h1>Ranking</h1>
+        <p class="plugin-subtitle">複数の統計をトラッキングしランキング＆報酬を提供</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">ユーティリティ</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>henry</td></tr>
+            <tr><td>カテゴリ</td><td>ユーティリティ</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/ranking.131770/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/ranking" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item">
+            <span class="dep-name">EmeraldBank</span>
+            <span class="dep-type required">必須</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Rankingは、プレイヤーの様々な活動を記録し、ランキング表示とエメラルド報酬を提供するプラグインです。</p>
+          <p>採掘・釣り・討伐など7種類の統計を自動でトラッキングし、看板にランキングを表示。月次で自動リセットされ、毎月新しい競争が始まります！</p>
+        </section>
+
+        <section>
+          <h2>📊 追跡される統計（7種類）</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-icon">⛏️</span>
+              <div class="stat-info">
+                <strong>採掘 (MINING)</strong>
+                <p>ブロックを破壊した回数</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">🎣</span>
+              <div class="stat-info">
+                <strong>釣り (FISHING)</strong>
+                <p>魚を釣り上げた回数</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">🧱</span>
+              <div class="stat-info">
+                <strong>設置 (PLACING)</strong>
+                <p>ブロックを設置した回数</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">🍖</span>
+              <div class="stat-info">
+                <strong>食事 (EATING)</strong>
+                <p>食料を食べた回数</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">⚔️</span>
+              <div class="stat-info">
+                <strong>討伐 (KILLING)</strong>
+                <p>モンスターを倒した回数</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">✨</span>
+              <div class="stat-info">
+                <strong>レベル (LEVEL)</strong>
+                <p>現在の経験値レベル</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">💥</span>
+              <div class="stat-info">
+                <strong>与ダメージ (DAMAGE)</strong>
+                <p>エンティティに与えた総ダメージ</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 特徴</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">💰</span>
+              <h4>エメラルド報酬</h4>
+              <p>設定した回数ごとにEmeraldBankと連携してエメラルドを自動付与</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🪧</span>
+              <h4>看板ランキング</h4>
+              <p>設置した看板にランキングを自動表示・定期更新</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💾</span>
+              <h4>自動保存</h4>
+              <p>定期的にデータを自動保存してデータ損失を防止</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📅</span>
+              <h4>月次リセット</h4>
+              <p>毎月1日に自動リセット（前月データはアーカイブ保存）</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <h3>プレイヤー用</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/ranking</code></td><td>自分の統計を表示</td><td>ranking.stats</td></tr>
+                <tr><td><code>/ranking stats [player]</code></td><td>指定プレイヤーの統計を表示</td><td>ranking.stats.others</td></tr>
+                <tr><td><code>/ranking top [type] [limit]</code></td><td>ランキングを表示</td><td>ranking.ranking</td></tr>
+                <tr><td><code>/ranking help</code></td><td>ヘルプを表示</td><td>全員</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top: 25px;">管理者用</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/ranking setsign &lt;type&gt; &lt;rank&gt;</code></td><td>ランキング看板を設置</td><td>ranking.admin</td></tr>
+                <tr><td><code>/ranking removesign</code></td><td>ランキング看板を削除</td><td>ranking.admin</td></tr>
+                <tr><td><code>/ranking updatesigns</code></td><td>全看板を即座に更新</td><td>ranking.admin</td></tr>
+                <tr><td><code>/ranking reload</code></td><td>設定をリロード</td><td>ranking.admin</td></tr>
+                <tr><td><code>/ranking reset</code></td><td>データを手動リセット</td><td>ranking.admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-alias"><strong>エイリアス:</strong> <code>/rank</code>, <code>/miningrank</code>, <code>/mrank</code></p>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <h3>報酬設定（統計タイプ別）</h3>
+          <div class="config-list">
+            <div class="config-item">
+              <code>rewards.mining.actions-per-emerald</code>
+              <span>エメラルド獲得に必要な採掘数（デフォルト: 20）</span>
+            </div>
+            <div class="config-item">
+              <code>rewards.fishing.actions-per-emerald</code>
+              <span>エメラルド獲得に必要な釣り回数（デフォルト: 30）</span>
+            </div>
+            <div class="config-item">
+              <code>rewards.killing.actions-per-emerald</code>
+              <span>エメラルド獲得に必要な討伐数（デフォルト: 50）</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 25px;">自動保存設定</h3>
+          <div class="config-list">
+            <div class="config-item">
+              <code>auto-save.interval-seconds</code>
+              <span>自動保存間隔（デフォルト: 300秒 = 5分）</span>
+            </div>
+            <div class="config-item">
+              <code>signs.update-interval</code>
+              <span>看板更新間隔（デフォルト: 300秒）</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 25px;">統計の有効化</h3>
+          <div class="config-list">
+            <div class="config-item">
+              <code>stats-enabled.mining</code>
+              <span>採掘カウントの有効/無効</span>
+            </div>
+            <div class="config-item">
+              <code>stats-enabled.fishing</code>
+              <span>釣りカウントの有効/無効</span>
+            </div>
+            <div class="config-item">
+              <code>stats-enabled.killing</code>
+              <span>討伐カウントの有効/無効</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🪧 看板の設置方法</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>コマンド実行</strong>
+                <p><code>/ranking setsign mining 1</code>（採掘ランキング1位を表示）</p>
+                <p><code>/ranking setsign killing 1-3</code>（討伐1〜3位を表示）</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>看板をクリック</strong>
+                <p>設置したい看板を<strong>右クリック</strong>します。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>自動表示開始</strong>
+                <p>看板にランキング情報が自動的に表示されます。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice notice-info" style="margin-top: 20px;">
+            <strong>💡 ヒント</strong>
+            <p>範囲指定（例: 1-3）の場合、最大4人まで表示可能です。</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>📥 インストール</h2>
+          <ol class="install-steps">
+            <li><strong>EmeraldBank</strong>プラグインを先にインストール</li>
+            <li>Ranking JARファイルをダウンロード</li>
+            <li>サーバーの<code>plugins</code>フォルダに配置</li>
+            <li>サーバーを再起動</li>
+            <li><code>/ranking</code>で動作確認！</li>
+          </ol>
+
+          <div class="notice notice-warning" style="margin-top: 20px;">
+            <strong>⚠️ 注意</strong>
+            <p>EmeraldBankが必須です。先にインストールしてください。</p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-name { font-weight: 600; font-size: 14px; }
+  .dep-type { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .dep-type.required { background: #ff6b6b; color: white; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #444; margin-bottom: 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .stat-card { display: flex; align-items: center; gap: 12px; padding: 15px; background: linear-gradient(135deg, #667eea10, #764ba210); b
