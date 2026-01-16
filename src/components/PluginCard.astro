@@ -7,10 +7,8 @@ interface Props {
   description: string;
   category: 'economy' | 'minigame' | 'utility' | 'world';
   tags: string[];
-  downloads?: number;
   bedrockSupport?: boolean;
 }
-
 const { 
   name, 
   slug,
@@ -19,10 +17,8 @@ const {
   description, 
   category, 
   tags, 
-  downloads = 0,
   bedrockSupport = true 
 } = Astro.props;
-
 const categoryClass = {
   economy: 'economy',
   minigame: 'minigame',
@@ -30,7 +26,6 @@ const categoryClass = {
   world: 'world',
 };
 ---
-
 <a href={`/mattari-plugins/plugins/${slug}`} class="plugin-card">
   <div class:list={['card-header', categoryClass[category]]}>
     <div class="card-icon">{icon}</div>
@@ -47,12 +42,10 @@ const categoryClass = {
       {tags.map(tag => <span class="tag">{tag}</span>)}
     </div>
     <div class="card-footer">
-      <span class="download-count">📥 <span>{downloads.toLocaleString()}</span> DL</span>
       <span class="detail-btn">詳細を見る →</span>
     </div>
   </div>
 </a>
-
 <style>
   .plugin-card {
     background: #f8f9fa;
@@ -140,18 +133,10 @@ const categoryClass = {
   }
   .card-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding-top: 15px;
     border-top: 1px solid #e9ecef;
-  }
-  .download-count {
-    font-size: 13px;
-    color: #888;
-  }
-  .download-count span {
-    font-weight: 700;
-    color: #667eea;
   }
   .detail-btn {
     padding: 8px 18px;
