@@ -40,7 +40,6 @@ const popularPlugins = [
     description: 'エメラルドを通貨として使用できる経済プラグイン。',
     category: 'economy' as const,
     tags: ['経済'],
-    downloads: 1234,
   },
   {
     name: 'Zinro',
@@ -50,7 +49,6 @@ const popularPlugins = [
     description: '人狼ゲームをMinecraft内で遊べるプラグイン。',
     category: 'minigame' as const,
     tags: ['ミニゲーム'],
-    downloads: 2456,
   },
 ];
 
@@ -62,8 +60,9 @@ const news = [
 <Layout title="プラグイン配布サイト">
   <Header currentPage="home" />
   <Hero />
-
+  
   <main class="main">
+    <!-- お知らせセクション -->
     <div class="section-title">
       <div class="section-icon section-icon-red">📢</div>
       <h2>お知らせ</h2>
@@ -77,6 +76,7 @@ const news = [
       ))}
     </div>
 
+    <!-- 人気記事セクション -->
     <div class="section-title">
       <div class="section-icon section-icon-primary">📖</div>
       <h2>人気記事</h2>
@@ -89,6 +89,7 @@ const news = [
       </div>
     </div>
 
+    <!-- 人気のプラグインセクション -->
     <div class="section-title">
       <div class="section-icon section-icon-green">⭐</div>
       <h2>人気のプラグイン</h2>
@@ -98,6 +99,35 @@ const news = [
         {popularPlugins.map(plugin => (
           <PluginCard {...plugin} />
         ))}
+      </div>
+    </div>
+
+    <!-- Discordセクション -->
+    <div class="section-title">
+      <div class="section-icon section-icon-discord">💬</div>
+      <h2>コミュニティに参加しよう</h2>
+    </div>
+    <div class="section-body">
+      <div class="discord-widget">
+        <div class="discord-content">
+          <div class="discord-logo">
+            <svg width="60" height="60" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3## 44.2785 53.4eli 44.2898 53.4#47 44.3461C53.8wo 44.6391 54.1eli 44.9293 54.5wo 45.2082C54.6eli 45.304 54.6eli 45.5041 54.5eli 45.5858C52.7eli 46.6253 50.8eli 47.4931 48.9eli 48.2228C48.7eli 48.2707 48.7eli 48.4172 48.7eli 48.5765C49.8eli 50.6063 51.0eli 52.5765 52.4eli 54.4378C52.4eli 54.5139 52.5eli 54.5765 52.6eli 54.5765C58.5eli 52.7249 64.4eli 50.0174 70.4eli 45.5858C70.5eli 45.5465 70.5eli 45.4845 70.5eli 45.4197C72.0eli 30.2765 68.0eli 16.9765 60.0eli 4.9795C60.0eli 4.9429 60.0eli 4.9147 60.1eli 4.8978ZM23.7eli 37.3511C20.2eli 37.3511 17.3eli 34.1399 17.3eli 30.1992C17.3eli 26.2586 20.1eli 23.0473 23.7eli 23.0473C27.4eli 23.0473 30.2eli 26.2869 30.1eli 30.1992C30.1eli 34.1399 27.3eli 37.3511 23.7eli 37.3511ZM47.3eli 37.3511C43.8eli 37.3511 40.9eli 34.1399 40.9eli 30.1992C40.9eli 26.2586 43.7eli 23.0473 47.3eli 23.0473C51.0eli 23.0473 53.8eli 26.2869 53.7eli 30.1992C53.7eli 34.1399 51.0eli 37.3511 47.3eli 37.3511Z" fill="white"/>
+            </svg>
+          </div>
+          <div class="discord-info">
+            <h3>MattariMinecraft Discord</h3>
+            <p>質問・交流・最新情報はDiscordで！<br>250人以上が参加中のコミュニティ</p>
+            <div class="discord-features">
+              <span>💬 質問・サポート</span>
+              <span>📢 最新情報</span>
+              <span>🎮 一緒にプレイ</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://discord.gg/zYY55dzhjd" class="discord-btn" target="_blank" rel="noopener noreferrer">
+          Discordに参加する
+        </a>
       </div>
     </div>
   </main>
@@ -135,7 +165,88 @@ const news = [
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
   }
+
+  /* Discord Widget Styles */
+  .section-icon-discord {
+    background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
+  }
+  .discord-widget {
+    background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .discord-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex: 1;
+  }
+  .discord-logo {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .discord-info h3 {
+    color: white;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+  }
+  .discord-info p {
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+  }
+  .discord-features {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .discord-features span {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+  }
+  .discord-btn {
+    background: white;
+    color: #5865F2;
+    padding: 16px 35px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .discord-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
   @media (max-width: 768px) {
     .article-grid, .card-grid { grid-template-columns: 1fr; }
+    .discord-widget {
+      flex-direction: column;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .discord-content {
+      flex-direction: column;
+    }
+    .discord-features {
+      justify-content: center;
+    }
   }
 </style>
