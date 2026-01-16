@@ -1,0 +1,457 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="BlackJack2 - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🃏</div>
+      <div class="plugin-title-area">
+        <h1>BlackJack2</h1>
+        <p class="plugin-subtitle">本格ブラックジャックカードゲームプラグイン</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">経済連携</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>henry</td></tr>
+            <tr><td>カテゴリ</td><td>経済連携</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/blackjack2-blackjack-card-game-alpha.131737/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/blackjack2" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item">
+            <span class="dep-name">EmeraldBank</span>
+            <span class="dep-type required">必須</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>BlackJack2は、カジノの定番ゲーム「ブラックジャック」をMinecraft内で遊べるプラグインです。</p>
+          <p>複数人で同時プレイ可能！カードはアイテムとして手に入り、HIT/STAND操作も専用アイテムで行います。EmeraldBankと連携し、エメラルドを賭けて勝負！</p>
+        </section>
+
+        <section>
+          <h2>🎯 ブラックジャックのルール</h2>
+          <div class="rule-box">
+            <div class="rule-item">
+              <span class="rule-icon">🎯</span>
+              <div>
+                <strong>目標: 21を目指せ！</strong>
+                <p>手札の合計を21に近づけよう。21を超えたらバースト（負け）！</p>
+              </div>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon">🃏</span>
+              <div>
+                <strong>カードの点数</strong>
+                <p>2-10: 数字通り / J,Q,K: 10点 / A: 1点 or 11点（有利な方）</p>
+              </div>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon">🏆</span>
+              <div>
+                <strong>勝利条件</strong>
+                <p>21を超えずに最も高いスコアの人が勝ち！同点なら枚数が少ない人が勝利</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎮 遊び方</h2>
+          <div class="play-flow">
+            <div class="flow-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>ロビーに参加</strong>
+                <p><code>/blackjack join</code>または看板をクリックして参加</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>ベット額を設定</strong>
+                <p><code>/blackjack bet 100</code>またはbet看板をクリック</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>ゲーム開始</strong>
+                <p>管理者が<code>/blackjack start</code>でゲーム開始！初期カード2枚が配られます</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <strong>HIT or STAND</strong>
+                <p>🟢HIT棒でカードを引く / 🔴STAND棒で確定</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <strong>結果発表</strong>
+                <p>全員がSTANDしたら自動で結果発表！勝者にポット分配</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 特徴</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">👥</span>
+              <h4>複数人同時プレイ</h4>
+              <p>何人でも同時参加OK！全員でポットを賭けて勝負</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🃏</span>
+              <h4>カードがアイテムに</h4>
+              <p>トランプカードが紙アイテムとして手に入る！</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🪧</span>
+              <h4>看板システム</h4>
+              <p>参加・退出・ベット変更を看板クリックで操作</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📊</span>
+              <h4>スコアボード表示</h4>
+              <p>参加者・ベット額・ポット金額をリアルタイム表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎮</span>
+              <h4>専用操作アイテム</h4>
+              <p>HIT棒・STAND棒で直感的に操作</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔒</span>
+              <h4>バースト非公開</h4>
+              <p>バーストしても他プレイヤーには分からない駆け引き！</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <h3>プレイヤー用</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/blackjack join</code></td><td>ロビーに参加</td></tr>
+                <tr><td><code>/blackjack leave</code></td><td>ロビーから退出</td></tr>
+                <tr><td><code>/blackjack bet &lt;金額&gt;</code></td><td>ベット額を設定（全員に適用）</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top: 25px;">管理者用</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/blackjack start</code></td><td>ゲームを開始</td><td>blackjack2.start</td></tr>
+                <tr><td><code>/blackjack stop</code></td><td>ゲームを強制終了</td><td>blackjack2.stop</td></tr>
+                <tr><td><code>/blackjack setup spawn</code></td><td>初期リスポーン地点を設定</td><td>blackjack2.setup</td></tr>
+                <tr><td><code>/blackjack setup lobby</code></td><td>ロビー地点を設定</td><td>blackjack2.setup</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🪧 看板の設置方法</h2>
+          <p>看板を設置して特定の内容を入力すると、自動でフォーマットされます。</p>
+          
+          <div class="sign-examples">
+            <div class="sign-card">
+              <div class="sign-preview">
+                <div class="sign-line">[BlackJack]</div>
+                <div class="sign-line">lobby</div>
+                <div class="sign-line sign-auto">参加者: 0人</div>
+                <div class="sign-line sign-auto">(自動)</div>
+              </div>
+              <div class="sign-info">
+                <h4>参加看板</h4>
+                <p>クリックでロビー参加＆lobby地点にテレポート</p>
+                <code>1行目: [BlackJack]<br>2行目: lobby</code>
+              </div>
+            </div>
+            <div class="sign-card">
+              <div class="sign-preview">
+                <div class="sign-line">[BlackJack]</div>
+                <div class="sign-line">leave</div>
+                <div class="sign-line sign-auto">退出</div>
+                <div class="sign-line sign-auto">(自動)</div>
+              </div>
+              <div class="sign-info">
+                <h4>退出看板</h4>
+                <p>クリックでロビー退出＆spawn地点にテレポート</p>
+                <code>1行目: [BlackJack]<br>2行目: leave</code>
+              </div>
+            </div>
+            <div class="sign-card">
+              <div class="sign-preview">
+                <div class="sign-line">[BlackJack]</div>
+                <div class="sign-line">bet</div>
+                <div class="sign-line">100</div>
+                <div class="sign-line sign-auto">100 E</div>
+              </div>
+              <div class="sign-info">
+                <h4>ベット看板</h4>
+                <p>クリックでベット額を変更</p>
+                <code>1行目: [BlackJack]<br>2行目: bet<br>3行目: 100</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎴 カードの点数一覧</h2>
+          <div class="card-points">
+            <div class="card-row">
+              <div class="card-item ace">
+                <span class="card-rank">A</span>
+                <span class="card-value">1 or 11</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">2</span>
+                <span class="card-value">2</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">3</span>
+                <span class="card-value">3</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">4</span>
+                <span class="card-value">4</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">5</span>
+                <span class="card-value">5</span>
+              </div>
+            </div>
+            <div class="card-row">
+              <div class="card-item">
+                <span class="card-rank">6</span>
+                <span class="card-value">6</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">7</span>
+                <span class="card-value">7</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">8</span>
+                <span class="card-value">8</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">9</span>
+                <span class="card-value">9</span>
+              </div>
+              <div class="card-item">
+                <span class="card-rank">10</span>
+                <span class="card-value">10</span>
+              </div>
+            </div>
+            <div class="card-row">
+              <div class="card-item face">
+                <span class="card-rank">J</span>
+                <span class="card-value">10</span>
+              </div>
+              <div class="card-item face">
+                <span class="card-rank">Q</span>
+                <span class="card-value">10</span>
+              </div>
+              <div class="card-item face">
+                <span class="card-rank">K</span>
+                <span class="card-value">10</span>
+              </div>
+            </div>
+          </div>
+          <p class="card-note">※ Aは合計が21を超えない場合は11点、超える場合は1点として計算されます。</p>
+        </section>
+
+        <section>
+          <h2>💡 攻略のコツ</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">📊</span>
+              <div>
+                <strong>17以上ならSTAND</strong>
+                <p>一般的に17以上のスコアならSTANDが安全。HITするとバーストのリスクが高い！</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🃏</span>
+              <div>
+                <strong>Aは強い味方</strong>
+                <p>エースは1にも11にもなる万能カード。Aが来たら積極的にHIT！</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🔒</span>
+              <div>
+                <strong>バーストを恐れるな</strong>
+                <p>バーストしても他プレイヤーには分かりません。駆け引きを楽しもう！</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📥 インストール</h2>
+          <ol class="install-steps">
+            <li><strong>EmeraldBank</strong>プラグインを先にインストール</li>
+            <li>BlackJack2 JARファイルをダウンロード</li>
+            <li>サーバーの<code>plugins</code>フォルダに配置</li>
+            <li>サーバーを再起動</li>
+            <li><code>/blackjack setup spawn</code>と<code>/blackjack setup lobby</code>で地点設定</li>
+            <li>看板を設置してゲーム会場を作成</li>
+            <li>友達を集めてブラックジャック開始！</li>
+          </ol>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #00d4aa; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-name { font-weight: 600; font-size: 14px; }
+  .dep-type { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .dep-type.required { background: #ff6b6b; color: white; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #444; margin-bottom: 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Rule Box */
+  .rule-box { display: flex; flex-direction: column; gap: 15px; }
+  .rule-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: linear-gradient(135deg, #667eea10, #764ba210); border-radius: 12px; border-left: 4px solid #667eea; }
+  .rule-icon { font-size: 32px; }
+  .rule-item strong { display: block; font-size: 16px; color: #333; margin-bottom: 5px; }
+  .rule-item p { margin: 0; font-size: 14px; color: #666; }
+
+  /* Play Flow */
+  .play-flow { display: flex; flex-direction: column; gap: 15px; }
+  .flow-step { display: flex; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #00d4aa, #00b894); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content strong { display: block; margin-bottom: 5px; color: #333; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+  .step-content code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 13px; color: #666; margin: 0; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+
+  /* Sign Examples */
+  .sign-examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sign-card { background: #f8f9fa; border-radius: 12px; overflow: hidden; }
+  .sign-preview { background: #8B4513; padding: 15px; text-align: center; }
+  .sign-line { color: white; font-family: monospace; font-size: 12px; padding: 2px 0; }
+  .sign-line.sign-auto { color: #aaa; font-style: italic; }
+  .sign-info { padding: 15px; }
+  .sign-info h4 { font-size: 14px; margin: 0 0 8px 0; color: #333; }
+  .sign-info p { font-size: 12px; color: #666; margin: 0 0 10px 0; }
+  .sign-info code { display: block; font-size: 11px; background: #e9ecef; padding: 8px; border-radius: 4px; line-height: 1.6; }
+
+  /* Card Points */
+  .card-points { background: #1a472a; border-radius: 15px; padding: 25px; }
+  .card-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; }
+  .card-row:last-child { margin-bottom: 0; }
+  .card-item { background: white; border-radius: 8px; padding: 10px 15px; text-align: center; min-width: 50px; }
+  .card-rank { display: block; font-size: 20px; font-weight: bold; color: #333; }
+  .card-value { display: block; font-size: 12px; color: #666; margin-top: 3px; }
+  .card-item.ace { background: linear-gradient(135deg, #ffd700, #ffec8b); }
+  .card-item.ace .card-rank { color: #8B4513; }
+  .card-item.face { background: linear-gradient(135deg, #e0e0e0, #f5f5f5); }
+  .card-note { font-size: 13px; color: #666; margin-top: 15px; text-align: center; }
+
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; gap: 15px; padding: 15px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 10px; border-left: 4px solid #4caf50; }
+  .tip-icon { font-size: 24px; }
+  .tip-item strong { display: block; margin-bottom: 5px; color: #333; }
+  .tip-item p { margin: 0; font-size: 14px; color: #666; }
+
+  .install-steps { padding-left: 20px; }
+  .install-steps li { margin-bottom: 10px; font-size: 14px; color: #555; }
+  .install-steps code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .sign-examples { grid-template-columns: 1fr; }
+    .card-row { flex-wrap: wrap; }
+  }
+</style>
