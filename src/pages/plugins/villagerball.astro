@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="VillagerBall - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🟢</div>
+      <div class="plugin-title-area">
+        <h1>VillagerBall</h1>
+        <p class="plugin-subtitle">村人を捕獲・解放できるモンスターボール風プラグイン</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">ユーティリティ</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>henry</td></tr>
+            <tr><td>カテゴリ</td><td>ユーティリティ</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/villagerball-capture-villagers-alpha.131731/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/villagerball" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <p class="no-dep">依存プラグインなし</p>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>VillagerBallは、村人をモンスターボールのようにアイテムに収納できるプラグインです。</p>
+          <p>捕獲した村人は職業・取引内容・経験値などすべてのデータが保存され、好きな場所で解放できます。村人の移動や管理がとても簡単になります！</p>
+        </section>
+
+        <section>
+          <h2>✨ 特徴</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🎯</span>
+              <h4>ワンクリック捕獲</h4>
+              <p>村人ボールを持って村人を右クリックするだけで捕獲</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💾</span>
+              <h4>完全データ保存</h4>
+              <p>職業・取引・経験値・レベル・体力など全データを保持</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">✨</span>
+              <h4>エフェクト演出</h4>
+              <p>捕獲・解放時にサウンドとパーティクル演出</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚙️</span>
+              <h4>カスタマイズ可能</h4>
+              <p>捕獲確率・クールダウン・職業別設定など細かく調整可能</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/vb give</code></td><td>空の村人ボールを入手</td><td>villagerball.admin</td></tr>
+                <tr><td><code>/vb reload</code></td><td>設定をリロード</td><td>villagerball.admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔑 権限</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>villagerball.admin</code></td><td>管理者権限（give, reload）</td><td>OP</td></tr>
+                <tr><td><code>villagerball.use</code></td><td>村人ボールを使用する権限</td><td>全員</td></tr>
+                <tr><td><code>villagerball.capture</code></td><td>村人を捕獲する権限</td><td>全員</td></tr>
+                <tr><td><code>villagerball.release</code></td><td>村人を解放する権限</td><td>全員</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <h3>アイテム設定</h3>
+          <div class="config-list">
+            <div class="config-item">
+              <code>item.empty.material</code>
+              <span>空のボールのアイテム（デフォルト: ENDER_PEARL）</span>
+            </div>
+            <div class="config-item">
+              <code>item.filled.material</code>
+              <span>村人入りボールのアイテム（デフォルト: ENDER_EYE）</span>
+            </div>
+            <div class="config-item">
+              <code>item.*.glow</code>
+              <span>光るエンチャント効果（デフォルト: true）</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 25px;">ゲームプレイ設定</h3>
+          <div class="config-list">
+            <div class="config-item">
+              <code>capture-success-rate</code>
+              <span>捕獲成功率（デフォルト: 1.0 = 100%）</span>
+            </div>
+            <div class="config-item">
+              <code>allow-capture-while-trading</code>
+              <span>取引中の村人を捕獲可能か（デフォルト: false）</span>
+            </div>
+            <div class="config-item">
+              <code>cooldown.capture</code>
+              <span>捕獲クールダウン秒数（デフォルト: 3秒）</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 25px;">データ保存設定</h3>
+          <div class="config-list">
+            <div class="config-item">
+              <code>save-trades</code>
+              <span>取引データを保持（デフォルト: true）</span>
+            </div>
+            <div class="config-item">
+              <code>save-experience</code>
+              <span>経験値を保持（デフォルト: true）</span>
+            </div>
+            <div class="config-item">
+              <code>save-profession</code>
+              <span>職業を保持（デフォルト: true）</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎮 使い方</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>村人ボールを入手</strong>
+                <p><code>/vb give</code>コマンドで空の村人ボールを入手します。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>村人を捕獲</strong>
+                <p>村人ボールを手に持って、村人を<strong>右クリック</strong>で捕獲！</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>村人を解放</strong>
+                <p>村人入りボールを手に持って、解放したい場所で<strong>右クリック</strong>！</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice notice-info" style="margin-top: 20px;">
+            <strong>💡 ヒント</strong>
+            <p>捕獲した村人の情報（職業・レベルなど）はアイテムのLoreに表示されます。</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>📥 インストール</h2>
+          <ol class="install-steps">
+            <li>JARファイルをダウンロード</li>
+            <li>サーバーの<code>plugins</code>フォルダに配置</li>
+            <li>サーバーを再起動</li>
+            <li><code>/vb give</code>で村人ボールを入手して使用開始！</li>
+          </ol>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+  .no-dep { font-size: 13px; color: #888; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #444; margin-bottom: 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 13px; color: #666; margin: 0; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #667eea; color: white; padding: 4px 10px; border-radius: 4px; font-size: 13px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  .steps { display: flex; flex-direction: column; gap: 15px; }
+  .step { display: flex; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content strong { display: block; margin-bottom: 5px; color: #333; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+  .step-content code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+  .notice { padding: 15px 20px; border-radius: 10px; }
+  .notice strong { display: block; margin-bottom: 5px; }
+  .notice p { margin: 0; font-size: 14px; }
+  .notice-info { background: #e7f5ff; border-left: 4px solid #339af0; }
+
+  .install-steps { padding-left: 20px; }
+  .install-steps li { margin-bottom: 10px; font-size: 14px; color: #555; }
+  .install-steps code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
