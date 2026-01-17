@@ -1,408 +1,373 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import PluginCard from '../../components/PluginCard.astro';
 import Footer from '../../components/Footer.astro';
 
+// プラグインデータ
 const plugins = [
-  // 経済系
-  {
-    name: 'EmeraldBank',
-    slug: 'emeraldbank',
-    version: '2.0.2',
-    icon: '💎',
-    description: 'エメラルドを銀行に預け入れ・引き出しできる経済プラグイン。GUI操作、ウォレット、ランキング看板対応。',
-    category: 'economy' as const,
-    tags: ['経済'],
-  },
-  {
-    name: 'Tintiro2',
-    slug: 'tintiro2',
-    version: '1.0.0',
-    icon: '🎲',
-    description: 'チンチロ（サイコロ賭博）ミニゲーム。EmeraldBankと連携して遊べます。',
-    category: 'economy' as const,
-    tags: ['経済連携', 'ギャンブル'],
-  },
-  {
-    name: 'Slot2',
-    slug: 'slot2',
-    version: '1.0.0',
-    icon: '🎰',
-    description: 'スロットマシンギャンブルゲーム。EmeraldBank連携対応。',
-    category: 'economy' as const,
-    tags: ['経済連携', 'ギャンブル'],
-  },
-  {
-    name: 'BlackJack2',
-    slug: 'blackjack2',
-    version: '1.0.0',
-    icon: '🃏',
-    description: 'ブラックジャックカードゲーム。EmeraldBank連携対応。',
-    category: 'economy' as const,
-    tags: ['経済連携', 'ギャンブル'],
-  },
-  {
-    name: 'Poker',
-    slug: 'poker',
-    version: '1.0.0',
-    icon: '♠️',
-    description: 'テキサスホールデムポーカー。EmeraldBank連携対応。',
-    category: 'economy' as const,
-    tags: ['経済連携', 'ギャンブル'],
-  },
-  {
-    name: 'Takarakuzi',
-    slug: 'takarakuzi',
-    version: '1.0.0',
-    icon: '🎟️',
-    description: '宝くじシステム。EmeraldBank連携で賞金を獲得。',
-    category: 'economy' as const,
-    tags: ['経済連携'],
-  },
-  {
-    name: 'HorseRacing2',
-    slug: 'horseracing2',
-    version: '1.0.0',
-    icon: '🏇',
-    description: '競馬プラグイン。7種類の馬券に対応。EmeraldBank連携。',
-    category: 'economy' as const,
-    tags: ['経済連携', 'ミニゲーム'],
-  },
-  // ミニゲーム系
-  {
-    name: 'Zinro',
-    slug: 'zinro',
-    version: '1.8.0',
-    icon: '🐺',
-    description: 'Minecraft人狼プラグイン。4-20人対応、カスタム役職、自動進行機能付き。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム', 'PvP'],
-  },
-  {
-    name: 'MinecraftMOBA',
-    slug: 'minecraftmoba',
-    version: '1.0.0',
-    icon: '⚔️',
-    description: 'LOL風MOBA PvPプラグイン。2チーム対戦・タワー・ミニオン・ショップ・レベルシステム。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム', 'PvP'],
-  },
-  {
-    name: 'Battleroyale',
-    slug: 'battleroyale',
-    version: '1.0.0',
-    icon: '🔫',
-    description: 'バトルロイヤルミニゲーム。ボーダー縮小・チーム対応。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム', 'PvP'],
-  },
-  {
-    name: '1vs1',
-    slug: '1vs1',
-    version: '1.0.0',
-    icon: '🤺',
-    description: '1vs1 PvP対戦プラグイン。ランクシステム・賭け機能・装備チェストリセット。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム', 'PvP'],
-  },
-  {
-    name: 'Zankipvp',
-    slug: 'zankipvp',
-    version: '1.0.0',
-    icon: '💀',
-    description: '残機制チームPvPミニゲーム。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム', 'PvP'],
-  },
-  {
-    name: 'Yukigassen',
-    slug: 'yukigassen',
-    version: '1.0.0',
-    icon: '❄️',
-    description: 'チーム対抗雪合戦ミニゲームプラグイン。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム'],
-  },
-  {
-    name: 'Yukicraft',
-    slug: 'yukicraft',
-    version: '1.0.0',
-    icon: '⛄',
-    description: '雪振りサバイバルミニゲームプラグイン。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム'],
-  },
-  {
-    name: 'Yukioni',
-    slug: 'yukioni',
-    version: '1.0.0',
-    icon: '🏃',
-    description: 'Snow Tag Minigame - 雪の鬼ごっこ。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム'],
-  },
-  {
-    name: 'Tntran',
-    slug: 'tntran',
-    version: '1.0.0',
-    icon: '💣',
-    description: 'TNT Runミニゲームプラグイン。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム'],
-  },
-  {
-    name: '2DTreasure',
-    slug: '2dtreasure',
-    version: '1.0.0',
-    icon: '🗺️',
-    description: 'Terraria風2D宝探しミニゲーム。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム'],
-  },
-  {
-    name: 'AsureTimer',
-    slug: 'asuretimer',
-    version: '1.0.0',
-    icon: '⏱️',
-    description: 'アスレチック＆ドロッパータイマー。ランキング機能付き。',
-    category: 'minigame' as const,
-    tags: ['ミニゲーム', 'ランキング'],
-  },
-  {
-    name: 'BossPlugin',
-    slug: 'bossplugin',
-    version: '1.0.0',
-    icon: '👹',
-    description: 'カスタムボスプラグイン。3種類のボス、フェーズシステム搭載。',
-    category: 'minigame' as const,
-    tags: ['ボス', 'PvE'],
-  },
-  // ユーティリティ系
-  {
-    name: 'BedrockReplacer',
-    slug: 'bedrockreplacer',
-    version: '2.0.0',
-    icon: '🪨',
-    description: '岩盤を別のブロックに置き換えるプラグイン。ワールド生成時に自動適用。',
-    category: 'utility' as const,
-    tags: ['ワールド編集'],
-  },
-  {
-    name: 'CaveEraser',
-    slug: 'caveeraser',
-    version: '1.0.0',
-    icon: '🕳️',
-    description: '水中洞窟検出＆埋め立てプラグイン。岩盤整地支援。',
-    category: 'utility' as const,
-    tags: ['ワールド編集'],
-  },
-  {
-    name: 'Seitiassist',
-    slug: 'seitiassist',
-    version: '1.0.0',
-    icon: '🔨',
-    description: '整地作業を快適にする統合アシストプラグイン。範囲消去・範囲採掘・ゴミ箱・流体凍結。',
-    category: 'utility' as const,
-    tags: ['整地', '便利'],
-  },
-  {
-    name: 'Convenience',
-    slug: 'convenience',
-    version: '1.0.0',
-    icon: '🛠️',
-    description: '便利機能プラグイン。スポーンTP・村人取引リセット・ネザー要塞コンパス。',
-    category: 'utility' as const,
-    tags: ['便利'],
-  },
-  {
-    name: 'Uncraft2',
-    slug: 'uncraft2',
-    version: '1.0.0',
-    icon: '♻️',
-    description: '逆クラフトプラグイン。アイテムを素材に戻す。',
-    category: 'utility' as const,
-    tags: ['便利'],
-  },
-  {
-    name: 'Monsterball',
-    slug: 'monsterball',
-    version: '1.0.0',
-    icon: '🔮',
-    description: '村人捕獲＆放出プラグイン。モンスターボール風に村人を捕まえて移動。取引データ完全保存。',
-    category: 'utility' as const,
-    tags: ['便利', '村人'],
-  },
-  {
-    name: 'CustomVehicles',
-    slug: 'customvehicles',
-    version: '1.0.0',
-    icon: '🚗',
-    description: 'カスタム乗り物システム。EmeraldBank連携（任意）。',
-    category: 'utility' as const,
-    tags: ['乗り物'],
-  },
-  {
-    name: 'CustomVillagerTrade',
-    slug: 'customvillagertrade',
-    version: '1.0.0',
-    icon: '🧑‍🌾',
-    description: '村人取引カスタマイズ。EmeraldBank連携（任意）。',
-    category: 'utility' as const,
-    tags: ['村人'],
-  },
-  {
-    name: 'Netherfortress',
-    slug: 'netherfortress',
-    version: '1.0.0',
-    icon: '🏰',
-    description: 'ネザー初入場時に最寄りのネザー要塞座標を自動通知。',
-    category: 'utility' as const,
-    tags: ['便利'],
-  },
-  {
-    name: 'Ranking',
-    slug: 'ranking',
-    version: '1.0.0',
-    icon: '🏆',
-    description: '7種類の統計をカウントしてランキング表示。看板表示・エメラルド報酬対応。',
-    category: 'utility' as const,
-    tags: ['ランキング', '統計'],
-  },
+  // ミニゲーム
+  { name: '1vs1', slug: '1vs1', version: '1.0.0', icon: '⚔️', description: '1対1のPvP対戦プラグイン', category: 'minigame', tags: ['PvP', '対戦'], updated: '2025-12-01' },
+  { name: '2dTreasure', slug: '2dtreasure', version: '1.0.0', icon: '🗺️', description: '2D宝探しミニゲーム', category: 'minigame', tags: ['探索'], updated: '2025-11-15' },
+  { name: 'BattleRoyale', slug: 'battleroyale', version: '1.2.0', icon: '🏆', description: 'バトルロイヤル形式のPvPゲーム', category: 'minigame', tags: ['PvP', 'バトロワ'], updated: '2025-12-10' },
+  { name: 'BlackJack2', slug: 'blackjack2', version: '2.0.0', icon: '🃏', description: 'ブラックジャック（トランプ）', category: 'minigame', tags: ['カード', 'ギャンブル'], updated: '2025-10-20' },
+  { name: 'DorokeJGame', slug: 'dorokejgame', version: '1.0.0', icon: '🏃', description: 'どろけい（泥棒と警察）ゲーム', category: 'minigame', tags: ['チーム', '鬼ごっこ'], updated: '2025-11-01' },
+  { name: 'FishingPointBattle', slug: 'fishingpointbattle', version: '1.0.0', icon: '🎣', description: '釣りポイントバトル', category: 'minigame', tags: ['釣り', '対戦'], updated: '2025-10-15' },
+  { name: 'HorseRacing2', slug: 'horseracing2', version: '2.1.0', icon: '🏇', description: '競馬ゲーム', category: 'minigame', tags: ['レース', 'ギャンブル'], updated: '2025-12-05' },
+  { name: 'MinecraftMOBA', slug: 'minecraftmoba', version: '1.0.0', icon: '🏰', description: 'LOL風MOBAゲーム', category: 'minigame', tags: ['PvP', 'チーム', 'MOBA'], updated: '2026-01-10' },
+  { name: 'MonsterBall', slug: 'monsterball', version: '1.0.0', icon: '🔴', description: 'モンスターボールゲーム', category: 'minigame', tags: ['収集'], updated: '2025-09-20' },
+  { name: 'NetherFortress', slug: 'netherfortress', version: '1.0.0', icon: '🔥', description: 'ネザー要塞攻略ゲーム', category: 'minigame', tags: ['PvE', '協力'], updated: '2025-11-25' },
+  { name: 'Poker', slug: 'poker', version: '1.5.0', icon: '♠️', description: 'ポーカー（テキサスホールデム）', category: 'minigame', tags: ['カード', 'ギャンブル'], updated: '2025-12-01' },
+  { name: 'QuizPlugin', slug: 'quizplugin', version: '1.0.0', icon: '❓', description: 'クイズゲーム', category: 'minigame', tags: ['クイズ'], updated: '2025-10-01' },
+  { name: 'Slot2', slug: 'slot2', version: '2.0.0', icon: '🎰', description: 'スロットマシン', category: 'minigame', tags: ['ギャンブル'], updated: '2025-11-10' },
+  { name: 'Takarakuji', slug: 'takarakuji', version: '1.0.0', icon: '🎫', description: '宝くじ', category: 'minigame', tags: ['ギャンブル'], updated: '2025-10-25' },
+  { name: 'Tintiro2', slug: 'tintiro2', version: '2.0.0', icon: '🎲', description: 'チンチロ（サイコロ賭博）', category: 'minigame', tags: ['ギャンブル', 'サイコロ'], updated: '2025-11-05' },
+  { name: 'UnoCraft2', slug: 'unocraft2', version: '2.0.0', icon: '🟥', description: 'UNOゲーム', category: 'minigame', tags: ['カード'], updated: '2025-12-15' },
+  { name: 'VillagerBall', slug: 'villagerball', version: '1.0.0', icon: '👨‍🌾', description: '村人ボールゲーム', category: 'minigame', tags: ['スポーツ'], updated: '2025-09-15' },
+  { name: 'Yukigassen', slug: 'yukigassen', version: '1.0.0', icon: '☃️', description: '雪合戦ゲーム', category: 'minigame', tags: ['チーム', 'PvP'], updated: '2025-12-20' },
+  { name: 'Zinro', slug: 'zinro', version: '1.8.0', icon: '🐺', description: '人狼ゲーム', category: 'minigame', tags: ['推理', 'チーム'], updated: '2026-01-05' },
+  // 経済
+  { name: 'EmeraldBank', slug: 'emeraldbank', version: '2.0.2', icon: '💎', description: 'エメラルド通貨システム', category: 'economy', tags: ['通貨', '銀行'], updated: '2026-01-10' },
+  { name: 'Ranking', slug: 'ranking', version: '1.2.0', icon: '📊', description: '統計ランキングシステム', category: 'economy', tags: ['統計', 'ランキング'], updated: '2025-12-01' },
+  // 便利系
+  { name: 'AsureTimer', slug: 'asuretimer', version: '1.0.0', icon: '⏱️', description: 'アスレチックタイム計測', category: 'utility', tags: ['タイマー', 'アスレ'], updated: '2025-10-01' },
+  { name: 'CaveEraser', slug: 'caveeraser', version: '1.0.0', icon: '🕳️', description: '洞窟削除・整地ツール', category: 'utility', tags: ['整地', '管理者'], updated: '2025-09-01' },
+  { name: 'Convenience', slug: 'convenience', version: '1.0.0', icon: '🛠️', description: '便利機能詰め合わせ', category: 'utility', tags: ['便利'], updated: '2025-08-15' },
+  { name: 'CustomEnchants', slug: 'customenchants', version: '1.0.0', icon: '✨', description: 'カスタムエンチャント追加', category: 'utility', tags: ['エンチャント'], updated: '2025-07-01' },
+  { name: 'CustomVillagerTrade', slug: 'customvillagertrade', version: '1.0.0', icon: '🏪', description: '村人取引カスタマイズ', category: 'utility', tags: ['村人', '取引'], updated: '2025-09-10' },
+  { name: 'DigCount', slug: 'digcount', version: '1.0.0', icon: '⛏️', description: '採掘回数カウント・ランキング', category: 'utility', tags: ['統計', '採掘'], updated: '2025-10-20' },
+  { name: 'EffectSidian', slug: 'effectsidian', version: '1.0.0', icon: '🧪', description: 'エメラルドでバフ効果購入', category: 'utility', tags: ['バフ', '経済連携'], updated: '2025-11-15' },
+  { name: 'EnchantPlus', slug: 'enchantplus', version: '1.5.0', icon: '📖', description: '19種カスタムエンチャント', category: 'utility', tags: ['エンチャント'], updated: '2026-01-01' },
+  { name: 'GlobalStorage2', slug: 'globalstorage2', version: '2.0.0', icon: '📦', description: '全プレイヤー共有倉庫', category: 'utility', tags: ['倉庫', '共有'], updated: '2025-12-10' },
+  { name: 'Seitiassist', slug: 'seitiassist', version: '1.0.0', icon: '🔨', description: '整地作業アシストツール', category: 'utility', tags: ['整地', '便利'], updated: '2025-11-20' },
+  { name: 'Tintran', slug: 'tintran', version: '1.0.0', icon: '🌀', description: '転送・テレポートシステム', category: 'utility', tags: ['移動', 'テレポート'], updated: '2025-10-05' },
+  // その他
+  { name: 'BedrockReplacer', slug: 'bedrockreplacer', version: '1.0.0', icon: '🪨', description: '岩盤ブロック置換ツール', category: 'other', tags: ['管理者', '整地'], updated: '2025-08-01' },
+  { name: 'BossPlugin', slug: 'bossplugin', version: '1.0.0', icon: '👹', description: 'カスタムボスモブ追加', category: 'other', tags: ['ボス', 'PvE'], updated: '2025-12-01' },
+  { name: 'Yukiori', slug: 'yukiori', version: '1.0.0', icon: '❄️', description: '雪降りシステム', category: 'other', tags: ['演出'], updated: '2025-12-15' },
+  { name: 'ZankiJP', slug: 'zankijp', version: '1.0.0', icon: '❤️', description: '残機システム', category: 'other', tags: ['ゲームシステム'], updated: '2025-09-25' },
 ];
 
-// カテゴリ別カウントを自動計算
-const economyCount = plugins.filter(p => p.category === 'economy').length;
-const minigameCount = plugins.filter(p => p.category === 'minigame').length;
-const utilityCount = plugins.filter(p => p.category === 'utility').length;
+const categories = [
+  { id: 'all', label: '🎮 すべて', count: plugins.length },
+  { id: 'minigame', label: '🎲 ミニゲーム', count: plugins.filter(p => p.category === 'minigame').length },
+  { id: 'economy', label: '💰 経済', count: plugins.filter(p => p.category === 'economy').length },
+  { id: 'utility', label: '🔧 便利系', count: plugins.filter(p => p.category === 'utility').length },
+  { id: 'other', label: '📦 その他', count: plugins.filter(p => p.category === 'other').length },
+];
+
+// 全タグを抽出
+const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
 ---
 
-<Layout title="プラグイン一覧">
+<Layout 
+  title="プラグイン一覧 - MattariMinecraft" 
+  description="MattariMinecraftサーバーで使用できる37個以上のオリジナルプラグイン一覧。ミニゲーム、経済システム、便利ツールなど。"
+>
   <Header currentPage="plugins" />
-  
-  <section class="hero-small">
-    <h1>📦 プラグイン一覧</h1>
-    <p>MattariMinecraftで開発した{plugins.length}個のプラグインを公開しています</p>
-  </section>
 
-  <main class="main">
-    <div class="category-nav">
-      <span class="category-label">カテゴリ:</span>
-      <a href="#economy" class="category-tag economy">💰 経済系 ({economyCount})</a>
-      <a href="#minigame" class="category-tag minigame">🎮 ミニゲーム ({minigameCount})</a>
-      <a href="#utility" class="category-tag utility">🔧 ユーティリティ ({utilityCount})</a>
-    </div>
-    
-    <h2 id="economy" class="section-header">💰 経済系プラグイン</h2>
-    <div class="card-grid">
-      {plugins.filter(p => p.category === 'economy').map(plugin => (
-        <PluginCard {...plugin} />
-      ))}
+  <main class="plugins-page">
+    <div class="page-header">
+      <h1>📦 プラグイン一覧</h1>
+      <p>MattariMinecraftで使える{plugins.length}個のオリジナルプラグイン</p>
     </div>
 
-    <h2 id="minigame" class="section-header">🎮 ミニゲームプラグイン</h2>
-    <div class="card-grid">
-      {plugins.filter(p => p.category === 'minigame').map(plugin => (
-        <PluginCard {...plugin} />
-      ))}
-    </div>
+    <div class="plugins-container">
+      <!-- サイドバー（フィルター） -->
+      <aside class="sidebar">
+        <!-- 検索ボックス -->
+        <div class="search-section">
+          <label for="search-input" class="section-title">🔍 検索</label>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="プラグイン名で検索..."
+            autocomplete="off"
+          >
+        </div>
 
-    <h2 id="utility" class="section-header">🔧 ユーティリティプラグイン</h2>
-    <div class="card-grid">
-      {plugins.filter(p => p.category === 'utility').map(plugin => (
-        <PluginCard {...plugin} />
-      ))}
+        <!-- カテゴリフィルター -->
+        <div class="filter-section">
+          <div class="section-title">📁 カテゴリ</div>
+          <div class="category-list">
+            {categories.map(cat => (
+              <button 
+                class:list={['category-btn', { active: cat.id === 'all' }]}
+                data-category={cat.id}
+              >
+                <span>{cat.label}</span>
+                <span class="count">{cat.count}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- タグフィルター -->
+        <div class="filter-section">
+          <div class="section-title">🏷️ タグ</div>
+          <div class="tag-list">
+            {allTags.map(tag => (
+              <button class="tag-btn" data-tag={tag}>{tag}</button>
+            ))}
+          </div>
+          <button class="clear-tags-btn" id="clear-tags">タグをクリア</button>
+        </div>
+
+        <!-- ソート -->
+        <div class="filter-section">
+          <div class="section-title">📊 並び替え</div>
+          <select id="sort-select">
+            <option value="name-asc">名前（A→Z）</option>
+            <option value="name-desc">名前（Z→A）</option>
+            <option value="updated-desc">更新日（新しい順）</option>
+            <option value="updated-asc">更新日（古い順）</option>
+            <option value="category">カテゴリ別</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- プラグイン一覧 -->
+      <div class="plugins-main">
+        <!-- 結果ヘッダー -->
+        <div class="results-header">
+          <span id="results-count">{plugins.length}個のプラグイン</span>
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" aria-label="グリッド表示">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                <rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </button>
+            <button class="view-btn" data-view="list" aria-label="リスト表示">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="4" width="18" height="4" rx="1"/>
+                <rect x="3" y="10" width="18" height="4" rx="1"/>
+                <rect x="3" y="16" width="18" height="4" rx="1"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- プラグイングリッド -->
+        <div class="plugins-grid" id="plugins-grid">
+          {plugins.map(plugin => (
+            <a 
+              href={`/mattari-plugins/plugins/${plugin.slug}/`} 
+              class="plugin-card"
+              data-name={plugin.name.toLowerCase()}
+              data-category={plugin.category}
+              data-tags={plugin.tags.join(',')}
+              data-updated={plugin.updated}
+            >
+              <div class="card-header">
+                <span class="plugin-icon">{plugin.icon}</span>
+                <span class="plugin-version">v{plugin.version}</span>
+              </div>
+              <h3 class="plugin-name">{plugin.name}</h3>
+              <p class="plugin-desc">{plugin.description}</p>
+              <div class="plugin-tags">
+                {plugin.tags.slice(0, 3).map(tag => (
+                  <span class="plugin-tag">{tag}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- 検索結果なし -->
+        <div class="no-results" id="no-results" style="display: none;">
+          <span class="no-results-icon">🔍</span>
+          <p>条件に一致するプラグインが見つかりません</p>
+          <button class="reset-btn" id="reset-filters">フィルターをリセット</button>
+        </div>
+      </div>
     </div>
   </main>
 
   <Footer />
 </Layout>
 
-<style>
-  .hero-small {
-    padding: 40px 20px;
-    text-align: center;
-    color: white;
-  }
-  .hero-small h1 {
-    font-size: 32px;
-    font-weight: 900;
-    margin-bottom: 10px;
-  }
-  .hero-small p {
-    font-size: 16px;
-    opacity: 0.9;
-  }
-  .main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-  }
-  .category-nav {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 80px;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-  .category-label {
-    font-weight: 600;
-    color: #333;
-  }
-  .category-tag {
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-  .category-tag:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-  .category-tag.economy {
-    background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
-    color: white;
-  }
-  .category-tag.minigame {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-    color: white;
-  }
-  .category-tag.utility {
-    background: linear-gradient(135deg, #54a0ff 0%, #2e86de 100%);
-    color: white;
-  }
-  .section-header {
-    color: white;
-    font-size: 22px;
-    font-weight: 700;
-    margin: 30px 0 20px;
-    padding: 15px 20px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-    scroll-margin-top: 140px;
-  }
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const tagBtns = document.querySelectorAll('.tag-btn');
+  const clearTagsBtn = document.getElementById('clear-tags');
+  const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+  const pluginsGrid = document.getElementById('plugins-grid');
+  const pluginCards = document.querySelectorAll('.plugin-card');
+  const resultsCount = document.getElementById('results-count');
+  const noResults = document.getElementById('no-results');
+  const resetFiltersBtn = document.getElementById('reset-filters');
+  const viewBtns = document.querySelectorAll('.view-btn');
+
+  let currentCategory = 'all';
+  let selectedTags: string[] = [];
+  let searchQuery = '';
+  let currentSort = 'name-asc';
+
+  function applyFilters() {
+    let visibleCount = 0;
+    pluginCards.forEach(card => {
+      const name = card.getAttribute('data-name') || '';
+      const category = card.getAttribute('data-category') || '';
+      const tags = (card.getAttribute('data-tags') || '').split(',');
+      const categoryMatch = currentCategory === 'all' || category === currentCategory;
+      const tagsMatch = selectedTags.length === 0 || selectedTags.some(t => tags.includes(t));
+      const searchMatch = searchQuery === '' || name.includes(searchQuery.toLowerCase());
+      if (categoryMatch && tagsMatch && searchMatch) {
+        (card as HTMLElement).style.display = '';
+        visibleCount++;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+    if (resultsCount) resultsCount.textContent = `${visibleCount}個のプラグイン`;
+    if (noResults && pluginsGrid) {
+      if (visibleCount === 0) {
+        noResults.style.display = 'flex';
+        pluginsGrid.style.display = 'none';
+      } else {
+        noResults.style.display = 'none';
+        pluginsGrid.style.display = '';
+      }
+    }
   }
 
-  @media (max-width: 768px) {
-    .category-nav {
-      position: relative;
-      top: 0;
-    }
-    .section-header {
-      scroll-margin-top: 20px;
-    }
+  function applySort() {
+    const cards = Array.from(pluginCards);
+    cards.sort((a, b) => {
+      const nameA = a.getAttribute('data-name') || '';
+      const nameB = b.getAttribute('data-name') || '';
+      const updatedA = a.getAttribute('data-updated') || '';
+      const updatedB = b.getAttribute('data-updated') || '';
+      const categoryA = a.getAttribute('data-category') || '';
+      const categoryB = b.getAttribute('data-category') || '';
+      switch (currentSort) {
+        case 'name-asc': return nameA.localeCompare(nameB);
+        case 'name-desc': return nameB.localeCompare(nameA);
+        case 'updated-desc': return updatedB.localeCompare(updatedA);
+        case 'updated-asc': return updatedA.localeCompare(updatedB);
+        case 'category': return categoryA.localeCompare(categoryB) || nameA.localeCompare(nameB);
+        default: return 0;
+      }
+    });
+    cards.forEach(card => pluginsGrid?.appendChild(card));
   }
+
+  searchInput?.addEventListener('input', (e) => {
+    searchQuery = (e.target as HTMLInputElement).value;
+    applyFilters();
+  });
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = btn.getAttribute('data-category') || 'all';
+      applyFilters();
+    });
+  });
+
+  tagBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tag = btn.getAttribute('data-tag') || '';
+      btn.classList.toggle('active');
+      if (selectedTags.includes(tag)) {
+        selectedTags = selectedTags.filter(t => t !== tag);
+      } else {
+        selectedTags.push(tag);
+      }
+      applyFilters();
+    });
+  });
+
+  clearTagsBtn?.addEventListener('click', () => {
+    selectedTags = [];
+    tagBtns.forEach(btn => btn.classList.remove('active'));
+    applyFilters();
+  });
+
+  sortSelect?.addEventListener('change', (e) => {
+    currentSort = (e.target as HTMLSelectElement).value;
+    applySort();
+  });
+
+  resetFiltersBtn?.addEventListener('click', () => {
+    searchQuery = '';
+    currentCategory = 'all';
+    selectedTags = [];
+    if (searchInput) searchInput.value = '';
+    categoryBtns.forEach(b => b.classList.remove('active'));
+    categoryBtns[0]?.classList.add('active');
+    tagBtns.forEach(btn => btn.classList.remove('active'));
+    applyFilters();
+  });
+
+  viewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      viewBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const view = btn.getAttribute('data-view');
+      pluginsGrid?.classList.toggle('list-view', view === 'list');
+    });
+  });
+</script>
+
+<style>
+  .plugins-page { max-width: 1400px; margin: 0 auto; padding: 0 20px 60px; }
+  .page-header { text-align: center; padding: 50px 20px 40px; color: white; }
+  .page-header h1 { font-size: 36px; margin-bottom: 10px; }
+  .page-header p { font-size: 16px; opacity: 0.9; }
+  .plugins-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { background: white; border-radius: 15px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
+  .section-title { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 12px; }
+  .search-section { margin-bottom: 25px; }
+  .search-section input { width: 100%; padding: 12px 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 14px; transition: all 0.3s; }
+  .search-section input:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
+  .filter-section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+  .filter-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .category-list { display: flex; flex-direction: column; gap: 6px; }
+  .category-btn { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f8f9fa; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; color: #555; transition: all 0.3s; text-align: left; }
+  .category-btn:hover { background: #e9ecef; }
+  .category-btn.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+  .category-btn .count { background: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 10px; font-size: 11px; }
+  .category-btn.active .count { background: rgba(255,255,255,0.2); }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tag-btn { padding: 6px 12px; background: #f1f3f5; border: none; border-radius: 15px; font-size: 12px; color: #555; cursor: pointer; transition: all 0.3s; }
+  .tag-btn:hover { background: #e9ecef; }
+  .tag-btn.active { background: #667eea; color: white; }
+  .clear-tags-btn { width: 100%; padding: 8px; background: none; border: 1px dashed #ccc; border-radius: 8px; font-size: 12px; color: #888; cursor: pointer; transition: all 0.3s; }
+  .clear-tags-btn:hover { border-color: #667eea; color: #667eea; }
+  .filter-section select { width: 100%; padding: 10px 12px; border: 2px solid #e9ecef; border-radius: 8px; font-size: 13px; cursor: pointer; }
+  .filter-section select:focus { outline: none; border-color: #667eea; }
+  .plugins-main { background: white; border-radius: 15px; padding: 25px; }
+  .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+  #results-count { font-size: 14px; color: #666; }
+  .view-toggle { display: flex; gap: 5px; }
+  .view-btn { padding: 8px; background: #f1f3f5; border: none; border-radius: 8px; cursor: pointer; color: #666; transition: all 0.3s; }
+  .view-btn:hover { background: #e9ecef; }
+  .view-btn.active { background: #667eea; color: white; }
+  .plugins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .plugin-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-decoration: none; transition: all 0.3s; border: 2px solid transparent; }
+  .plugin-card:hover { transform: translateY(-5px); border-color: #667eea; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .plugin-icon { font-size: 36px; }
+  .plugin-version { font-size: 11px; color: #888; background: #e9ecef; padding: 3px 8px; border-radius: 10px; }
+  .plugin-name { font-size: 16px; font-weight: 600; color: #333; margin-bottom: 8px; }
+  .plugin-desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 12px; }
+  .plugin-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .plugin-tag { font-size: 11px; padding: 3px 8px; background: #e9ecef; border-radius: 10px; color: #666; }
+  .plugins-grid.list-view { grid-template-columns: 1fr; }
+  .plugins-grid.list-view .plugin-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; padding: 15px 20px; }
+  .plugins-grid.list-view .card-header { margin-bottom: 0; flex-direction: column; gap: 5px; }
+  .plugins-grid.list-view .plugin-desc { margin-bottom: 0; }
+  .plugins-grid.list-view .plugin-tags { justify-content: flex-end; }
+  .no-results { display: flex; flex-direction: column; align-items: center; padding: 60px 20px; text-align: center; }
+  .no-results-icon { font-size: 60px; margin-bottom: 20px; opacity: 0.5; }
+  .no-results p { color: #666; margin-bottom: 20px; }
+  .reset-btn { padding: 12px 25px; background: #667eea; color: white; border: none; border-radius: 25px; font-size: 14px; cursor: pointer; transition: all 0.3s; }
+  .reset-btn:hover { background: #764ba2; }
+  @media (max-width: 900px) { .plugins-container { grid-template-columns: 1fr; } .sidebar { position: static; } }
+  @media (max-width: 600px) { .plugins-grid { grid-template-columns: 1fr; } .page-header h1 { font-size: 28px; } }
 </style>
