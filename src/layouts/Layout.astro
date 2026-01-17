@@ -2,9 +2,22 @@
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
 }
 
-const { title, description = 'MattariMinecraftで開発した高品質なプラグインを無料で配布中！' } = Astro.props;
+const { 
+  title, 
+  description = 'MattariMinecraftサーバーのプラグイン配布サイト。37個以上のオリジナルプラグインとサーバー構築ガイドを公開中。',
+  image = '/mattari-plugins/ogp-default.png',
+  type = 'website',
+  noindex = false
+} = Astro.props;
+
+const siteUrl = 'https://henntaidesu.github.io/mattari-plugins';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 ---
 
 <!DOCTYPE html>
@@ -12,11 +25,54 @@ const { title, description = 'MattariMinecraftで開発した高品質なプラ�
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 基本SEO -->
+  <title>{title}</title>
   <meta name="description" content={description}>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <title>{title} | MattariMC</title>
+  <link rel="canonical" href={canonicalUrl}>
+  {noindex && <meta name="robots" content="noindex, nofollow">}
+  
+  <!-- OGP（Open Graph Protocol） -->
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content={type}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:site_name" content="MattariMinecraft">
+  <meta property="og:locale" content="ja_JP">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImageUrl}>
+  
+  <!-- ファビコン -->
+  <link rel="icon" type="image/svg+xml" href="/mattari-plugins/favicon.svg">
+  <link rel="apple-touch-icon" href="/mattari-plugins/apple-touch-icon.png">
+  
+  <!-- 構造化データ（JSON-LD） -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MattariMinecraft",
+    "description": "Minecraftサーバープラグイン配布サイト",
+    "url": siteUrl,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": `${siteUrl}/plugins/?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }
+  })}></script>
+  
+  <!-- テーマカラー -->
+  <meta name="theme-color" content="#667eea">
+  <meta name="msapplication-TileColor" content="#667eea">
+  
+  <!-- その他 -->
+  <meta name="author" content="MattariMinecraft">
+  <meta name="generator" content={Astro.generator}>
+  <link rel="sitemap" href="/mattari-plugins/sitemap-index.xml">
 </head>
 <body>
   <slot />
@@ -24,5 +80,54 @@ const { title, description = 'MattariMinecraftで開発した高品質なプラ�
 </html>
 
 <style is:global>
-  @import '../styles/global.css';
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* スクロールバーのスタイル */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+  }
+  
+  /* フォーカス時のアウトライン */
+  :focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+  }
+  
+  /* 選択時のハイライト */
+  ::selection {
+    background: #667eea;
+    color: white;
+  }
 </style>
