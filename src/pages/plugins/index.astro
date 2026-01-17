@@ -225,13 +225,13 @@ const plugins = [
     tags: ['便利'],
   },
   {
-    name: 'VillagerBall',
-    slug: 'villagerball',
+    name: 'Monsterball',
+    slug: 'monsterball',
     version: '1.0.0',
-    icon: '🔴',
-    description: '村人捕獲プラグイン。モンスターボール風に村人を捕まえて移動。',
+    icon: '🔮',
+    description: '村人捕獲＆放出プラグイン。モンスターボール風に村人を捕まえて移動。取引データ完全保存。',
     category: 'utility' as const,
-    tags: ['便利'],
+    tags: ['便利', '村人'],
   },
   {
     name: 'CustomVehicles',
@@ -270,6 +270,11 @@ const plugins = [
     tags: ['ランキング', '統計'],
   },
 ];
+
+// カテゴリ別カウントを自動計算
+const economyCount = plugins.filter(p => p.category === 'economy').length;
+const minigameCount = plugins.filter(p => p.category === 'minigame').length;
+const utilityCount = plugins.filter(p => p.category === 'utility').length;
 ---
 
 <Layout title="プラグイン一覧">
@@ -283,26 +288,26 @@ const plugins = [
   <main class="main">
     <div class="category-nav">
       <span class="category-label">カテゴリ:</span>
-      <span class="category-tag economy">💰 経済系 (7)</span>
-      <span class="category-tag minigame">🎮 ミニゲーム (12)</span>
-      <span class="category-tag utility">🔧 ユーティリティ (10)</span>
+      <a href="#economy" class="category-tag economy">💰 経済系 ({economyCount})</a>
+      <a href="#minigame" class="category-tag minigame">🎮 ミニゲーム ({minigameCount})</a>
+      <a href="#utility" class="category-tag utility">🔧 ユーティリティ ({utilityCount})</a>
     </div>
     
-    <h2 class="section-header">💰 経済系プラグイン</h2>
+    <h2 id="economy" class="section-header">💰 経済系プラグイン</h2>
     <div class="card-grid">
       {plugins.filter(p => p.category === 'economy').map(plugin => (
         <PluginCard {...plugin} />
       ))}
     </div>
 
-    <h2 class="section-header">🎮 ミニゲームプラグイン</h2>
+    <h2 id="minigame" class="section-header">🎮 ミニゲームプラグイン</h2>
     <div class="card-grid">
       {plugins.filter(p => p.category === 'minigame').map(plugin => (
         <PluginCard {...plugin} />
       ))}
     </div>
 
-    <h2 class="section-header">🔧 ユーティリティプラグイン</h2>
+    <h2 id="utility" class="section-header">🔧 ユーティリティプラグイン</h2>
     <div class="card-grid">
       {plugins.filter(p => p.category === 'utility').map(plugin => (
         <PluginCard {...plugin} />
@@ -342,6 +347,10 @@ const plugins = [
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
   .category-label {
     font-weight: 600;
@@ -352,6 +361,12 @@ const plugins = [
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .category-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
   .category-tag.economy {
     background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
@@ -373,10 +388,21 @@ const plugins = [
     padding: 15px 20px;
     background: rgba(255,255,255,0.1);
     border-radius: 10px;
+    scroll-margin-top: 140px;
   }
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .category-nav {
+      position: relative;
+      top: 0;
+    }
+    .section-header {
+      scroll-margin-top: 20px;
+    }
   }
 </style>
