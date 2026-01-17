@@ -1,0 +1,515 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Uncraft2 - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🔧</div>
+      <div class="plugin-title-area">
+        <h1>Uncraft2</h1>
+        <p class="plugin-subtitle">逆クラフトプラグイン - アイテムを素材に戻す</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.1.2</span>
+          <span class="badge category">ユーティリティ</span>
+          <span class="badge mc-version">1.21.x</span>
+          <span class="badge alpha">Alpha</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.1.2</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ユーティリティ</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/uncraft2-reverse-crafting-alpha.131732/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/uncraft2" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item none">
+            <span class="dep-badge">なし</span>
+            <span class="dep-name">スタンドアロン</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Uncraft2は、クラフトされたアイテムを元の素材に戻すことができる「逆クラフト」プラグインです。</p>
+          <p>間違えてクラフトしてしまったアイテムや、不要になったツールを素材に分解できます。GUIベースの直感的な操作で、専用アイテム「アンクラフトステーション」による起動にも対応しています。</p>
+        </section>
+
+        <section>
+          <h2>🎮 使い方</h2>
+          <div class="method-grid">
+            <div class="method-card">
+              <div class="method-header">
+                <span class="method-icon">⌨️</span>
+                <h3>方法1: コマンド</h3>
+              </div>
+              <div class="method-body">
+                <p><code>/uncraft</code> を実行してGUIを開く</p>
+              </div>
+            </div>
+            <div class="method-card special">
+              <div class="method-header">
+                <span class="method-icon">🎁</span>
+                <h3>方法2: 専用アイテム</h3>
+              </div>
+              <div class="method-body">
+                <p>「アンクラフトステーション」を右クリック</p>
+                <span class="new-badge">NEW!</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🖥️ GUI操作</h2>
+          <div class="gui-diagram">
+            <div class="gui-row">
+              <div class="gui-slot input">
+                <span class="slot-label">入力</span>
+                <span class="slot-num">0</span>
+              </div>
+              <div class="gui-slot filler"></div>
+              <div class="gui-slot result">
+                <span class="slot-label">分解</span>
+                <span class="slot-num">2</span>
+              </div>
+              <div class="gui-slot filler"></div>
+              <div class="gui-slot nav">
+                <span class="slot-label">←</span>
+                <span class="slot-num">4</span>
+              </div>
+              <div class="gui-slot nav">
+                <span class="slot-label">→</span>
+                <span class="slot-num">5</span>
+              </div>
+              <div class="gui-slot filler"></div>
+              <div class="gui-slot filler"></div>
+              <div class="gui-slot filler"></div>
+            </div>
+          </div>
+          <div class="gui-instructions">
+            <div class="instruction-step">
+              <span class="step-num">1</span>
+              <span>分解したいアイテムを左上（スロット0）に投入</span>
+            </div>
+            <div class="instruction-step">
+              <span class="step-num">2</span>
+              <span>中央にレシピ情報が表示される</span>
+            </div>
+            <div class="instruction-step">
+              <span class="step-num">3</span>
+              <span>複数レシピがある場合は矢印で切り替え</span>
+            </div>
+            <div class="instruction-step">
+              <span class="step-num">4</span>
+              <span>中央のアイテムをクリックで分解実行！</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📐 計算ロジック</h2>
+          <div class="calc-example">
+            <div class="calc-header">
+              <span class="calc-icon">📊</span>
+              <h4>例：棒64本を分解する場合</h4>
+            </div>
+            <div class="calc-body">
+              <div class="calc-recipe">
+                <span class="recipe-input">板材 ×2</span>
+                <span class="recipe-arrow">→</span>
+                <span class="recipe-output">棒 ×4</span>
+              </div>
+              <div class="calc-steps">
+                <div class="calc-step">
+                  <span class="label">所持数:</span>
+                  <span class="value">64本</span>
+                </div>
+                <div class="calc-step">
+                  <span class="label">レシピ結果:</span>
+                  <span class="value">4本</span>
+                </div>
+                <div class="calc-step">
+                  <span class="label">分解セット数:</span>
+                  <span class="value">64 ÷ 4 = 16セット</span>
+                </div>
+                <div class="calc-step highlight">
+                  <span class="label">返却:</span>
+                  <span class="value">板材2個 × 16 = 32個</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎁 専用アイテム</h2>
+          <div class="special-item-card">
+            <div class="item-visual">
+              <div class="item-icon">🔨</div>
+              <div class="item-name">§6§l§nアンクラフトステーション</div>
+            </div>
+            <div class="item-details">
+              <div class="item-info">
+                <span class="info-label">マテリアル</span>
+                <span class="info-value">CRAFTING_TABLE（作業台）</span>
+              </div>
+              <div class="item-info">
+                <span class="info-label">使用方法</span>
+                <span class="info-value">右クリックでGUI起動</span>
+              </div>
+              <div class="item-info">
+                <span class="info-label">再利用</span>
+                <span class="info-value">♾️ 何度でも使用可能</span>
+              </div>
+              <div class="item-lore">
+                <p>§7</p>
+                <p>§e右クリックでアンクラフト画面を開く</p>
+                <p>§7</p>
+                <p>§aアイテムを素材に戻すことができます</p>
+                <p>§7</p>
+                <p>§8※ 何度でも使用可能</p>
+              </div>
+            </div>
+          </div>
+          <div class="security-note">
+            <span class="security-icon">🔒</span>
+            <div class="security-text">
+              <strong>セキュリティ</strong>
+              <p>PersistentDataContainerで識別するため、見た目をコピーしたアイテムは動作しません。<code>/giveuncraft</code>コマンドでのみ正規アイテムを生成可能です。</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">✨</span>
+              <h4>GUIベース</h4>
+              <p>直感的なインベントリ操作</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔄</span>
+              <h4>複数レシピ対応</h4>
+              <p>同じ結果のレシピを選択可能</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📦</span>
+              <h4>スタック対応</h4>
+              <p>一度に複数個を分解</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎯</span>
+              <h4>2種類のレシピ</h4>
+              <p>Shaped/Shapeless対応</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔊</span>
+              <h4>サウンド</h4>
+              <p>操作時のフィードバック</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🛒</span>
+              <h4>村人取引対応</h4>
+              <p>専用アイテムを販売可能</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📋 対応レシピタイプ</h2>
+          <div class="recipe-support">
+            <div class="recipe-item supported">
+              <span class="status">✅</span>
+              <span class="name">ShapedRecipe（形状あり）</span>
+            </div>
+            <div class="recipe-item supported">
+              <span class="status">✅</span>
+              <span class="name">ShapelessRecipe（形状なし）</span>
+            </div>
+            <div class="recipe-item unsupported">
+              <span class="status">❌</span>
+              <span class="name">FurnaceRecipe（かまど）</span>
+            </div>
+            <div class="recipe-item unsupported">
+              <span class="status">❌</span>
+              <span class="name">SmithingRecipe（鍛冶台）</span>
+            </div>
+            <div class="recipe-item unsupported">
+              <span class="status">❌</span>
+              <span class="name">StonecuttingRecipe（石切台）</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/uncraft</code></td><td>アンクラフトGUIを開く</td><td>uncraft.use</td></tr>
+                <tr><td><code>/giveuncraft</code></td><td>自分に専用アイテムを1個配布</td><td>uncraft.give</td></tr>
+                <tr><td><code>/giveuncraft &lt;プレイヤー&gt;</code></td><td>指定プレイヤーに1個配布</td><td>uncraft.give</td></tr>
+                <tr><td><code>/giveuncraft &lt;プレイヤー&gt; &lt;数量&gt;</code></td><td>指定数量を配布</td><td>uncraft.give</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>uncraft.use</code></td><td>アンクラフト機能を使用</td><td>true（全員）</td></tr>
+                <tr><td><code>uncraft.give</code></td><td>専用アイテムを配布</td><td>OP</td></tr>
+                <tr><td><code>uncraft.*</code></td><td>すべての権限</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛒 村人取引連携</h2>
+          <div class="trade-info">
+            <p>専用アイテムを村人の取引に追加して、エメラルドで販売できます。</p>
+            <div class="trade-example">
+              <h4>CustomVillagerTrade設定例</h4>
+              <pre><code>trades:
+  - result:
+      material: CRAFTING_TABLE
+      amount: 1
+      name: "§6§l§nアンクラフトステーション"
+      lore:
+        - "§7"
+        - "§e右クリックでアンクラフト画面を開く"
+    ingredients:
+      - material: EMERALD
+        amount: 32</code></pre>
+            </div>
+            <div class="trade-tips">
+              <div class="tip">💡 推奨価格：エメラルド32個程度</div>
+              <div class="tip">💡 上級村人限定などレア度の調整も可能</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📝 更新履歴</h2>
+          <div class="changelog">
+            <div class="changelog-item">
+              <span class="version">v1.1.2</span>
+              <span class="date">2025-01-02</span>
+              <ul>
+                <li>🐛 特定のアイテムがGUIに投入できない問題を修正</li>
+                <li>✨ シフトクリック対応</li>
+                <li>✨ プレイヤーインベントリの操作性向上</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <span class="version">v1.1.1</span>
+              <span class="date">2025-01-02</span>
+              <ul>
+                <li>🐛 GUIが固まる問題を修正</li>
+                <li>✨ 連続アンクラフト対応</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <span class="version">v1.1.0</span>
+              <span class="date">2025-01-02</span>
+              <ul>
+                <li>🆕 専用アイテム機能の追加</li>
+                <li>🆕 /giveuncraftコマンドの追加</li>
+                <li>🆕 村人取引プラグイン対応</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+  .badge.alpha { background: #dc3545; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .dep-item.none .dep-badge { background: #28a745; color: white; }
+  .dep-name { font-weight: 600; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #333; margin: 0; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 10px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Method Grid */
+  .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .method-card { background: #f8f9fa; border-radius: 15px; overflow: hidden; }
+  .method-card.special { background: linear-gradient(135deg, #667eea, #764ba2); }
+  .method-header { padding: 20px; display: flex; align-items: center; gap: 12px; }
+  .method-card.special .method-header { color: white; }
+  .method-icon { font-size: 28px; }
+  .method-body { padding: 0 20px 20px; }
+  .method-body p { margin: 0; font-size: 14px; }
+  .method-card.special .method-body { color: rgba(255,255,255,0.9); }
+  .method-body code { background: rgba(0,0,0,0.1); padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .new-badge { display: inline-block; background: #ffc107; color: #333; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-top: 10px; }
+
+  /* GUI Diagram */
+  .gui-diagram { background: #2d3436; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+  .gui-row { display: flex; gap: 4px; justify-content: center; }
+  .gui-slot { width: 50px; height: 50px; background: #636e72; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-size: 10px; }
+  .gui-slot.input { background: #00b894; }
+  .gui-slot.result { background: #fdcb6e; color: #333; }
+  .gui-slot.nav { background: #74b9ff; }
+  .gui-slot.filler { background: #4a5568; }
+  .slot-label { font-weight: bold; }
+  .slot-num { font-size: 8px; opacity: 0.7; }
+
+  .gui-instructions { display: flex; flex-direction: column; gap: 10px; }
+  .instruction-step { display: flex; align-items: center; gap: 12px; padding: 10px 15px; background: #f8f9fa; border-radius: 8px; }
+  .instruction-step .step-num { width: 24px; height: 24px; background: #667eea; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0; }
+  .instruction-step span:last-child { font-size: 14px; color: #555; }
+
+  /* Calc Example */
+  .calc-example { background: #f8f9fa; border-radius: 12px; overflow: hidden; }
+  .calc-header { padding: 15px 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; display: flex; align-items: center; gap: 10px; }
+  .calc-icon { font-size: 20px; }
+  .calc-header h4 { margin: 0; font-size: 15px; }
+  .calc-body { padding: 20px; }
+  .calc-recipe { display: flex; align-items: center; justify-content: center; gap: 15px; padding: 15px; background: white; border-radius: 8px; margin-bottom: 15px; }
+  .recipe-input, .recipe-output { padding: 8px 15px; background: #e9ecef; border-radius: 6px; font-weight: 600; }
+  .recipe-arrow { font-size: 20px; color: #667eea; }
+  .calc-steps { display: flex; flex-direction: column; gap: 8px; }
+  .calc-step { display: flex; justify-content: space-between; padding: 8px 12px; background: white; border-radius: 6px; }
+  .calc-step.highlight { background: #d4edda; border: 2px solid #28a745; }
+  .calc-step .label { color: #666; }
+  .calc-step .value { font-weight: 600; color: #333; }
+
+  /* Special Item Card */
+  .special-item-card { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); border-radius: 15px; padding: 25px; display: grid; grid-template-columns: auto 1fr; gap: 25px; }
+  .item-visual { text-align: center; }
+  .item-icon { font-size: 48px; margin-bottom: 10px; }
+  .item-name { font-size: 14px; font-weight: bold; color: #d68910; }
+  .item-details { display: flex; flex-direction: column; gap: 10px; }
+  .item-info { display: flex; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.5); border-radius: 6px; }
+  .info-label { font-size: 13px; color: #666; }
+  .info-value { font-size: 13px; font-weight: 600; color: #333; }
+  .item-lore { background: #2d3436; padding: 12px; border-radius: 8px; margin-top: 10px; }
+  .item-lore p { margin: 0; font-size: 12px; font-family: monospace; color: #dfe6e9; line-height: 1.4; }
+
+  .security-note { display: flex; gap: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; border-left: 4px solid #2196f3; margin-top: 20px; }
+  .security-icon { font-size: 24px; }
+  .security-text strong { display: block; margin-bottom: 5px; color: #1565c0; }
+  .security-text p { margin: 0; font-size: 13px; color: #555; }
+  .security-text code { background: #2d3436; color: #dfe6e9; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+
+  /* Feature Grid */
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 5px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Recipe Support */
+  .recipe-support { display: flex; flex-direction: column; gap: 8px; }
+  .recipe-item { display: flex; align-items: center; gap: 12px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .recipe-item.supported { border-left: 4px solid #28a745; }
+  .recipe-item.unsupported { border-left: 4px solid #dc3545; opacity: 0.7; }
+  .recipe-item .status { font-size: 16px; }
+  .recipe-item .name { font-size: 14px; color: #555; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+
+  /* Trade Info */
+  .trade-info { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .trade-info > p { margin-bottom: 15px; }
+  .trade-example { background: white; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+  .trade-example h4 { margin-bottom: 10px; color: #333; }
+  .trade-example pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 0; }
+  .trade-example code { font-size: 12px; line-height: 1.5; }
+  .trade-tips { display: flex; flex-direction: column; gap: 8px; }
+  .trade-tips .tip { font-size: 13px; color: #666; }
+
+  /* Changelog */
+  .changelog { display: flex; flex-direction: column; gap: 20px; }
+  .changelog-item { background: #f8f9fa; border-radius: 12px; padding: 20px; border-left: 4px solid #667eea; }
+  .changelog-item .version { font-weight: bold; color: #667eea; margin-right: 10px; }
+  .changelog-item .date { font-size: 13px; color: #666; }
+  .changelog-item ul { margin: 10px 0 0; padding-left: 20px; }
+  .changelog-item li { font-size: 14px; color: #555; margin-bottom: 5px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .method-grid { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .special-item-card { grid-template-columns: 1fr; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
