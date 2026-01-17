@@ -1,0 +1,565 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="FishingPointBattle - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🎣</div>
+      <div class="plugin-title-area">
+        <h1>FishingPointBattle</h1>
+        <p class="plugin-subtitle">釣りポイントバトル - 競争型釣りミニゲーム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v2.0.0</span>
+          <span class="badge category">ミニゲーム</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>2.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ミニゲーム</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/fishingpointbattle.131762/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/fishingpointbattle" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-none">
+            <span>依存プラグインなし</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>FishingPointBattleは、制限時間内に魚を釣ってポイントを競う競争型釣りミニゲームプラグインです。</p>
+          <p>コンボシステム、ゴールデンタイム、7種類の特殊アイテムなど、戦略性と駆け引きが楽しめる要素が満載。シンプルな釣りゲームに留まらない、本格的なバトル体験を提供します。</p>
+        </section>
+
+        <section>
+          <h2>🎮 ゲームルール</h2>
+          <div class="rules-box">
+            <div class="rule-item">
+              <span class="rule-icon">🎯</span>
+              <div>
+                <strong>目標</strong>
+                <p>制限時間内にできるだけ多くのポイントを稼ぐ</p>
+              </div>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon">🐟</span>
+              <div>
+                <strong>ポイント獲得</strong>
+                <p>魚を釣るとポイント獲得。魚の種類で点数が異なる</p>
+              </div>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon">🏆</span>
+              <div>
+                <strong>勝利条件</strong>
+                <p>ゲーム終了時に最もポイントが高いプレイヤーが優勝</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid-3col">
+            <div class="feature-card">
+              <span class="icon">🔥</span>
+              <h4>コンボシステム</h4>
+              <p>連続で釣るとコンボ発動！最大2倍のポイント</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">✨</span>
+              <h4>ゴールデンタイム</h4>
+              <p>30秒間ポイント2倍のチャンスタイム</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎁</span>
+              <h4>特殊アイテム</h4>
+              <p>7種類の妨害・補助アイテムで駆け引き</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📊</span>
+              <h4>ボスバー表示</h4>
+              <p>残り時間・ランキングをリアルタイム表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎖️</span>
+              <h4>報酬システム</h4>
+              <p>上位3名にエメラルド報酬を自動配布</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🪧</span>
+              <h4>看板参加</h4>
+              <p>看板クリックで簡単にロビー参加</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔥 コンボシステム</h2>
+          <div class="combo-info">
+            <p>10秒以内に連続で魚を釣るとコンボが発動し、ポイント倍率がアップ！</p>
+            <div class="combo-table">
+              <div class="combo-item">
+                <span class="combo-count">3コンボ</span>
+                <span class="combo-mult">×1.2</span>
+              </div>
+              <div class="combo-item">
+                <span class="combo-count">5コンボ</span>
+                <span class="combo-mult">×1.5</span>
+              </div>
+              <div class="combo-item">
+                <span class="combo-count">7コンボ</span>
+                <span class="combo-mult">×1.8</span>
+              </div>
+              <div class="combo-item highlight">
+                <span class="combo-count">10コンボ</span>
+                <span class="combo-mult">×2.0</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🐟 ポイント一覧</h2>
+          <div class="points-grid">
+            <div class="points-card common">
+              <span class="fish-icon">🐟</span>
+              <div>
+                <h4>タラ</h4>
+                <span class="points">1ポイント</span>
+              </div>
+            </div>
+            <div class="points-card common">
+              <span class="fish-icon">🐠</span>
+              <div>
+                <h4>サーモン</h4>
+                <span class="points">2ポイント</span>
+              </div>
+            </div>
+            <div class="points-card uncommon">
+              <span class="fish-icon">🐡</span>
+              <div>
+                <h4>フグ</h4>
+                <span class="points">3ポイント</span>
+              </div>
+            </div>
+            <div class="points-card rare">
+              <span class="fish-icon">🐠</span>
+              <div>
+                <h4>熱帯魚</h4>
+                <span class="points">5ポイント</span>
+              </div>
+            </div>
+            <div class="points-card legendary">
+              <span class="fish-icon">💙</span>
+              <div>
+                <h4>海洋の心</h4>
+                <span class="points">15ポイント</span>
+              </div>
+            </div>
+            <div class="points-card legendary">
+              <span class="fish-icon">📖</span>
+              <div>
+                <h4>エンチャント本</h4>
+                <span class="points">15ポイント</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎁 特殊アイテム（7種類）</h2>
+          
+          <h3 class="item-category">💥 妨害アイテム</h3>
+          <div class="special-items-grid">
+            <div class="special-item attack">
+              <div class="item-header">
+                <span class="item-icon">🦑</span>
+                <h4>イカスミ爆弾</h4>
+              </div>
+              <div class="item-body">
+                <p>投げつけて対象に盲目を付与</p>
+                <span class="item-effect">効果: 3秒間盲目</span>
+                <span class="drop-rate">ドロップ率: 3%</span>
+              </div>
+            </div>
+            <div class="special-item attack">
+              <div class="item-header">
+                <span class="item-icon">❄️</span>
+                <h4>凍結弾</h4>
+              </div>
+              <div class="item-body">
+                <p>投げつけて対象を凍結</p>
+                <span class="item-effect">効果: 2秒間凍結</span>
+                <span class="drop-rate">ドロップ率: 3%</span>
+              </div>
+            </div>
+            <div class="special-item attack">
+              <div class="item-header">
+                <span class="item-icon">✂️</span>
+                <h4>釣り糸カッター</h4>
+              </div>
+              <div class="item-body">
+                <p>近くの釣り中プレイヤーの釣りをキャンセル</p>
+                <span class="item-effect">効果: 即座にキャンセル</span>
+                <span class="drop-rate">ドロップ率: 2%</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="item-category">✨ 補助アイテム</h3>
+          <div class="special-items-grid">
+            <div class="special-item support">
+              <div class="item-header">
+                <span class="item-icon">🍀</span>
+                <h4>幸運の餌</h4>
+              </div>
+              <div class="item-body">
+                <p>次の釣りでレアアイテム確定</p>
+                <span class="item-effect">効果: 次回レア確定</span>
+                <span class="drop-rate">ドロップ率: 2%</span>
+              </div>
+            </div>
+            <div class="special-item support">
+              <div class="item-header">
+                <span class="item-icon">⚡</span>
+                <h4>加速エサ</h4>
+              </div>
+              <div class="item-body">
+                <p>釣りやすさがアップ</p>
+                <span class="item-effect">効果: 30秒間LUCK+2</span>
+                <span class="drop-rate">ドロップ率: 3%</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="item-category">🎯 設置アイテム</h3>
+          <div class="special-items-grid">
+            <div class="special-item trap">
+              <div class="item-header">
+                <span class="item-icon">🎯</span>
+                <h4>トラップ浮き</h4>
+              </div>
+              <div class="item-body">
+                <p>地面に設置、踏んだ相手にスロー</p>
+                <span class="item-effect">設置時間: 60秒</span>
+                <span class="drop-rate">ドロップ率: 2%</span>
+              </div>
+            </div>
+            <div class="special-item beacon">
+              <div class="item-header">
+                <span class="item-icon">🔔</span>
+                <h4>魚寄せビーコン</h4>
+              </div>
+              <div class="item-body">
+                <p>近くで釣るとポイント+30%ボーナス</p>
+                <span class="item-effect">設置時間: 45秒 / 範囲: 3ブロック</span>
+                <span class="drop-rate">ドロップ率: 2%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ ゴールデンタイム</h2>
+          <div class="golden-time-info">
+            <div class="golden-visual">
+              <span class="golden-icon">✨</span>
+              <span class="golden-text">GOLDEN TIME!</span>
+              <span class="golden-mult">×2.0</span>
+            </div>
+            <p>ゲーム中ランダムに発生！30秒間すべてのポイントが2倍になるチャンスタイム！</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>🏆 報酬</h2>
+          <div class="rewards-display">
+            <div class="reward-card gold">
+              <span class="rank-icon">🥇</span>
+              <h4>1位</h4>
+              <span class="reward-amount">💎 ×3</span>
+            </div>
+            <div class="reward-card silver">
+              <span class="rank-icon">🥈</span>
+              <h4>2位</h4>
+              <span class="reward-amount">💎 ×2</span>
+            </div>
+            <div class="reward-card bronze">
+              <span class="rank-icon">🥉</span>
+              <h4>3位</h4>
+              <span class="reward-amount">💎 ×1</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/fpb help</code></td><td>ヘルプを表示</td><td>-</td></tr>
+                <tr><td><code>/fpb join</code></td><td>ロビーに参加</td><td>fpb.play</td></tr>
+                <tr><td><code>/fpb leave</code></td><td>ロビーから退出</td><td>fpb.play</td></tr>
+                <tr><td><code>/fpb start [分]</code></td><td>ゲームを開始</td><td>fpb.admin</td></tr>
+                <tr><td><code>/fpb stop</code></td><td>ゲームを強制終了</td><td>fpb.admin</td></tr>
+                <tr><td><code>/fpb setup &lt;項目&gt;</code></td><td>各種位置を設定</td><td>fpb.admin</td></tr>
+                <tr><td><code>/fpb status</code></td><td>現在の状態を表示</td><td>fpb.admin</td></tr>
+                <tr><td><code>/fpb reload</code></td><td>設定をリロード</td><td>fpb.admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-note">エイリアス: <code>/fishingpointbattle</code>, <code>/fishing</code></p>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>fpb.admin</code></td><td>管理者コマンドの使用</td><td>OP</td></tr>
+                <tr><td><code>fpb.play</code></td><td>ゲームに参加</td><td>全員</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 セットアップ手順</h2>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <h4>スポーン地点を設定</h4>
+                <code>/fpb setup spawn</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <h4>ロビー地点を設定</h4>
+                <code>/fpb setup lobby</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <h4>ゲームエリアを設定</h4>
+                <code>/fpb setup area pos1</code>
+                <code>/fpb setup area pos2</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <h4>釣りスポットを設定（任意）</h4>
+                <code>/fpb setup fishspot</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-list">
+            <div class="config-item">
+              <code>game.default-duration</code>
+              <span>デフォルト制限時間（分）</span>
+            </div>
+            <div class="config-item">
+              <code>game.min-players</code>
+              <span>最小参加人数</span>
+            </div>
+            <div class="config-item">
+              <code>combo.timeout-seconds</code>
+              <span>コンボ継続判定時間（秒）</span>
+            </div>
+            <div class="config-item">
+              <code>golden-time.duration-seconds</code>
+              <span>ゴールデンタイムの持続時間</span>
+            </div>
+            <div class="config-item">
+              <code>points.*</code>
+              <span>各魚のポイント設定</span>
+            </div>
+            <div class="config-item">
+              <code>special-items.*</code>
+              <span>特殊アイテムのドロップ率</span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-none { padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; color: #666; font-size: 14px; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #555; margin: 20px 0 15px; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 5px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Rules Box */
+  .rules-box { display: flex; flex-direction: column; gap: 15px; }
+  .rule-item { display: flex; gap: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; border-left: 4px solid #2196f3; }
+  .rule-icon { font-size: 24px; }
+  .rule-item strong { display: block; color: #1976d2; margin-bottom: 5px; }
+  .rule-item p { margin: 0; font-size: 14px; color: #555; }
+
+  /* Feature Grid */
+  .feature-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Combo Info */
+  .combo-info { background: linear-gradient(135deg, #ff9800, #f57c00); border-radius: 15px; padding: 25px; color: white; }
+  .combo-info p { color: white; margin-bottom: 20px; }
+  .combo-table { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+  .combo-item { background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 10px; text-align: center; }
+  .combo-item.highlight { background: rgba(255,255,255,0.4); }
+  .combo-count { display: block; font-size: 14px; margin-bottom: 5px; }
+  .combo-mult { display: block; font-size: 24px; font-weight: bold; }
+
+  /* Points Grid */
+  .points-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .points-card { display: flex; align-items: center; gap: 12px; padding: 15px; border-radius: 10px; border: 2px solid; }
+  .points-card.common { background: #f8f9fa; border-color: #dee2e6; }
+  .points-card.uncommon { background: #e8f5e9; border-color: #4caf50; }
+  .points-card.rare { background: #e3f2fd; border-color: #2196f3; }
+  .points-card.legendary { background: #fff3e0; border-color: #ff9800; }
+  .fish-icon { font-size: 28px; }
+  .points-card h4 { margin: 0 0 4px; font-size: 14px; }
+  .points { font-size: 13px; color: #666; font-weight: 600; }
+
+  /* Item Category */
+  .item-category { background: linear-gradient(90deg, #17a2b8, #20c997); color: white; padding: 10px 15px; border-radius: 8px; margin: 25px 0 15px; }
+
+  /* Special Items Grid */
+  .special-items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-bottom: 20px; }
+  .special-item { border-radius: 12px; overflow: hidden; border: 2px solid; }
+  .special-item.attack { border-color: #e53935; background: #ffebee; }
+  .special-item.support { border-color: #43a047; background: #e8f5e9; }
+  .special-item.trap { border-color: #8e24aa; background: #f3e5f5; }
+  .special-item.beacon { border-color: #00acc1; background: #e0f7fa; }
+  .item-header { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: rgba(0,0,0,0.05); }
+  .item-icon { font-size: 24px; }
+  .item-header h4 { margin: 0; font-size: 14px; }
+  .item-body { padding: 12px 15px; }
+  .item-body p { margin: 0 0 10px; font-size: 13px; color: #555; }
+  .item-effect { display: block; font-size: 12px; color: #666; margin-bottom: 5px; }
+  .drop-rate { display: block; font-size: 11px; color: #999; }
+
+  /* Golden Time Info */
+  .golden-time-info { background: linear-gradient(135deg, #ffd700, #ffb300); border-radius: 15px; padding: 25px; text-align: center; }
+  .golden-visual { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px; }
+  .golden-icon { font-size: 40px; }
+  .golden-text { font-size: 28px; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+  .golden-mult { font-size: 32px; font-weight: bold; color: white; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 8px; }
+  .golden-time-info p { color: #5d4037; margin: 0; }
+
+  /* Rewards Display */
+  .rewards-display { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .reward-card { text-align: center; padding: 25px 35px; border-radius: 15px; }
+  .reward-card.gold { background: linear-gradient(135deg, #ffd700, #ffb300); }
+  .reward-card.silver { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); }
+  .reward-card.bronze { background: linear-gradient(135deg, #cd7f32, #b87333); }
+  .rank-icon { font-size: 40px; display: block; margin-bottom: 10px; }
+  .reward-card h4 { margin: 0 0 10px; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+  .reward-amount { font-size: 18px; font-weight: bold; color: white; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  /* Setup Steps */
+  .setup-steps { display: flex; flex-direction: column; gap: 15px; }
+  .setup-step { display: flex; gap: 15px; padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #17a2b8; }
+  .step-num { width: 32px; height: 32px; background: #17a2b8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content h4 { margin: 0 0 8px; }
+  .step-content code { display: inline-block; background: #2d3436; color: #dfe6e9; padding: 6px 12px; border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; }
+
+  /* Config List */
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #17a2b8; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid-3col { grid-template-columns: repeat(2, 1fr); }
+    .points-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .feature-grid-3col { grid-template-columns: 1fr; }
+    .points-grid { grid-template-columns: 1fr; }
+    .combo-table { flex-direction: column; }
+  }
+</style>
