@@ -3,14 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-// プラグインデータ
 const plugins = [
-  // ミニゲーム
   { name: '1vs1', slug: '1vs1', version: '1.0.0', icon: '⚔️', description: '1対1のPvP対戦プラグイン', category: 'minigame', tags: ['PvP', '対戦'], updated: '2025-12-01' },
   { name: '2dTreasure', slug: '2dtreasure', version: '1.0.0', icon: '🗺️', description: '2D宝探しミニゲーム', category: 'minigame', tags: ['探索'], updated: '2025-11-15' },
   { name: 'BattleRoyale', slug: 'battleroyale', version: '1.2.0', icon: '🏆', description: 'バトルロイヤル形式のPvPゲーム', category: 'minigame', tags: ['PvP', 'バトロワ'], updated: '2025-12-10' },
   { name: 'BlackJack2', slug: 'blackjack2', version: '2.0.0', icon: '🃏', description: 'ブラックジャック（トランプ）', category: 'minigame', tags: ['カード', 'ギャンブル'], updated: '2025-10-20' },
-  { name: 'DorokeJGame', slug: 'dorokejgame', version: '1.0.0', icon: '🏃', description: 'どろけい（泥棒と警察）ゲーム', category: 'minigame', tags: ['チーム', '鬼ごっこ'], updated: '2025-11-01' },
+  { name: 'DorokeiGame', slug: 'dorokeigame', version: '3.0', icon: '🚔', description: 'ドロケイゲーム - ロビー・複数インスタンス対応', category: 'minigame', tags: ['チーム', '鬼ごっこ', 'PvP'], updated: '2025-01-17' },
   { name: 'FishingPointBattle', slug: 'fishingpointbattle', version: '1.0.0', icon: '🎣', description: '釣りポイントバトル', category: 'minigame', tags: ['釣り', '対戦'], updated: '2025-10-15' },
   { name: 'HorseRacing2', slug: 'horseracing2', version: '2.1.0', icon: '🏇', description: '競馬ゲーム', category: 'minigame', tags: ['レース', 'ギャンブル'], updated: '2025-12-05' },
   { name: 'MinecraftMOBA', slug: 'minecraftmoba', version: '1.0.0', icon: '🏰', description: 'LOL風MOBAゲーム', category: 'minigame', tags: ['PvP', 'チーム', 'MOBA'], updated: '2026-01-10' },
@@ -25,10 +23,8 @@ const plugins = [
   { name: 'VillagerBall', slug: 'villagerball', version: '1.0.0', icon: '👨‍🌾', description: '村人ボールゲーム', category: 'minigame', tags: ['スポーツ'], updated: '2025-09-15' },
   { name: 'Yukigassen', slug: 'yukigassen', version: '1.0.0', icon: '☃️', description: '雪合戦ゲーム', category: 'minigame', tags: ['チーム', 'PvP'], updated: '2025-12-20' },
   { name: 'Zinro', slug: 'zinro', version: '1.8.0', icon: '🐺', description: '人狼ゲーム', category: 'minigame', tags: ['推理', 'チーム'], updated: '2026-01-05' },
-  // 経済
   { name: 'EmeraldBank', slug: 'emeraldbank', version: '2.0.2', icon: '💎', description: 'エメラルド通貨システム', category: 'economy', tags: ['通貨', '銀行'], updated: '2026-01-10' },
   { name: 'Ranking', slug: 'ranking', version: '1.2.0', icon: '📊', description: '統計ランキングシステム', category: 'economy', tags: ['統計', 'ランキング'], updated: '2025-12-01' },
-  // 便利系
   { name: 'AsureTimer', slug: 'asuretimer', version: '1.0.0', icon: '⏱️', description: 'アスレチックタイム計測', category: 'utility', tags: ['タイマー', 'アスレ'], updated: '2025-10-01' },
   { name: 'CaveEraser', slug: 'caveeraser', version: '1.0.0', icon: '🕳️', description: '洞窟削除・整地ツール', category: 'utility', tags: ['整地', '管理者'], updated: '2025-09-01' },
   { name: 'Convenience', slug: 'convenience', version: '1.0.0', icon: '🛠️', description: '便利機能詰め合わせ', category: 'utility', tags: ['便利'], updated: '2025-08-15' },
@@ -40,7 +36,6 @@ const plugins = [
   { name: 'GlobalStorage2', slug: 'globalstorage2', version: '2.0.0', icon: '📦', description: '全プレイヤー共有倉庫', category: 'utility', tags: ['倉庫', '共有'], updated: '2025-12-10' },
   { name: 'Seitiassist', slug: 'seitiassist', version: '1.0.0', icon: '🔨', description: '整地作業アシストツール', category: 'utility', tags: ['整地', '便利'], updated: '2025-11-20' },
   { name: 'Tintran', slug: 'tintran', version: '1.0.0', icon: '🌀', description: '転送・テレポートシステム', category: 'utility', tags: ['移動', 'テレポート'], updated: '2025-10-05' },
-  // その他
   { name: 'BedrockReplacer', slug: 'bedrockreplacer', version: '1.0.0', icon: '🪨', description: '岩盤ブロック置換ツール', category: 'other', tags: ['管理者', '整地'], updated: '2025-08-01' },
   { name: 'BossPlugin', slug: 'bossplugin', version: '1.0.0', icon: '👹', description: 'カスタムボスモブ追加', category: 'other', tags: ['ボス', 'PvE'], updated: '2025-12-01' },
   { name: 'Yukiori', slug: 'yukiori', version: '1.0.0', icon: '❄️', description: '雪降りシステム', category: 'other', tags: ['演出'], updated: '2025-12-15' },
@@ -48,52 +43,40 @@ const plugins = [
 ];
 
 const categories = [
-  { id: 'all', label: '🎮 すべて', count: plugins.length },
-  { id: 'minigame', label: '🎲 ミニゲーム', count: plugins.filter(p => p.category === 'minigame').length },
-  { id: 'economy', label: '💰 経済', count: plugins.filter(p => p.category === 'economy').length },
-  { id: 'utility', label: '🔧 便利系', count: plugins.filter(p => p.category === 'utility').length },
-  { id: 'other', label: '📦 その他', count: plugins.filter(p => p.category === 'other').length },
+  { id: 'all', label: 'すべて', count: plugins.length },
+  { id: 'minigame', label: 'ミニゲーム', count: plugins.filter(p => p.category === 'minigame').length },
+  { id: 'economy', label: '経済', count: plugins.filter(p => p.category === 'economy').length },
+  { id: 'utility', label: '便利系', count: plugins.filter(p => p.category === 'utility').length },
+  { id: 'other', label: 'その他', count: plugins.filter(p => p.category === 'other').length },
 ];
 
-// 全タグを抽出
 const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
 ---
 
 <Layout 
   title="プラグイン一覧 - MattariMinecraft" 
-  description="MattariMinecraftサーバーで使用できる37個以上のオリジナルプラグイン一覧。ミニゲーム、経済システム、便利ツールなど。"
+  description="MattariMinecraftサーバーで使用できるオリジナルプラグイン一覧。ミニゲーム、経済システム、便利ツールなど。"
 >
   <Header currentPage="plugins" />
 
   <main class="plugins-page">
     <div class="page-header">
-      <h1>📦 プラグイン一覧</h1>
+      <h1>プラグイン一覧</h1>
       <p>MattariMinecraftで使える{plugins.length}個のオリジナルプラグイン</p>
     </div>
 
     <div class="plugins-container">
-      <!-- サイドバー（フィルター） -->
       <aside class="sidebar">
-        <!-- 検索ボックス -->
         <div class="search-section">
-          <label for="search-input" class="section-title">🔍 検索</label>
-          <input 
-            type="text" 
-            id="search-input" 
-            placeholder="プラグイン名で検索..."
-            autocomplete="off"
-          >
+          <label for="search-input" class="section-title">検索</label>
+          <input type="text" id="search-input" placeholder="プラグイン名で検索..." autocomplete="off">
         </div>
 
-        <!-- カテゴリフィルター -->
         <div class="filter-section">
-          <div class="section-title">📁 カテゴリ</div>
+          <div class="section-title">カテゴリ</div>
           <div class="category-list">
             {categories.map(cat => (
-              <button 
-                class:list={['category-btn', { active: cat.id === 'all' }]}
-                data-category={cat.id}
-              >
+              <button class:list={['category-btn', { active: cat.id === 'all' }]} data-category={cat.id}>
                 <span>{cat.label}</span>
                 <span class="count">{cat.count}</span>
               </button>
@@ -101,9 +84,8 @@ const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
           </div>
         </div>
 
-        <!-- タグフィルター -->
         <div class="filter-section">
-          <div class="section-title">🏷️ タグ</div>
+          <div class="section-title">タグ</div>
           <div class="tag-list">
             {allTags.map(tag => (
               <button class="tag-btn" data-tag={tag}>{tag}</button>
@@ -112,44 +94,22 @@ const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
           <button class="clear-tags-btn" id="clear-tags">タグをクリア</button>
         </div>
 
-        <!-- ソート -->
         <div class="filter-section">
-          <div class="section-title">📊 並び替え</div>
+          <div class="section-title">並び替え</div>
           <select id="sort-select">
             <option value="name-asc">名前（A→Z）</option>
             <option value="name-desc">名前（Z→A）</option>
             <option value="updated-desc">更新日（新しい順）</option>
             <option value="updated-asc">更新日（古い順）</option>
-            <option value="category">カテゴリ別</option>
           </select>
         </div>
       </aside>
 
-      <!-- プラグイン一覧 -->
       <div class="plugins-main">
-        <!-- 結果ヘッダー -->
         <div class="results-header">
           <span id="results-count">{plugins.length}個のプラグイン</span>
-          <div class="view-toggle">
-            <button class="view-btn active" data-view="grid" aria-label="グリッド表示">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <rect x="3" y="3" width="7" height="7" rx="1"/>
-                <rect x="14" y="3" width="7" height="7" rx="1"/>
-                <rect x="3" y="14" width="7" height="7" rx="1"/>
-                <rect x="14" y="14" width="7" height="7" rx="1"/>
-              </svg>
-            </button>
-            <button class="view-btn" data-view="list" aria-label="リスト表示">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <rect x="3" y="4" width="18" height="4" rx="1"/>
-                <rect x="3" y="10" width="18" height="4" rx="1"/>
-                <rect x="3" y="16" width="18" height="4" rx="1"/>
-              </svg>
-            </button>
-          </div>
         </div>
 
-        <!-- プラグイングリッド -->
         <div class="plugins-grid" id="plugins-grid">
           {plugins.map(plugin => (
             <a 
@@ -175,7 +135,6 @@ const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
           ))}
         </div>
 
-        <!-- 検索結果なし -->
         <div class="no-results" id="no-results" style="display: none;">
           <span class="no-results-icon">🔍</span>
           <p>条件に一致するプラグインが見つかりません</p>
@@ -199,7 +158,6 @@ const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
   const resultsCount = document.getElementById('results-count');
   const noResults = document.getElementById('no-results');
   const resetFiltersBtn = document.getElementById('reset-filters');
-  const viewBtns = document.querySelectorAll('.view-btn');
 
   let currentCategory = 'all';
   let selectedTags: string[] = [];
@@ -241,14 +199,11 @@ const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
       const nameB = b.getAttribute('data-name') || '';
       const updatedA = a.getAttribute('data-updated') || '';
       const updatedB = b.getAttribute('data-updated') || '';
-      const categoryA = a.getAttribute('data-category') || '';
-      const categoryB = b.getAttribute('data-category') || '';
       switch (currentSort) {
         case 'name-asc': return nameA.localeCompare(nameB);
         case 'name-desc': return nameB.localeCompare(nameA);
         case 'updated-desc': return updatedB.localeCompare(updatedA);
         case 'updated-asc': return updatedA.localeCompare(updatedB);
-        case 'category': return categoryA.localeCompare(categoryB) || nameA.localeCompare(nameB);
         default: return 0;
       }
     });
@@ -303,71 +258,306 @@ const allTags = [...new Set(plugins.flatMap(p => p.tags))].sort();
     tagBtns.forEach(btn => btn.classList.remove('active'));
     applyFilters();
   });
-
-  viewBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      viewBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const view = btn.getAttribute('data-view');
-      pluginsGrid?.classList.toggle('list-view', view === 'list');
-    });
-  });
 </script>
 
 <style>
-  .plugins-page { max-width: 1400px; margin: 0 auto; padding: 0 20px 60px; }
-  .page-header { text-align: center; padding: 50px 20px 40px; color: white; }
-  .page-header h1 { font-size: 36px; margin-bottom: 10px; }
-  .page-header p { font-size: 16px; opacity: 0.9; }
-  .plugins-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
-  .sidebar { background: white; border-radius: 15px; padding: 25px; height: fit-content; position: sticky; top: 100px; }
-  .section-title { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 12px; }
-  .search-section { margin-bottom: 25px; }
-  .search-section input { width: 100%; padding: 12px 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 14px; transition: all 0.3s; }
-  .search-section input:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
-  .filter-section { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-  .filter-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .category-list { display: flex; flex-direction: column; gap: 6px; }
-  .category-btn { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f8f9fa; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; color: #555; transition: all 0.3s; text-align: left; }
-  .category-btn:hover { background: #e9ecef; }
-  .category-btn.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-  .category-btn .count { background: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 10px; font-size: 11px; }
-  .category-btn.active .count { background: rgba(255,255,255,0.2); }
-  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .tag-btn { padding: 6px 12px; background: #f1f3f5; border: none; border-radius: 15px; font-size: 12px; color: #555; cursor: pointer; transition: all 0.3s; }
-  .tag-btn:hover { background: #e9ecef; }
-  .tag-btn.active { background: #667eea; color: white; }
-  .clear-tags-btn { width: 100%; padding: 8px; background: none; border: 1px dashed #ccc; border-radius: 8px; font-size: 12px; color: #888; cursor: pointer; transition: all 0.3s; }
-  .clear-tags-btn:hover { border-color: #667eea; color: #667eea; }
-  .filter-section select { width: 100%; padding: 10px 12px; border: 2px solid #e9ecef; border-radius: 8px; font-size: 13px; cursor: pointer; }
-  .filter-section select:focus { outline: none; border-color: #667eea; }
-  .plugins-main { background: white; border-radius: 15px; padding: 25px; }
-  .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-  #results-count { font-size: 14px; color: #666; }
-  .view-toggle { display: flex; gap: 5px; }
-  .view-btn { padding: 8px; background: #f1f3f5; border: none; border-radius: 8px; cursor: pointer; color: #666; transition: all 0.3s; }
-  .view-btn:hover { background: #e9ecef; }
-  .view-btn.active { background: #667eea; color: white; }
-  .plugins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-  .plugin-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-decoration: none; transition: all 0.3s; border: 2px solid transparent; }
-  .plugin-card:hover { transform: translateY(-5px); border-color: #667eea; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-  .plugin-icon { font-size: 36px; }
-  .plugin-version { font-size: 11px; color: #888; background: #e9ecef; padding: 3px 8px; border-radius: 10px; }
-  .plugin-name { font-size: 16px; font-weight: 600; color: #333; margin-bottom: 8px; }
-  .plugin-desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 12px; }
-  .plugin-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .plugin-tag { font-size: 11px; padding: 3px 8px; background: #e9ecef; border-radius: 10px; color: #666; }
-  .plugins-grid.list-view { grid-template-columns: 1fr; }
-  .plugins-grid.list-view .plugin-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; padding: 15px 20px; }
-  .plugins-grid.list-view .card-header { margin-bottom: 0; flex-direction: column; gap: 5px; }
-  .plugins-grid.list-view .plugin-desc { margin-bottom: 0; }
-  .plugins-grid.list-view .plugin-tags { justify-content: flex-end; }
-  .no-results { display: flex; flex-direction: column; align-items: center; padding: 60px 20px; text-align: center; }
-  .no-results-icon { font-size: 60px; margin-bottom: 20px; opacity: 0.5; }
-  .no-results p { color: #666; margin-bottom: 20px; }
-  .reset-btn { padding: 12px 25px; background: #667eea; color: white; border: none; border-radius: 25px; font-size: 14px; cursor: pointer; transition: all 0.3s; }
-  .reset-btn:hover { background: #764ba2; }
-  @media (max-width: 900px) { .plugins-container { grid-template-columns: 1fr; } .sidebar { position: static; } }
-  @media (max-width: 600px) { .plugins-grid { grid-template-columns: 1fr; } .page-header h1 { font-size: 28px; } }
+  .plugins-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .page-header {
+    text-align: center;
+    padding: 50px 20px 40px;
+    color: white;
+  }
+
+  .page-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .page-header p {
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  .plugins-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+  }
+
+  .sidebar {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+  }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+  }
+
+  .search-section {
+    margin-bottom: 20px;
+  }
+
+  .search-section input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .search-section input:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+
+  .filter-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .filter-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .category-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #555;
+    transition: all 0.2s;
+  }
+
+  .category-btn:hover {
+    background: #e9ecef;
+  }
+
+  .category-btn.active {
+    background: #667eea;
+    color: white;
+  }
+
+  .category-btn .count {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+  }
+
+  .category-btn.active .count {
+    background: rgba(255,255,255,0.2);
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .tag-btn {
+    padding: 5px 10px;
+    background: #f1f3f5;
+    border: none;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tag-btn:hover {
+    background: #e9ecef;
+  }
+
+  .tag-btn.active {
+    background: #667eea;
+    color: white;
+  }
+
+  .clear-tags-btn {
+    width: 100%;
+    padding: 8px;
+    background: none;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #888;
+    cursor: pointer;
+  }
+
+  .clear-tags-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+  }
+
+  .filter-section select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+
+  .plugins-main {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+  }
+
+  .results-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  #results-count {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .plugins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .plugin-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 18px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+
+  .plugin-card:hover {
+    transform: translateY(-3px);
+    border-color: #667eea;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .plugin-icon {
+    font-size: 32px;
+  }
+
+  .plugin-version {
+    font-size: 11px;
+    color: #888;
+    background: #e9ecef;
+    padding: 3px 8px;
+    border-radius: 8px;
+  }
+
+  .plugin-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .plugin-desc {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .plugin-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .plugin-tag {
+    font-size: 10px;
+    padding: 3px 7px;
+    background: #e9ecef;
+    border-radius: 8px;
+    color: #666;
+  }
+
+  .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .no-results-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+  }
+
+  .no-results p {
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  .reset-btn {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .reset-btn:hover {
+    background: #764ba2;
+  }
+
+  @media (max-width: 900px) {
+    .plugins-container {
+      grid-template-columns: 1fr;
+    }
+    .sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .plugins-grid {
+      grid-template-columns: 1fr;
+    }
+    .page-header h1 {
+      font-size: 28px;
+    }
+  }
 </style>
