@@ -1,0 +1,352 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Netherfortress - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🏰</div>
+      <div class="plugin-title-area">
+        <h1>Netherfortress</h1>
+        <p class="plugin-subtitle">初めてのネザー到達を祝福！最寄り要塞座標を自動通知</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0</span>
+          <span class="badge category">ユーティリティ</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ユーティリティ</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/netherfortress.131768/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/netherfortress" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-none">
+            <span>依存プラグインなし</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Netherfortressは、プレイヤーが初めてネザーに入った時に、最寄りのネザー要塞の座標を自動的に通知するシンプルなユーティリティプラグインです。</p>
+          <p>サバイバルサーバーでのプレイヤー体験を向上させ、ネザー要塞探しの手間を軽減します。初心者プレイヤーにも優しい設計で、ネザー到達という重要なマイルストーンを祝福します。</p>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🎉</span>
+              <h4>初回到達祝福</h4>
+              <p>初めてネザーに入った瞬間に祝福メッセージを表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📍</span>
+              <h4>要塞座標通知</h4>
+              <p>最寄りのネザー要塞のX/Z座標を自動検索して通知</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💾</span>
+              <h4>永続データ保存</h4>
+              <p>初回入場フラグはサーバー再起動後も保持</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚡</span>
+              <h4>軽量設計</h4>
+              <p>設定不要でインストールするだけで即動作</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎮 動作の流れ</h2>
+          <div class="flow-diagram">
+            <div class="flow-step">
+              <div class="flow-icon">🚪</div>
+              <div class="flow-content">
+                <h4>ネザーポータルに入る</h4>
+                <p>プレイヤーがオーバーワールドからネザーに移動</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon">🔍</div>
+              <div class="flow-content">
+                <h4>初回判定</h4>
+                <p>そのプレイヤーが初めてのネザー入場かチェック</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon">🏰</div>
+              <div class="flow-content">
+                <h4>要塞検索</h4>
+                <p>半径1000ブロック以内の最寄り要塞を検索</p>
+              </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon">💬</div>
+              <div class="flow-content">
+                <h4>座標通知</h4>
+                <p>祝福メッセージと共に要塞座標を表示</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💬 通知メッセージ</h2>
+          <div class="message-preview">
+            <div class="chat-message">
+              <span class="msg-gold">ネザー到達おめでとう！</span>
+            </div>
+            <div class="chat-message">
+              <span class="msg-aqua">最寄りのネザー要塞の座標: </span>
+              <span class="msg-white">X: 128, Z: -256</span>
+              <span class="msg-aqua">はここです。</span>
+            </div>
+            <div class="chat-message">
+              <span class="msg-gray">(要塞はY座標32〜80付近に生成されます)</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 技術仕様</h2>
+          <div class="spec-list">
+            <div class="spec-item">
+              <span class="spec-label">検索範囲</span>
+              <span class="spec-value">半径1000ブロック</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">データ保存</span>
+              <span class="spec-value">Persistent Data Container (PDC)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">イベント</span>
+              <span class="spec-value">PlayerChangedWorldEvent</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">構造物検索</span>
+              <span class="spec-value">locateNearestStructure API</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📋 仕様詳細</h2>
+          <div class="spec-details">
+            <div class="detail-item">
+              <h4>🎯 初回判定について</h4>
+              <p>プレイヤーごとにPersistent Data Container（PDC）を使用して初回入場フラグを保存します。このデータはサーバー再起動後も保持されるため、一度ネザーに入ったプレイヤーには再度通知されません。</p>
+            </div>
+            <div class="detail-item">
+              <h4>🏰 ネザー要塞の生成位置</h4>
+              <p>ネザー要塞はY座標32〜80付近に生成されます。通知されるX/Z座標を元に、この高さ範囲を探索してください。</p>
+            </div>
+            <div class="detail-item">
+              <h4>⚠️ 検索範囲外の場合</h4>
+              <p>稀に半径1000ブロック以内にネザー要塞が存在しない場合があります。その場合はエラーメッセージが表示されます。</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🚀 インストール</h2>
+          <div class="install-steps">
+            <div class="install-step">
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <h4>ダウンロード</h4>
+                <p>SpigotMCまたはModrinthからjarファイルをダウンロード</p>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <h4>配置</h4>
+                <p>サーバーのpluginsフォルダにjarファイルを配置</p>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <h4>再起動</h4>
+                <p>サーバーを再起動して完了！設定は不要です</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>❓ よくある質問</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <h4>Q: 2回目以降のネザー入場時も通知されますか？</h4>
+              <p>A: いいえ、初回のみ通知されます。初回入場フラグが永続的に保存されるため、同じプレイヤーには一度しか通知されません。</p>
+            </div>
+            <div class="faq-item">
+              <h4>Q: 設定ファイルはありますか？</h4>
+              <p>A: 現在のバージョンでは設定ファイルはありません。インストールするだけで動作します。</p>
+            </div>
+            <div class="faq-item">
+              <h4>Q: 要塞が見つからない場合はどうなりますか？</h4>
+              <p>A: 半径1000ブロック以内に要塞がない場合、「検索範囲内で見つかりませんでした」というエラーメッセージが表示されます。</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎯 こんなサーバーにおすすめ</h2>
+          <div class="recommend-list">
+            <div class="recommend-item">
+              <span class="rec-icon">🌱</span>
+              <span>初心者向けサバイバルサーバー</span>
+            </div>
+            <div class="recommend-item">
+              <span class="rec-icon">🏠</span>
+              <span>マルチプレイ生活サーバー</span>
+            </div>
+            <div class="recommend-item">
+              <span class="rec-icon">🎮</span>
+              <span>カジュアルなMinecraftサーバー</span>
+            </div>
+            <div class="recommend-item">
+              <span class="rec-icon">👨‍👩‍👧‍👦</span>
+              <span>ファミリー向けサーバー</span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #6f42c1; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-none { padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; color: #666; font-size: 14px; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 8px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Feature Grid */
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Flow Diagram */
+  .flow-diagram { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 20px 0; }
+  .flow-step { background: linear-gradient(135deg, #8b0000, #dc143c); color: white; border-radius: 12px; padding: 20px; text-align: center; min-width: 150px; }
+  .flow-icon { font-size: 28px; margin-bottom: 10px; }
+  .flow-content h4 { font-size: 13px; margin: 0 0 5px; }
+  .flow-content p { font-size: 11px; margin: 0; opacity: 0.9; }
+  .flow-arrow { font-size: 24px; color: #dc143c; font-weight: bold; }
+
+  /* Message Preview */
+  .message-preview { background: #2d2d2d; border-radius: 10px; padding: 20px; font-family: 'Minecraft', monospace; }
+  .chat-message { margin-bottom: 8px; font-size: 14px; }
+  .chat-message:last-child { margin-bottom: 0; }
+  .msg-gold { color: #ffaa00; }
+  .msg-aqua { color: #55ffff; }
+  .msg-white { color: #ffffff; }
+  .msg-gray { color: #aaaaaa; }
+
+  /* Spec List */
+  .spec-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .spec-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .spec-label { font-weight: 600; color: #333; font-size: 14px; }
+  .spec-value { color: #6f42c1; font-size: 13px; }
+
+  /* Spec Details */
+  .spec-details { display: flex; flex-direction: column; gap: 15px; }
+  .detail-item { padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #dc143c; }
+  .detail-item h4 { margin: 0 0 10px; color: #333; }
+  .detail-item p { margin: 0; font-size: 14px; }
+
+  /* Install Steps */
+  .install-steps { display: flex; flex-direction: column; gap: 15px; }
+  .install-step { display: flex; gap: 15px; padding: 20px; background: #fff3e0; border-radius: 12px; border-left: 4px solid #ff9800; }
+  .step-num { width: 32px; height: 32px; background: #ff9800; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content h4 { margin: 0 0 5px; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+
+  /* FAQ List */
+  .faq-list { display: flex; flex-direction: column; gap: 15px; }
+  .faq-item { padding: 20px; background: #e8f5e9; border-radius: 12px; }
+  .faq-item h4 { margin: 0 0 10px; color: #2e7d32; font-size: 14px; }
+  .faq-item p { margin: 0; font-size: 14px; color: #555; }
+
+  /* Recommend List */
+  .recommend-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .recommend-item { display: flex; align-items: center; gap: 12px; padding: 15px; background: #f8f9fa; border-radius: 10px; border: 2px solid transparent; transition: all 0.3s; }
+  .recommend-item:hover { border-color: #dc143c; }
+  .rec-icon { font-size: 24px; }
+  .recommend-item span:last-child { font-size: 14px; font-weight: 500; color: #333; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .flow-diagram { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  @media (max-width: 600px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .spec-list { grid-template-columns: 1fr; }
+    .recommend-list { grid-template-columns: 1fr; }
+  }
+</style>
