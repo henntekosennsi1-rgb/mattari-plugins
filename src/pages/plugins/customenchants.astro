@@ -1,0 +1,429 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="CustomEnchants - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">✨</div>
+      <div class="plugin-title-area">
+        <h1>CustomEnchants</h1>
+        <p class="plugin-subtitle">防具用カスタムエンチャントシステム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">エンチャント</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>CustomEnchantsTeam</td></tr>
+            <tr><td>カテゴリ</td><td>エンチャント</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/customenchants.131756/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/customenchants2" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item">
+            <span class="dep-name">なし</span>
+            <span class="dep-type standalone">単体動作</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>CustomEnchantsは、防具に適用可能な6種類のカスタムエンチャントを追加するプラグインです。</p>
+          <p>すべてのエンチャントは複数の装備箇所に付与でき、効果は合算されます。村人取引やコマンドでエンチャント本を入手可能。レベル上限なしで効果が継続する強力なカスタマイズ性を持っています。</p>
+        </section>
+
+        <section>
+          <h2>✨ エンチャント一覧</h2>
+          <div class="enchant-grid">
+            <div class="enchant-card">
+              <div class="enchant-icon">🏃</div>
+              <div class="enchant-info">
+                <h4>移動速度上昇</h4>
+                <p class="enchant-id">movement_speed</p>
+                <div class="enchant-stats">
+                  <span class="stat">+2%/Lv</span>
+                  <span class="stat max">最大Lv5</span>
+                </div>
+                <p class="enchant-desc">プレイヤーの移動速度を上昇させる</p>
+              </div>
+            </div>
+
+            <div class="enchant-card">
+              <div class="enchant-icon">🛡️</div>
+              <div class="enchant-info">
+                <h4>ノックバック耐性</h4>
+                <p class="enchant-id">knockback_resistance</p>
+                <div class="enchant-stats">
+                  <span class="stat">+1%/Lv</span>
+                  <span class="stat max">最大Lv5</span>
+                </div>
+                <p class="enchant-desc">敵からのノックバックを軽減</p>
+              </div>
+            </div>
+
+            <div class="enchant-card">
+              <div class="enchant-icon">🪜</div>
+              <div class="enchant-info">
+                <h4>段差上限解除</h4>
+                <p class="enchant-id">step_height</p>
+                <div class="enchant-stats">
+                  <span class="stat">+0.1ブロック/Lv</span>
+                  <span class="stat max">最大Lv5</span>
+                </div>
+                <p class="enchant-desc">登れる段差の高さを増加</p>
+              </div>
+            </div>
+
+            <div class="enchant-card">
+              <div class="enchant-icon">⬆️</div>
+              <div class="enchant-info">
+                <h4>ジャンプ力上昇</h4>
+                <p class="enchant-id">jump_boost</p>
+                <div class="enchant-stats">
+                  <span class="stat">+0.1ブロック/Lv</span>
+                  <span class="stat max">最大Lv5</span>
+                </div>
+                <p class="enchant-desc">ジャンプ高度を増加</p>
+              </div>
+            </div>
+
+            <div class="enchant-card">
+              <div class="enchant-icon">📏</div>
+              <div class="enchant-info">
+                <h4>ブロック探索範囲</h4>
+                <p class="enchant-id">block_range</p>
+                <div class="enchant-stats">
+                  <span class="stat">+0.1ブロック/Lv</span>
+                  <span class="stat max">最大Lv5</span>
+                </div>
+                <p class="enchant-desc">ブロックを操作できる距離を増加</p>
+              </div>
+            </div>
+
+            <div class="enchant-card">
+              <div class="enchant-icon">💫</div>
+              <div class="enchant-info">
+                <h4>経験値取得倍率</h4>
+                <p class="enchant-id">experience_multiplier</p>
+                <div class="enchant-stats">
+                  <span class="stat">+5%/Lv</span>
+                  <span class="stat max">最大Lv5</span>
+                </div>
+                <p class="enchant-desc">取得経験値を増加（全ソース対応）</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 特徴</h2>
+          <div class="feature-grid-2col">
+            <div class="feature-card-lg">
+              <span class="icon">➕</span>
+              <h4>効果の合算</h4>
+              <p>複数の装備箇所にエンチャントがある場合、効果は合算されます。4部位すべてにLv5で最大効果！</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">♾️</span>
+              <h4>レベル上限なし</h4>
+              <p>レベル5を超えても効果は継続。レベルN = N × 基礎値で計算されます</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">🤝</span>
+              <h4>エンチャント競合なし</h4>
+              <p>すべてのカスタムエンチャントは共存可能。自由な組み合わせを楽しめます</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">🔄</span>
+              <h4>リアルタイム更新</h4>
+              <p>装備の着脱を自動検知。エンチャント効果が即座に反映されます</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📊 効果合算の例</h2>
+          <div class="example-box">
+            <h4>移動速度上昇の合算例</h4>
+            <div class="calc-example">
+              <div class="calc-items">
+                <div class="calc-item"><span>🪖 ヘルメット</span><span>Lv3 (+6%)</span></div>
+                <div class="calc-item"><span>👕 チェストプレート</span><span>Lv2 (+4%)</span></div>
+                <div class="calc-item"><span>👖 レギンス</span><span>Lv5 (+10%)</span></div>
+                <div class="calc-item"><span>👟 ブーツ</span><span>Lv4 (+8%)</span></div>
+              </div>
+              <div class="calc-result">
+                <span class="result-label">合計</span>
+                <span class="result-value">Lv14 = +28% 速度上昇</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛒 入手方法</h2>
+          <div class="obtain-methods">
+            <div class="obtain-card">
+              <div class="obtain-icon">🧑‍🌾</div>
+              <h4>村人取引</h4>
+              <div class="trade-info">
+                <div class="trade-cost">
+                  <span>💎 エメラルド ×64</span>
+                  <span>📕 本 ×1</span>
+                </div>
+                <div class="trade-arrow">→</div>
+                <div class="trade-result">
+                  <span>📗 カスタムエンチャント本 (Lv1)</span>
+                </div>
+              </div>
+            </div>
+            <div class="obtain-card">
+              <div class="obtain-icon">⌨️</div>
+              <h4>コマンド付与</h4>
+              <code>/ce give &lt;プレイヤー&gt; &lt;エンチャント&gt; &lt;レベル&gt;</code>
+              <p class="obtain-note">管理者が任意のレベルのエンチャント本を付与可能</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/ce list</code></td><td>エンチャント一覧を表示</td><td>なし</td></tr>
+                <tr><td><code>/ce give &lt;player&gt; &lt;enchant&gt; &lt;level&gt;</code></td><td>エンチャント本を付与</td><td>admin</td></tr>
+                <tr><td><code>/ce reload</code></td><td>設定をリロード</td><td>admin</td></tr>
+                <tr><td><code>/ce help</code></td><td>ヘルプを表示</td><td>なし</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-note">エイリアス: <code>/customenchants</code>, <code>/cenchants</code></p>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>customenchants.admin</code></td><td>管理者コマンドの使用</td><td>OP</td></tr>
+                <tr><td><code>customenchants.trade</code></td><td>村人取引の使用</td><td>全員</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-list">
+            <div class="config-item">
+              <code>enchantments.*.enabled</code>
+              <span>各エンチャントの有効/無効</span>
+            </div>
+            <div class="config-item">
+              <code>enchantments.*.base_value</code>
+              <span>レベル1あたりの効果値</span>
+            </div>
+            <div class="config-item">
+              <code>enchantments.*.max_level</code>
+              <span>最大レベル（村人取引用）</span>
+            </div>
+            <div class="config-item">
+              <code>villager_trades.enabled</code>
+              <span>村人取引の有効/無効</span>
+            </div>
+            <div class="config-item">
+              <code>villager_trades.emerald_cost</code>
+              <span>取引に必要なエメラルド数（デフォルト: 64）</span>
+            </div>
+            <div class="config-item">
+              <code>villager_trades.enchant_level</code>
+              <span>取引で得られるレベル（デフォルト: 1）</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 セットアップ手順</h2>
+          <ol class="install-steps">
+            <li>JARファイルを<code>plugins</code>フォルダに配置</li>
+            <li>サーバーを起動</li>
+            <li><code>plugins/CustomEnchants/config.yml</code>で設定を調整（任意）</li>
+            <li><code>/ce reload</code>で設定を反映</li>
+            <li>村人と取引するか、コマンドでエンチャント本を入手</li>
+            <li>金床でアイテムに付与して使用！</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>💡 ヒント</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">🎯</span>
+              <div>
+                <strong>おすすめ組み合わせ</strong>
+                <p>移動速度上昇 + 段差上限解除で快適な移動が可能に！</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">💰</span>
+              <div>
+                <strong>経験値稼ぎ</strong>
+                <p>経験値取得倍率を4部位すべてに付けると最大100%増加（Lv5×4）</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">⚔️</span>
+              <div>
+                <strong>PvP向け</strong>
+                <p>ノックバック耐性で敵の攻撃に耐えながら反撃可能</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #9c27b0; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-name { font-weight: 600; font-size: 14px; }
+  .dep-type { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .dep-type.standalone { background: #28a745; color: white; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 20px 0 10px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Enchant Grid */
+  .enchant-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .enchant-card { display: flex; gap: 15px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px; padding: 20px; border: 2px solid #dee2e6; transition: all 0.3s; }
+  .enchant-card:hover { border-color: #9c27b0; transform: translateY(-2px); }
+  .enchant-icon { font-size: 36px; background: white; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; flex-shrink: 0; }
+  .enchant-info { flex: 1; }
+  .enchant-info h4 { margin: 0 0 5px; font-size: 16px; color: #333; }
+  .enchant-id { font-family: monospace; font-size: 11px; color: #666; background: #e9ecef; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .enchant-stats { display: flex; gap: 10px; margin-bottom: 8px; }
+  .stat { background: #9c27b0; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .stat.max { background: #667eea; }
+  .enchant-desc { margin: 0; font-size: 13px; color: #666; }
+
+  .feature-grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-card-lg { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card-lg .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card-lg h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card-lg p { font-size: 13px; color: #666; margin: 0; }
+
+  /* Example Box */
+  .example-box { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 15px; padding: 25px; border: 2px solid #4caf50; }
+  .example-box h4 { margin: 0 0 15px; color: #2e7d32; }
+  .calc-example { display: flex; flex-direction: column; gap: 15px; }
+  .calc-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .calc-item { display: flex; justify-content: space-between; background: white; padding: 10px 15px; border-radius: 8px; font-size: 14px; }
+  .calc-result { background: #2e7d32; color: white; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
+  .result-label { font-weight: 600; }
+  .result-value { font-size: 18px; font-weight: bold; }
+
+  /* Obtain Methods */
+  .obtain-methods { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .obtain-card { background: #f8f9fa; border-radius: 15px; padding: 25px; text-align: center; }
+  .obtain-icon { font-size: 48px; margin-bottom: 15px; }
+  .obtain-card h4 { margin: 0 0 15px; }
+  .trade-info { display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; }
+  .trade-cost, .trade-result { background: white; padding: 10px 15px; border-radius: 8px; }
+  .trade-cost span, .trade-result span { display: block; font-size: 13px; }
+  .trade-arrow { font-size: 24px; color: #9c27b0; }
+  .obtain-card code { display: block; background: #2d3436; color: #dfe6e9; padding: 12px; border-radius: 8px; font-size: 12px; margin: 10px 0; text-align: left; }
+  .obtain-note { margin: 0; font-size: 12px; color: #666; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #9c27b0; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; gap: 15px; padding: 15px; background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-radius: 10px; border-left: 4px solid #9c27b0; }
+  .tip-icon { font-size: 24px; }
+  .tip-item strong { display: block; margin-bottom: 5px; color: #333; }
+  .tip-item p { margin: 0; font-size: 14px; color: #666; }
+
+  .install-steps { padding-left: 20px; }
+  .install-steps li { margin-bottom: 10px; font-size: 14px; color: #555; }
+  .install-steps code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .enchant-grid { grid-template-columns: 1fr; }
+    .feature-grid-2col { grid-template-columns: 1fr; }
+    .obtain-methods { grid-template-columns: 1fr; }
+    .calc-items { grid-template-columns: 1fr; }
+  }
+</style>
