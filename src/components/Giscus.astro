@@ -1,0 +1,125 @@
+---
+/**
+ * Giscus コメントコンポーネント
+ * GitHub Discussions を利用したコメント機能
+ * 
+ * 【事前設定が必要】
+ * 1. GitHubリポジトリで Discussions を有効化
+ * 2. https://giscus.app/ で設定を生成
+ * 3. 下記の repo, repoId, category, categoryId を実際の値に置き換え
+ */
+
+interface Props {
+  /** ページごとのユニークID（URLパスなど） */
+  term?: string;
+}
+
+const { term = Astro.url.pathname } = Astro.props;
+
+// Giscus設定（実際の値に置き換えてください）
+const giscusConfig = {
+  repo: 'henntaidesu/mattari-plugins',  // GitHubリポジトリ
+  repoId: 'YOUR_REPO_ID',                // リポジトリID（giscus.appで取得）
+  category: 'Comments',                   // Discussionsカテゴリ名
+  categoryId: 'YOUR_CATEGORY_ID',         // カテゴリID（giscus.appで取得）
+  mapping: 'pathname',                    // ページとDiscussionの紐付け方法
+  reactionsEnabled: '1',                  // リアクション有効
+  emitMetadata: '0',
+  inputPosition: 'top',                   // コメント入力欄の位置
+  theme: 'light',                         // テーマ
+  lang: 'ja',                             // 言語
+};
+---
+
+<div class="giscus-wrapper">
+  <div class="comments-header">
+    <h3>💬 コメント・フィードバック</h3>
+    <p>GitHubアカウントでコメントできます</p>
+  </div>
+  
+  <div class="giscus-container">
+    <script
+      src="https://giscus.app/client.js"
+      data-repo={giscusConfig.repo}
+      data-repo-id={giscusConfig.repoId}
+      data-category={giscusConfig.category}
+      data-category-id={giscusConfig.categoryId}
+      data-mapping={giscusConfig.mapping}
+      data-strict="0"
+      data-reactions-enabled={giscusConfig.reactionsEnabled}
+      data-emit-metadata={giscusConfig.emitMetadata}
+      data-input-position={giscusConfig.inputPosition}
+      data-theme={giscusConfig.theme}
+      data-lang={giscusConfig.lang}
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async
+    ></script>
+  </div>
+
+  <noscript>
+    <div class="noscript-message">
+      コメント機能を利用するにはJavaScriptを有効にしてください。
+    </div>
+  </noscript>
+</div>
+
+<style>
+  .giscus-wrapper {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid #eee;
+  }
+
+  .comments-header {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .comments-header h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .comments-header p {
+    font-size: 14px;
+    color: #888;
+  }
+
+  .giscus-container {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 200px;
+  }
+
+  /* Giscusのスタイル上書き */
+  .giscus-container :global(.giscus) {
+    max-width: 100%;
+  }
+
+  .giscus-container :global(.giscus-frame) {
+    width: 100%;
+    border: none;
+  }
+
+  .noscript-message {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    background: #fff3cd;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .giscus-wrapper {
+      margin-top: 30px;
+      padding-top: 30px;
+    }
+
+    .giscus-container {
+      padding: 15px;
+    }
+  }
+</style>
