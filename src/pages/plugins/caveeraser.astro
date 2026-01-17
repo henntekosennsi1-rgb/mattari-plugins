@@ -1,0 +1,508 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="CaveEraser - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🕳️</div>
+      <div class="plugin-title-area">
+        <h1>CaveEraser</h1>
+        <p class="plugin-subtitle">水中洞窟検出＆埋め立てプラグイン</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.4.0</span>
+          <span class="badge category">ユーティリティ</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.4.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ユーティリティ</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/caveeraser-water-cave-fill-tool.131749/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/caveeraser" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item optional">
+            <span class="dep-badge">任意</span>
+            <span class="dep-name">EmeraldBank</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>CaveEraserは、水中洞窟を自動検出して埋め立てるプラグインです。岩盤整地作業を大幅に効率化します。</p>
+          <p>BFS（幅優先探索）アルゴリズムで連続する空洞を検出し、非同期処理でサーバー負荷を抑えながら大規模な埋め立て作業を実行できます。</p>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🔍</span>
+              <h4>洞窟スキャン</h4>
+              <p>指定範囲の水中洞窟を自動検出</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🏗️</span>
+              <h4>埋め立て機能</h4>
+              <p>検出した洞窟を指定ブロックで埋立</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🧊</span>
+              <h4>チャンク埋め立て</h4>
+              <p>水・溶岩・空気を一括変換</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚡</span>
+              <h4>非同期処理</h4>
+              <p>TPS維持しながら大規模処理</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💎</span>
+              <h4>EmeraldBank連携</h4>
+              <p>埋め立てコストを自動請求</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🛡️</span>
+              <h4>ブロック保護</h4>
+              <p>チェスト等の重要ブロックを自動保護</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📊</span>
+              <h4>統計情報</h4>
+              <p>洞窟の体積・深さなど詳細表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎯</span>
+              <h4>検出制限</h4>
+              <p>整地済みエリアを自動保護</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚔️ 使用方法</h2>
+          <div class="workflow">
+            <div class="workflow-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>スキャン</h4>
+                <code>/caveerase scan [半径]</code>
+                <p>周囲の水中洞窟を検出</p>
+              </div>
+            </div>
+            <div class="workflow-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>確認</h4>
+                <code>/caveerase list</code>
+                <p>検出した洞窟リストを確認</p>
+              </div>
+            </div>
+            <div class="workflow-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>詳細確認</h4>
+                <code>/caveerase info &lt;ID&gt;</code>
+                <p>洞窟の詳細情報・コストを確認</p>
+              </div>
+            </div>
+            <div class="workflow-step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>埋め立て</h4>
+                <code>/caveerase fill &lt;ID&gt; [ブロック]</code>
+                <p>洞窟を埋め立て</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🧊 チャンク埋め立て機能</h2>
+          <div class="chunkfill-info">
+            <p>プレイヤーがいるチャンクの<strong>水・溶岩・空気</strong>を一括で指定ブロックに変換します。</p>
+            <div class="chunkfill-features">
+              <div class="cf-item">
+                <span class="cf-icon">📍</span>
+                <div class="cf-text">
+                  <h4>Y座標制限</h4>
+                  <p>プレイヤーの足元（Y-1）より上は変換されない</p>
+                </div>
+              </div>
+              <div class="cf-item">
+                <span class="cf-icon">🛡️</span>
+                <div class="cf-text">
+                  <h4>自動保護</h4>
+                  <p>チェスト・看板などの重要ブロックは保護</p>
+                </div>
+              </div>
+              <div class="cf-item">
+                <span class="cf-icon">📐</span>
+                <div class="cf-text">
+                  <h4>複数チャンク対応</h4>
+                  <p>半径指定で最大5x5チャンク一括処理</p>
+                </div>
+              </div>
+            </div>
+            <div class="chunkfill-examples">
+              <h4>使用例</h4>
+              <div class="example-list">
+                <code>/caveerase chunkfill</code>
+                <span>現在のチャンクのみ</span>
+              </div>
+              <div class="example-list">
+                <code>/caveerase chunkfill 1</code>
+                <span>3x3チャンク（9チャンク）</span>
+              </div>
+              <div class="example-list">
+                <code>/caveerase chunkfill 2 stone</code>
+                <span>5x5チャンクを石で埋める</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎯 検出制限システム</h2>
+          <div class="detection-info">
+            <p>整地済みエリアを保護するための制限システム:</p>
+            <div class="detection-grid">
+              <div class="det-item">
+                <h4>最大体積制限</h4>
+                <p>100,000ブロック以上の空洞は除外</p>
+                <span class="det-badge">整地エリア保護</span>
+              </div>
+              <div class="det-item">
+                <h4>水ブロック要件</h4>
+                <p>水が1ブロック以上含まれる空洞のみ検出</p>
+                <span class="det-badge">水中洞窟限定</span>
+              </div>
+              <div class="det-item">
+                <h4>Y座標範囲</h4>
+                <p>-64〜320の全高度に対応</p>
+                <span class="det-badge">カスタマイズ可</span>
+              </div>
+            </div>
+            <div class="volume-guide">
+              <h4>体積による判断目安</h4>
+              <div class="vol-item"><span class="vol-range">10〜10,000</span><span class="vol-desc">通常の水中洞窟</span></div>
+              <div class="vol-item"><span class="vol-range">10,000〜100,000</span><span class="vol-desc">大きな水中洞窟</span></div>
+              <div class="vol-item warning"><span class="vol-range">100,000以上</span><span class="vol-desc">整地済みエリア（検出除外）</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💎 EmeraldBank連携</h2>
+          <div class="emerald-info">
+            <p>EmeraldBankがインストールされている場合、埋め立てコストが自動計算されます。</p>
+            <div class="cost-system">
+              <div class="cost-item">
+                <span class="cost-label">基本コスト</span>
+                <span class="cost-value">0.1 エメラルド / ブロック</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">1,000ブロック以上</span>
+                <span class="cost-value">5% 割引</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">5,000ブロック以上</span>
+                <span class="cost-value">10% 割引</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">10,000ブロック以上</span>
+                <span class="cost-value">15% 割引</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">50,000ブロック以上</span>
+                <span class="cost-value">20% 割引</span>
+              </div>
+            </div>
+            <p class="emerald-note">※ EmeraldBankがない場合、コスト機能は無効化されます</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/caveerase scan [半径]</code></td><td>水中洞窟をスキャン</td><td>caveeraser.scan</td></tr>
+                <tr><td><code>/caveerase list</code></td><td>検出した洞窟リストを表示</td><td>caveeraser.use</td></tr>
+                <tr><td><code>/caveerase info &lt;ID&gt;</code></td><td>洞窟の詳細情報を表示</td><td>caveeraser.use</td></tr>
+                <tr><td><code>/caveerase fill &lt;ID&gt; [ブロック]</code></td><td>指定洞窟を埋め立て</td><td>caveeraser.fill</td></tr>
+                <tr><td><code>/caveerase auto [半径] [ブロック]</code></td><td>スキャン＆自動埋め立て</td><td>caveeraser.auto</td></tr>
+                <tr><td><code>/caveerase chunkfill [半径] [ブロック]</code></td><td>チャンク埋め立て</td><td>caveeraser.chunkfill</td></tr>
+                <tr><td><code>/caveerase reload</code></td><td>設定を再読み込み</td><td>caveeraser.reload</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="alias-note">エイリアス: <code>/ce</code> でも使用可能</p>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="permission-warning">
+            <span class="warning-icon">⚠️</span>
+            <div class="warning-text">
+              <h4>重要: OP権限だけでは使用できません！</h4>
+              <p><code>caveeraser.*</code> 権限の付与が必須です。</p>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row"><td><code>caveeraser.*</code></td><td>全ての権限（推奨）</td><td>false</td></tr>
+                <tr><td><code>caveeraser.use</code></td><td>基本コマンドの使用</td><td>false</td></tr>
+                <tr><td><code>caveeraser.scan</code></td><td>スキャンコマンド</td><td>false</td></tr>
+                <tr><td><code>caveeraser.fill</code></td><td>埋め立てコマンド</td><td>false</td></tr>
+                <tr><td><code>caveeraser.auto</code></td><td>自動埋め立てコマンド</td><td>false</td></tr>
+                <tr><td><code>caveeraser.chunkfill</code></td><td>チャンク埋め立てコマンド</td><td>false</td></tr>
+                <tr><td><code>caveeraser.reload</code></td><td>リロードコマンド</td><td>false</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="luckperms-example">
+            <h4>LuckPermsでの権限付与例</h4>
+            <code>/lp user &lt;プレイヤー名&gt; permission set caveeraser.* true</code>
+          </div>
+        </section>
+
+        <section>
+          <h2>🧱 使用可能な埋め立てブロック</h2>
+          <div class="materials-grid">
+            <div class="material-item"><span class="mat-icon">🪨</span>STONE</div>
+            <div class="material-item"><span class="mat-icon">🧱</span>COBBLESTONE</div>
+            <div class="material-item"><span class="mat-icon">⬜</span>ANDESITE</div>
+            <div class="material-item"><span class="mat-icon">⚪</span>DIORITE</div>
+            <div class="material-item"><span class="mat-icon">🟤</span>GRANITE</div>
+            <div class="material-item"><span class="mat-icon">⬛</span>DEEPSLATE</div>
+            <div class="material-item"><span class="mat-icon">🟫</span>TUFF</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定ファイル</h2>
+          <div class="config-info">
+            <pre><code>settings:
+  max-scan-radius: 200          # 最大スキャン半径
+  default-scan-radius: 50       # デフォルトスキャン半径
+  default-fill-material: STONE  # デフォルト埋め立てブロック
+  async-processing: true        # 非同期処理
+  blocks-per-tick: 1000         # 1tickあたりの処理ブロック数
+  min-cave-volume: 10           # 最小洞窟体積
+  max-cave-volume: 100000       # 最大洞窟体積
+
+detection:
+  scan-min-y: -64               # スキャン最小Y座標
+  scan-max-y: 320               # スキャン最大Y座標
+  min-water-blocks: 1           # 最小水ブロック数
+
+chunk-fill:
+  max-radius: 5                 # 最大チャンク半径
+  default-radius: 0             # デフォルト半径
+  protected-blocks:             # 保護ブロックリスト
+    - CHEST
+    - BARREL
+    - FURNACE
+    # ...
+
+cost:
+  enabled: true                 # コスト機能の有効化
+  per-block: 0.1                # 1ブロックあたりのコスト</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 動作の仕組み</h2>
+          <div class="algorithm-info">
+            <div class="algo-step">
+              <h4>洞窟検出アルゴリズム</h4>
+              <ol>
+                <li>指定範囲内の水ブロックを検索</li>
+                <li>各水ブロックの下部を調査</li>
+                <li>BFS（幅優先探索）で連続する空気ブロックを検出</li>
+                <li>体積制限をチェックし、洞窟として記録</li>
+              </ol>
+            </div>
+            <div class="algo-step">
+              <h4>埋め立て処理</h4>
+              <ol>
+                <li>洞窟の全空気ブロックを特定</li>
+                <li>非同期処理で段階的に埋め立て</li>
+                <li>進捗を随時プレイヤーに通知</li>
+                <li>完了後にコスト精算（EmeraldBank連携時）</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .dep-item.optional .dep-badge { background: #ffc107; color: #333; }
+  .dep-name { font-weight: 600; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #333; margin: 0 0 10px; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 8px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 13px; color: #333; margin-bottom: 5px; }
+  .feature-card p { font-size: 11px; color: #666; margin: 0; }
+
+  .workflow { display: flex; gap: 15px; flex-wrap: wrap; }
+  .workflow-step { background: #f8f9fa; border-radius: 12px; padding: 20px; flex: 1; min-width: 180px; }
+  .workflow-step.highlight { background: linear-gradient(135deg, #28a745, #20c997); color: white; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-weight: bold; }
+  .workflow-step.highlight .step-num { background: rgba(255,255,255,0.3); }
+  .step-content h4 { font-size: 14px; margin: 0 0 8px; }
+  .step-content code { display: block; background: rgba(0,0,0,0.1); padding: 8px; border-radius: 5px; font-size: 11px; margin-bottom: 8px; }
+  .step-content p { font-size: 12px; margin: 0; opacity: 0.8; }
+
+  .chunkfill-info { background: #f8f9fa; border-radius: 15px; padding: 25px; }
+  .chunkfill-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
+  .cf-item { display: flex; gap: 12px; align-items: flex-start; background: white; border-radius: 10px; padding: 15px; }
+  .cf-icon { font-size: 24px; }
+  .cf-text h4 { margin: 0 0 5px; font-size: 13px; }
+  .cf-text p { margin: 0; font-size: 12px; color: #666; }
+  .chunkfill-examples { background: white; border-radius: 10px; padding: 15px; margin-top: 15px; }
+  .chunkfill-examples h4 { margin: 0 0 10px; }
+  .example-list { display: flex; align-items: center; gap: 15px; padding: 8px 0; border-bottom: 1px solid #eee; }
+  .example-list:last-child { border-bottom: none; }
+  .example-list code { background: #2d3436; color: #dfe6e9; padding: 5px 10px; border-radius: 5px; font-size: 12px; }
+  .example-list span { color: #666; font-size: 13px; }
+
+  .detection-info { background: #f8f9fa; border-radius: 15px; padding: 25px; }
+  .detection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
+  .det-item { background: white; border-radius: 10px; padding: 15px; }
+  .det-item h4 { margin: 0 0 8px; font-size: 14px; }
+  .det-item p { margin: 0 0 10px; font-size: 12px; color: #666; }
+  .det-badge { background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
+  .volume-guide { background: white; border-radius: 10px; padding: 15px; }
+  .volume-guide h4 { margin: 0 0 10px; }
+  .vol-item { display: flex; align-items: center; gap: 15px; padding: 8px 0; border-bottom: 1px solid #eee; }
+  .vol-item:last-child { border-bottom: none; }
+  .vol-item.warning { background: #fff3e0; margin: 5px -10px -5px; padding: 8px 10px; border-radius: 5px; }
+  .vol-range { font-weight: 600; min-width: 150px; }
+  .vol-desc { color: #666; font-size: 13px; }
+
+  .emerald-info { background: linear-gradient(135deg, #2ecc71, #27ae60); border-radius: 15px; padding: 25px; color: white; }
+  .emerald-info p { color: rgba(255,255,255,0.9); }
+  .cost-system { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0; }
+  .cost-item { background: rgba(255,255,255,0.2); border-radius: 8px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; }
+  .cost-label { font-size: 13px; }
+  .cost-value { font-weight: 600; }
+  .emerald-note { font-size: 12px; font-style: italic; margin: 0; opacity: 0.8; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+  .highlight-row { background: #e8f5e9; }
+  .alias-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  .permission-warning { display: flex; gap: 15px; background: #fff3e0; border-left: 4px solid #ff9800; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+  .warning-icon { font-size: 24px; }
+  .warning-text h4 { margin: 0 0 5px; color: #e65100; }
+  .warning-text p { margin: 0; font-size: 13px; color: #666; }
+  .luckperms-example { background: #f8f9fa; border-radius: 8px; padding: 15px; margin-top: 15px; }
+  .luckperms-example h4 { margin: 0 0 10px; font-size: 13px; }
+  .luckperms-example code { display: block; background: #2d3436; color: #dfe6e9; padding: 10px; border-radius: 5px; font-size: 12px; }
+
+  .materials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .material-item { background: #f8f9fa; border-radius: 8px; padding: 12px; text-align: center; font-size: 12px; font-weight: 600; }
+  .mat-icon { display: block; font-size: 20px; margin-bottom: 5px; }
+
+  .config-info { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .config-info pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 0; }
+  .config-info code { font-size: 12px; line-height: 1.6; }
+
+  .algorithm-info { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .algo-step { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .algo-step h4 { margin: 0 0 15px; }
+  .algo-step ol { margin: 0; padding-left: 20px; }
+  .algo-step li { padding: 5px 0; font-size: 13px; color: #555; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .chunkfill-features { grid-template-columns: 1fr; }
+    .detection-grid { grid-template-columns: 1fr; }
+    .cost-system { grid-template-columns: 1fr; }
+    .algorithm-info { grid-template-columns: 1fr; }
+    .materials-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .workflow { flex-direction: column; }
+    .workflow-step { min-width: auto; }
+  }
+</style>
