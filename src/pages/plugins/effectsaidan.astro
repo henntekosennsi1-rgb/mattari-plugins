@@ -1,0 +1,464 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Effectsaidan - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">✨</div>
+      <div class="plugin-title-area">
+        <h1>Effectsaidan</h1>
+        <p class="plugin-subtitle">エメラルドで購入するバフ効果システム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v2.0</span>
+          <span class="badge category">経済・エフェクト</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>2.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>経済・エフェクト</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/effectsaidan.131759/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/effectsaidan" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item">
+            <span class="dep-name">EmeraldBank</span>
+            <span class="dep-type required">必須</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Effectsaidanは、エメラルドを消費して様々なバフ効果を購入できるプラグインです。</p>
+          <p>17種類の豊富な効果をGUIから選択し、時間とレベルを指定して購入できます。EmeraldBank経済システムと連携し、サーバー経済の使い道を提供します。</p>
+        </section>
+
+        <section>
+          <h2>✨ 効果一覧（17種類）</h2>
+          
+          <h3 class="effect-category">🔮 既存効果（7種類）</h3>
+          <div class="effect-grid">
+            <div class="effect-card">
+              <span class="effect-icon">📈</span>
+              <div class="effect-info">
+                <h4>経験値２倍</h4>
+                <span class="cost-rate">コスト: 1.5倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">🍖</span>
+              <div class="effect-info">
+                <h4>満腹度常時回復</h4>
+                <span class="cost-rate">コスト: 0.5倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">⚔️</span>
+              <div class="effect-info">
+                <h4>攻撃力上昇２倍</h4>
+                <span class="cost-rate">コスト: 2.0倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">💎</span>
+              <div class="effect-info">
+                <h4>ドロップ率２倍</h4>
+                <span class="cost-rate">コスト: 2.5倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">❤️</span>
+              <div class="effect-info">
+                <h4>HP自動回復</h4>
+                <span class="cost-rate">コスト: 2.5倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">🛡️</span>
+              <div class="effect-info">
+                <h4>耐性２</h4>
+                <span class="cost-rate">コスト: 3.0倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">⛏️</span>
+              <div class="effect-info">
+                <h4>採掘速度上昇1.5倍</h4>
+                <span class="cost-rate">コスト: 1.8倍</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="effect-category">🧪 ポーション効果（7種類）</h3>
+          <div class="effect-grid">
+            <div class="effect-card">
+              <span class="effect-icon">🏃</span>
+              <div class="effect-info">
+                <h4>移動速度上昇</h4>
+                <span class="cost-rate">コスト: 1.5倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">👁️</span>
+              <div class="effect-info">
+                <h4>暗視</h4>
+                <span class="cost-rate">コスト: 1.2倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">🫧</span>
+              <div class="effect-info">
+                <h4>水中呼吸</h4>
+                <span class="cost-rate">コスト: 1.8倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">🔥</span>
+              <div class="effect-info">
+                <h4>火炎耐性</h4>
+                <span class="cost-rate">コスト: 2.0倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">🦘</span>
+              <div class="effect-info">
+                <h4>跳躍力上昇</h4>
+                <span class="cost-rate">コスト: 1.3倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">🍀</span>
+              <div class="effect-info">
+                <h4>幸運</h4>
+                <span class="cost-rate">コスト: 3.0倍</span>
+              </div>
+            </div>
+            <div class="effect-card">
+              <span class="effect-icon">👻</span>
+              <div class="effect-info">
+                <h4>透明化</h4>
+                <span class="cost-rate">コスト: 5.0倍</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="effect-category">⭐ カスタム効果（3種類）</h3>
+          <div class="effect-grid">
+            <div class="effect-card special">
+              <span class="effect-icon">🐲</span>
+              <div class="effect-info">
+                <h4>モブドロップ増加</h4>
+                <span class="cost-rate">コスト: 2.8倍</span>
+                <p class="effect-desc">モンスターのドロップ＆経験値が増加</p>
+              </div>
+            </div>
+            <div class="effect-card special">
+              <span class="effect-icon">💚</span>
+              <div class="effect-info">
+                <h4>エメラルド発見</h4>
+                <span class="cost-rate">コスト: 3.5倍</span>
+                <p class="effect-desc">鉱石採掘時にエメラルドがドロップ</p>
+              </div>
+            </div>
+            <div class="effect-card special">
+              <span class="effect-icon">🔧</span>
+              <div class="effect-info">
+                <h4>自動修繕</h4>
+                <span class="cost-rate">コスト: 4.0倍</span>
+                <p class="effect-desc">装備とツールの耐久値が自動回復</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💰 コスト計算</h2>
+          <div class="cost-info">
+            <div class="cost-formula">
+              <span class="formula-label">計算式</span>
+              <code>コスト = 時間（秒） × コスト倍率 × レベル係数</code>
+            </div>
+            <div class="cost-example">
+              <h4>例：経験値２倍を300秒（5分）レベル1で購入</h4>
+              <div class="calc-steps">
+                <span>300秒 × 1.5倍 × 1.0 = <strong>450エメラルド</strong></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 使い方</h2>
+          <div class="usage-steps">
+            <div class="usage-step">
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <h4>GUIを開く</h4>
+                <code>/aidan open</code>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <h4>効果を選択</h4>
+                <p>54スロットのGUIから欲しい効果をクリック</p>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <h4>時間とレベルを指定</h4>
+                <p>チャットで秒数を入力し、レベルを選択</p>
+              </div>
+            </div>
+            <div class="usage-step">
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <h4>購入完了</h4>
+                <p>エメラルドが消費され、効果が適用されます</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/aidan open</code></td><td>効果購入GUIを開く</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>effectsaidan.command.use</code></td><td>/aidanコマンドの使用</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-list">
+            <div class="config-item">
+              <code>MAX_DURATION</code>
+              <span>最大入力時間（デフォルト: 3600秒）</span>
+            </div>
+            <div class="config-item">
+              <code>MAX_EFFECT_LEVEL</code>
+              <span>最大レベル（デフォルト: 4 = Lv5まで）</span>
+            </div>
+            <div class="config-item">
+              <code>ALLOW_NEGATIVE_BALANCE</code>
+              <span>残高不足時の取引許可（デフォルト: false）</span>
+            </div>
+            <div class="config-item">
+              <code>EFFECT_COSTS</code>
+              <span>各効果のコスト倍率を個別設定</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⭐ カスタム効果の仕様</h2>
+          <div class="custom-effects-detail">
+            <div class="custom-effect">
+              <h4>🐲 モブドロップ増加</h4>
+              <ul>
+                <li>プレイヤーが倒したモンスターのドロップ＆経験値が増加</li>
+                <li>レベル1: 2倍、レベル2: 3倍、レベル3: 4倍...</li>
+              </ul>
+            </div>
+            <div class="custom-effect">
+              <h4>💚 エメラルド発見率上昇</h4>
+              <ul>
+                <li>鉱石採掘時に追加でエメラルドがドロップ</li>
+                <li>基本確率5% + レベル毎3%増加</li>
+                <li>Lv5で最大20%の確率</li>
+                <li>シルクタッチでは発動しません</li>
+              </ul>
+            </div>
+            <div class="custom-effect">
+              <h4>🔧 自動修繕</h4>
+              <ul>
+                <li>5秒ごとに装備とツールの耐久値を回復</li>
+                <li>メインハンド、オフハンド、全装備が対象</li>
+                <li>回復量: 1 + レベル / 回</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💡 活用例</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">⛏️</span>
+              <div>
+                <strong>採掘セット</strong>
+                <p>採掘速度上昇 + エメラルド発見で効率的な鉱石集め</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">⚔️</span>
+              <div>
+                <strong>戦闘セット</strong>
+                <p>攻撃力上昇 + HP自動回復 + 耐性でボス戦に挑む</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🌊</span>
+              <div>
+                <strong>探索セット</strong>
+                <p>水中呼吸 + 暗視で海底神殿探索</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #9c27b0; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-name { font-weight: 600; font-size: 14px; }
+  .dep-type { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .dep-type.required { background: #dc3545; color: white; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #555; margin: 20px 0 15px; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 5px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Effect Category */
+  .effect-category { background: linear-gradient(90deg, #9c27b0, #e91e63); color: white; padding: 10px 15px; border-radius: 8px; margin: 25px 0 15px; }
+
+  /* Effect Grid */
+  .effect-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .effect-card { display: flex; align-items: center; gap: 12px; padding: 15px; background: #f8f9fa; border-radius: 10px; border: 2px solid transparent; transition: all 0.3s; }
+  .effect-card:hover { border-color: #9c27b0; transform: translateY(-2px); }
+  .effect-card.special { background: linear-gradient(135deg, #fef3c7, #fde68a); border-color: #f59e0b; }
+  .effect-icon { font-size: 28px; }
+  .effect-info h4 { font-size: 13px; margin: 0 0 4px; }
+  .cost-rate { font-size: 11px; color: #9c27b0; font-weight: 600; }
+  .effect-desc { font-size: 11px; color: #666; margin: 5px 0 0; }
+
+  /* Cost Info */
+  .cost-info { background: #f3e8ff; border-radius: 15px; padding: 25px; border: 2px solid #9c27b0; }
+  .cost-formula { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+  .formula-label { display: block; font-size: 12px; color: #666; margin-bottom: 5px; }
+  .cost-formula code { display: block; background: #2d3436; color: #a29bfe; padding: 10px 15px; border-radius: 6px; font-size: 14px; }
+  .cost-example { background: white; padding: 15px; border-radius: 10px; }
+  .cost-example h4 { margin: 0 0 10px; font-size: 14px; }
+  .calc-steps { font-size: 14px; color: #555; }
+  .calc-steps strong { color: #9c27b0; font-size: 16px; }
+
+  /* Usage Steps */
+  .usage-steps { display: flex; flex-direction: column; gap: 15px; }
+  .usage-step { display: flex; gap: 15px; padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #9c27b0; }
+  .step-num { width: 32px; height: 32px; background: #9c27b0; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content h4 { margin: 0 0 5px; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+  .step-content code { display: inline-block; background: #2d3436; color: #dfe6e9; padding: 6px 12px; border-radius: 4px; font-size: 13px; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+
+  /* Config List */
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #9c27b0; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  /* Custom Effects Detail */
+  .custom-effects-detail { display: flex; flex-direction: column; gap: 20px; }
+  .custom-effect { background: #fff8e1; border-radius: 12px; padding: 20px; border-left: 4px solid #ff9800; }
+  .custom-effect h4 { margin: 0 0 12px; }
+  .custom-effect ul { margin: 0; padding-left: 20px; }
+  .custom-effect li { font-size: 14px; color: #555; margin-bottom: 6px; }
+
+  /* Tips */
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; gap: 15px; padding: 15px; background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-radius: 10px; border-left: 4px solid #9c27b0; }
+  .tip-icon { font-size: 24px; }
+  .tip-item strong { display: block; margin-bottom: 5px; color: #333; }
+  .tip-item p { margin: 0; font-size: 14px; color: #666; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .effect-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .effect-grid { grid-template-columns: 1fr; }
+  }
+</style>
