@@ -1,0 +1,435 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="GlobalStorage2 - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">📦</div>
+      <div class="plugin-title-area">
+        <h1>GlobalStorage2</h1>
+        <p class="plugin-subtitle">無限スタッキング対応グローバル共有倉庫</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0</span>
+          <span class="badge category">ストレージ</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ストレージ</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/globalstorage2.131763/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/globalstorage2" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-none">
+            <span>依存プラグインなし</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>GlobalStorage2は、サーバー全体で共有できる無限容量の倉庫システムを提供するプラグインです。</p>
+          <p>64個を超えるアイテムも無限にスタッキング可能で、カテゴリ分類・検索機能・自動収納機能を備えた高機能ストレージソリューションです。データはJSON形式で永続化され、5分ごとに自動セーブされます。</p>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid-3col">
+            <div class="feature-card">
+              <span class="icon">♾️</span>
+              <h4>無限スタッキング</h4>
+              <p>64個制限なし！数万個でも一括管理</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🌐</span>
+              <h4>グローバル共有</h4>
+              <p>サーバー全体でストレージを共有</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📁</span>
+              <h4>カテゴリ分類</h4>
+              <p>10種類のカテゴリで自動分類</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔍</span>
+              <h4>検索機能</h4>
+              <p>アイテム名で素早く検索</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📥</span>
+              <h4>自動収納チェスト</h4>
+              <p>指定チェストから自動で収納</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔄</span>
+              <h4>転送フィルター</h4>
+              <p>特定アイテムのみ自動転送</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎮 使い方</h2>
+          <div class="usage-box">
+            <div class="usage-item">
+              <span class="usage-icon">🪄</span>
+              <div>
+                <strong>GSスティックを取得</strong>
+                <p><code>/gs give</code> でGlobal Storage Stickを取得</p>
+              </div>
+            </div>
+            <div class="usage-item">
+              <span class="usage-icon">👆</span>
+              <div>
+                <strong>ストレージを開く</strong>
+                <p>GSスティックを手に持って右クリック</p>
+              </div>
+            </div>
+            <div class="usage-item">
+              <span class="usage-icon">📥</span>
+              <div>
+                <strong>アイテムを預ける</strong>
+                <p>GUIにアイテムをドラッグ＆ドロップ</p>
+              </div>
+            </div>
+            <div class="usage-item">
+              <span class="usage-icon">📤</span>
+              <div>
+                <strong>アイテムを取り出す</strong>
+                <p>左クリック: 1スタック / 右クリック: 1個 / Shift: 充填</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📁 カテゴリ一覧（10種類）</h2>
+          <div class="category-grid">
+            <div class="category-item">
+              <span class="cat-icon">🧱</span>
+              <span class="cat-name">建築ブロック</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">🎨</span>
+              <span class="cat-name">色付きブロック</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">🌿</span>
+              <span class="cat-name">天然ブロック</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">⚙️</span>
+              <span class="cat-name">機能的ブロック</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">🔴</span>
+              <span class="cat-name">レッドストーン</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">⛏️</span>
+              <span class="cat-name">道具と実用品</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">⚔️</span>
+              <span class="cat-name">戦闘</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">🍎</span>
+              <span class="cat-name">食べ物と飲み物</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">🪵</span>
+              <span class="cat-name">材料</span>
+            </div>
+            <div class="category-item">
+              <span class="cat-icon">📦</span>
+              <span class="cat-name">その他</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📥 自動収納チェスト</h2>
+          <div class="auto-chest-info">
+            <p>指定したチェストに入れたアイテムを自動的にグローバルストレージに収納する機能です。</p>
+            <div class="auto-chest-steps">
+              <div class="step-item">
+                <span class="step-num">1</span>
+                <span><code>/gs setchest</code> を実行</span>
+              </div>
+              <div class="step-item">
+                <span class="step-num">2</span>
+                <span>自動収納したいチェストを右クリック</span>
+              </div>
+              <div class="step-item">
+                <span class="step-num">3</span>
+                <span>チェストにアイテムを入れると自動収納！</span>
+              </div>
+            </div>
+            <p class="note">解除は <code>/gs removechest</code> で同様に行えます</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔄 転送フィルター</h2>
+          <div class="filter-info">
+            <p>特定のアイテムのみをグローバルストレージに自動転送するフィルター機能です。</p>
+            <p><code>/gs tensou</code> でフィルター設定GUIを開き、自動転送したいアイテムを登録できます。</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/gs give [player]</code></td><td>GSスティックを取得/付与</td><td>gs.use</td></tr>
+                <tr><td><code>/gs open</code></td><td>直接ストレージGUIを開く</td><td>gs.admin</td></tr>
+                <tr><td><code>/gs sort</code></td><td>ストレージをソート</td><td>gs.use</td></tr>
+                <tr><td><code>/gs tensou</code></td><td>転送フィルターGUIを開く</td><td>gs.use</td></tr>
+                <tr><td><code>/gs setchest</code></td><td>自動収納チェストを設定</td><td>gs.admin</td></tr>
+                <tr><td><code>/gs removechest</code></td><td>自動収納チェストを解除</td><td>gs.admin</td></tr>
+                <tr><td><code>/gs listchests</code></td><td>自動収納チェスト一覧</td><td>gs.admin</td></tr>
+                <tr><td><code>/gs save</code></td><td>データを手動保存</td><td>gs.admin</td></tr>
+                <tr><td><code>/gs ngworld &lt;world&gt;</code></td><td>ワールドを使用禁止に</td><td>gs.admin</td></tr>
+                <tr><td><code>/gs okworld &lt;world&gt;</code></td><td>ワールドの使用禁止を解除</td><td>gs.admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-note">エイリアス: <code>/globalstorage</code></p>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>gs.use</code></td><td>グローバルストレージの使用</td><td>全員</td></tr>
+                <tr><td><code>gs.admin</code></td><td>管理者コマンドの使用</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-list">
+            <div class="config-item">
+              <code>ng-worlds</code>
+              <span>GSスティックを使用できないワールドのリスト</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💾 データ保存</h2>
+          <div class="data-info">
+            <div class="data-item">
+              <span class="data-icon">📄</span>
+              <div>
+                <strong>JSON形式</strong>
+                <p>すべてのデータはJSON形式で保存され、可読性とバックアップが容易</p>
+              </div>
+            </div>
+            <div class="data-item">
+              <span class="data-icon">⏱️</span>
+              <div>
+                <strong>自動セーブ</strong>
+                <p>5分ごとに自動的にデータを保存</p>
+              </div>
+            </div>
+            <div class="data-item">
+              <span class="data-icon">📁</span>
+              <div>
+                <strong>保存ファイル</strong>
+                <p>storage.json, auto_chests.json, tensou_filters.json</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🖥️ GUI操作</h2>
+          <div class="gui-controls">
+            <div class="control-group">
+              <h4>アイテム取り出し</h4>
+              <div class="control-item">
+                <span class="key">左クリック</span>
+                <span class="action">1スタック（64個）取得</span>
+              </div>
+              <div class="control-item">
+                <span class="key">右クリック</span>
+                <span class="action">1個取得</span>
+              </div>
+              <div class="control-item">
+                <span class="key">Shift+クリック</span>
+                <span class="action">インベントリに充填</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <h4>ナビゲーション</h4>
+              <div class="control-item">
+                <span class="key">←→ボタン</span>
+                <span class="action">ページ移動</span>
+              </div>
+              <div class="control-item">
+                <span class="key">カテゴリボタン</span>
+                <span class="action">左/右クリックで切り替え</span>
+              </div>
+              <div class="control-item">
+                <span class="key">検索ボタン</span>
+                <span class="action">アイテム名で検索</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #fd7e14; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-none { padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; color: #666; font-size: 14px; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 10px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Feature Grid */
+  .feature-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Usage Box */
+  .usage-box { display: flex; flex-direction: column; gap: 15px; }
+  .usage-item { display: flex; gap: 15px; padding: 15px; background: #e8f5e9; border-radius: 10px; border-left: 4px solid #4caf50; }
+  .usage-icon { font-size: 24px; }
+  .usage-item strong { display: block; color: #2e7d32; margin-bottom: 5px; }
+  .usage-item p { margin: 0; font-size: 14px; color: #555; }
+  .usage-item code { background: #2d3436; color: #dfe6e9; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+
+  /* Category Grid */
+  .category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .category-item { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: #f8f9fa; border-radius: 10px; border: 2px solid transparent; transition: all 0.3s; }
+  .category-item:hover { border-color: #fd7e14; }
+  .cat-icon { font-size: 24px; }
+  .cat-name { font-size: 13px; font-weight: 600; color: #333; }
+
+  /* Auto Chest Info */
+  .auto-chest-info { background: #fff3e0; border-radius: 15px; padding: 25px; border: 2px solid #ff9800; }
+  .auto-chest-info > p { margin-bottom: 20px; }
+  .auto-chest-steps { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
+  .step-item { display: flex; align-items: center; gap: 10px; background: white; padding: 10px 15px; border-radius: 8px; }
+  .step-num { width: 24px; height: 24px; background: #ff9800; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; }
+  .step-item code { background: #2d3436; color: #dfe6e9; padding: 2px 6px; border-radius: 3px; font-size: 11px; }
+  .note { font-size: 13px; color: #666; margin: 0; }
+
+  /* Filter Info */
+  .filter-info { background: #e3f2fd; border-radius: 15px; padding: 25px; border: 2px solid #2196f3; }
+  .filter-info p { margin-bottom: 10px; }
+  .filter-info p:last-child { margin-bottom: 0; }
+  .filter-info code { background: #2d3436; color: #dfe6e9; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  /* Config List */
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #fd7e14; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  /* Data Info */
+  .data-info { display: flex; flex-direction: column; gap: 15px; }
+  .data-item { display: flex; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .data-icon { font-size: 24px; }
+  .data-item strong { display: block; color: #333; margin-bottom: 5px; }
+  .data-item p { margin: 0; font-size: 13px; color: #666; }
+
+  /* GUI Controls */
+  .gui-controls { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .control-group { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .control-group h4 { margin: 0 0 15px; color: #fd7e14; }
+  .control-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; }
+  .control-item:last-child { border-bottom: none; }
+  .key { background: #343a40; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+  .action { font-size: 13px; color: #555; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid-3col { grid-template-columns: repeat(2, 1fr); }
+    .category-grid { grid-template-columns: repeat(3, 1fr); }
+    .gui-controls { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .feature-grid-3col { grid-template-columns: 1fr; }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+    .auto-chest-steps { flex-direction: column; }
+  }
+</style>
