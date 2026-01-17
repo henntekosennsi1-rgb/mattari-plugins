@@ -1,0 +1,522 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="QuizPlugin - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">❓</div>
+      <div class="plugin-title-area">
+        <h1>QuizPlugin</h1>
+        <p class="plugin-subtitle">デイリークイズ＆クイズタワー - 知識で稼ぐMinecraftクイズシステム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">ミニゲーム</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ミニゲーム</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/quizplugin.131766/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/quizplugin" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item required">
+            <span class="dep-badge">必須</span>
+            <span class="dep-name">EmeraldBank</span>
+          </div>
+          <div class="dep-item optional">
+            <span class="dep-badge">任意</span>
+            <span class="dep-name">Citizens</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>QuizPluginは、Minecraftの知識を活かしてエメラルドを稼げる本格的なクイズシステムです。</p>
+          <p>毎日挑戦できる「デイリークイズ」と、100階を目指す「クイズタワー」の2つのモードを搭載。100問以上のMinecraftに関する問題が難易度別に用意されており、EmeraldBank経済システムと完全連携しています。</p>
+        </section>
+
+        <section>
+          <h2>🎮 2つのゲームモード</h2>
+          <div class="mode-grid">
+            <div class="mode-card daily">
+              <div class="mode-header">
+                <span class="mode-icon">📅</span>
+                <h3>デイリークイズ</h3>
+              </div>
+              <div class="mode-body">
+                <p>毎日5問のクイズに挑戦！継続は力なり。</p>
+                <ul>
+                  <li>1日1回、5問出題</li>
+                  <li>毎日0時にリセット</li>
+                  <li>参加費無料</li>
+                  <li>連続参加ボーナスあり</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mode-card tower">
+              <div class="mode-header">
+                <span class="mode-icon">🗼</span>
+                <h3>クイズタワー</h3>
+              </div>
+              <div class="mode-body">
+                <p>100階建ての知識の塔を制覇せよ！</p>
+                <ul>
+                  <li>全100階（100問）</li>
+                  <li>参加費100E</li>
+                  <li>10回失敗でゲームオーバー</li>
+                  <li>階が上がると難易度UP</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📅 デイリークイズ報酬</h2>
+          <div class="reward-section">
+            <div class="reward-box">
+              <h4>基本報酬</h4>
+              <div class="reward-grid">
+                <div class="reward-item">
+                  <span class="reward-label">1問正解</span>
+                  <span class="reward-value">+5E</span>
+                </div>
+                <div class="reward-item highlight">
+                  <span class="reward-label">全問正解(5問)</span>
+                  <span class="reward-value">+50E</span>
+                </div>
+              </div>
+            </div>
+            <div class="reward-box streak">
+              <h4>🔥 連続参加ボーナス</h4>
+              <div class="streak-grid">
+                <div class="streak-item">
+                  <span class="days">3日</span>
+                  <span class="bonus">+15E</span>
+                </div>
+                <div class="streak-item">
+                  <span class="days">7日</span>
+                  <span class="bonus">+50E</span>
+                </div>
+                <div class="streak-item">
+                  <span class="days">14日</span>
+                  <span class="bonus">+150E</span>
+                </div>
+                <div class="streak-item special">
+                  <span class="days">30日</span>
+                  <span class="bonus">+500E</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🗼 クイズタワー詳細</h2>
+          <div class="tower-info">
+            <div class="tower-visual">
+              <div class="floor-section expert">
+                <span class="floor-range">91-100階</span>
+                <span class="floor-diff">Expert</span>
+              </div>
+              <div class="floor-section hard">
+                <span class="floor-range">61-90階</span>
+                <span class="floor-diff">Hard</span>
+              </div>
+              <div class="floor-section medium">
+                <span class="floor-range">31-60階</span>
+                <span class="floor-diff">Medium</span>
+              </div>
+              <div class="floor-section easy">
+                <span class="floor-range">1-30階</span>
+                <span class="floor-diff">Easy</span>
+              </div>
+            </div>
+            <div class="tower-details">
+              <div class="detail-item">
+                <span class="label">参加費</span>
+                <span class="value">100E</span>
+              </div>
+              <div class="detail-item">
+                <span class="label">制限時間</span>
+                <span class="value">1問5分</span>
+              </div>
+              <div class="detail-item">
+                <span class="label">失敗許容</span>
+                <span class="value">10回まで</span>
+              </div>
+              <div class="detail-item highlight">
+                <span class="label">100階制覇報酬</span>
+                <span class="value">1000E</span>
+              </div>
+            </div>
+          </div>
+          <div class="tower-note">
+            <p>💡 途中撤退も可能！撤退時は <code>参加費 × 現在階数 ÷ 10</code> の報酬がもらえます。</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>📚 問題データベース</h2>
+          <div class="question-info">
+            <div class="question-stat">
+              <span class="stat-num">100+</span>
+              <span class="stat-label">問以上収録</span>
+            </div>
+            <div class="difficulty-list">
+              <div class="diff-item easy">
+                <span class="diff-icon">🟢</span>
+                <span class="diff-name">Easy</span>
+                <span class="diff-desc">基本的なMinecraft知識</span>
+              </div>
+              <div class="diff-item medium">
+                <span class="diff-icon">🟡</span>
+                <span class="diff-name">Medium</span>
+                <span class="diff-desc">中級者向けの問題</span>
+              </div>
+              <div class="diff-item hard">
+                <span class="diff-icon">🟠</span>
+                <span class="diff-name">Hard</span>
+                <span class="diff-desc">詳細な仕様を問う問題</span>
+              </div>
+              <div class="diff-item expert">
+                <span class="diff-icon">🔴</span>
+                <span class="diff-name">Expert</span>
+                <span class="diff-desc">マニアックな知識が必要</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid-3col">
+            <div class="feature-card">
+              <span class="icon">💎</span>
+              <h4>EmeraldBank連携</h4>
+              <p>報酬・参加費はエメラルド経済と完全連携</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🏆</span>
+              <h4>ランキングシステム</h4>
+              <p>月次リセットのランキングで競争</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🪧</span>
+              <h4>ランキング看板</h4>
+              <p>自動更新される看板を設置可能</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🧑‍💼</span>
+              <h4>NPC対応</h4>
+              <p>Citizens連携でNPCからクイズ開始</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🛡️</span>
+              <h4>不正防止</h4>
+              <p>最低回答時間・問題重複防止など</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚙️</span>
+              <h4>高度なカスタマイズ</h4>
+              <p>報酬・難易度・問題を自由に設定</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/quiz daily</code> or <code>/qd</code></td><td>デイリークイズを開始</td><td>quiz.daily</td></tr>
+                <tr><td><code>/quiz tower</code> or <code>/qt</code></td><td>クイズタワーを開始</td><td>quiz.tower</td></tr>
+                <tr><td><code>/quiz ranking</code></td><td>ランキングを表示</td><td>quiz.ranking</td></tr>
+                <tr><td><code>/quiz admin reload</code></td><td>設定をリロード</td><td>quiz.admin.reload</td></tr>
+                <tr><td><code>/quizsign create &lt;type&gt;</code></td><td>ランキング看板を作成</td><td>quiz.admin.sign</td></tr>
+                <tr><td><code>/quizsign remove</code></td><td>看板を削除</td><td>quiz.admin.sign</td></tr>
+                <tr><td><code>/quiznpc create &lt;type&gt;</code></td><td>クイズNPCを作成</td><td>quiz.admin.npc</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-note">エイリアス: <code>/q</code></p>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>quiz.use</code></td><td>全クイズ機能の使用（子権限含む）</td><td>false</td></tr>
+                <tr><td><code>quiz.daily</code></td><td>デイリークイズへのアクセス</td><td>false</td></tr>
+                <tr><td><code>quiz.tower</code></td><td>クイズタワーへのアクセス</td><td>false</td></tr>
+                <tr><td><code>quiz.ranking</code></td><td>ランキング閲覧</td><td>false</td></tr>
+                <tr><td><code>quiz.admin</code></td><td>管理者コマンド（子権限含む）</td><td>false</td></tr>
+                <tr><td><code>quiz.admin.reload</code></td><td>設定リロード</td><td>false</td></tr>
+                <tr><td><code>quiz.admin.npc</code></td><td>NPC管理</td><td>false</td></tr>
+                <tr><td><code>quiz.admin.sign</code></td><td>看板管理</td><td>false</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 主な設定項目</h2>
+          <div class="config-grid">
+            <div class="config-section">
+              <h4>デイリークイズ</h4>
+              <div class="config-list">
+                <div class="config-item">
+                  <code>questions_per_day</code>
+                  <span>1日の出題数</span>
+                </div>
+                <div class="config-item">
+                  <code>rewards.per_correct</code>
+                  <span>1問正解の報酬</span>
+                </div>
+                <div class="config-item">
+                  <code>streak_bonuses.*</code>
+                  <span>連続参加ボーナス</span>
+                </div>
+              </div>
+            </div>
+            <div class="config-section">
+              <h4>クイズタワー</h4>
+              <div class="config-list">
+                <div class="config-item">
+                  <code>entry_cost</code>
+                  <span>参加費</span>
+                </div>
+                <div class="config-item">
+                  <code>max_failures</code>
+                  <span>失敗許容回数</span>
+                </div>
+                <div class="config-item">
+                  <code>checkpoint_rewards.*</code>
+                  <span>チェックポイント報酬</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📝 問題の追加方法</h2>
+          <div class="question-format">
+            <p><code>questions.yml</code> に以下の形式で問題を追加できます：</p>
+            <pre><code>questions:
+  q101:
+    text: "問題文をここに記述"
+    choices:
+      - "選択肢A"
+      - "選択肢B"
+      - "選択肢C"
+      - "選択肢D"
+    correct: 0  # 0-3 (A-D)
+    difficulty: "easy"  # easy, medium, hard, expert
+    category: "minecraft"</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛡️ 不正防止機能</h2>
+          <div class="anticheat-list">
+            <div class="anticheat-item">
+              <span class="ac-icon">⏱️</span>
+              <span>最低回答時間（1秒）による即答防止</span>
+            </div>
+            <div class="anticheat-item">
+              <span class="ac-icon">🔄</span>
+              <span>同一問題の連続出題防止（10問間隔）</span>
+            </div>
+            <div class="anticheat-item">
+              <span class="ac-icon">🚫</span>
+              <span>タワー挑戦中のコマンド制限</span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; margin-bottom: 8px; }
+  .dep-item:last-child { margin-bottom: 0; }
+  .dep-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .dep-item.required .dep-badge { background: #dc3545; color: white; }
+  .dep-item.optional .dep-badge { background: #6c757d; color: white; }
+  .dep-name { font-weight: 600; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #333; margin: 0; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 15px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Mode Grid */
+  .mode-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .mode-card { border-radius: 15px; overflow: hidden; }
+  .mode-card.daily { background: linear-gradient(135deg, #667eea, #764ba2); }
+  .mode-card.tower { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .mode-header { padding: 20px; color: white; display: flex; align-items: center; gap: 15px; }
+  .mode-icon { font-size: 32px; }
+  .mode-body { background: rgba(255,255,255,0.95); padding: 20px; }
+  .mode-body p { margin-bottom: 15px; color: #333; }
+  .mode-body ul { margin: 0; padding-left: 20px; }
+  .mode-body li { font-size: 14px; color: #555; margin-bottom: 8px; }
+
+  /* Reward Section */
+  .reward-section { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .reward-box { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .reward-box.streak { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+  .reward-grid { display: flex; flex-direction: column; gap: 10px; }
+  .reward-item { display: flex; justify-content: space-between; padding: 10px; background: white; border-radius: 8px; }
+  .reward-item.highlight { background: #4caf50; color: white; }
+  .reward-label { font-size: 14px; }
+  .reward-value { font-weight: bold; }
+  .streak-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .streak-item { text-align: center; padding: 12px; background: white; border-radius: 8px; }
+  .streak-item.special { background: #ff9800; color: white; }
+  .days { display: block; font-size: 12px; margin-bottom: 5px; }
+  .bonus { display: block; font-size: 18px; font-weight: bold; }
+
+  /* Tower Info */
+  .tower-info { display: grid; grid-template-columns: 200px 1fr; gap: 30px; }
+  .tower-visual { display: flex; flex-direction: column; }
+  .floor-section { padding: 20px; text-align: center; color: white; }
+  .floor-section.expert { background: #f44336; border-radius: 12px 12px 0 0; }
+  .floor-section.hard { background: #ff9800; }
+  .floor-section.medium { background: #ffc107; color: #333; }
+  .floor-section.easy { background: #4caf50; border-radius: 0 0 12px 12px; }
+  .floor-range { display: block; font-size: 14px; font-weight: bold; }
+  .floor-diff { display: block; font-size: 12px; opacity: 0.9; }
+  .tower-details { display: flex; flex-direction: column; gap: 15px; justify-content: center; }
+  .detail-item { display: flex; justify-content: space-between; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .detail-item.highlight { background: linear-gradient(135deg, #ffd700, #ffb300); }
+  .detail-item .label { font-weight: 500; }
+  .detail-item .value { font-weight: bold; color: #333; }
+  .tower-note { margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 10px; border-left: 4px solid #2196f3; }
+  .tower-note p { margin: 0; font-size: 14px; }
+  .tower-note code { background: #2d3436; color: #dfe6e9; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+
+  /* Question Info */
+  .question-info { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+  .question-stat { text-align: center; padding: 20px 30px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; color: white; }
+  .stat-num { display: block; font-size: 48px; font-weight: bold; }
+  .stat-label { font-size: 14px; }
+  .difficulty-list { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .diff-item { display: flex; align-items: center; gap: 12px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .diff-icon { font-size: 20px; }
+  .diff-name { font-weight: bold; min-width: 80px; }
+  .diff-desc { font-size: 13px; color: #666; }
+
+  /* Feature Grid */
+  .feature-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  /* Config Grid */
+  .config-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .config-section { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .config-section h4 { margin-bottom: 15px; color: #17a2b8; }
+  .config-list { display: flex; flex-direction: column; gap: 8px; }
+  .config-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: white; border-radius: 6px; }
+  .config-item code { background: #17a2b8; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
+  .config-item span { font-size: 13px; color: #555; }
+
+  /* Question Format */
+  .question-format { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .question-format p { margin-bottom: 15px; }
+  .question-format pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 0; }
+  .question-format code { font-size: 13px; line-height: 1.6; }
+
+  /* Anticheat List */
+  .anticheat-list { display: flex; flex-direction: column; gap: 12px; }
+  .anticheat-item { display: flex; align-items: center; gap: 15px; padding: 15px; background: #fff3e0; border-radius: 10px; border-left: 4px solid #ff9800; }
+  .ac-icon { font-size: 20px; }
+  .anticheat-item span:last-child { font-size: 14px; color: #555; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .mode-grid { grid-template-columns: 1fr; }
+    .reward-section { grid-template-columns: 1fr; }
+    .tower-info { grid-template-columns: 1fr; }
+    .feature-grid-3col { grid-template-columns: repeat(2, 1fr); }
+    .config-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .feature-grid-3col { grid-template-columns: 1fr; }
+    .question-info { flex-direction: column; }
+  }
+</style>
