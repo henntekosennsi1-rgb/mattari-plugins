@@ -1,0 +1,465 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="DorokeiGame - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🚔</div>
+      <div class="plugin-title-area">
+        <h1>DorokeiGame</h1>
+        <p class="plugin-subtitle">ドロケイ（警察と泥棒）ミニゲーム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v3.0</span>
+          <span class="badge category">ミニゲーム</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>3.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ミニゲーム</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/dorokeigame.131758/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/dorokeigame" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-none">
+            <span>依存プラグインなし</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>DorokeiGameは、日本の伝統的な鬼ごっこ「ドロケイ（警察と泥棒）」をMinecraftで再現したミニゲームプラグインです。</p>
+          <p>警官チームと市民チームに分かれ、警官は市民を捕まえ、市民は逃げ回りながら仲間を救出します。豊富な演出と追跡機能で、緊迫感あふれるゲームが楽しめます。</p>
+        </section>
+
+        <section>
+          <h2>🎮 ゲームルール</h2>
+          <div class="rules-container">
+            <div class="team-card police">
+              <div class="team-header">
+                <span class="team-icon">👮</span>
+                <h4>警官チーム</h4>
+              </div>
+              <div class="team-content">
+                <p class="team-goal">🎯 全市民を捕獲すれば勝利</p>
+                <ul>
+                  <li>ダイヤのヘルメット装備</li>
+                  <li>警棒（棒）で市民を叩いて捕獲</li>
+                  <li>Speed II で素早く移動</li>
+                </ul>
+              </div>
+            </div>
+            <div class="vs-badge">VS</div>
+            <div class="team-card civilian">
+              <div class="team-header">
+                <span class="team-icon">🏃</span>
+                <h4>市民チーム</h4>
+              </div>
+              <div class="team-content">
+                <p class="team-goal">🎯 制限時間まで逃げ切れば勝利</p>
+                <ul>
+                  <li>コンパスで警官の位置を把握</li>
+                  <li>捕まった仲間を救出可能</li>
+                  <li>左クリックで即座に救出</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid-3col">
+            <div class="feature-card">
+              <span class="icon">📊</span>
+              <h4>スコアボード</h4>
+              <p>残り時間・逃走中/捕獲済人数・役割をリアルタイム表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎨</span>
+              <h4>ボスバー</h4>
+              <p>時間経過で緑→黄→赤と色が変化する視覚的な残り時間表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⏱️</span>
+              <h4>カウントダウン</h4>
+              <p>3... 2... 1... START! の演出と効果音</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚡</span>
+              <h4>捕獲演出</h4>
+              <p>画面暗転・雷音・パーティクルで迫力ある演出</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔓</span>
+              <h4>救出演出</h4>
+              <p>爆発エフェクト・速度バフで爽快な救出体験</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🏠</span>
+              <h4>ロビーシステム</h4>
+              <p>複数のゲームを同時開催可能なロビー管理</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎯 追跡システム</h2>
+          <div class="tracking-info">
+            <p>警官には強力な追跡機能が提供され、市民を追い詰めます。</p>
+            <div class="tracking-features">
+              <div class="tracking-item">
+                <span class="tracking-icon">✨</span>
+                <div>
+                  <strong>パーティクル追跡</strong>
+                  <p>市民の頭上にパーティクルを表示（警官のみ可視）</p>
+                  <div class="distance-colors">
+                    <span class="dist red">10m未満: 赤</span>
+                    <span class="dist yellow">10-30m: 黄</span>
+                    <span class="dist blue">30m以上: 青</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tracking-item">
+                <span class="tracking-icon">🧭</span>
+                <div>
+                  <strong>コンパス更新</strong>
+                  <p>残り時間に応じて更新頻度が向上</p>
+                  <div class="compass-timing">
+                    <span>60秒以上: 5秒ごと</span>
+                    <span>30-60秒: 2秒ごと</span>
+                    <span>30秒未満: 毎秒</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tracking-item">
+                <span class="tracking-icon">📍</span>
+                <div>
+                  <strong>方向・距離表示</strong>
+                  <p>ActionBarに8方向とY座標情報を表示</p>
+                  <code>最寄りの市民: 北東 25m ↑10m</code>
+                </div>
+              </div>
+              <div class="tracking-item">
+                <span class="tracking-icon">🔊</span>
+                <div>
+                  <strong>3Dサウンド</strong>
+                  <p>市民の方向から心臓の鼓動音が聞こえる</p>
+                  <p class="note">近づくと音が大きく・高くなる</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🏢 牢獄システム</h2>
+          <div class="jail-info">
+            <div class="jail-visual">
+              <div class="jail-beacon">✦</div>
+              <div class="jail-beam"></div>
+              <div class="jail-box">牢獄</div>
+            </div>
+            <div class="jail-details">
+              <h4>牢獄の特徴</h4>
+              <ul>
+                <li>上空にビーコンパーティクルで位置表示</li>
+                <li>捕獲された市民は牢獄に送られる</li>
+                <li>移動速度低下＆グレースケール効果</li>
+                <li>20秒ごとに「助けを呼ぶ」メッセージ送信</li>
+                <li>仲間の左クリックで即座に救出</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/dorokei start</code></td><td>ゲームを開始</td></tr>
+                <tr><td><code>/dorokei setpolice &lt;人数&gt;</code></td><td>警官の人数を設定</td></tr>
+                <tr><td><code>/dorokei settime &lt;秒数&gt;</code></td><td>ゲーム時間を設定</td></tr>
+                <tr><td><code>/dorokei setjail</code></td><td>現在位置を牢獄に設定</td></tr>
+                <tr><td><code>/dorokei setup lobby &lt;ID&gt;</code></td><td>ロビーを設定</td></tr>
+                <tr><td><code>/dorokei setup area &lt;ID&gt; pos1</code></td><td>ゲームエリアを設定</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-note">エイリアス: <code>/dk</code></p>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-grid">
+            <div class="config-item">
+              <code>game-settings.game-time</code>
+              <span>ゲーム時間（デフォルト: 480秒）</span>
+            </div>
+            <div class="config-item">
+              <code>game-settings.escape-preparation-time</code>
+              <span>逃走準備時間（デフォルト: 30秒）</span>
+            </div>
+            <div class="config-item">
+              <code>cop-allocation</code>
+              <span>プレイヤー数に応じた警官数の自動割り振り</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>👥 推奨プレイヤー数</h2>
+          <div class="player-recommendation">
+            <div class="rec-item">
+              <div class="rec-size">少人数</div>
+              <div class="rec-detail">
+                <span class="rec-players">4-8人</span>
+                <span class="rec-cops">警官: 1人</span>
+                <span class="rec-time">時間: 5分</span>
+              </div>
+            </div>
+            <div class="rec-item">
+              <div class="rec-size">中規模</div>
+              <div class="rec-detail">
+                <span class="rec-players">9-16人</span>
+                <span class="rec-cops">警官: 2-3人</span>
+                <span class="rec-time">時間: 7分</span>
+              </div>
+            </div>
+            <div class="rec-item">
+              <div class="rec-size">大規模</div>
+              <div class="rec-detail">
+                <span class="rec-players">17人以上</span>
+                <span class="rec-cops">警官: 4-5人</span>
+                <span class="rec-time">時間: 10分</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 セットアップ手順</h2>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <h4>牢獄を設定</h4>
+                <p>牢獄にしたい場所に立って実行</p>
+                <code>/dorokei setjail</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <h4>警官人数を設定</h4>
+                <p>参加人数に応じて警官の数を設定</p>
+                <code>/dorokei setpolice 2</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <h4>ゲーム時間を設定</h4>
+                <p>制限時間を秒単位で設定</p>
+                <code>/dorokei settime 300</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <h4>ゲーム開始</h4>
+                <p>準備が完了したらスタート</p>
+                <code>/dorokei start</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📝 注意事項</h2>
+          <div class="notes-box">
+            <div class="note-item">
+              <span class="note-icon">⚠️</span>
+              <span>ゲーム開始には最低「警官人数 + 1」人のプレイヤーが必要</span>
+            </div>
+            <div class="note-item">
+              <span class="note-icon">📍</span>
+              <span>牢獄地点は必ず設定してください</span>
+            </div>
+            <div class="note-item">
+              <span class="note-icon">🍖</span>
+              <span>ゲーム中は満腹度が減少しません</span>
+            </div>
+            <div class="note-item">
+              <span class="note-icon">💚</span>
+              <span>ゲーム中のダメージはキャンセルされます</span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #e91e63; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-none { padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; color: #666; font-size: 14px; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 10px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Rules Container */
+  .rules-container { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .team-card { flex: 1; min-width: 280px; border-radius: 15px; overflow: hidden; }
+  .team-card.police { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; }
+  .team-card.civilian { background: linear-gradient(135deg, #065f46, #10b981); color: white; }
+  .team-header { display: flex; align-items: center; gap: 10px; padding: 20px; background: rgba(0,0,0,0.2); }
+  .team-icon { font-size: 32px; }
+  .team-header h4 { margin: 0; font-size: 18px; }
+  .team-content { padding: 20px; }
+  .team-goal { font-weight: bold; margin-bottom: 15px; font-size: 14px; }
+  .team-content ul { margin: 0; padding-left: 20px; font-size: 14px; }
+  .team-content li { margin-bottom: 8px; }
+  .vs-badge { font-size: 24px; font-weight: bold; color: #e91e63; }
+
+  /* Feature Grid */
+  .feature-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Tracking Info */
+  .tracking-info { background: #fef3c7; border-radius: 15px; padding: 25px; border: 2px solid #f59e0b; }
+  .tracking-info > p { color: #92400e; margin-bottom: 20px; }
+  .tracking-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .tracking-item { display: flex; gap: 15px; background: white; padding: 15px; border-radius: 10px; }
+  .tracking-icon { font-size: 24px; }
+  .tracking-item strong { display: block; color: #333; margin-bottom: 5px; }
+  .tracking-item p { margin: 0 0 8px; font-size: 13px; color: #666; }
+  .tracking-item .note { font-size: 11px; color: #999; }
+  .tracking-item code { display: block; background: #2d3436; color: #dfe6e9; padding: 6px 10px; border-radius: 4px; font-size: 11px; margin-top: 5px; }
+  .distance-colors { display: flex; gap: 8px; flex-wrap: wrap; }
+  .dist { padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .dist.red { background: #fee2e2; color: #dc2626; }
+  .dist.yellow { background: #fef3c7; color: #d97706; }
+  .dist.blue { background: #dbeafe; color: #2563eb; }
+  .compass-timing { display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: #666; }
+
+  /* Jail Info */
+  .jail-info { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+  .jail-visual { text-align: center; padding: 20px; }
+  .jail-beacon { font-size: 24px; color: #f59e0b; animation: pulse 1s infinite; }
+  .jail-beam { width: 4px; height: 60px; background: linear-gradient(to bottom, #f59e0b, transparent); margin: 0 auto; }
+  .jail-box { background: #4a4a4a; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .jail-details { flex: 1; min-width: 280px; }
+  .jail-details h4 { margin-bottom: 15px; }
+  .jail-details ul { margin: 0; padding-left: 20px; }
+  .jail-details li { margin-bottom: 8px; font-size: 14px; color: #555; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  /* Config Grid */
+  .config-grid { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #e91e63; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  /* Player Recommendation */
+  .player-recommendation { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .rec-item { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .rec-size { font-size: 14px; font-weight: bold; color: #e91e63; margin-bottom: 15px; }
+  .rec-detail { display: flex; flex-direction: column; gap: 8px; }
+  .rec-detail span { font-size: 13px; color: #555; }
+  .rec-players { font-weight: 600; color: #333 !important; }
+
+  /* Setup Steps */
+  .setup-steps { display: flex; flex-direction: column; gap: 15px; }
+  .setup-step { display: flex; gap: 15px; padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #e91e63; }
+  .step-num { width: 32px; height: 32px; background: #e91e63; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content h4 { margin: 0 0 5px; }
+  .step-content p { margin: 0 0 10px; font-size: 14px; color: #666; }
+  .step-content code { display: inline-block; background: #2d3436; color: #dfe6e9; padding: 6px 12px; border-radius: 4px; font-size: 13px; }
+
+  /* Notes Box */
+  .notes-box { display: flex; flex-direction: column; gap: 10px; }
+  .note-item { display: flex; align-items: center; gap: 12px; padding: 12px 15px; background: #fef2f2; border-radius: 8px; border-left: 4px solid #ef4444; }
+  .note-icon { font-size: 18px; }
+  .note-item span:last-child { font-size: 14px; color: #555; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid-3col { grid-template-columns: repeat(2, 1fr); }
+    .tracking-features { grid-template-columns: 1fr; }
+    .player-recommendation { grid-template-columns: 1fr; }
+    .rules-container { flex-direction: column; }
+    .vs-badge { transform: rotate(90deg); }
+  }
+  @media (max-width: 600px) {
+    .feature-grid-3col { grid-template-columns: 1fr; }
+  }
+</style>
