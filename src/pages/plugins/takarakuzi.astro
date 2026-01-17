@@ -1,0 +1,467 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Takarakuzi - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🎰</div>
+      <div class="plugin-title-area">
+        <h1>Takarakuzi</h1>
+        <p class="plugin-subtitle">宝くじ抽選システム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">経済・ミニゲーム</span>
+          <span class="badge mc-version">1.20.x+</span>
+          <span class="badge alpha">Alpha</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.20.x+</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>経済・ミニゲーム</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/takarakuzi-lottery-system-alpha.131739/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/takarakuzi" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item required">
+            <span class="dep-badge">必須</span>
+            <span class="dep-name">EmeraldBank</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Takarakuziは、エメラルドを使用した宝くじ抽選システムプラグインです。プレイヤーはエメラルドで抽選券を購入し、様々なカテゴリの景品を獲得できます。</p>
+          <p>5種類のカテゴリ（鉱石、食料、機能ブロック、建材、その他）から選べ、レアアイテムほど当選確率が低く設定されています。サーバーの経済システムに楽しい要素を追加できます。</p>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🎫</span>
+              <h4>抽選券システム</h4>
+              <p>エメラルドで抽選券を購入</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📦</span>
+              <h4>5カテゴリ</h4>
+              <p>鉱石・食料・機能・建材・その他</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚖️</span>
+              <h4>重み付き確率</h4>
+              <p>レアアイテムほど低確率</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💎</span>
+              <h4>EmeraldBank連携</h4>
+              <p>エメラルド経済と完全統合</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚙️</span>
+              <h4>カスタマイズ可能</h4>
+              <p>景品と確率を自由に設定</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📱</span>
+              <h4>簡単操作</h4>
+              <p>右クリックで即座に抽選</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚔️ 使用方法</h2>
+          <div class="workflow">
+            <div class="workflow-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>抽選券購入</h4>
+                <code>/kuzi &lt;種類&gt; &lt;枚数&gt;</code>
+                <p>10エメラルド/枚で購入</p>
+              </div>
+            </div>
+            <div class="workflow-step highlight">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>抽選実行</h4>
+                <code>抽選券を右クリック</code>
+                <p>景品を獲得！</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎰 宝くじカテゴリ</h2>
+          <div class="category-grid">
+            <div class="category-card ore">
+              <div class="cat-header">
+                <span class="cat-icon">⛏️</span>
+                <h4>ORE（鉱石）</h4>
+              </div>
+              <div class="cat-prizes">
+                <div class="prize common">ダイヤモンド ×64</div>
+                <div class="prize common">金インゴット ×64</div>
+                <div class="prize common">鉄インゴット ×64</div>
+                <div class="prize common">石炭 ×64</div>
+                <div class="prize common">丸石 ×64</div>
+                <div class="prize common">ラピスラズリ ×64</div>
+                <div class="prize legendary">古代の残骸 ×1 <span class="prob">1/385</span></div>
+              </div>
+            </div>
+            <div class="category-card food">
+              <div class="cat-header">
+                <span class="cat-icon">🍖</span>
+                <h4>FOOD（食料）</h4>
+              </div>
+              <div class="cat-prizes">
+                <div class="prize common">ステーキ ×64</div>
+                <div class="prize common">焼き豚 ×64</div>
+                <div class="prize rare">金リンゴ ×16</div>
+                <div class="prize common">金のニンジン ×64</div>
+                <div class="prize common">パン ×64</div>
+                <div class="prize common">カボチャ ×64</div>
+                <div class="prize legendary">エンチャント金リンゴ ×8 <span class="prob">8/356</span></div>
+              </div>
+            </div>
+            <div class="category-card function">
+              <div class="cat-header">
+                <span class="cat-icon">🔧</span>
+                <h4>FUNCTION（機能）</h4>
+              </div>
+              <div class="cat-prizes">
+                <div class="prize common">グロウストーン ×64</div>
+                <div class="prize common">遮光ガラス ×64</div>
+                <div class="prize common">本棚 ×64</div>
+                <div class="prize common">スポンジ ×64</div>
+                <div class="prize common">シュルームライト ×64</div>
+                <div class="prize common">氷 ×64</div>
+                <div class="prize common">スライムブロック ×64</div>
+              </div>
+            </div>
+            <div class="category-card build">
+              <div class="cat-header">
+                <span class="cat-icon">🧱</span>
+                <h4>BUILD（建材）</h4>
+              </div>
+              <div class="cat-prizes">
+                <div class="prize common">苔むした丸石 ×64</div>
+                <div class="prize common">閃緑岩 ×64</div>
+                <div class="prize common">安山岩 ×64</div>
+                <div class="prize common">凝灰岩 ×64</div>
+                <div class="prize common">クォーツブロック ×64</div>
+                <div class="prize common">プルプァブロック ×64</div>
+                <div class="prize common">エンドストーン ×64</div>
+              </div>
+            </div>
+            <div class="category-card other">
+              <div class="cat-header">
+                <span class="cat-icon">✨</span>
+                <h4>OTHER（その他）</h4>
+              </div>
+              <div class="cat-prizes">
+                <div class="prize common">ロケット花火 ×64</div>
+                <div class="prize common">経験値ボトル ×64</div>
+                <div class="prize rare">シュルカーの殻 ×2</div>
+                <div class="prize rare">熱帯魚バケツ ×2</div>
+                <div class="prize legendary">エリトラ ×1 <span class="prob">超レア!</span></div>
+                <div class="prize legendary">ウィザスケの頭 ×1</div>
+                <div class="prize legendary">不死のトーテム ×1</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💰 料金システム</h2>
+          <div class="price-info">
+            <div class="price-main">
+              <span class="price-icon">💎</span>
+              <div class="price-details">
+                <h4>抽選券 1枚</h4>
+                <p class="price-value">10 エメラルド</p>
+              </div>
+            </div>
+            <div class="price-examples">
+              <div class="price-ex">10枚 → 100 E</div>
+              <div class="price-ex">64枚 → 640 E</div>
+              <div class="price-ex">100枚 → 1,000 E</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/kuzi &lt;種類&gt; &lt;枚数&gt;</code></td><td>抽選券を購入</td><td>なし</td></tr>
+                <tr><td><code>/kuzi reload</code></td><td>設定を再読み込み</td><td>kuzi.reload / OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="type-list">
+            <h4>種類一覧</h4>
+            <div class="types">
+              <span class="type-badge">ore</span>
+              <span class="type-badge">food</span>
+              <span class="type-badge">function</span>
+              <span class="type-badge">build</span>
+              <span class="type-badge">other</span>
+            </div>
+          </div>
+          <p class="alias-note">エイリアス: <code>/lottery</code> でも使用可能</p>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>kuzi.reload</code></td><td>設定の再読み込み</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="perm-note">※ 抽選券の購入・使用には権限不要です</p>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定ファイル</h2>
+          <div class="config-info">
+            <p>config.ymlで景品と確率を自由にカスタマイズできます。</p>
+            <pre><code># prizes セクションで景品を設定
+# 数値 = アイテム個数 & 重み（確率）
+prizes:
+  ore:
+    DIAMOND: 64        # 64個、重み64
+    GOLD_INGOT: 64
+    ANCIENT_DEBRIS: 1  # 1個、重み1（超レア）
+  
+  food:
+    COOKED_BEEF: 64
+    ENCHANTED_GOLDEN_APPLE: 8  # 8個、重み8
+    
+  # ... 他のカテゴリも同様</code></pre>
+            <div class="config-note">
+              <span class="note-icon">💡</span>
+              <p>確率計算: 重み ÷ カテゴリ内の全重み合計 = 当選確率</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎫 抽選券アイテム</h2>
+          <div class="ticket-info">
+            <div class="ticket-display">
+              <div class="ticket-icon">📜</div>
+              <div class="ticket-details">
+                <h4>[ORE] 抽選券</h4>
+                <p class="ticket-item">アイテム: 紙</p>
+                <p class="ticket-lore">右クリックで使用すると、<br/>OREカテゴリーの景品が当たります。</p>
+              </div>
+            </div>
+            <div class="ticket-features">
+              <div class="tf-item">
+                <span>📱</span>
+                <p>右クリックで即座に抽選</p>
+              </div>
+              <div class="tf-item">
+                <span>📦</span>
+                <p>スタック可能（最大64枚）</p>
+              </div>
+              <div class="tf-item">
+                <span>🎁</span>
+                <p>景品は直接インベントリに追加</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 技術仕様</h2>
+          <div class="tech-info">
+            <div class="tech-grid">
+              <div class="tech-item">
+                <h4>データ保存方式</h4>
+                <p>PersistentDataContainer (PDC)</p>
+              </div>
+              <div class="tech-item">
+                <h4>抽選アルゴリズム</h4>
+                <p>重み付きランダム選択</p>
+              </div>
+              <div class="tech-item">
+                <h4>経済システム</h4>
+                <p>EmeraldBank API統合</p>
+              </div>
+              <div class="tech-item">
+                <h4>取引処理</h4>
+                <p>銀行口座への送金方式</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+  .badge.alpha { background: #fd7e14; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .dep-item.required .dep-badge { background: #dc3545; color: white; }
+  .dep-name { font-weight: 600; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 8px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 13px; color: #333; margin-bottom: 5px; }
+  .feature-card p { font-size: 11px; color: #666; margin: 0; }
+
+  .workflow { display: flex; gap: 30px; justify-content: center; }
+  .workflow-step { background: #f8f9fa; border-radius: 12px; padding: 25px; min-width: 220px; }
+  .workflow-step.highlight { background: linear-gradient(135deg, #f39c12, #e74c3c); color: white; }
+  .step-num { width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-weight: bold; font-size: 18px; }
+  .workflow-step.highlight .step-num { background: rgba(255,255,255,0.3); }
+  .step-content h4 { font-size: 16px; margin: 0 0 10px; }
+  .step-content code { display: block; background: rgba(0,0,0,0.1); padding: 10px; border-radius: 5px; font-size: 12px; margin-bottom: 10px; }
+  .step-content p { font-size: 13px; margin: 0; opacity: 0.8; }
+
+  .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .category-card { background: #f8f9fa; border-radius: 15px; padding: 20px; border-left: 4px solid #667eea; }
+  .category-card.ore { border-left-color: #3498db; }
+  .category-card.food { border-left-color: #e74c3c; }
+  .category-card.function { border-left-color: #9b59b6; }
+  .category-card.build { border-left-color: #f39c12; }
+  .category-card.other { border-left-color: #1abc9c; }
+  .cat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+  .cat-icon { font-size: 24px; }
+  .cat-header h4 { margin: 0; font-size: 14px; }
+  .cat-prizes { display: flex; flex-direction: column; gap: 5px; }
+  .prize { font-size: 12px; padding: 5px 10px; border-radius: 5px; background: white; }
+  .prize.common { color: #555; }
+  .prize.rare { color: #3498db; font-weight: 600; }
+  .prize.legendary { color: #f39c12; font-weight: 600; background: #fff3cd; }
+  .prize .prob { font-size: 10px; color: #e74c3c; margin-left: 5px; }
+
+  .price-info { background: linear-gradient(135deg, #2ecc71, #27ae60); border-radius: 15px; padding: 25px; color: white; }
+  .price-main { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+  .price-icon { font-size: 48px; }
+  .price-details h4 { margin: 0 0 5px; font-size: 16px; opacity: 0.9; }
+  .price-value { font-size: 28px; font-weight: bold; margin: 0; }
+  .price-examples { display: flex; gap: 15px; }
+  .price-ex { background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 8px; font-size: 14px; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+  .alias-note, .perm-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  .type-list { margin-top: 15px; background: #f8f9fa; border-radius: 10px; padding: 15px; }
+  .type-list h4 { margin: 0 0 10px; font-size: 13px; }
+  .types { display: flex; gap: 10px; flex-wrap: wrap; }
+  .type-badge { background: #667eea; color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+
+  .config-info { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .config-info pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 15px 0; }
+  .config-info code { font-size: 12px; line-height: 1.6; }
+  .config-note { display: flex; gap: 10px; align-items: center; background: #e3f2fd; border-radius: 8px; padding: 12px; }
+  .config-note .note-icon { font-size: 20px; }
+  .config-note p { margin: 0; font-size: 13px; color: #1976d2; }
+
+  .ticket-info { background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 15px; padding: 25px; color: white; }
+  .ticket-display { display: flex; gap: 20px; align-items: center; margin-bottom: 20px; }
+  .ticket-icon { font-size: 48px; }
+  .ticket-details h4 { margin: 0 0 8px; font-size: 16px; }
+  .ticket-item { font-size: 12px; opacity: 0.8; margin: 0 0 5px; }
+  .ticket-lore { font-size: 13px; margin: 0; opacity: 0.9; }
+  .ticket-features { display: flex; gap: 15px; }
+  .tf-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); padding: 10px 15px; border-radius: 8px; }
+  .tf-item span { font-size: 18px; }
+  .tf-item p { margin: 0; font-size: 12px; }
+
+  .tech-info { background: #2d3436; border-radius: 15px; padding: 25px; color: white; }
+  .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .tech-item { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; }
+  .tech-item h4 { margin: 0 0 8px; font-size: 13px; color: #74b9ff; }
+  .tech-item p { margin: 0; font-size: 12px; opacity: 0.9; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .category-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .workflow { flex-direction: column; align-items: center; }
+    .ticket-features { flex-direction: column; }
+    .price-examples { flex-wrap: wrap; }
+  }
+  @media (max-width: 600px) {
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
