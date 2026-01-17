@@ -1,0 +1,397 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Monsterball - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🔮</div>
+      <div class="plugin-title-area">
+        <h1>Monsterball</h1>
+        <p class="plugin-subtitle">村人捕獲＆放出プラグイン</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">ユーティリティ</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ユーティリティ</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/monsterball.131755/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/monsterball" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item none">
+            <span class="dep-badge">なし</span>
+            <span class="dep-name">依存プラグインなし</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Monsterballは、村人を「モンスターボール」で捕獲・放出できるプラグインです。ポケモンのモンスターボールのように、村人をアイテムに格納して持ち運び、好きな場所で放出できます。</p>
+          <p>村人の全データ（名前、職業、レベル、取引内容、経験値など）を完全に保存し、放出後に復元できます。村人の移動や管理が劇的に簡単になります。</p>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🎯</span>
+              <h4>村人捕獲</h4>
+              <p>右クリックで村人をボールに捕獲</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🚀</span>
+              <h4>村人放出</h4>
+              <p>右クリックで好きな場所に放出</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💾</span>
+              <h4>完全データ保存</h4>
+              <p>名前・職業・レベル・取引を保存</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔄</span>
+              <h4>データ復元</h4>
+              <p>放出後に取引データを完全復元</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🏪</span>
+              <h4>取引保存</h4>
+              <p>全取引レシピと使用回数を保存</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🌍</span>
+              <h4>バイオームタイプ</h4>
+              <p>村人の見た目（バイオーム）を保存</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚔️ 使用方法</h2>
+          <div class="workflow">
+            <div class="workflow-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>ボール入手</h4>
+                <code>/monsterball give</code>
+                <p>空のモンスターボールを入手</p>
+              </div>
+            </div>
+            <div class="workflow-step highlight-capture">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>捕獲</h4>
+                <code>村人を右クリック</code>
+                <p>空のボールで村人を捕獲</p>
+              </div>
+            </div>
+            <div class="workflow-step highlight-release">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>放出</h4>
+                <code>空中/ブロックを右クリック</code>
+                <p>捕獲済みボールで村人を放出</p>
+              </div>
+            </div>
+            <div class="workflow-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>復元</h4>
+                <code>/monsterball restore</code>
+                <p>取引データを完全復元</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💾 保存されるデータ</h2>
+          <div class="data-info">
+            <p>モンスターボールには村人の以下のデータが完全に保存されます：</p>
+            <div class="data-grid">
+              <div class="data-item">
+                <span class="data-icon">📛</span>
+                <div class="data-text">
+                  <h4>カスタム名</h4>
+                  <p>村人に付けた名前</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <span class="data-icon">🏔️</span>
+                <div class="data-text">
+                  <h4>バイオームタイプ</h4>
+                  <p>見た目（砂漠、雪原など）</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <span class="data-icon">👔</span>
+                <div class="data-text">
+                  <h4>職業</h4>
+                  <p>農民、司書、武器鍛冶など</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <span class="data-icon">⭐</span>
+                <div class="data-text">
+                  <h4>レベル</h4>
+                  <p>職業レベル（1〜5）</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <span class="data-icon">📊</span>
+                <div class="data-text">
+                  <h4>経験値</h4>
+                  <p>村人の経験値</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <span class="data-icon">🛒</span>
+                <div class="data-text">
+                  <h4>取引レシピ</h4>
+                  <p>全取引内容と使用回数</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔮 モンスターボールアイテム</h2>
+          <div class="ball-info">
+            <div class="ball-types">
+              <div class="ball-type empty">
+                <div class="ball-icon">🟢</div>
+                <div class="ball-details">
+                  <h4>モンスターボール (空)</h4>
+                  <p class="ball-item">アイテム: スライムボール</p>
+                  <p class="ball-desc">村人に右クリックで捕獲</p>
+                </div>
+              </div>
+              <div class="ball-type captured">
+                <div class="ball-icon">🔵</div>
+                <div class="ball-details">
+                  <h4>モンスターボール: [村人名]</h4>
+                  <p class="ball-item">アイテム: スライムボール</p>
+                  <p class="ball-desc">右クリックで村人を放出</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/monsterball give</code></td><td>空のモンスターボールを入手</td><td>monsterball.admin</td></tr>
+                <tr><td><code>/monsterball restore</code></td><td>ターゲット中の村人の取引データを復元</td><td>monsterball.admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row"><td><code>monsterball.admin</code></td><td>全てのMonsterballコマンドを使用</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>📝 使用上の注意</h2>
+          <div class="notes-info">
+            <div class="note-item">
+              <span class="note-icon">⚠️</span>
+              <div class="note-text">
+                <h4>復元コマンドについて</h4>
+                <p>村人を放出した後、取引データを完全に復元するには <code>/monsterball restore</code> コマンドを実行する必要があります。村人をターゲット（視線を合わせて5ブロック以内）してからコマンドを実行してください。</p>
+              </div>
+            </div>
+            <div class="note-item">
+              <span class="note-icon">💡</span>
+              <div class="note-text">
+                <h4>ボールの再利用</h4>
+                <p>村人を放出すると、捕獲済みボールは空のボールに戻ります。何度でも再利用可能です。</p>
+              </div>
+            </div>
+            <div class="note-item">
+              <span class="note-icon">🎵</span>
+              <div class="note-text">
+                <h4>サウンドエフェクト</h4>
+                <p>捕獲・放出時にはエンダーマンのテレポート音が再生されます。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 技術仕様</h2>
+          <div class="tech-info">
+            <div class="tech-grid">
+              <div class="tech-item">
+                <h4>データ保存方式</h4>
+                <p>PersistentDataContainer (PDC) + JSON</p>
+              </div>
+              <div class="tech-item">
+                <h4>村人データアクセス</h4>
+                <p>リフレクションによる完全データ取得</p>
+              </div>
+              <div class="tech-item">
+                <h4>取引データ</h4>
+                <p>Gsonによるシリアライズ/デシリアライズ</p>
+              </div>
+              <div class="tech-item">
+                <h4>一時データ保存</h4>
+                <p>エンティティPDCに復元用データを保持</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #17a2b8; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .dep-item.none .dep-badge { background: #6c757d; color: white; }
+  .dep-name { font-weight: 600; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 8px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 13px; color: #333; margin-bottom: 5px; }
+  .feature-card p { font-size: 11px; color: #666; margin: 0; }
+
+  .workflow { display: flex; gap: 15px; flex-wrap: wrap; }
+  .workflow-step { background: #f8f9fa; border-radius: 12px; padding: 20px; flex: 1; min-width: 180px; }
+  .workflow-step.highlight-capture { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; }
+  .workflow-step.highlight-release { background: linear-gradient(135deg, #3498db, #2980b9); color: white; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-weight: bold; }
+  .workflow-step.highlight-capture .step-num,
+  .workflow-step.highlight-release .step-num { background: rgba(255,255,255,0.3); }
+  .step-content h4 { font-size: 14px; margin: 0 0 8px; }
+  .step-content code { display: block; background: rgba(0,0,0,0.1); padding: 8px; border-radius: 5px; font-size: 11px; margin-bottom: 8px; }
+  .step-content p { font-size: 12px; margin: 0; opacity: 0.8; }
+
+  .data-info { background: #f8f9fa; border-radius: 15px; padding: 25px; }
+  .data-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+  .data-item { display: flex; gap: 12px; align-items: flex-start; background: white; border-radius: 10px; padding: 15px; }
+  .data-icon { font-size: 24px; }
+  .data-text h4 { margin: 0 0 5px; font-size: 13px; }
+  .data-text p { margin: 0; font-size: 12px; color: #666; }
+
+  .ball-info { background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 15px; padding: 25px; color: white; }
+  .ball-types { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .ball-type { display: flex; gap: 15px; align-items: center; background: rgba(255,255,255,0.15); border-radius: 12px; padding: 20px; }
+  .ball-icon { font-size: 40px; }
+  .ball-details h4 { margin: 0 0 8px; font-size: 14px; }
+  .ball-item { font-size: 12px; opacity: 0.8; margin: 0 0 5px; }
+  .ball-desc { font-size: 12px; margin: 0; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+  .highlight-row { background: #e8f5e9; }
+
+  .notes-info { display: flex; flex-direction: column; gap: 15px; }
+  .note-item { display: flex; gap: 15px; background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .note-icon { font-size: 24px; }
+  .note-text h4 { margin: 0 0 8px; font-size: 14px; }
+  .note-text p { margin: 0; font-size: 13px; color: #666; }
+  .note-text code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+  .tech-info { background: #2d3436; border-radius: 15px; padding: 25px; color: white; }
+  .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .tech-item { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; }
+  .tech-item h4 { margin: 0 0 8px; font-size: 13px; color: #74b9ff; }
+  .tech-item p { margin: 0; font-size: 12px; opacity: 0.9; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .data-grid { grid-template-columns: repeat(2, 1fr); }
+    .ball-types { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .data-grid { grid-template-columns: 1fr; }
+    .workflow { flex-direction: column; }
+    .workflow-step { min-width: auto; }
+  }
+</style>
