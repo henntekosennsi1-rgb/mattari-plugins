@@ -28,6 +28,7 @@ import Footer from '../../components/Footer.astro';
           <table>
             <tr><td>バージョン</td><td>3.0</td></tr>
             <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>Java</td><td>22以降</td></tr>
             <tr><td>作者</td><td>Henry</td></tr>
             <tr><td>カテゴリ</td><td>ミニゲーム</td></tr>
           </table>
@@ -45,6 +46,35 @@ import Footer from '../../components/Footer.astro';
             <span>依存プラグインなし</span>
           </div>
         </div>
+
+        <div class="changelog-card">
+          <h3>📜 変更履歴</h3>
+          <div class="changelog-item">
+            <strong>v3.0</strong>
+            <ul>
+              <li>ロビーシステム追加</li>
+              <li>ゲームエリア管理追加</li>
+              <li>複数インスタンス対応</li>
+              <li>config.yml永続化</li>
+            </ul>
+          </div>
+          <div class="changelog-item">
+            <strong>v2.1</strong>
+            <ul>
+              <li>追跡機能を常時発動に</li>
+              <li>警官の速度をSpeed IIに</li>
+              <li>Y座標情報の追加</li>
+            </ul>
+          </div>
+          <div class="changelog-item">
+            <strong>v2.0</strong>
+            <ul>
+              <li>UI改善（スコアボード、ボスバー）</li>
+              <li>演出強化</li>
+              <li>追跡機能実装</li>
+            </ul>
+          </div>
+        </div>
       </aside>
 
       <article class="content">
@@ -52,6 +82,40 @@ import Footer from '../../components/Footer.astro';
           <h2>📖 概要</h2>
           <p>DorokeiGameは、日本の伝統的な鬼ごっこ「ドロケイ（警察と泥棒）」をMinecraftで再現したミニゲームプラグインです。</p>
           <p>警官チームと市民チームに分かれ、警官は市民を捕まえ、市民は逃げ回りながら仲間を救出します。豊富な演出と追跡機能で、緊迫感あふれるゲームが楽しめます。</p>
+        </section>
+
+        <section>
+          <h2>🆕 v3.0 新機能</h2>
+          <div class="new-features">
+            <div class="new-feature-card">
+              <span class="nf-icon">🏠</span>
+              <div class="nf-content">
+                <h4>ロビーシステム</h4>
+                <p>複数のロビーを作成可能。各ロビー最大20人まで待機でき、コマンドブロックでゲーム開始。</p>
+              </div>
+            </div>
+            <div class="new-feature-card">
+              <span class="nf-icon">🗺️</span>
+              <div class="nf-content">
+                <h4>ゲームエリア管理</h4>
+                <p>pos1/pos2で立体的な範囲を指定。エリア外への脱出を自動で防止します。</p>
+              </div>
+            </div>
+            <div class="new-feature-card">
+              <span class="nf-icon">🔄</span>
+              <div class="nf-content">
+                <h4>複数インスタンス対応</h4>
+                <p>同時に複数のゲームを実行可能。大人数のサーバーでも並行してゲームを開催できます。</p>
+              </div>
+            </div>
+            <div class="new-feature-card">
+              <span class="nf-icon">💾</span>
+              <div class="nf-content">
+                <h4>設定永続化</h4>
+                <p>ロビー、エリア、牢獄の設定をconfig.ymlに保存。サーバー再起動後も設定が保持されます。</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -197,18 +261,37 @@ import Footer from '../../components/Footer.astro';
 
         <section>
           <h2>⌨️ コマンド</h2>
+          
+          <h3>基本コマンド</h3>
           <div class="table-responsive">
             <table class="command-table">
               <thead>
                 <tr><th>コマンド</th><th>説明</th></tr>
               </thead>
               <tbody>
-                <tr><td><code>/dorokei start</code></td><td>ゲームを開始</td></tr>
+                <tr><td><code>/dorokei start</code></td><td>ゲームを開始（旧方式）</td></tr>
                 <tr><td><code>/dorokei setpolice &lt;人数&gt;</code></td><td>警官の人数を設定</td></tr>
                 <tr><td><code>/dorokei settime &lt;秒数&gt;</code></td><td>ゲーム時間を設定</td></tr>
                 <tr><td><code>/dorokei setjail</code></td><td>現在位置を牢獄に設定</td></tr>
-                <tr><td><code>/dorokei setup lobby &lt;ID&gt;</code></td><td>ロビーを設定</td></tr>
-                <tr><td><code>/dorokei setup area &lt;ID&gt; pos1</code></td><td>ゲームエリアを設定</td></tr>
+                <tr><td><code>/dorokei list</code></td><td>ロビー・エリア一覧を表示</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>セットアップコマンド（v3.0新規）</h3>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/dorokei setup spawn</code></td><td>初期リスポーン地点を設定</td></tr>
+                <tr><td><code>/dorokei setup lobby &lt;ID&gt; [名前]</code></td><td>ロビー地点を設定</td></tr>
+                <tr><td><code>/dorokei setup area &lt;ID&gt; pos1 [名前]</code></td><td>エリア開始点を設定</td></tr>
+                <tr><td><code>/dorokei setup area &lt;ID&gt; pos2</code></td><td>エリア終了点を設定</td></tr>
+                <tr><td><code>/dorokei setup area &lt;ID&gt; jail</code></td><td>エリアの牢獄を設定</td></tr>
+                <tr><td><code>/dorokei setup link &lt;ロビーID&gt; &lt;エリアID&gt;</code></td><td>ロビーとエリアを紐付け</td></tr>
+                <tr><td><code>/dorokei gamestart &lt;ロビーID&gt;</code></td><td>ゲーム開始（コマンドブロック用）</td></tr>
               </tbody>
             </table>
           </div>
@@ -219,16 +302,20 @@ import Footer from '../../components/Footer.astro';
           <h2>⚙️ 設定項目</h2>
           <div class="config-grid">
             <div class="config-item">
-              <code>game-settings.game-time</code>
-              <span>ゲーム時間（デフォルト: 480秒）</span>
+              <code>defaults.cop-count</code>
+              <span>デフォルト警官人数（デフォルト: 1）</span>
             </div>
             <div class="config-item">
-              <code>game-settings.escape-preparation-time</code>
-              <span>逃走準備時間（デフォルト: 30秒）</span>
+              <code>defaults.game-time</code>
+              <span>デフォルトゲーム時間（デフォルト: 300秒）</span>
             </div>
             <div class="config-item">
-              <code>cop-allocation</code>
-              <span>プレイヤー数に応じた警官数の自動割り振り</span>
+              <code>lobbies.&lt;ID&gt;.max-players</code>
+              <span>ロビー最大人数（デフォルト: 20）</span>
+            </div>
+            <div class="config-item">
+              <code>game-areas.&lt;ID&gt;.pos1/pos2</code>
+              <span>ゲームエリアの範囲座標</span>
             </div>
           </div>
         </section>
@@ -265,6 +352,8 @@ import Footer from '../../components/Footer.astro';
 
         <section>
           <h2>🔧 セットアップ手順</h2>
+          
+          <h3>簡易セットアップ（旧方式）</h3>
           <div class="setup-steps">
             <div class="setup-step">
               <span class="step-num">1</span>
@@ -299,6 +388,60 @@ import Footer from '../../components/Footer.astro';
               </div>
             </div>
           </div>
+
+          <h3>ロビー方式セットアップ（v3.0新規）</h3>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <h4>スポーン地点設定</h4>
+                <p>ゲーム終了後の帰還先を設定</p>
+                <code>/dorokei setup spawn</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <h4>ロビー作成</h4>
+                <p>待機場所にロビーを作成</p>
+                <code>/dorokei setup lobby lobby1 ロビー1</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <h4>エリア範囲設定</h4>
+                <p>ゲームエリアの対角2点を設定</p>
+                <code>/dorokei setup area area1 pos1 エリア1</code>
+                <code>/dorokei setup area area1 pos2</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <h4>牢獄設定</h4>
+                <p>エリア内の牢獄位置を設定</p>
+                <code>/dorokei setup area area1 jail</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">5</span>
+              <div class="step-content">
+                <h4>紐付け</h4>
+                <p>ロビーとエリアをリンク</p>
+                <code>/dorokei setup link lobby1 area1</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">6</span>
+              <div class="step-content">
+                <h4>確認・開始</h4>
+                <p>設定確認後、コマンドブロックで開始</p>
+                <code>/dorokei list</code>
+                <code>/dorokei gamestart lobby1</code>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -319,6 +462,10 @@ import Footer from '../../components/Footer.astro';
             <div class="note-item">
               <span class="note-icon">💚</span>
               <span>ゲーム中のダメージはキャンセルされます</span>
+            </div>
+            <div class="note-item">
+              <span class="note-icon">🗺️</span>
+              <span>エリア設定時はプレイヤーがエリア外に出られなくなります</span>
             </div>
           </div>
         </section>
@@ -343,8 +490,8 @@ import Footer from '../../components/Footer.astro';
 
   .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
   .sidebar { display: flex; flex-direction: column; gap: 20px; }
-  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
-  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card, .download-card, .dependency-card, .changelog-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3, .changelog-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
   .info-card table { width: 100%; font-size: 13px; }
   .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
   .info-card td:first-child { color: #666; }
@@ -359,11 +506,27 @@ import Footer from '../../components/Footer.astro';
 
   .dep-none { padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; color: #666; font-size: 14px; }
 
+  /* Changelog */
+  .changelog-card { max-height: 300px; overflow-y: auto; }
+  .changelog-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+  .changelog-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .changelog-item strong { font-size: 14px; color: #667eea; display: block; margin-bottom: 8px; }
+  .changelog-item ul { margin: 0; padding-left: 18px; }
+  .changelog-item li { font-size: 12px; color: #666; margin-bottom: 4px; }
+
   .content { background: white; border-radius: 15px; padding: 40px; }
   .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #555; margin: 25px 0 15px; }
   .content h4 { font-size: 15px; color: #333; margin: 0 0 10px; }
   .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
   .content section { margin-bottom: 40px; }
+
+  /* New Features v3.0 */
+  .new-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .new-feature-card { display: flex; gap: 15px; padding: 20px; background: linear-gradient(135deg, #667eea15, #764ba215); border-radius: 12px; border-left: 4px solid #667eea; }
+  .nf-icon { font-size: 32px; }
+  .nf-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .nf-content p { font-size: 13px; color: #666; margin: 0; }
 
   /* Rules Container */
   .rules-container { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; }
@@ -438,12 +601,12 @@ import Footer from '../../components/Footer.astro';
   .rec-players { font-weight: 600; color: #333 !important; }
 
   /* Setup Steps */
-  .setup-steps { display: flex; flex-direction: column; gap: 15px; }
+  .setup-steps { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
   .setup-step { display: flex; gap: 15px; padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #e91e63; }
   .step-num { width: 32px; height: 32px; background: #e91e63; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
   .step-content h4 { margin: 0 0 5px; }
   .step-content p { margin: 0 0 10px; font-size: 14px; color: #666; }
-  .step-content code { display: inline-block; background: #2d3436; color: #dfe6e9; padding: 6px 12px; border-radius: 4px; font-size: 13px; }
+  .step-content code { display: inline-block; background: #2d3436; color: #dfe6e9; padding: 6px 12px; border-radius: 4px; font-size: 13px; margin-top: 5px; margin-right: 8px; }
 
   /* Notes Box */
   .notes-box { display: flex; flex-direction: column; gap: 10px; }
@@ -458,8 +621,10 @@ import Footer from '../../components/Footer.astro';
     .player-recommendation { grid-template-columns: 1fr; }
     .rules-container { flex-direction: column; }
     .vs-badge { transform: rotate(90deg); }
+    .new-features { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     .feature-grid-3col { grid-template-columns: 1fr; }
+    .plugin-header { flex-direction: column; text-align: center; }
   }
 </style>
