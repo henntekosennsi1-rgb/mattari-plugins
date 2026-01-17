@@ -1,0 +1,647 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="2DTreasure - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🗺️</div>
+      <div class="plugin-title-area">
+        <h1>2DTreasure</h1>
+        <p class="plugin-subtitle">Terraria風2D宝探しミニゲーム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0</span>
+          <span class="badge category">ミニゲーム</span>
+          <span class="badge mc-version">1.21.x</span>
+          <span class="badge alpha">Alpha</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ミニゲーム</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/2dtreasure-2d-treasure-hunt-alpha.131743/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/2dtreasure" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item none">
+            <span class="dep-badge">なし</span>
+            <span class="dep-name">スタンドアロン</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>2DTreasureは、Terraria風の2D横スクロール視点で遊ぶ宝探しミニゲームプラグインです。</p>
+          <p>固定されたZ座標で2D平面が生成され、プレイヤーは地下に埋まった宝箱を掘り当てる競争をします。マップ確認タイムで宝箱の位置を覚え、いち早く宝箱を見つけた人の勝利！</p>
+        </section>
+
+        <section>
+          <h2>🎮 2Dゲームシステム</h2>
+          <div class="system-visual">
+            <div class="terrain-preview">
+              <div class="terrain-layer sky">☁️ 空 ☁️</div>
+              <div class="terrain-layer ground">🌱 草ブロック 🌱</div>
+              <div class="terrain-layer dirt">🟫 土層</div>
+              <div class="terrain-layer stone">
+                <span class="ore">💎</span>
+                <span>⬜ 石層</span>
+                <span class="ore">🥇</span>
+                <span class="treasure">📦</span>
+              </div>
+              <div class="terrain-layer bedrock">⬛ 岩盤</div>
+            </div>
+            <p class="terrain-note">Z座標が固定された2D平面でプレイ。バリアブロックで移動範囲を制限。</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚔️ ゲームの流れ</h2>
+          <div class="game-flow">
+            <div class="flow-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>ロビー参加</h4>
+                <p>看板クリックで参加</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>マップ生成</h4>
+                <p>2D地形と宝箱を生成</p>
+              </div>
+            </div>
+            <div class="flow-step highlight">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>マップ確認タイム</h4>
+                <p>20秒間、上空から宝箱の位置を確認！</p>
+                <span class="step-badge">重要！</span>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>ゲーム開始</h4>
+                <p>ランダム位置にスポーン</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h4>宝探し</h4>
+                <p>ツルハシで掘って宝箱を目指す！</p>
+              </div>
+            </div>
+            <div class="flow-step winner">
+              <div class="step-num">🏆</div>
+              <div class="step-content">
+                <h4>勝利！</h4>
+                <p>最初に宝箱を開けた人が勝ち</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>👀 マップ確認タイム</h2>
+          <div class="spectate-info">
+            <div class="spectate-visual">
+              <div class="spectate-icon">👁️</div>
+              <div class="spectate-view">
+                <div class="view-text">スペクテイターモード</div>
+                <div class="view-desc">上空から全体を見下ろす</div>
+              </div>
+            </div>
+            <div class="spectate-details">
+              <div class="detail-card">
+                <span class="detail-icon">⏱️</span>
+                <div class="detail-text">
+                  <h4>20秒間</h4>
+                  <p>宝箱の位置を覚える時間</p>
+                </div>
+              </div>
+              <div class="detail-card">
+                <span class="detail-icon">📦</span>
+                <div class="detail-text">
+                  <h4>宝箱を探せ</h4>
+                  <p>地下のどこかにチェストあり</p>
+                </div>
+              </div>
+              <div class="detail-card">
+                <span class="detail-icon">🧠</span>
+                <div class="detail-text">
+                  <h4>記憶力勝負</h4>
+                  <p>位置を覚えておこう</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⛏️ 地形生成</h2>
+          <div class="terrain-info">
+            <div class="terrain-layers">
+              <div class="layer-item">
+                <span class="layer-icon">🌱</span>
+                <div class="layer-text">
+                  <h4>地上</h4>
+                  <p>草ブロック、苗木がスポーン</p>
+                </div>
+              </div>
+              <div class="layer-item">
+                <span class="layer-icon">🟫</span>
+                <div class="layer-text">
+                  <h4>土層</h4>
+                  <p>地表から3ブロック下まで</p>
+                </div>
+              </div>
+              <div class="layer-item">
+                <span class="layer-icon">⬜</span>
+                <div class="layer-text">
+                  <h4>石層</h4>
+                  <p>メインの採掘エリア、鉱石あり</p>
+                </div>
+              </div>
+              <div class="layer-item">
+                <span class="layer-icon">⬛</span>
+                <div class="layer-text">
+                  <h4>岩盤</h4>
+                  <p>最下層、破壊不可</p>
+                </div>
+              </div>
+            </div>
+            <div class="ore-list">
+              <h4>出現する鉱石</h4>
+              <div class="ore-grid">
+                <div class="ore-item"><span>💎</span><p>ダイヤモンド鉱石 (3%)</p></div>
+                <div class="ore-item"><span>🥇</span><p>金鉱石 (5%)</p></div>
+                <div class="ore-item"><span>🔶</span><p>鉄鉱石 (7%)</p></div>
+                <div class="ore-item"><span>🟠</span><p>銅鉱石 (7%)</p></div>
+                <div class="ore-item"><span>⚫</span><p>石炭鉱石 (8%)</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎒 支給アイテム</h2>
+          <div class="kit-display">
+            <div class="kit-item main">
+              <span class="item-icon">⛏️</span>
+              <div class="item-info">
+                <h4>鉄のツルハシ</h4>
+                <p>地面を掘って宝箱を探そう</p>
+              </div>
+            </div>
+          </div>
+          <div class="reward-box">
+            <div class="reward-icon">🏆</div>
+            <div class="reward-text">
+              <h4>勝利報酬</h4>
+              <p>宝箱を見つけると <strong>ダイヤモンド64個</strong> 獲得！</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🐄 動物スポーン</h2>
+          <div class="animal-info">
+            <p>ゲーム中、地上に動物が定期的にスポーンします（20秒ごと）。</p>
+            <div class="animal-grid">
+              <div class="animal-item"><span>🐑</span><p>羊</p></div>
+              <div class="animal-item"><span>🐄</span><p>牛</p></div>
+              <div class="animal-item"><span>🐷</span><p>豚</p></div>
+              <div class="animal-item"><span>🐔</span><p>鶏</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🪧 看板システム</h2>
+          <div class="sign-system">
+            <div class="sign-example">
+              <div class="sign-block join">
+                <div class="sign-line">[2DT]</div>
+                <div class="sign-line gold">lobby</div>
+                <div class="sign-line green">クリックで参加</div>
+                <div class="sign-line yellow">3/10人</div>
+              </div>
+              <p>参加看板</p>
+            </div>
+            <div class="sign-example">
+              <div class="sign-block leave">
+                <div class="sign-line">[2DT]</div>
+                <div class="sign-line red">leave</div>
+                <div class="sign-line red">クリックで離脱</div>
+                <div class="sign-line"></div>
+              </div>
+              <p>退出看板</p>
+            </div>
+          </div>
+          <div class="sign-setup">
+            <h4>看板の設置方法</h4>
+            <p>1行目: <code>[2DT]</code></p>
+            <p>2行目: <code>lobby</code> または <code>leave</code></p>
+            <p class="sign-note">※設置すると自動でフォーマットされます</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🗺️</span>
+              <h4>2D地形生成</h4>
+              <p>毎回異なるマップを自動生成</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">👁️</span>
+              <h4>マップ確認タイム</h4>
+              <p>スペクテイターで位置を確認</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💎</span>
+              <h4>鉱石分布</h4>
+              <p>深さに応じた鉱石配置</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🚧</span>
+              <h4>バリアシステム</h4>
+              <p>2D平面内に移動を制限</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🎮</span>
+              <h4>コマンドブロック対応</h4>
+              <p>自動化システムに対応</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔄</span>
+              <h4>自動リセット</h4>
+              <p>終了後はロビーに自動帰還</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <p class="command-note">エイリアス: <code>/2dt</code>, <code>/treasure2d</code></p>
+          
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/2dtreasure setup spawn</code></td><td>初期リスポーン地点を設定</td><td>twodtreasure.admin</td></tr>
+                <tr><td><code>/2dtreasure setup lobby</code></td><td>ロビー地点を設定</td><td>twodtreasure.admin</td></tr>
+                <tr><td><code>/2dtreasure setup area pos1</code></td><td>ゲームエリア角1を設定</td><td>twodtreasure.admin</td></tr>
+                <tr><td><code>/2dtreasure setup area pos2</code></td><td>ゲームエリア角2を設定</td><td>twodtreasure.admin</td></tr>
+                <tr><td><code>/2dtreasure start</code></td><td>ゲームを開始</td><td>twodtreasure.admin</td></tr>
+                <tr><td><code>/2dtreasure stop</code></td><td>ゲームを強制終了</td><td>twodtreasure.admin</td></tr>
+                <tr><td><code>/2dtreasure status</code></td><td>現在の状態を表示</td><td>twodtreasure.admin</td></tr>
+                <tr><td><code>/2dtreasure reload</code></td><td>設定を再読み込み</td><td>twodtreasure.admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>twodtreasure.play</code></td><td>ゲームに参加</td><td>true（全員）</td></tr>
+                <tr><td><code>twodtreasure.admin</code></td><td>管理者コマンド</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定ファイル</h2>
+          <div class="config-info">
+            <pre><code># =====================================
+# 2D Treasure - 設定ファイル
+# =====================================
+
+# ゲーム設定
+game:
+  # ゲーム開始に必要な最低人数
+  min-players: 2
+  # 最大参加人数（看板表示用）
+  max-players: 10
+  # マップ確認タイムの秒数
+  countdown-seconds: 20
+  # ゲーム終了後の待機秒数
+  ending-seconds: 20
+
+# 2D地形設定
+terrain:
+  # 2D平面のZ座標
+  fixed-z: 0
+  # 地面の高さ
+  y-ground-level: 80
+  # 最小Y座標
+  y-min: -64
+  # 最大Y座標
+  y-max: 320
+
+# 地点設定（ゲーム内コマンドで設定）
+locations:
+  spawn:
+    # /2dtreasure setup spawn で設定
+  lobby:
+    # /2dtreasure setup lobby で設定
+  area:
+    pos1:
+      # /2dtreasure setup area pos1 で設定
+    pos2:
+      # /2dtreasure setup area pos2 で設定</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛠️ 初期設定ガイド</h2>
+          <div class="setup-guide">
+            <div class="setup-step">
+              <span class="setup-num">1</span>
+              <div class="setup-content">
+                <h4>ロビー設定</h4>
+                <p>待機場所で <code>/2dtreasure setup lobby</code></p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">2</span>
+              <div class="setup-content">
+                <h4>スポーン設定</h4>
+                <p>退出先で <code>/2dtreasure setup spawn</code></p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">3</span>
+              <div class="setup-content">
+                <h4>エリア設定</h4>
+                <p>2Dマップを生成するエリアの対角2点を設定:</p>
+                <p><code>/2dtreasure setup area pos1</code></p>
+                <p><code>/2dtreasure setup area pos2</code></p>
+                <p class="note">※ X座標の範囲を指定、Z座標はconfig.ymlのfixed-zで固定</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">4</span>
+              <div class="setup-content">
+                <h4>設定確認</h4>
+                <p><code>/2dtreasure status</code> で設定状況を確認</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">5</span>
+              <div class="setup-content">
+                <h4>看板設置</h4>
+                <p>参加・退出用の看板を設置</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎯 攻略のコツ</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">👁️</span>
+              <div class="tip-text">
+                <h4>マップ確認タイムを活用</h4>
+                <p>宝箱のX座標と深さをしっかり覚えておこう！</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">📐</span>
+              <div class="tip-text">
+                <h4>直線ルートを計算</h4>
+                <p>スポーン位置から宝箱への最短ルートを考えよう</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">⛏️</span>
+              <div class="tip-text">
+                <h4>斜め掘りが効率的</h4>
+                <p>真下より斜めに掘ると効率UP</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #00bcd4; }
+  .badge.mc-version { background: #667eea; }
+  .badge.alpha { background: #dc3545; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .dep-item.none .dep-badge { background: #28a745; color: white; }
+  .dep-name { font-weight: 600; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #333; margin: 25px 0 15px; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 8px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* System Visual */
+  .system-visual { background: #f8f9fa; border-radius: 15px; padding: 25px; }
+  .terrain-preview { display: flex; flex-direction: column; gap: 2px; border-radius: 10px; overflow: hidden; }
+  .terrain-layer { padding: 12px 20px; text-align: center; font-size: 14px; }
+  .terrain-layer.sky { background: #87ceeb; color: white; }
+  .terrain-layer.ground { background: #7cba5f; color: white; }
+  .terrain-layer.dirt { background: #8b4513; color: white; }
+  .terrain-layer.stone { background: #808080; color: white; display: flex; justify-content: center; gap: 20px; align-items: center; }
+  .terrain-layer.bedrock { background: #333; color: white; }
+  .terrain-layer .ore { font-size: 18px; }
+  .terrain-layer .treasure { font-size: 20px; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+  .terrain-note { margin-top: 15px; font-size: 13px; color: #666; text-align: center; }
+
+  /* Game Flow */
+  .game-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .flow-step { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.3s; }
+  .flow-step:hover { transform: translateY(-3px); }
+  .flow-step.highlight { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; }
+  .flow-step.winner { background: linear-gradient(135deg, #f39c12, #e67e22); color: white; }
+  .step-num { width: 35px; height: 35px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-weight: bold; }
+  .flow-step.highlight .step-num, .flow-step.winner .step-num { background: rgba(255,255,255,0.3); }
+  .step-content h4 { margin: 0 0 5px; font-size: 14px; }
+  .step-content p { margin: 0; font-size: 12px; opacity: 0.8; }
+  .step-badge { display: inline-block; background: rgba(255,255,255,0.3); padding: 3px 8px; border-radius: 10px; font-size: 10px; margin-top: 8px; }
+
+  /* Spectate Info */
+  .spectate-info { display: grid; grid-template-columns: auto 1fr; gap: 25px; align-items: center; }
+  .spectate-visual { background: linear-gradient(135deg, #2c3e50, #34495e); border-radius: 15px; padding: 30px; text-align: center; color: white; }
+  .spectate-icon { font-size: 48px; margin-bottom: 10px; }
+  .view-text { font-weight: bold; font-size: 16px; }
+  .view-desc { font-size: 12px; opacity: 0.8; }
+  .spectate-details { display: flex; flex-direction: column; gap: 15px; }
+  .detail-card { display: flex; align-items: center; gap: 15px; background: #f8f9fa; border-radius: 10px; padding: 15px; }
+  .detail-icon { font-size: 28px; }
+  .detail-text h4 { margin: 0; font-size: 14px; }
+  .detail-text p { margin: 0; font-size: 12px; color: #666; }
+
+  /* Terrain Info */
+  .terrain-info { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+  .terrain-layers { display: flex; flex-direction: column; gap: 10px; }
+  .layer-item { display: flex; align-items: center; gap: 15px; background: #f8f9fa; border-radius: 10px; padding: 12px 15px; }
+  .layer-icon { font-size: 24px; }
+  .layer-text h4 { margin: 0; font-size: 14px; }
+  .layer-text p { margin: 0; font-size: 12px; color: #666; }
+  .ore-list { background: #f8f9fa; border-radius: 10px; padding: 20px; }
+  .ore-list h4 { margin: 0 0 15px; font-size: 14px; }
+  .ore-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ore-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .ore-item span { font-size: 18px; }
+  .ore-item p { margin: 0; }
+
+  /* Kit Display */
+  .kit-display { margin-bottom: 20px; }
+  .kit-item { display: flex; align-items: center; gap: 15px; background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .kit-item.main { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+  .kit-item .item-icon { font-size: 40px; }
+  .kit-item h4 { margin: 0; font-size: 16px; }
+  .kit-item p { margin: 0; font-size: 13px; opacity: 0.9; }
+
+  .reward-box { display: flex; align-items: center; gap: 20px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 12px; padding: 20px; color: white; }
+  .reward-icon { font-size: 40px; }
+  .reward-text h4 { margin: 0 0 5px; }
+  .reward-text p { margin: 0; font-size: 14px; }
+  .reward-text strong { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+  /* Animal Info */
+  .animal-info { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .animal-info > p { margin-bottom: 15px; }
+  .animal-grid { display: flex; gap: 20px; justify-content: center; }
+  .animal-item { text-align: center; }
+  .animal-item span { font-size: 32px; display: block; }
+  .animal-item p { margin: 5px 0 0; font-size: 13px; }
+
+  /* Sign System */
+  .sign-system { display: flex; gap: 40px; justify-content: center; margin-bottom: 25px; }
+  .sign-example { text-align: center; }
+  .sign-block { background: #8b4513; border: 4px solid #5d3a1a; border-radius: 4px; padding: 12px 20px; min-width: 140px; }
+  .sign-line { font-size: 12px; color: #2d3436; line-height: 1.6; font-family: monospace; }
+  .sign-line.gold { color: #f39c12; }
+  .sign-line.green { color: #27ae60; }
+  .sign-line.yellow { color: #f1c40f; }
+  .sign-line.red { color: #e74c3c; }
+  .sign-example > p { margin-top: 10px; font-size: 13px; color: #666; }
+  .sign-setup { background: #f8f9fa; border-radius: 10px; padding: 15px 20px; }
+  .sign-setup h4 { margin: 0 0 10px; }
+  .sign-setup p { margin: 5px 0; font-size: 13px; }
+  .sign-setup code { background: #2d3436; color: #dfe6e9; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+  .sign-note { color: #999; font-style: italic; }
+
+  /* Feature Grid */
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 5px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-note { font-size: 14px; color: #666; margin-bottom: 20px; }
+  .command-note code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; }
+
+  /* Config Info */
+  .config-info { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .config-info pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 0; }
+  .config-info code { font-size: 12px; line-height: 1.6; }
+
+  /* Setup Guide */
+  .setup-guide { display: flex; flex-direction: column; gap: 15px; }
+  .setup-step { display: flex; align-items: flex-start; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .setup-num { width: 30px; height: 30px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .setup-content h4 { margin: 0 0 5px; }
+  .setup-content p { margin: 3px 0; font-size: 13px; color: #666; }
+  .setup-content code { background: #2d3436; color: #dfe6e9; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+  .setup-content .note { font-style: italic; color: #999; }
+
+  /* Tips Box */
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; align-items: flex-start; gap: 15px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px; padding: 20px; border-left: 4px solid #667eea; }
+  .tip-icon { font-size: 28px; }
+  .tip-text h4 { margin: 0 0 5px; font-size: 14px; }
+  .tip-text p { margin: 0; font-size: 13px; color: #666; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .game-flow { grid-template-columns: repeat(2, 1fr); }
+    .spectate-info { grid-template-columns: 1fr; }
+    .terrain-info { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .game-flow { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .sign-system { flex-direction: column; align-items: center; }
+    .animal-grid { flex-wrap: wrap; }
+  }
+</style>
