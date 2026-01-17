@@ -8,76 +8,162 @@ const guides = [
     title: 'サーバーの入り方ガイド',
     slug: 'how-to-join',
     emoji: '🚪',
-    description: 'Java版・統合版（スマホ・Switch・PS・Xbox）すべての接続方法を解説。',
-    tags: ['初心者向け', '全プラットフォーム対応'],
-    status: 'ready',
-  },
-{
-    title: 'サーバーの立て方ガイド',
-    slug: 'server-setup',
-    emoji: '🖥️',
-    description: 'Paper/Spigotサーバーの構築方法を初心者向けに解説。',
-    tags: ['中級者向け', 'Java版'],
-    status: 'ready',
+    description: 'Java版・統合版（スマホ・Switch・PS・Xbox）すべての接続方法を画像付きで解説。BedrockConnect経由の設定方法も。',
+    tags: ['初心者向け', '全プラットフォーム'],
+    category: 'beginner',
+    featured: true,
   },
   {
-    title: 'プラグインの導入方法',
-    slug: 'plugin-install',
-    emoji: '📦',
-    description: 'プラグインのダウンロードから導入までの手順。',
-    tags: ['初心者向け'],
-    status: 'coming',
+    title: 'Minecraftサーバーの立て方',
+    slug: 'server-setup',
+    emoji: '🖥️',
+    description: 'Paper/Spigotサーバーを自分で立てる方法を完全解説。Java導入からEULA同意、起動まで。',
+    tags: ['初心者向け', 'サーバー運営'],
+    category: 'setup',
+    featured: true,
+    hot: true,
   },
   {
     title: 'サーバールール・注意事項',
     slug: 'rules',
     emoji: '📋',
-    description: 'MattariMinecraftサーバーのルールと禁止事項。',
-    tags: ['必読'],
-    status: 'ready',
+    description: 'MattariMinecraftを楽しく遊ぶためのルールとガイドライン。禁止事項、建築ルール、荒らし対策など。',
+    tags: ['ルール'],
+    category: 'rules',
+  },
+];
+
+const upcomingGuides = [
+  {
+    title: 'プラグインの入れ方',
+    emoji: '📦',
+    description: 'サーバーにプラグインを導入する方法。おすすめプラグインも紹介。',
+    status: '準備中',
+  },
+  {
+    title: 'BE版プレイヤーを受け入れる',
+    emoji: '📱',
+    description: 'Geyser/Floodgateを導入してJava版サーバーにBE版プレイヤーを招待。',
+    status: '準備中',
+  },
+  {
+    title: 'サーバー公開設定',
+    emoji: '🌐',
+    description: 'ポート開放やVPS利用で外部からアクセス可能にする方法。',
+    status: '準備中',
   },
 ];
 ---
 
-<Layout title="ガイド一覧 - MattariMinecraft">
+<Layout title="ガイド・記事一覧 - MattariMinecraft">
   <Header currentPage="guide" />
 
-  <section class="hero-small">
-    <h1>📖 ガイド・チュートリアル</h1>
-    <p>サーバーへの参加方法や構築方法を解説しています</p>
-  </section>
+  <main class="guide-index">
+    <section class="hero-section">
+      <h1>📚 ガイド・記事一覧</h1>
+      <p>Minecraftサーバーの始め方から運営まで、すべてを解説</p>
+    </section>
 
-  <main class="main">
-    <div class="guide-grid">
-      {guides.map(guide => (
-        <a 
-          href={guide.status === 'ready' ? `/mattari-plugins/guide/${guide.slug}/` : '#'} 
-          class:list={['guide-card', { 'coming-soon': guide.status === 'coming' }]}
-        >
-          <div class="guide-emoji">{guide.emoji}</div>
-          <div class="guide-content">
-            <h3>
-              {guide.title}
-              {guide.status === 'coming' && <span class="badge-coming">準備中</span>}
-            </h3>
-            <p>{guide.description}</p>
-            <div class="guide-tags">
-              {guide.tags.map(tag => (
-                <span class="tag">{tag}</span>
-              ))}
+    <div class="guide-container">
+      <!-- Featured Guides -->
+      <section class="featured-section">
+        <h2 class="section-title">
+          <span class="icon">⭐</span>
+          おすすめガイド
+        </h2>
+        <div class="featured-grid">
+          {guides.filter(g => g.featured).map(guide => (
+            <a href={`/mattari-plugins/guide/${guide.slug}/`} class="featured-card">
+              <div class="card-emoji">{guide.emoji}</div>
+              <div class="card-content">
+                <div class="card-tags">
+                  {guide.hot && <span class="tag tag-hot">🔥 人気</span>}
+                  {guide.tags.map(tag => <span class="tag">{tag}</span>)}
+                </div>
+                <h3>{guide.title}</h3>
+                <p>{guide.description}</p>
+              </div>
+              <div class="card-arrow">→</div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- All Guides -->
+      <section class="all-guides-section">
+        <h2 class="section-title">
+          <span class="icon">📖</span>
+          すべてのガイド
+        </h2>
+        <div class="guide-grid">
+          {guides.map(guide => (
+            <a href={`/mattari-plugins/guide/${guide.slug}/`} class="guide-card">
+              <div class="guide-card-header">
+                <span class="guide-emoji">{guide.emoji}</span>
+                <div class="guide-tags">
+                  {guide.hot && <span class="mini-tag hot">🔥</span>}
+                </div>
+              </div>
+              <h3>{guide.title}</h3>
+              <p>{guide.description}</p>
+              <div class="guide-card-footer">
+                {guide.tags.map(tag => <span class="footer-tag">{tag}</span>)}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Upcoming Guides -->
+      <section class="upcoming-section">
+        <h2 class="section-title">
+          <span class="icon">🚧</span>
+          準備中のガイド
+        </h2>
+        <div class="upcoming-grid">
+          {upcomingGuides.map(guide => (
+            <div class="upcoming-card">
+              <span class="upcoming-emoji">{guide.emoji}</span>
+              <div class="upcoming-content">
+                <h4>{guide.title}</h4>
+                <p>{guide.description}</p>
+              </div>
+              <span class="upcoming-status">{guide.status}</span>
             </div>
-          </div>
-          {guide.status === 'ready' && <span class="arrow">→</span>}
-        </a>
-      ))}
-    </div>
+          ))}
+        </div>
+      </section>
 
-    <div class="help-section">
-      <h2>❓ わからないことがあれば</h2>
-      <p>Discordで質問してください！管理人やメンバーがサポートします。</p>
-      <a href="https://discord.gg/zYY55dzhjd" class="btn-discord" target="_blank" rel="noopener noreferrer">
-        💬 Discordに参加する
-      </a>
+      <!-- Quick Links -->
+      <section class="quick-links-section">
+        <h2 class="section-title">
+          <span class="icon">🔗</span>
+          クイックリンク
+        </h2>
+        <div class="quick-links">
+          <a href="/mattari-plugins/plugins/" class="quick-link">
+            <span class="ql-icon">📦</span>
+            <div>
+              <strong>プラグイン一覧</strong>
+              <p>30個以上のオリジナルプラグイン</p>
+            </div>
+          </a>
+          <a href="https://discord.gg/zYY55dzhjd" class="quick-link discord" target="_blank" rel="noopener noreferrer">
+            <span class="ql-icon">💬</span>
+            <div>
+              <strong>Discordで質問</strong>
+              <p>困ったら気軽に相談！</p>
+            </div>
+          </a>
+          <a href="/mattari-plugins/" class="quick-link">
+            <span class="ql-icon">🏠</span>
+            <div>
+              <strong>トップページ</strong>
+              <p>サイトのホームに戻る</p>
+            </div>
+          </a>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -85,163 +171,288 @@ const guides = [
 </Layout>
 
 <style>
-  .hero-small {
-    padding: 40px 20px;
-    text-align: center;
-    color: white;
-  }
-  .hero-small h1 {
-    font-size: 32px;
-    font-weight: 900;
-    margin-bottom: 10px;
-  }
-  .hero-small p {
-    font-size: 16px;
-    opacity: 0.9;
-  }
-
-  .main {
-    max-width: 900px;
+  .guide-index {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px 60px;
   }
 
-  .guide-grid {
+  .hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+  }
+  .hero-section h1 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 15px;
+  }
+  .hero-section p {
+    font-size: 18px;
+    opacity: 0.9;
+  }
+
+  .guide-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .section-title .icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  /* Featured Cards */
+  .featured-grid {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
-
-  .guide-card {
+  .featured-card {
     display: flex;
     align-items: center;
+    gap: 25px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px 30px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 5px solid #667eea;
+  }
+  .featured-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  .card-emoji {
+    font-size: 48px;
+    flex-shrink: 0;
+  }
+  .card-content {
+    flex: 1;
+  }
+  .card-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #e9ecef;
+    color: #495057;
+  }
+  .tag-hot {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+    color: white;
+  }
+  .card-content h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .card-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .card-arrow {
+    font-size: 24px;
+    color: #667eea;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  /* Guide Grid */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 20px;
+  }
+  .guide-card {
     background: white;
     border-radius: 15px;
     padding: 25px;
     text-decoration: none;
-    color: inherit;
     transition: all 0.3s;
-    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
   }
-
-  .guide-card:not(.coming-soon):hover {
-    transform: translateX(5px);
-    border-color: #667eea;
-    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+  .guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
   }
-
-  .guide-card.coming-soon {
-    opacity: 0.6;
-    cursor: not-allowed;
+  .guide-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
   }
-
   .guide-emoji {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #667eea15, #764ba215);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    flex-shrink: 0;
+    font-size: 40px;
   }
-
-  .guide-content {
-    flex: 1;
+  .mini-tag {
+    font-size: 16px;
   }
-
-  .guide-content h3 {
+  .guide-card h3 {
     font-size: 18px;
-    font-weight: 700;
     color: #333;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .badge-coming {
-    font-size: 11px;
-    background: #ffc107;
-    color: #333;
-    padding: 3px 8px;
-    border-radius: 10px;
-    font-weight: 600;
-  }
-
-  .guide-content p {
-    font-size: 14px;
-    color: #666;
     margin-bottom: 10px;
-    line-height: 1.5;
   }
-
-  .guide-tags {
+  .guide-card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.7;
+    flex: 1;
+    margin: 0;
+  }
+  .guide-card-footer {
     display: flex;
     gap: 8px;
+    margin-top: 15px;
     flex-wrap: wrap;
   }
-
-  .tag {
-    font-size: 11px;
-    background: #f0f0f0;
-    color: #555;
+  .footer-tag {
     padding: 4px 10px;
+    background: #f1f3f5;
     border-radius: 15px;
+    font-size: 11px;
+    color: #666;
   }
 
-  .arrow {
-    font-size: 20px;
-    color: #667eea;
-    font-weight: bold;
+  /* Upcoming */
+  .upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
   }
-
-  .help-section {
-    margin-top: 50px;
-    background: linear-gradient(135deg, #667eea15, #764ba215);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
+  .upcoming-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px dashed rgba(255,255,255,0.3);
   }
-
-  .help-section h2 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px;
+  .upcoming-emoji {
+    font-size: 32px;
+    opacity: 0.7;
   }
-
-  .help-section p {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 20px;
+  .upcoming-content {
+    flex: 1;
   }
-
-  .btn-discord {
-    display: inline-block;
-    padding: 14px 30px;
-    background: #5865F2;
+  .upcoming-content h4 {
     color: white;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
     font-size: 15px;
+    margin: 0 0 5px 0;
+    opacity: 0.9;
+  }
+  .upcoming-content p {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .upcoming-status {
+    padding: 5px 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    font-size: 11px;
+    color: white;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Quick Links */
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .quick-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
     transition: all 0.3s;
   }
-
-  .btn-discord:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(88, 101, 242, 0.3);
+  .quick-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  .quick-link.discord {
+    background: linear-gradient(135deg, #5865F2, #7289da);
+    color: white;
+  }
+  .quick-link.discord strong,
+  .quick-link.discord p {
+    color: white;
+  }
+  .quick-link.discord p {
+    opacity: 0.9;
+  }
+  .ql-icon {
+    font-size: 28px;
+  }
+  .quick-link strong {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 3px;
+  }
+  .quick-link p {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
   }
 
-  @media (max-width: 600px) {
-    .guide-card {
+  @media (max-width: 900px) {
+    .quick-links {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 28px;
+    }
+    .featured-card {
       flex-direction: column;
       text-align: center;
+      padding: 25px 20px;
     }
-    .arrow {
+    .card-tags {
+      justify-content: center;
+    }
+    .card-arrow {
       display: none;
+    }
+    .guide-grid {
+      grid-template-columns: 1fr;
+    }
+    .upcoming-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
