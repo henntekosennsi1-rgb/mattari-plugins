@@ -1,0 +1,539 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Yukioni - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">👻</div>
+      <div class="plugin-title-area">
+        <h1>Yukioni</h1>
+        <p class="plugin-subtitle">雪鬼ごっこミニゲーム - 増える鬼から逃げ延びろ！</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0.0</span>
+          <span class="badge category">ミニゲーム</span>
+          <span class="badge mc-version">1.21.x</span>
+          <span class="badge alpha">Alpha</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>ミニゲーム</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/yukioni-snow-tag-minigame-alpha.131718/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/yukioni" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item none">
+            <span class="dep-badge">なし</span>
+            <span class="dep-name">スタンドアロン</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Yukioniは、鬼ごっこと雪合戦を組み合わせたスリル満点のミニゲームプラグインです。</p>
+          <p>最初にランダムで選ばれた1人の「鬼」が雪ブロックを投げて市民を捕まえます。雪ブロックに当たった市民は鬼に変わり、どんどん鬼が増えていきます。制限時間まで逃げ切れば市民の勝利、全員が鬼になれば鬼の勝利です！</p>
+        </section>
+
+        <section>
+          <h2>🎮 ゲームルール</h2>
+          <div class="role-cards">
+            <div class="role-card oni">
+              <div class="role-header">
+                <span class="role-icon">👹</span>
+                <h3>鬼チーム</h3>
+              </div>
+              <div class="role-body">
+                <ul>
+                  <li>雪ブロックを投げて市民を捕まえる</li>
+                  <li>開始時に移動制限あり（10秒）</li>
+                  <li>雪ブロックにクールダウンあり（5秒）</li>
+                  <li>通常の移動速度</li>
+                </ul>
+                <div class="win-condition">
+                  <strong>勝利条件：</strong>全員を鬼にする
+                </div>
+              </div>
+            </div>
+            <div class="role-card citizen">
+              <div class="role-header">
+                <span class="role-icon">🏃</span>
+                <h3>市民チーム</h3>
+              </div>
+              <div class="role-body">
+                <ul>
+                  <li>鬼から逃げる</li>
+                  <li>移動速度が速い（1.5倍）</li>
+                  <li>雪ブロックに当たると鬼に変身</li>
+                  <li>武器なし</li>
+                </ul>
+                <div class="win-condition">
+                  <strong>勝利条件：</strong>時間切れまで生き残る
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚔️ ゲームの流れ</h2>
+          <div class="game-flow">
+            <div class="flow-item">
+              <div class="flow-icon">📝</div>
+              <div class="flow-content">
+                <h4>1. ロビー参加</h4>
+                <p>看板クリックでロビーに参加</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <div class="flow-icon">⏳</div>
+              <div class="flow-content">
+                <h4>2. カウントダウン</h4>
+                <p>管理者がスタート、10秒カウントダウン</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <div class="flow-icon">🎲</div>
+              <div class="flow-content">
+                <h4>3. 役職決定</h4>
+                <p>ランダムで1人が鬼に選出</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <div class="flow-icon">🧊</div>
+              <div class="flow-content">
+                <h4>4. 鬼の移動制限</h4>
+                <p>鬼は10秒間動けない（逃げるチャンス！）</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <div class="flow-icon">🏃‍♂️</div>
+              <div class="flow-content">
+                <h4>5. 本番開始</h4>
+                <p>鬼が解凍！追いかけっこスタート</p>
+              </div>
+            </div>
+            <div class="flow-item">
+              <div class="flow-icon">🏆</div>
+              <div class="flow-content">
+                <h4>6. 決着</h4>
+                <p>全員鬼 or 時間切れで終了</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>❄️ 雪ブロック攻撃</h2>
+          <div class="attack-info">
+            <div class="attack-visual">
+              <div class="snowblock-demo">
+                <span class="thrower">👹</span>
+                <span class="snowblock">⬜</span>
+                <span class="target">🏃</span>
+              </div>
+              <p class="demo-caption">鬼が雪ブロックを投げて市民を捕まえる</p>
+            </div>
+            <div class="attack-details">
+              <div class="detail-item">
+                <span class="detail-label">使用方法</span>
+                <span class="detail-value">雪ブロックを持って右クリック</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">クールダウン</span>
+                <span class="detail-value">5秒</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">効果</span>
+                <span class="detail-value">市民に当たると鬼に変換</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">自動補充</span>
+                <span class="detail-value">投げても消費しない</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📊 アクションバー表示</h2>
+          <div class="actionbar-preview">
+            <div class="actionbar">
+              <span class="ab-title">【Yukioni】</span>
+              <span class="ab-time">残り 5:30</span>
+              <span class="ab-sep">|</span>
+              <span class="ab-citizen">市民: 5人</span>
+              <span class="ab-sep">|</span>
+              <span class="ab-oni">鬼: 3人</span>
+            </div>
+          </div>
+          <p class="actionbar-note">ゲーム中は常に残り時間と人数がリアルタイムで表示されます。</p>
+        </section>
+
+        <section>
+          <h2>🪧 看板システム</h2>
+          <div class="sign-system">
+            <div class="sign-example">
+              <div class="sign-block lobby">
+                <div class="sign-line">[Yukioni]</div>
+                <div class="sign-line gold">lobby</div>
+                <div class="sign-line green">クリックで参加</div>
+                <div class="sign-line yellow">3/16人</div>
+              </div>
+              <p>参加看板</p>
+            </div>
+            <div class="sign-example">
+              <div class="sign-block leave">
+                <div class="sign-line">[Yukioni]</div>
+                <div class="sign-line red">leave</div>
+                <div class="sign-line red">クリックで離脱</div>
+                <div class="sign-line"></div>
+              </div>
+              <p>退出看板</p>
+            </div>
+          </div>
+          <div class="sign-setup">
+            <h4>看板の設置方法</h4>
+            <p>1行目: <code>[yukioni]</code></p>
+            <p>2行目: <code>lobby</code> または <code>leave</code></p>
+          </div>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">🎲</span>
+              <h4>ランダム鬼選出</h4>
+              <p>毎ゲーム公平に鬼が決定</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🧊</span>
+              <h4>鬼の移動制限</h4>
+              <p>開始時に逃げる猶予を確保</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⚡</span>
+              <h4>市民速度アップ</h4>
+              <p>逃げ切れるチャンスあり</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🗺️</span>
+              <h4>エリア制限</h4>
+              <p>ゲームエリア外への脱出防止</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">📍</span>
+              <h4>ランダムスポーン</h4>
+              <p>エリア内のランダムな位置で開始</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🔄</span>
+              <h4>自動リセット</h4>
+              <p>終了後は自動でロビーへ</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/yukioni start</code></td><td>ゲームを開始</td><td>yukioni.admin</td></tr>
+                <tr><td><code>/yukioni stop</code></td><td>ゲームを強制終了</td><td>yukioni.admin</td></tr>
+                <tr><td><code>/yukioni reload</code></td><td>設定を再読み込み</td><td>yukioni.admin</td></tr>
+                <tr><td><code>/yukioni setup spawn</code></td><td>スポーン地点を設定</td><td>yukioni.admin</td></tr>
+                <tr><td><code>/yukioni setup lobby</code></td><td>ロビー地点を設定</td><td>yukioni.admin</td></tr>
+                <tr><td><code>/yukioni setup area pos1</code></td><td>ゲームエリア角1を設定</td><td>yukioni.admin</td></tr>
+                <tr><td><code>/yukioni setup area pos2</code></td><td>ゲームエリア角2を設定</td><td>yukioni.admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>yukioni.play</code></td><td>ゲームに参加</td><td>true（全員）</td></tr>
+                <tr><td><code>yukioni.admin</code></td><td>管理者コマンド</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定ファイル</h2>
+          <div class="config-info">
+            <pre><code># Yukioni - 雪鬼ごっこ設定ファイル
+
+game:
+  # 試合時間（秒）- デフォルト7分
+  match-duration: 420
+  # 最小/最大プレイヤー数
+  min-players: 2
+  max-players: 16
+  # 鬼の初期移動制限時間（秒）
+  oni-freeze-time: 10
+  # 雪ブロック投げクールダウン（秒）
+  snowblock-cooldown: 5
+  # カウントダウン時間（秒）
+  countdown-time: 10
+  # 市民の移動速度倍率（0.2=通常、0.3=1.5倍）
+  citizen-speed: 0.3</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛠️ 初期設定ガイド</h2>
+          <div class="setup-guide">
+            <div class="setup-step">
+              <span class="setup-num">1</span>
+              <div class="setup-content">
+                <h4>ロビー設定</h4>
+                <p>待機場所で <code>/yukioni setup lobby</code></p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">2</span>
+              <div class="setup-content">
+                <h4>スポーン設定</h4>
+                <p>退出時の移動先で <code>/yukioni setup spawn</code></p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">3</span>
+              <div class="setup-content">
+                <h4>エリア設定</h4>
+                <p>ゲームエリアの対角2点で <code>/yukioni setup area pos1</code> と <code>pos2</code></p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">4</span>
+              <div class="setup-content">
+                <h4>看板設置</h4>
+                <p>参加・退出用の看板を設置</p>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="setup-num">5</span>
+              <div class="setup-content">
+                <h4>ゲーム開始</h4>
+                <p>プレイヤーが集まったら <code>/yukioni start</code></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎯 攻略のコツ</h2>
+          <div class="tips-grid">
+            <div class="tip-card oni">
+              <h4>👹 鬼のコツ</h4>
+              <ul>
+                <li>移動制限解除後すぐに近くの市民を狙う</li>
+                <li>クールダウン中は追いかけに専念</li>
+                <li>増えた鬼と連携して挟み撃ち</li>
+              </ul>
+            </div>
+            <div class="tip-card citizen">
+              <h4>🏃 市民のコツ</h4>
+              <ul>
+                <li>速度を活かして距離を取る</li>
+                <li>障害物を利用して雪ブロックを避ける</li>
+                <li>終盤は特に注意（鬼が多い！）</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #00bcd4; }
+  .badge.mc-version { background: #667eea; }
+  .badge.alpha { background: #dc3545; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+  .dep-item.none .dep-badge { background: #28a745; color: white; }
+  .dep-name { font-weight: 600; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h3 { font-size: 16px; color: #333; margin: 20px 0 15px; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 8px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  /* Role Cards */
+  .role-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .role-card { border-radius: 15px; overflow: hidden; }
+  .role-card.oni { border: 3px solid #e74c3c; }
+  .role-card.citizen { border: 3px solid #27ae60; }
+  .role-header { padding: 20px; display: flex; align-items: center; gap: 15px; }
+  .role-card.oni .role-header { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; }
+  .role-card.citizen .role-header { background: linear-gradient(135deg, #27ae60, #1e8449); color: white; }
+  .role-icon { font-size: 36px; }
+  .role-header h3 { margin: 0; }
+  .role-body { padding: 20px; background: white; }
+  .role-body ul { margin: 0 0 15px; padding-left: 20px; }
+  .role-body li { font-size: 14px; color: #555; margin-bottom: 8px; }
+  .win-condition { padding: 12px; border-radius: 8px; font-size: 13px; }
+  .role-card.oni .win-condition { background: #fce4ec; color: #c0392b; }
+  .role-card.citizen .win-condition { background: #e8f5e9; color: #1e8449; }
+
+  /* Game Flow */
+  .game-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .flow-item { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .flow-icon { font-size: 32px; margin-bottom: 10px; }
+  .flow-content h4 { margin: 0 0 5px; font-size: 14px; }
+  .flow-content p { margin: 0; font-size: 12px; color: #666; }
+
+  /* Attack Info */
+  .attack-info { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+  .attack-visual { text-align: center; }
+  .snowblock-demo { display: flex; align-items: center; justify-content: center; gap: 20px; font-size: 40px; padding: 30px; background: linear-gradient(135deg, #74b9ff, #0984e3); border-radius: 15px; }
+  .snowblock { animation: throw 1.5s ease-in-out infinite; }
+  @keyframes throw {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(30px); }
+  }
+  .demo-caption { margin-top: 15px; font-size: 13px; color: #666; }
+  .attack-details { display: flex; flex-direction: column; gap: 12px; }
+  .detail-item { display: flex; justify-content: space-between; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .detail-label { color: #666; font-size: 14px; }
+  .detail-value { font-weight: 600; color: #333; font-size: 14px; }
+
+  /* Action Bar Preview */
+  .actionbar-preview { background: rgba(0,0,0,0.7); padding: 15px 25px; border-radius: 8px; text-align: center; margin-bottom: 15px; }
+  .actionbar { color: white; font-size: 14px; }
+  .ab-title { color: #5dade2; font-weight: bold; margin-right: 10px; }
+  .ab-time { color: #f1c40f; }
+  .ab-sep { color: #636e72; margin: 0 8px; }
+  .ab-citizen { color: #2ecc71; }
+  .ab-oni { color: #e74c3c; }
+  .actionbar-note { font-size: 13px; color: #666; text-align: center; }
+
+  /* Sign System */
+  .sign-system { display: flex; gap: 40px; justify-content: center; margin-bottom: 25px; }
+  .sign-example { text-align: center; }
+  .sign-block { background: #8b4513; border: 4px solid #5d3a1a; border-radius: 4px; padding: 12px 20px; min-width: 140px; }
+  .sign-line { font-size: 12px; color: #2d3436; line-height: 1.6; font-family: monospace; }
+  .sign-line.gold { color: #f39c12; }
+  .sign-line.green { color: #27ae60; }
+  .sign-line.yellow { color: #f1c40f; }
+  .sign-line.red { color: #e74c3c; }
+  .sign-example > p { margin-top: 10px; font-size: 13px; color: #666; }
+  .sign-setup { background: #f8f9fa; border-radius: 10px; padding: 15px 20px; }
+  .sign-setup h4 { margin: 0 0 10px; }
+  .sign-setup p { margin: 5px 0; font-size: 13px; }
+  .sign-setup code { background: #2d3436; color: #dfe6e9; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+
+  /* Feature Grid */
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; text-align: center; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; color: #333; margin-bottom: 5px; }
+  .feature-card p { font-size: 12px; color: #666; margin: 0; }
+
+  /* Tables */
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+
+  /* Config Info */
+  .config-info { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .config-info pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 0; }
+  .config-info code { font-size: 12px; line-height: 1.6; }
+
+  /* Setup Guide */
+  .setup-guide { display: flex; flex-direction: column; gap: 15px; }
+  .setup-step { display: flex; align-items: flex-start; gap: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; }
+  .setup-num { width: 30px; height: 30px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .setup-content h4 { margin: 0 0 5px; }
+  .setup-content p { margin: 3px 0; font-size: 13px; color: #666; }
+  .setup-content code { background: #2d3436; color: #dfe6e9; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+
+  /* Tips Grid */
+  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .tip-card { border-radius: 12px; padding: 20px; }
+  .tip-card.oni { background: linear-gradient(135deg, #fce4ec, #f8bbd9); border: 2px solid #e74c3c; }
+  .tip-card.citizen { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid #27ae60; }
+  .tip-card h4 { margin: 0 0 15px; }
+  .tip-card ul { margin: 0; padding-left: 20px; }
+  .tip-card li { font-size: 13px; color: #555; margin-bottom: 8px; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .role-cards { grid-template-columns: 1fr; }
+    .game-flow { grid-template-columns: repeat(2, 1fr); }
+    .attack-info { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .game-flow { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .sign-system { flex-direction: column; align-items: center; }
+  }
+</style>
