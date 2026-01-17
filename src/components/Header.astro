@@ -8,7 +8,7 @@ const navItems = [
   { id: 'plugins', label: '📦 プラグイン', href: '/mattari-plugins/plugins/' },
   { id: 'guide', label: '📚 ガイド', href: '/mattari-plugins/guide/' },
   { id: 'sitemap', label: '🗺️ サイトマップ', href: '/mattari-plugins/sitemap/' },
-  { id: 'discord', label: '💬 Discord', href: 'https://discord.gg/zYY55dzhjd', external: true },
+  { id: 'discord', label: '💬 Discord', href: 'https://discord.gg/aDvWHvfD9V', external: true },
 ];
 ---
 <header class="header">
@@ -184,7 +184,6 @@ const navItems = [
     menuBtn.setAttribute('aria-expanded', String(!isExpanded));
   });
 
-  // ナビリンクをクリックしたらメニューを閉じる
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       nav?.classList.remove('active');
