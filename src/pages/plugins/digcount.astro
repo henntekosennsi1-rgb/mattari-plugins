@@ -1,0 +1,316 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Digcount - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">⛏️</div>
+      <div class="plugin-title-area">
+        <h1>Digcount</h1>
+        <p class="plugin-subtitle">採掘回数カウンター</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.0</span>
+          <span class="badge category">統計・ユーティリティ</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.0</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>統計</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/digcount-mining-counter.131752/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/digcount" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-none">
+            <span>依存プラグインなし</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>Digcountは、プレイヤーの採掘回数をカウントするシンプルなプラグインです。</p>
+          <p>ブロックを破壊するたびに自動でカウントされ、ランキング形式で確認できます。サーバーの採掘コンテストや統計表示に最適です。</p>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="icon">📊</span>
+              <h4>自動カウント</h4>
+              <p>ブロック破壊を自動で検出してカウント</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">🏆</span>
+              <h4>ランキング表示</h4>
+              <p>採掘回数を順位付けして一覧表示</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">💾</span>
+              <h4>自動保存</h4>
+              <p>5分ごとにデータを自動保存</p>
+            </div>
+            <div class="feature-card">
+              <span class="icon">⌨️</span>
+              <h4>Tab補完</h4>
+              <p>コマンド入力時のTab補完対応</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 使い方</h2>
+          <div class="usage-simple">
+            <div class="usage-item">
+              <div class="usage-step">
+                <span class="step-icon">1</span>
+                <div class="step-content">
+                  <h4>プラグインを導入</h4>
+                  <p>jarファイルをpluginsフォルダに配置してサーバーを起動</p>
+                </div>
+              </div>
+            </div>
+            <div class="usage-item">
+              <div class="usage-step">
+                <span class="step-icon">2</span>
+                <div class="step-content">
+                  <h4>採掘開始</h4>
+                  <p>ブロックを破壊するだけで自動的にカウント開始</p>
+                </div>
+              </div>
+            </div>
+            <div class="usage-item">
+              <div class="usage-step">
+                <span class="step-icon">3</span>
+                <div class="step-content">
+                  <h4>ランキング確認</h4>
+                  <p><code>/digcount list</code> でランキングを表示</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🏆 ランキング表示</h2>
+          <div class="ranking-preview">
+            <div class="ranking-header">=== 採掘回数ランキング ===</div>
+            <div class="ranking-item gold">
+              <span class="rank">1.</span>
+              <span class="name">Steve</span>
+              <span class="count">12,458回</span>
+            </div>
+            <div class="ranking-item silver">
+              <span class="rank">2.</span>
+              <span class="name">Alex</span>
+              <span class="count">9,832回</span>
+            </div>
+            <div class="ranking-item bronze">
+              <span class="rank">3.</span>
+              <span class="name">Notch</span>
+              <span class="count">7,156回</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank">4.</span>
+              <span class="name">Herobrine</span>
+              <span class="count">5,421回</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/digcount list</code></td><td>採掘回数ランキングを表示</td><td>digcount.use</td></tr>
+                <tr><td><code>/digcount save</code></td><td>データを手動保存</td><td>digcount.save</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>digcount.use</code></td><td>コマンドの使用</td><td>全員</td></tr>
+                <tr><td><code>digcount.save</code></td><td>手動保存の実行</td><td>OP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 仕様</h2>
+          <div class="spec-list">
+            <div class="spec-item">
+              <span class="spec-label">カウント対象</span>
+              <span class="spec-value">すべてのブロック破壊</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">自動保存間隔</span>
+              <span class="spec-value">5分（6000tick）</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">データ形式</span>
+              <span class="spec-value">YAML（config.yml）</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">プレイヤー識別</span>
+              <span class="spec-value">UUID</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💡 活用例</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">🎮</span>
+              <div>
+                <strong>採掘コンテスト</strong>
+                <p>期間限定の採掘大会を開催。上位入賞者に報酬を配布</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">📈</span>
+              <div>
+                <strong>アクティブ度測定</strong>
+                <p>プレイヤーの活動量を可視化してサーバー運営に活用</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🏅</span>
+              <div>
+                <strong>称号システム連携</strong>
+                <p>採掘回数に応じた称号やランクの付与に活用</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #6c757d; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-none { padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; color: #666; font-size: 14px; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 10px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-card { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card p { font-size: 13px; color: #666; margin: 0; }
+
+  /* Usage Simple */
+  .usage-simple { display: flex; flex-direction: column; gap: 15px; }
+  .usage-item { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .usage-step { display: flex; align-items: flex-start; gap: 15px; }
+  .step-icon { width: 32px; height: 32px; background: #667eea; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .step-content h4 { margin: 0 0 5px; font-size: 15px; }
+  .step-content p { margin: 0; font-size: 14px; color: #666; }
+  .step-content code { background: #2d3436; color: #dfe6e9; padding: 4px 10px; border-radius: 4px; font-size: 13px; }
+
+  /* Ranking Preview */
+  .ranking-preview { background: #2d3436; border-radius: 12px; padding: 20px; font-family: 'Consolas', monospace; }
+  .ranking-header { color: #ffc107; font-weight: bold; margin-bottom: 15px; text-align: center; }
+  .ranking-item { display: flex; align-items: center; padding: 8px 15px; border-radius: 6px; margin-bottom: 5px; }
+  .ranking-item.gold { background: rgba(255, 215, 0, 0.2); }
+  .ranking-item.silver { background: rgba(192, 192, 192, 0.2); }
+  .ranking-item.bronze { background: rgba(205, 127, 50, 0.2); }
+  .ranking-item .rank { color: #00bcd4; width: 30px; }
+  .ranking-item .name { color: #ffeb3b; flex: 1; }
+  .ranking-item .count { color: white; }
+  .ranking-item.gold .rank { color: #ffd700; }
+  .ranking-item.silver .rank { color: #c0c0c0; }
+  .ranking-item.bronze .rank { color: #cd7f32; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+
+  /* Spec List */
+  .spec-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .spec-item { display: flex; justify-content: space-between; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .spec-label { font-size: 13px; color: #666; }
+  .spec-value { font-size: 13px; font-weight: 600; color: #333; }
+
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; gap: 15px; padding: 15px; background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-radius: 10px; border-left: 4px solid #2196f3; }
+  .tip-icon { font-size: 24px; }
+  .tip-item strong { display: block; margin-bottom: 5px; color: #333; }
+  .tip-item p { margin: 0; font-size: 14px; color: #666; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .spec-list { grid-template-columns: 1fr; }
+  }
+</style>
