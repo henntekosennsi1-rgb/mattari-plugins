@@ -1,0 +1,355 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// サイト構造データ
+const siteStructure = {
+  main: [
+    { title: 'トップページ', path: '/', icon: '🏠', desc: 'サイトのホーム。お知らせ、人気プラグイン、Discord連携' },
+    { title: 'プラグイン一覧', path: '/plugins/', icon: '📦', desc: '全37個のプラグインをカテゴリ別に表示' },
+    { title: 'ガイド一覧', path: '/guide/', icon: '📚', desc: 'サーバー構築・参加ガイドの一覧' },
+  ],
+  guides: [
+    { title: 'サーバーの入り方ガイド', path: '/guide/how-to-join/', icon: '🚪', desc: 'Java版・統合版・Switch・PS・Xboxの接続方法' },
+    { title: 'サーバーの立て方ガイド', path: '/guide/server-setup/', icon: '🖥️', desc: 'Paper/Spigotサーバーの構築手順' },
+    { title: 'サーバールール', path: '/guide/rules/', icon: '📋', desc: 'ルール、禁止事項、建築ガイドライン' },
+  ],
+  plugins: {
+    minigame: [
+      { name: '1vs1', slug: '1vs1' },
+      { name: '2dTreasure', slug: '2dtreasure' },
+      { name: 'BattleRoyale', slug: 'battleroyale' },
+      { name: 'BlackJack2', slug: 'blackjack2' },
+      { name: 'DorokeJGame', slug: 'dorokejgame' },
+      { name: 'FishingPointBattle', slug: 'fishingpointbattle' },
+      { name: 'HorseRacing2', slug: 'horseracing2' },
+      { name: 'MinecraftMOBA', slug: 'minecraftmoba' },
+      { name: 'MonsterBall', slug: 'monsterball' },
+      { name: 'NetherFortress', slug: 'netherfortress' },
+      { name: 'Poker', slug: 'poker' },
+      { name: 'QuizPlugin', slug: 'quizplugin' },
+      { name: 'Slot2', slug: 'slot2' },
+      { name: 'Takarakuji', slug: 'takarakuji' },
+      { name: 'Tintiro2', slug: 'tintiro2' },
+      { name: 'UnoCraft2', slug: 'unocraft2' },
+      { name: 'VillagerBall', slug: 'villagerball' },
+      { name: 'Yukigassen', slug: 'yukigassen' },
+      { name: 'Zinro', slug: 'zinro' },
+    ],
+    economy: [
+      { name: 'EmeraldBank', slug: 'emeraldbank' },
+      { name: 'Ranking', slug: 'ranking' },
+    ],
+    utility: [
+      { name: 'AsureTimer', slug: 'asuretimer' },
+      { name: 'CaveEraser', slug: 'caveeraser' },
+      { name: 'Convenience', slug: 'convenience' },
+      { name: 'CustomEnchants', slug: 'customenchants' },
+      { name: 'CustomVillagerTrade', slug: 'customvillagertrade' },
+      { name: 'DigCount', slug: 'digcount' },
+      { name: 'EffectSidian', slug: 'effectsidian' },
+      { name: 'EnchantPlus', slug: 'enchantplus' },
+      { name: 'GlobalStorage2', slug: 'globalstorage2' },
+      { name: 'Seitiassist', slug: 'seitiassist' },
+      { name: 'Tintran', slug: 'tintran' },
+    ],
+    other: [
+      { name: 'BedrockReplacer', slug: 'bedrockreplacer' },
+      { name: 'BossPlugin', slug: 'bossplugin' },
+      { name: 'Yukiori', slug: 'yukiori' },
+      { name: 'ZankiJP', slug: 'zankijp' },
+    ],
+  },
+};
+
+const categoryNames: Record<string, string> = {
+  minigame: '🎮 ミニゲーム',
+  economy: '💰 経済',
+  utility: '🔧 便利系',
+  other: '📦 その他',
+};
+---
+
+<Layout title="サイトマップ - MattariMinecraft">
+  <Header currentPage="sitemap" />
+
+  <main class="sitemap-page">
+    <div class="sitemap-header">
+      <h1>🗺️ サイトマップ</h1>
+      <p>MattariMinecraftの全ページ一覧</p>
+    </div>
+
+    <div class="sitemap-container">
+      <!-- メインページ -->
+      <section class="sitemap-section">
+        <h2>📌 メインページ</h2>
+        <div class="page-list">
+          {siteStructure.main.map(page => (
+            <a href={`/mattari-plugins${page.path}`} class="page-item">
+              <span class="page-icon">{page.icon}</span>
+              <div class="page-info">
+                <strong>{page.title}</strong>
+                <p>{page.desc}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- ガイド記事 -->
+      <section class="sitemap-section">
+        <h2>📚 ガイド記事</h2>
+        <div class="page-list">
+          {siteStructure.guides.map(page => (
+            <a href={`/mattari-plugins${page.path}`} class="page-item">
+              <span class="page-icon">{page.icon}</span>
+              <div class="page-info">
+                <strong>{page.title}</strong>
+                <p>{page.desc}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- プラグイン -->
+      <section class="sitemap-section plugins-section">
+        <h2>📦 プラグイン詳細ページ（全{Object.values(siteStructure.plugins).flat().length}個）</h2>
+        
+        {Object.entries(siteStructure.plugins).map(([category, plugins]) => (
+          <div class="plugin-category">
+            <h3>{categoryNames[category]} ({plugins.length})</h3>
+            <div class="plugin-grid">
+              {plugins.map(plugin => (
+                <a href={`/mattari-plugins/plugins/${plugin.slug}/`} class="plugin-link">
+                  {plugin.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <!-- 外部リンク -->
+      <section class="sitemap-section">
+        <h2>🔗 外部リンク</h2>
+        <div class="external-links">
+          <a href="https://discord.gg/zYY55dzhjd" target="_blank" rel="noopener noreferrer" class="external-item discord">
+            <span class="ext-icon">💬</span>
+            <div>
+              <strong>Discord</strong>
+              <p>コミュニティサーバー</p>
+            </div>
+          </a>
+          <a href="https://github.com/henntaidesu/mattari-plugins" target="_blank" rel="noopener noreferrer" class="external-item github">
+            <span class="ext-icon">📂</span>
+            <div>
+              <strong>GitHub</strong>
+              <p>ソースコード・Issues</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 統計 -->
+      <section class="sitemap-section stats-section">
+        <h2>📊 サイト統計</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-num">{3 + siteStructure.guides.length + Object.values(siteStructure.plugins).flat().length}</span>
+            <span class="stat-label">総ページ数</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">{Object.values(siteStructure.plugins).flat().length}</span>
+            <span class="stat-label">プラグイン</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">{siteStructure.guides.length}</span>
+            <span class="stat-label">ガイド記事</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">250+</span>
+            <span class="stat-label">Discordメンバー</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .sitemap-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .sitemap-header {
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+  }
+  .sitemap-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .sitemap-header p {
+    opacity: 0.9;
+    font-size: 16px;
+  }
+
+  .sitemap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .sitemap-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+  }
+  .sitemap-section h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+  }
+  .sitemap-section h3 {
+    font-size: 15px;
+    color: #555;
+    margin: 20px 0 12px;
+  }
+
+  .page-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .page-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+  }
+  .page-item:hover {
+    border-color: #667eea;
+    transform: translateX(5px);
+  }
+  .page-icon {
+    font-size: 28px;
+  }
+  .page-info strong {
+    display: block;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 3px;
+  }
+  .page-info p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+  }
+
+  .plugin-category {
+    margin-bottom: 15px;
+  }
+  .plugin-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .plugin-link {
+    padding: 8px 16px;
+    background: #f1f3f5;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #555;
+    transition: all 0.3s;
+  }
+  .plugin-link:hover {
+    background: #667eea;
+    color: white;
+  }
+
+  .external-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .external-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .external-item:hover {
+    transform: translateY(-3px);
+  }
+  .external-item.discord {
+    background: linear-gradient(135deg, #5865F2, #7289da);
+    color: white;
+  }
+  .external-item.github {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+  }
+  .ext-icon {
+    font-size: 32px;
+  }
+  .external-item strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  .external-item p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+  .stat-card {
+    background: linear-gradient(135deg, #667eea15, #764ba215);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+  }
+  .stat-num {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 5px;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .external-links {
+      grid-template-columns: 1fr;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
