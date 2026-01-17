@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
-<Layout title="Minecraftサーバーの立て方ガイド">
+<Layout title="Minecraftサーバーの立て方ガイド - MattariMinecraft">
   <Header currentPage="guide" />
 
   <main class="article-page">
@@ -13,11 +13,13 @@ import Footer from '../../components/Footer.astro';
         <div class="article-tags">
           <span class="tag tag-hot">🔥 人気</span>
           <span class="tag">初心者向け</span>
+          <span class="tag">サーバー運営</span>
         </div>
         <h1>🖥️ 【完全版】Minecraftサーバーの立て方ガイド</h1>
+        <p class="article-desc">Paper/Spigotサーバーを自分で立てる方法を、初心者でもわかるように完全解説します。</p>
         <div class="article-meta">
           <span>📅 2026/01/10 更新</span>
-          <span>👁️ 12,345 views</span>
+          <span>⏱️ 読了時間: 15分</span>
         </div>
       </header>
 
@@ -26,32 +28,119 @@ import Footer from '../../components/Footer.astro';
         <ol>
           <li><a href="#intro">はじめに</a></li>
           <li><a href="#requirements">必要なもの</a></li>
+          <li><a href="#java">Javaのインストール</a></li>
           <li><a href="#download">サーバーのダウンロード</a></li>
           <li><a href="#setup">初期設定</a></li>
           <li><a href="#start">サーバーの起動</a></li>
           <li><a href="#connect">接続テスト</a></li>
+          <li><a href="#settings">サーバー設定のカスタマイズ</a></li>
           <li><a href="#next">次のステップ</a></li>
         </ol>
       </nav>
 
       <section id="intro">
         <h2>🎮 はじめに</h2>
-        <p>このガイドでは、Minecraftのマルチプレイサーバーを自分で立てる方法を解説します。友達と一緒に遊んだり、自分だけのワールドを作ったりできます。</p>
+        <p>このガイドでは、Minecraftのマルチプレイサーバーを自分で立てる方法を解説します。友達と一緒に遊んだり、自分だけのワールドを作ったり、プラグインで機能を追加したりできます。</p>
         
         <div class="notice notice-info">
-          <strong>💡 このガイドで作るサーバー</strong><br>
-          Paper（Spigotの高性能版）を使用します。プラグインが使えて、バニラより軽量です。
+          <strong>💡 このガイドで作るサーバー</strong>
+          <p><strong>Paper</strong>（Spigotの高性能版）を使用します。プラグインが使えて、バニラより軽量・高速です。</p>
+        </div>
+
+        <div class="comparison-box">
+          <h4>サーバーソフトウェアの比較</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>種類</th>
+                <th>特徴</th>
+                <th>おすすめ度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Paper</strong></td>
+                <td>高性能、プラグイン対応、最適化済み</td>
+                <td>⭐⭐⭐</td>
+              </tr>
+              <tr>
+                <td>Spigot</td>
+                <td>プラグイン対応、情報が多い</td>
+                <td>⭐⭐</td>
+              </tr>
+              <tr>
+                <td>Vanilla</td>
+                <td>公式サーバー、シンプル</td>
+                <td>⭐</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
       <section id="requirements">
         <h2>📋 必要なもの</h2>
-        <ul class="check-list">
-          <li>✅ Java 21 以上（<a href="https://adoptium.net/" target="_blank">Adoptium</a>からダウンロード）</li>
-          <li>✅ Minecraft Java版のアカウント</li>
-          <li>✅ 4GB以上のメモリを搭載したPC</li>
-          <li>✅ 安定したインターネット回線</li>
-        </ul>
+        <div class="requirements-grid">
+          <div class="req-card">
+            <span class="req-icon">☕</span>
+            <div>
+              <strong>Java 21 以上</strong>
+              <p>Minecraft 1.20.5以降に必要</p>
+            </div>
+          </div>
+          <div class="req-card">
+            <span class="req-icon">🎮</span>
+            <div>
+              <strong>Minecraft Java版</strong>
+              <p>接続テスト用</p>
+            </div>
+          </div>
+          <div class="req-card">
+            <span class="req-icon">💾</span>
+            <div>
+              <strong>4GB以上のメモリ</strong>
+              <p>推奨: 8GB以上</p>
+            </div>
+          </div>
+          <div class="req-card">
+            <span class="req-icon">🌐</span>
+            <div>
+              <strong>安定したネット回線</strong>
+              <p>外部公開する場合は必須</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="java">
+        <h2>☕ Javaのインストール</h2>
+        
+        <h3>Step 1: Javaをダウンロード</h3>
+        <ol class="steps">
+          <li><a href="https://adoptium.net/" target="_blank" rel="noopener noreferrer">Adoptium公式サイト</a>にアクセス</li>
+          <li>「Latest LTS Release」の <strong>JDK 21</strong> をダウンロード</li>
+          <li>OSに合ったインストーラーを選択（Windows: .msi / Mac: .pkg）</li>
+        </ol>
+
+        <h3>Step 2: インストール</h3>
+        <ol class="steps">
+          <li>ダウンロードしたインストーラーを実行</li>
+          <li>基本的に「次へ」を押していけばOK</li>
+          <li>「Add to PATH」にチェックが入っていることを確認</li>
+        </ol>
+
+        <h3>Step 3: インストール確認</h3>
+        <div class="code-block">
+          <div class="code-header">コマンドプロンプト / ターミナル</div>
+          <pre><code>java -version</code></pre>
+        </div>
+        <p>以下のように表示されればOK：</p>
+        <div class="code-block">
+          <div class="code-header">出力例</div>
+          <pre><code>openjdk version "21.0.1" 2023-10-17
+OpenJDK Runtime Environment Temurin-21.0.1+12 (build 21.0.1+12)
+OpenJDK 64-Bit Server VM Temurin-21.0.1+12 (build 21.0.1+12, mixed mode)</code></pre>
+        </div>
       </section>
 
       <section id="download">
@@ -59,59 +148,156 @@ import Footer from '../../components/Footer.astro';
         
         <h3>Step 1: Paperをダウンロード</h3>
         <ol class="steps">
-          <li><a href="https://papermc.io/downloads" target="_blank">PaperMC公式サイト</a>にアクセス</li>
+          <li><a href="https://papermc.io/downloads/paper" target="_blank" rel="noopener noreferrer">PaperMC公式サイト</a>にアクセス</li>
           <li>最新バージョン（1.21.x）を選択</li>
           <li>「Download」ボタンをクリック</li>
         </ol>
 
+        <div class="notice notice-info">
+          <strong>💡 バージョンの選び方</strong>
+          <p>特別な理由がなければ、最新のLTSバージョンを選びましょう。プレイヤーのバージョンと合わせる必要があります。</p>
+        </div>
+
         <h3>Step 2: フォルダを準備</h3>
         <ol class="steps">
-          <li>わかりやすい場所に新しいフォルダを作成<br>
-            <code>例: C:\MinecraftServer</code></li>
+          <li>わかりやすい場所に新しいフォルダを作成</li>
           <li>ダウンロードした <code>paper-1.21.x-xxx.jar</code> をそのフォルダに移動</li>
         </ol>
+
+        <div class="folder-example">
+          <div class="folder-header">📁 フォルダ構成例</div>
+          <pre>C:\MinecraftServer\
+  └── paper-1.21.4-129.jar</pre>
+        </div>
+
+        <div class="notice notice-warning">
+          <strong>⚠️ 注意</strong>
+          <p>フォルダ名やパスに<strong>日本語や空白</strong>を含めないでください。エラーの原因になります。</p>
+          <p>❌ <code>C:\マイクラ サーバー\</code></p>
+          <p>✅ <code>C:\MinecraftServer\</code></p>
+        </div>
       </section>
 
       <section id="setup">
         <h2>⚙️ 初期設定</h2>
 
-        <h3>Step 3: 起動スクリプトを作成</h3>
-        <p>サーバーフォルダ内に <code>start.bat</code>（Windows）または <code>start.sh</code>（Mac/Linux）を作成します。</p>
-        
-        <div class="code-block">
-          <div class="code-header">start.bat（Windows用）</div>
-          <pre><code>@echo off
+        <h3>Step 1: 起動スクリプトを作成</h3>
+        <p>サーバーフォルダ内に起動用のファイルを作成します。</p>
+
+        <div class="tab-container">
+          <div class="tab-header">
+            <button class="tab-btn active" data-tab="windows">Windows</button>
+            <button class="tab-btn" data-tab="mac">Mac / Linux</button>
+          </div>
+          <div class="tab-content active" id="windows">
+            <p>メモ帳で新規ファイルを作成し、以下を貼り付けて <code>start.bat</code> として保存：</p>
+            <div class="code-block">
+              <div class="code-header">start.bat</div>
+              <pre><code>@echo off
 java -Xmx4G -Xms4G -jar paper-1.21.4-129.jar nogui
 pause</code></pre>
+            </div>
+          </div>
+          <div class="tab-content" id="mac">
+            <p>テキストエディタで新規ファイルを作成し、以下を貼り付けて <code>start.sh</code> として保存：</p>
+            <div class="code-block">
+              <div class="code-header">start.sh</div>
+              <pre><code>#!/bin/bash
+java -Xmx4G -Xms4G -jar paper-1.21.4-129.jar nogui</code></pre>
+            </div>
+            <p>ターミナルで実行権限を付与：</p>
+            <div class="code-block">
+              <pre><code>chmod +x start.sh</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice notice-info">
+          <strong>💡 メモリ設定について</strong>
+          <p><code>-Xmx4G</code> はサーバーに割り当てる最大メモリ量です。</p>
+          <ul>
+            <li>PCメモリ 8GB → <code>-Xmx4G</code> を推奨</li>
+            <li>PCメモリ 16GB → <code>-Xmx6G</code> ～ <code>-Xmx8G</code> が可能</li>
+            <li>PCメモリ 4GB以下 → <code>-Xmx2G</code> に変更</li>
+          </ul>
+        </div>
+
+        <h3>Step 2: 初回起動とEULA同意</h3>
+        <ol class="steps">
+          <li><code>start.bat</code>（または <code>start.sh</code>）を実行</li>
+          <li>エラーが出て終了します（<strong>これは正常です</strong>）</li>
+          <li>フォルダ内に <code>eula.txt</code> が生成されます</li>
+          <li><code>eula.txt</code> をテキストエディタで開く</li>
+          <li><code>eula=false</code> を <code>eula=true</code> に変更</li>
+          <li>保存して閉じる</li>
+        </ol>
+
+        <div class="code-block">
+          <div class="code-header">eula.txt（変更後）</div>
+          <pre><code>#By changing the setting below to TRUE you are indicating your agreement to our EULA
+eula=true</code></pre>
         </div>
 
         <div class="notice notice-warning">
-          <strong>⚠️ メモリ設定について</strong><br>
-          <code>-Xmx4G</code> の数字はサーバーに割り当てるメモリ量です。PCのメモリが8GB以下の場合は <code>-Xmx2G</code> に変更してください。
+          <strong>⚠️ EULAについて</strong>
+          <p>EULAはMinecraftのエンドユーザーライセンス契約です。<code>eula=true</code> に変更することで、<a href="https://www.minecraft.net/eula" target="_blank">Mojangの利用規約</a>に同意したことになります。</p>
         </div>
-
-        <h3>Step 4: 初回起動とEULA同意</h3>
-        <ol class="steps">
-          <li><code>start.bat</code> をダブルクリックして実行</li>
-          <li>エラーが出て終了します（これは正常です）</li>
-          <li>フォルダ内に <code>eula.txt</code> が生成されます</li>
-          <li><code>eula.txt</code> を開いて <code>eula=false</code> を <code>eula=true</code> に変更</li>
-          <li>保存して閉じる</li>
-        </ol>
       </section>
 
       <section id="start">
         <h2>🚀 サーバーの起動</h2>
         <ol class="steps">
-          <li>再度 <code>start.bat</code> を実行</li>
+          <li>再度 <code>start.bat</code>（または <code>start.sh</code>）を実行</li>
           <li>ワールド生成が始まります（初回は数分かかります）</li>
-          <li><code>Done!</code> と表示されたら起動完了！</li>
+          <li>コンソールに <code>Done!</code> と表示されたら起動完了！</li>
         </ol>
 
         <div class="code-block">
-          <div class="code-header">起動成功時のログ例</div>
-          <pre><code>[Server thread/INFO]: Done (12.345s)! For help, type "help"</code></pre>
+          <div class="code-header">起動成功時のログ</div>
+          <pre><code>[12:34:56 INFO]: Done (12.345s)! For help, type "help"</code></pre>
         </div>
+
+        <div class="folder-example">
+          <div class="folder-header">📁 起動後のフォルダ構成</div>
+          <pre>C:\MinecraftServer\
+  ├── paper-1.21.4-129.jar
+  ├── start.bat
+  ├── eula.txt
+  ├── server.properties    ← サーバー設定
+  ├── ops.json             ← OP権限
+  ├── whitelist.json       ← ホワイトリスト
+  ├── logs/                ← ログファイル
+  ├── plugins/             ← プラグイン用
+  └── world/               ← ワールドデータ</pre>
+        </div>
+
+        <h3>基本的なコンソールコマンド</h3>
+        <table class="command-table">
+          <thead>
+            <tr>
+              <th>コマンド</th>
+              <th>説明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>stop</code></td>
+              <td>サーバーを安全に停止</td>
+            </tr>
+            <tr>
+              <td><code>op プレイヤー名</code></td>
+              <td>OP権限を付与</td>
+            </tr>
+            <tr>
+              <td><code>whitelist add プレイヤー名</code></td>
+              <td>ホワイトリストに追加</td>
+            </tr>
+            <tr>
+              <td><code>list</code></td>
+              <td>接続中のプレイヤー一覧</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="connect">
@@ -125,37 +311,125 @@ pause</code></pre>
           <li>「完了」→ サーバーを選択して「サーバーに接続」</li>
         </ol>
 
-        <h3>LAN内接続（同じWiFi内の他のPC）</h3>
+        <h3>LAN内接続（同じWiFi内の他のPC・スマホ）</h3>
         <ol class="steps">
-          <li>サーバーPCのローカルIPアドレスを確認<br>
-            <code>コマンドプロンプトで ipconfig を実行 → IPv4アドレス</code></li>
+          <li>
+            サーバーPCのローカルIPアドレスを確認
+            <div class="code-block mini">
+              <div class="code-header">Windows: コマンドプロンプト</div>
+              <pre><code>ipconfig</code></pre>
+            </div>
+            <p>「IPv4 アドレス」の値（例: <code>192.168.1.10</code>）をメモ</p>
+          </li>
           <li>他のPCから、そのIPアドレスで接続<br>
-            <code>例: 192.168.1.10</code></li>
+            例: <code>192.168.1.10</code></li>
         </ol>
 
         <div class="notice notice-success">
-          <strong>✅ 接続成功！</strong><br>
-          サーバーに入れたら基本設定は完了です！
+          <strong>✅ 接続成功！</strong>
+          <p>サーバーに入れたら基本設定は完了です！おめでとうございます🎉</p>
+        </div>
+      </section>
+
+      <section id="settings">
+        <h2>⚙️ サーバー設定のカスタマイズ</h2>
+        <p><code>server.properties</code> ファイルを編集することで、サーバーの設定を変更できます。</p>
+
+        <h3>よく使う設定項目</h3>
+        <table class="settings-table">
+          <thead>
+            <tr>
+              <th>設定項目</th>
+              <th>説明</th>
+              <th>おすすめ値</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>server-port</code></td>
+              <td>サーバーのポート番号</td>
+              <td>25565（デフォルト）</td>
+            </tr>
+            <tr>
+              <td><code>max-players</code></td>
+              <td>最大プレイヤー数</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td><code>difficulty</code></td>
+              <td>難易度（peaceful/easy/normal/hard）</td>
+              <td>normal</td>
+            </tr>
+            <tr>
+              <td><code>gamemode</code></td>
+              <td>デフォルトのゲームモード</td>
+              <td>survival</td>
+            </tr>
+            <tr>
+              <td><code>pvp</code></td>
+              <td>PvPの有効/無効</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td><code>white-list</code></td>
+              <td>ホワイトリストの有効/無効</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td><code>motd</code></td>
+              <td>サーバー一覧に表示されるメッセージ</td>
+              <td>A Minecraft Server</td>
+            </tr>
+            <tr>
+              <td><code>online-mode</code></td>
+              <td>正規アカウント認証</td>
+              <td>true（変更非推奨）</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="notice notice-warning">
+          <strong>⚠️ 設定変更後は再起動が必要</strong>
+          <p>server.propertiesを変更したら、コンソールで <code>stop</code> を入力してサーバーを停止し、再度起動してください。</p>
         </div>
       </section>
 
       <section id="next">
         <h2>📚 次のステップ</h2>
+        <p>基本的なサーバーが立ちました！さらに発展させるには以下のガイドを参考にしてください。</p>
+
         <div class="next-articles">
-          <a href="/mattari-plugins/guide/plugin-install" class="next-article">
+          <a href="/mattari-plugins/plugins/" class="next-article">
             <span class="next-emoji">📦</span>
             <div>
-              <strong>プラグインの入れ方</strong>
+              <strong>プラグイン一覧</strong>
               <p>サーバーに機能を追加しよう</p>
             </div>
           </a>
-          <a href="/mattari-plugins/guide/bedrock-crossplay" class="next-article">
-            <span class="next-emoji">📱</span>
+          <a href="/mattari-plugins/guide/how-to-join/" class="next-article">
+            <span class="next-emoji">🚪</span>
             <div>
-              <strong>BE版プレイヤーを受け入れる</strong>
-              <p>Geyser/Floodgateの導入方法</p>
+              <strong>サーバーの入り方ガイド</strong>
+              <p>友達を招待する方法</p>
             </div>
           </a>
+          <a href="https://discord.gg/zYY55dzhjd" class="next-article discord" target="_blank" rel="noopener noreferrer">
+            <span class="next-emoji">💬</span>
+            <div>
+              <strong>Discordで質問</strong>
+              <p>困ったら気軽に相談！</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="advanced-topics">
+          <h3>🎯 上級者向けトピック</h3>
+          <ul>
+            <li><strong>外部公開</strong>: ポート開放やVPS利用で、インターネット経由でアクセス可能に</li>
+            <li><strong>BE版対応</strong>: Geyser/Floodgateを導入してスマホやSwitch版プレイヤーを招待</li>
+            <li><strong>自動バックアップ</strong>: 定期的にワールドをバックアップするスクリプトを設定</li>
+            <li><strong>パフォーマンス最適化</strong>: Aikars Flagsの適用、プラグイン最適化</li>
+          </ul>
         </div>
       </section>
     </article>
@@ -164,17 +438,31 @@ pause</code></pre>
   <Footer />
 </Layout>
 
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      const container = btn.closest('.tab-container');
+      container?.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      container?.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      container?.querySelector(`#${tab}`)?.classList.add('active');
+    });
+  });
+</script>
+
 <style>
   .article-page {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px 20px 60px;
   }
 
   .article-container {
     background: white;
-    border-radius: 15px;
-    padding: 40px;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   }
 
   .article-header {
@@ -183,8 +471,390 @@ pause</code></pre>
     padding-bottom: 30px;
     border-bottom: 2px solid #eee;
   }
-
   .article-tags {
     display: flex;
     justify-content: center;
-    gap
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #e9ecef;
+    color: #495057;
+  }
+  .tag-hot {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+    color: white;
+  }
+  .article-header h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  .article-desc {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .toc {
+    background: linear-gradient(135deg, #667eea10, #764ba210);
+    border-radius: 15px;
+    padding: 25px 30px;
+    margin-bottom: 40px;
+  }
+  .toc h2 {
+    font-size: 16px;
+    color: #667eea;
+    margin-bottom: 15px;
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .toc li {
+    margin-bottom: 8px;
+  }
+  .toc a {
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  .toc a:hover {
+    color: #667eea;
+  }
+
+  section {
+    margin-bottom: 50px;
+  }
+  section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+  }
+  section h3 {
+    font-size: 18px;
+    color: #444;
+    margin: 30px 0 15px;
+  }
+  section p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+  }
+  .req-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .req-icon {
+    font-size: 32px;
+  }
+  .req-card strong {
+    display: block;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 3px;
+  }
+  .req-card p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+  }
+
+  .steps {
+    padding-left: 20px;
+    margin: 15px 0;
+  }
+  .steps li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  .code-block {
+    background: #2d3436;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+  }
+  .code-block.mini {
+    margin: 10px 0;
+  }
+  .code-header {
+    background: #636e72;
+    color: white;
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .code-block pre {
+    margin: 0;
+    padding: 15px;
+    overflow-x: auto;
+  }
+  .code-block code {
+    color: #dfe6e9;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .folder-example {
+    background: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+    border: 1px solid #e9ecef;
+  }
+  .folder-header {
+    background: #e9ecef;
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #495057;
+  }
+  .folder-example pre {
+    margin: 0;
+    padding: 15px;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .notice {
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+  }
+  .notice strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+  .notice p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .notice ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+  }
+  .notice li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .notice-info {
+    background: #e7f5ff;
+    border-left: 4px solid #339af0;
+  }
+  .notice-warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+  }
+  .notice-success {
+    background: #d3f9d8;
+    border-left: 4px solid #40c057;
+  }
+
+  .comparison-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .comparison-box h4 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .comparison-box table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .comparison-box th, .comparison-box td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 13px;
+  }
+  .comparison-box th {
+    background: #e9ecef;
+    font-weight: 600;
+  }
+
+  .command-table, .settings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 14px;
+  }
+  .command-table th, .command-table td,
+  .settings-table th, .settings-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  .command-table th, .settings-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+  }
+  .command-table code, .settings-table code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .tab-container {
+    margin: 20px 0;
+  }
+  .tab-header {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 0;
+  }
+  .tab-btn {
+    padding: 12px 25px;
+    border: none;
+    background: #e9ecef;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+  .tab-btn:hover {
+    background: #dee2e6;
+  }
+  .tab-btn.active {
+    background: #667eea;
+    color: white;
+  }
+  .tab-content {
+    display: none;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 0 10px 10px 10px;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .tab-content p {
+    margin-bottom: 15px;
+  }
+
+  .next-articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+  }
+  .next-article {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+  }
+  .next-article:hover {
+    transform: translateY(-3px);
+    border-color: #667eea;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  .next-article.discord {
+    background: linear-gradient(135deg, #5865F2, #7289da);
+    color: white;
+  }
+  .next-article.discord strong,
+  .next-article.discord p {
+    color: white;
+  }
+  .next-emoji {
+    font-size: 32px;
+  }
+  .next-article strong {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 3px;
+  }
+  .next-article p {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+  }
+
+  .advanced-topics {
+    background: linear-gradient(135deg, #667eea10, #764ba210);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+  }
+  .advanced-topics h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #667eea;
+  }
+  .advanced-topics ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .advanced-topics li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  @media (max-width: 768px) {
+    .article-container {
+      padding: 30px 20px;
+    }
+    .article-header h1 {
+      font-size: 24px;
+    }
+    .requirements-grid {
+      grid-template-columns: 1fr;
+    }
+    .next-articles {
+      grid-template-columns: 1fr;
+    }
+    .article-meta {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+</style>
