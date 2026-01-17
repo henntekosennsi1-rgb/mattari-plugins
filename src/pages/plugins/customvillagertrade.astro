@@ -1,0 +1,411 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="CustomVillagerTrade - MattariMinecraft">
+  <Header currentPage="plugins" />
+
+  <main class="plugin-detail">
+    <div class="plugin-header">
+      <div class="plugin-icon">🧑‍🌾</div>
+      <div class="plugin-title-area">
+        <h1>CustomVillagerTrade</h1>
+        <p class="plugin-subtitle">村人取引カスタマイズシステム</p>
+        <div class="plugin-meta">
+          <span class="badge version">v1.1.7</span>
+          <span class="badge category">取引・GUI</span>
+          <span class="badge mc-version">1.21.x</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plugin-container">
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>📋 プラグイン情報</h3>
+          <table>
+            <tr><td>バージョン</td><td>1.1.7</td></tr>
+            <tr><td>対応MC</td><td>1.21.x</td></tr>
+            <tr><td>作者</td><td>Henry</td></tr>
+            <tr><td>カテゴリ</td><td>取引・GUI</td></tr>
+          </table>
+        </div>
+
+        <div class="download-card">
+          <h3>⬇️ ダウンロード</h3>
+          <a href="https://www.spigotmc.org/resources/customvillagertrade-custom-villager-trades-alpha.131742/" class="btn btn-spigot" target="_blank">SpigotMC</a>
+          <a href="https://modrinth.com/plugin/customvillagertrade" class="btn btn-modrinth" target="_blank">Modrinth</a>
+        </div>
+
+        <div class="dependency-card">
+          <h3>📦 依存関係</h3>
+          <div class="dep-item">
+            <span class="dep-name">EmeraldBank</span>
+            <span class="dep-type optional">任意</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="content">
+        <section>
+          <h2>📖 概要</h2>
+          <p>CustomVillagerTradeは、村人の取引内容を完全にカスタマイズできるプラグインです。</p>
+          <p>GUIで直感的に取引を編集でき、レベルシステム、EmeraldBank連携など豊富な機能を提供。独自の商人NPCを作成してサーバー経済を構築できます。</p>
+        </section>
+
+        <section>
+          <h2>✨ 主な機能</h2>
+          <div class="feature-grid-2col">
+            <div class="feature-card-lg">
+              <span class="icon">🖱️</span>
+              <h4>GUI管理システム</h4>
+              <p>直感的な取引編集画面で材料と結果アイテムを簡単設定</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">📝</span>
+              <h4>村人登録</h4>
+              <p>既存の村人を登録してカスタム商人に変換</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">📈</span>
+              <h4>レベルシステム</h4>
+              <p>取引回数に応じて村人がレベルアップ。最大5レベル</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">💎</span>
+              <h4>EmeraldBank連携</h4>
+              <p>エメラルドバンク残高での支払いに対応</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">📋</span>
+              <h4>プリセット機能</h4>
+              <p>取引設定を保存して他の村人に適用可能</p>
+            </div>
+            <div class="feature-card-lg">
+              <span class="icon">🥚</span>
+              <h4>クローン機能</h4>
+              <p>設定をスポーンエッグにコピーして複製</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🔧 使い方</h2>
+          <div class="usage-steps">
+            <div class="usage-step">
+              <div class="step-header">
+                <span class="step-num">1</span>
+                <h4>村人を登録</h4>
+              </div>
+              <div class="step-content">
+                <p>カスタマイズしたい村人を見ながらコマンドを実行</p>
+                <code>/vtrade register 武器屋</code>
+              </div>
+            </div>
+            
+            <div class="usage-step">
+              <div class="step-header">
+                <span class="step-num">2</span>
+                <h4>取引を編集</h4>
+              </div>
+              <div class="step-content">
+                <p>登録した村人を見ながら編集モードを開始</p>
+                <code>/vtrade edit</code>
+              </div>
+            </div>
+            
+            <div class="usage-step">
+              <div class="step-header">
+                <span class="step-num">3</span>
+                <h4>GUIで取引設定</h4>
+              </div>
+              <div class="step-content">
+                <div class="gui-layout">
+                  <div class="gui-slot material1">
+                    <span>材料1</span>
+                    <small>必須</small>
+                  </div>
+                  <div class="gui-plus">+</div>
+                  <div class="gui-slot material2">
+                    <span>材料2</span>
+                    <small>任意</small>
+                  </div>
+                  <div class="gui-arrow">→</div>
+                  <div class="gui-slot result">
+                    <span>結果</span>
+                    <small>必須</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📈 レベルシステム</h2>
+          <div class="level-info">
+            <p>村人は取引を重ねることでレベルアップし、より強力な商人に成長します。</p>
+            <div class="level-details">
+              <div class="level-item">
+                <span class="level-badge">Lv.1</span>
+                <span>初期状態</span>
+              </div>
+              <div class="level-arrow">→</div>
+              <div class="level-item">
+                <span class="level-badge">Lv.2</span>
+                <span>10回取引</span>
+              </div>
+              <div class="level-arrow">→</div>
+              <div class="level-item">
+                <span class="level-badge">Lv.3</span>
+                <span>20回取引</span>
+              </div>
+              <div class="level-arrow">→</div>
+              <div class="level-item">
+                <span class="level-badge">Lv.4</span>
+                <span>30回取引</span>
+              </div>
+              <div class="level-arrow">→</div>
+              <div class="level-item">
+                <span class="level-badge max">Lv.5</span>
+                <span>40回取引</span>
+              </div>
+            </div>
+            <p class="level-note">※ 取引回数はconfig.ymlで変更可能</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>⌨️ コマンド</h2>
+          <div class="table-responsive">
+            <table class="command-table">
+              <thead>
+                <tr><th>コマンド</th><th>説明</th><th>権限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/vtrade register &lt;名前&gt;</code></td><td>村人を登録</td><td>admin</td></tr>
+                <tr><td><code>/vtrade edit</code></td><td>見ている村人の取引を編集</td><td>edit</td></tr>
+                <tr><td><code>/vtrade list</code></td><td>登録済み村人の一覧</td><td>admin</td></tr>
+                <tr><td><code>/vtrade spawn &lt;プリセット&gt;</code></td><td>村人をスポーン</td><td>spawn</td></tr>
+                <tr><td><code>/vtrade clone</code></td><td>設定をスポーンエッグにコピー</td><td>admin</td></tr>
+                <tr><td><code>/vtrade help</code></td><td>ヘルプを表示</td><td>なし</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="command-note">エイリアス: <code>/villagertrade</code>, <code>/cvt</code></p>
+        </section>
+
+        <section>
+          <h2>🔐 権限</h2>
+          <div class="table-responsive">
+            <table class="permission-table">
+              <thead>
+                <tr><th>権限ノード</th><th>説明</th><th>デフォルト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>customvillagertrade.admin</code></td><td>全機能へのアクセス</td><td>OP</td></tr>
+                <tr><td><code>customvillagertrade.edit</code></td><td>取引の編集</td><td>OP</td></tr>
+                <tr><td><code>customvillagertrade.spawn</code></td><td>村人のスポーン</td><td>OP</td></tr>
+                <tr><td><code>customvillagertrade.preset</code></td><td>プリセットの管理</td><td>OP</td></tr>
+                <tr><td><code>customvillagertrade.use</code></td><td>カスタム村人との取引</td><td>全員</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>⚙️ 設定項目</h2>
+          <div class="config-list">
+            <div class="config-item">
+              <code>villager.level-system</code>
+              <span>レベルシステムの有効/無効</span>
+            </div>
+            <div class="config-item">
+              <code>villager.level-up-trades</code>
+              <span>レベルアップに必要な取引回数（デフォルト: 10）</span>
+            </div>
+            <div class="config-item">
+              <code>villager.max-level</code>
+              <span>最大レベル（デフォルト: 5）</span>
+            </div>
+            <div class="config-item">
+              <code>trade.sound</code>
+              <span>取引時の効果音</span>
+            </div>
+            <div class="config-item">
+              <code>trade.particle</code>
+              <span>取引完了時のパーティクル</span>
+            </div>
+            <div class="config-item">
+              <code>emeraldbank.enabled</code>
+              <span>EmeraldBank連携の有効/無効</span>
+            </div>
+            <div class="config-item">
+              <code>emeraldbank.allow-balance-payment</code>
+              <span>残高支払いの許可</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💎 EmeraldBank連携</h2>
+          <div class="integration-info">
+            <p>EmeraldBankプラグインがインストールされている場合、自動的に連携されます。</p>
+            <div class="integration-features">
+              <div class="int-feature">
+                <span class="int-icon">💰</span>
+                <div>
+                  <strong>残高支払い</strong>
+                  <p>インベントリにエメラルドがなくても残高から支払い可能</p>
+                </div>
+              </div>
+              <div class="int-feature">
+                <span class="int-icon">📊</span>
+                <div>
+                  <strong>残高チェック</strong>
+                  <p>取引前に自動で残高を確認</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>💡 ヒント</h2>
+          <div class="tips-box">
+            <div class="tip-item">
+              <span class="tip-icon">🏪</span>
+              <div>
+                <strong>ショップ構築</strong>
+                <p>武器屋、防具屋、食料店など用途別の村人を作成してショップ街を構築</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🥚</span>
+              <div>
+                <strong>クローン活用</strong>
+                <p>設定済みの村人をスポーンエッグにコピーして複数配置可能</p>
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">📝</span>
+              <div>
+                <strong>プリセット管理</strong>
+                <p>よく使う取引セットをプリセット保存して効率的に村人を作成</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .plugin-detail { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .plugin-header { display: flex; align-items: center; gap: 25px; padding: 40px 0; color: white; }
+  .plugin-icon { font-size: 64px; background: rgba(255,255,255,0.15); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+  .plugin-title-area h1 { font-size: 36px; margin-bottom: 8px; }
+  .plugin-subtitle { font-size: 18px; opacity: 0.9; margin-bottom: 15px; }
+  .plugin-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .badge.version { background: #28a745; }
+  .badge.category { background: #795548; }
+  .badge.mc-version { background: #667eea; }
+
+  .plugin-container { display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .info-card, .download-card, .dependency-card { background: white; border-radius: 15px; padding: 20px; }
+  .info-card h3, .download-card h3, .dependency-card h3 { font-size: 14px; color: #333; margin-bottom: 15px; }
+  .info-card table { width: 100%; font-size: 13px; }
+  .info-card td { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .info-card td:first-child { color: #666; }
+  .info-card td:last-child { font-weight: 600; text-align: right; }
+
+  .btn { display: block; padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 10px; transition: all 0.3s; }
+  .btn:last-child { margin-bottom: 0; }
+  .btn-spigot { background: #ee8a19; color: white; }
+  .btn-spigot:hover { background: #d87a10; }
+  .btn-modrinth { background: #1bd96a; color: white; }
+  .btn-modrinth:hover { background: #17c45e; }
+
+  .dep-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+  .dep-name { font-weight: 600; font-size: 14px; }
+  .dep-type { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .dep-type.optional { background: #ffc107; color: #333; }
+
+  .content { background: white; border-radius: 15px; padding: 40px; }
+  .content h2 { font-size: 20px; color: #333; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+  .content h4 { font-size: 15px; color: #333; margin: 0 0 10px; }
+  .content p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+  .content section { margin-bottom: 40px; }
+
+  .feature-grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .feature-card-lg { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+  .feature-card-lg .icon { font-size: 28px; display: block; margin-bottom: 10px; }
+  .feature-card-lg h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+  .feature-card-lg p { font-size: 13px; color: #666; margin: 0; }
+
+  .usage-steps { display: flex; flex-direction: column; gap: 20px; }
+  .usage-step { background: #f8f9fa; border-radius: 12px; padding: 20px; border-left: 4px solid #795548; }
+  .step-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+  .step-num { width: 32px; height: 32px; background: #795548; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+  .step-content p { margin: 0 0 10px; font-size: 14px; color: #666; }
+  .step-content code { display: inline-block; background: #2d3436; color: #dfe6e9; padding: 8px 15px; border-radius: 6px; font-size: 13px; }
+
+  .gui-layout { display: flex; align-items: center; justify-content: center; gap: 10px; background: #2d3436; padding: 20px; border-radius: 10px; margin-top: 10px; }
+  .gui-slot { width: 60px; height: 60px; background: #4a4a4a; border: 2px solid #666; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+  .gui-slot span { font-size: 11px; font-weight: bold; }
+  .gui-slot small { font-size: 9px; opacity: 0.7; }
+  .gui-slot.material1 { border-color: #ffc107; }
+  .gui-slot.material2 { border-color: #17a2b8; }
+  .gui-slot.result { border-color: #28a745; }
+  .gui-plus, .gui-arrow { color: white; font-size: 20px; font-weight: bold; }
+
+  .level-info { background: #fff3e0; border-radius: 15px; padding: 25px; border: 2px solid #ff9800; }
+  .level-info > p { color: #e65100; margin-bottom: 20px; }
+  .level-details { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+  .level-item { background: white; padding: 10px 15px; border-radius: 8px; text-align: center; }
+  .level-badge { display: block; background: #ff9800; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 12px; margin-bottom: 5px; }
+  .level-badge.max { background: #f44336; }
+  .level-item span:last-child { font-size: 11px; color: #666; }
+  .level-arrow { color: #ff9800; font-weight: bold; }
+  .level-note { margin: 0; font-size: 12px; color: #bf360c; text-align: center; }
+
+  .integration-info { background: #e8f5e9; border-radius: 15px; padding: 25px; border: 2px solid #4caf50; }
+  .integration-info > p { color: #2e7d32; margin-bottom: 20px; }
+  .integration-features { display: flex; flex-direction: column; gap: 15px; }
+  .int-feature { display: flex; gap: 15px; background: white; padding: 15px; border-radius: 10px; }
+  .int-icon { font-size: 24px; }
+  .int-feature strong { display: block; color: #333; margin-bottom: 5px; }
+  .int-feature p { margin: 0; font-size: 13px; color: #666; }
+
+  .table-responsive { overflow-x: auto; }
+  .command-table, .permission-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .command-table th, .permission-table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; }
+  .command-table td, .permission-table td { padding: 12px; border-bottom: 1px solid #eee; }
+  .command-table code, .permission-table code { background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 13px; }
+  .command-note { font-size: 13px; color: #666; margin-top: 10px; }
+
+  .config-list { display: flex; flex-direction: column; gap: 10px; }
+  .config-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f8f9fa; border-radius: 8px; }
+  .config-item code { background: #795548; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+  .config-item span { font-size: 14px; color: #555; }
+
+  .tips-box { display: flex; flex-direction: column; gap: 15px; }
+  .tip-item { display: flex; gap: 15px; padding: 15px; background: linear-gradient(135deg, #efebe9, #d7ccc8); border-radius: 10px; border-left: 4px solid #795548; }
+  .tip-icon { font-size: 24px; }
+  .tip-item strong { display: block; margin-bottom: 5px; color: #333; }
+  .tip-item p { margin: 0; font-size: 14px; color: #666; }
+
+  @media (max-width: 900px) {
+    .plugin-container { grid-template-columns: 1fr; }
+    .feature-grid-2col { grid-template-columns: 1fr; }
+    .level-details { flex-direction: column; }
+    .level-arrow { transform: rotate(90deg); }
+  }
+</style>
